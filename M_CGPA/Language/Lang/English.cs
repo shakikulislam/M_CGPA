@@ -1,25 +1,53 @@
-﻿
-namespace M_CGPA.Language.Lang
+﻿namespace M_CGPA.Language.Lang
 {
     class English
     {
-
-        public LanguagePro _languagePro = new LanguagePro();
+        public LanguagePro Pro = new LanguagePro();
         public void Lang()
         {
-            _languagePro.Font = "Segoe UI";
+            Pro.Language = "English";
+            Pro.Font = "Segoe UI";
 
-            _languagePro.MenuFile = "File";
-            _languagePro.MenuFileExit = "File";
-            _languagePro.MenuInsert = "File";
-            _languagePro.MenuInsertStudent = "File";
-            _languagePro.MenuInsertClass = "File";
-            _languagePro.MenuInsertMark = "File";
-            _languagePro.MenuReport = "File";
-            _languagePro.MenuReportStudent = "File";
-            _languagePro.MenuReportResult = "File";
-            _languagePro.MenuSetting = "File";
-            _languagePro.MenuHelp = "File";
+            #region Menubar Items Name
+
+            Pro.MenuFile = "File";
+            Pro.MenuFileExit = "Exit";
+            Pro.MenuInsert = "Insert";
+            Pro.MenuInsertStudent = "Student";
+            Pro.MenuInsertClass = "Class";
+            Pro.MenuInsertMark = "Mark";
+            Pro.MenuReport = "Report";
+            Pro.MenuReportStudent = "Student";
+            Pro.MenuReportResult = "Result";
+            Pro.MenuSetting = "Setting";
+            Pro.MenuHelp = "Help";
+
+            #endregion
+
+            #region Others Field Name
+
+            Pro.TitleAddStudent = "Add Student";
+            Pro.AcademicInformation = "Academic Information";
+            Pro.StudentInformation = "Student Information";
+            Pro.Roll = "Roll";
+            Pro.Reg = "Registration No";
+            Pro.Session = "Session";
+            Pro.Class = "Class";
+            Pro.AdmissionDate = "Admition Date";
+            Pro.StudentName = "Student Name";
+            Pro.FatherName = "Father Name";
+            Pro.MotherName = "Mother Name";
+            Pro.DOB = "Date of Birth";
+            Pro.NID = "NID";
+            Pro.BRN = "Birth Registration No";
+            Pro.PresentAddress = "Present Address";
+            Pro.PermanenetAddress = "Permanent Address";
+            Pro.BtnClear = "Clear";
+            Pro.BtnAdd = "Add";
+            Pro.Setting = "Setting";
+
+            #endregion
+
         }
 
     }
