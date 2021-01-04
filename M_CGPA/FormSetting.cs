@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using M_CGPA.BLL;
+using M_CGPA.Properties;
 
 namespace M_CGPA
 {
     public partial class FormSetting : Form
     {
+        LanguageBll _bll=new LanguageBll();
         public Point FormCurrentPoint;
+        
+
+
         public FormSetting()
         {
             InitializeComponent();
+
+            comboBoxLanguage.DataSource = _bll.LanguageList();
+            label1.Text = "Your Server Name is: " + Environment.MachineName;
         }
+
+
 
         private void labelClose_Click(object sender, EventArgs e)
         {
@@ -30,6 +41,14 @@ namespace M_CGPA
                 mousePosition.Offset(FormCurrentPoint.X,FormCurrentPoint.Y);
                 Location = mousePosition;
             }
+        }
+
+        private void buttonChangeLanguage_Click(object sender, EventArgs e)
+        {
+            var languageId = comboBoxLanguage.SelectedValue;
+            Settings.Default.Language = (int) languageId;
+            Settings.Default.Save();
+            Application.Restart();
         }
 
     }

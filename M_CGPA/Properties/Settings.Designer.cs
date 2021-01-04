@@ -34,5 +34,17 @@ namespace M_CGPA.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DatabaseLink {
+            get {
+                return ((string)(this["DatabaseLink"]));
+            }
+            set {
+                this["DatabaseLink"] = value;
+            }
+        }
     }
 }

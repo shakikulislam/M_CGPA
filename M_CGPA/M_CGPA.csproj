@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\LanguageBll.cs" />
+    <Compile Include="DAL\LanguageDal.cs" />
     <Compile Include="FormAddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +73,12 @@
     <Compile Include="FormSetting.Designer.cs">
       <DependentUpon>FormSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStudentList.Designer.cs">
+      <DependentUpon>FormStudentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +90,7 @@
     <Compile Include="Language\Lang\Bengali.cs" />
     <Compile Include="Language\Lang\English.cs" />
     <Compile Include="Language\SelectLanguage.cs" />
+    <Compile Include="ConnectionString.cs" />
     <Compile Include="Model\LanguageM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStudentList.resx">
+      <DependentUpon>FormStudentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -134,10 +146,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -67,11 +67,6 @@ namespace M_CGPA
             buttonAdd.Text = language.Language.BtnAdd;
         }
 
-
-        private void labelClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
         
         private void buttonClear_Click(object sender, EventArgs e)
         {
@@ -91,6 +86,12 @@ namespace M_CGPA
                 }
             }
         }
+
+        private void labelClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
     }
 }

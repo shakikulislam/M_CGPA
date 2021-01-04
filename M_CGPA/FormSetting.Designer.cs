@@ -39,6 +39,7 @@
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.languageMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonChangeLanguage = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTitlebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.languageMBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +141,7 @@
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Location = new System.Drawing.Point(190, 109);
             this.comboBoxLanguage.Name = "comboBoxLanguage";
-            this.comboBoxLanguage.Size = new System.Drawing.Size(188, 28);
+            this.comboBoxLanguage.Size = new System.Drawing.Size(172, 28);
             this.comboBoxLanguage.TabIndex = 13;
             this.comboBoxLanguage.ValueMember = "Id";
             // 
@@ -154,12 +155,22 @@
             this.buttonChangeLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChangeLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonChangeLanguage.ForeColor = System.Drawing.Color.White;
-            this.buttonChangeLanguage.Location = new System.Drawing.Point(226, 166);
+            this.buttonChangeLanguage.Location = new System.Drawing.Point(210, 156);
             this.buttonChangeLanguage.Name = "buttonChangeLanguage";
             this.buttonChangeLanguage.Size = new System.Drawing.Size(152, 31);
             this.buttonChangeLanguage.TabIndex = 11;
             this.buttonChangeLanguage.Text = "Change Language";
             this.buttonChangeLanguage.UseVisualStyleBackColor = false;
+            this.buttonChangeLanguage.Click += new System.EventHandler(this.buttonChangeLanguage_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(436, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "label1";
             // 
             // FormSetting
             // 
@@ -167,6 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(624, 490);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxLanguage);
             this.Controls.Add(this.labelLanguage);
             this.Controls.Add(this.buttonClear);
@@ -174,6 +186,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTitlebar);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSetting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -198,5 +211,6 @@
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Button buttonChangeLanguage;
         private System.Windows.Forms.BindingSource languageMBindingSource;
+        private System.Windows.Forms.Label label1;
     }
 }
