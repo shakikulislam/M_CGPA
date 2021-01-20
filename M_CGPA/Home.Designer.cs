@@ -61,7 +61,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(150, 600);
+            this.panelMenu.Size = new System.Drawing.Size(150, 540);
             this.panelMenu.TabIndex = 4;
             // 
             // buttonSetting
@@ -226,10 +226,8 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(150, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(650, 30);
+            this.panelTitle.Size = new System.Drawing.Size(750, 30);
             this.panelTitle.TabIndex = 5;
-            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
-            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
             // 
             // labelHomeTitle
             // 
@@ -239,12 +237,12 @@
             this.labelHomeTitle.ForeColor = System.Drawing.Color.White;
             this.labelHomeTitle.Location = new System.Drawing.Point(0, 0);
             this.labelHomeTitle.Name = "labelHomeTitle";
-            this.labelHomeTitle.Size = new System.Drawing.Size(575, 30);
+            this.labelHomeTitle.Size = new System.Drawing.Size(675, 30);
             this.labelHomeTitle.TabIndex = 3;
             this.labelHomeTitle.Text = "Your Institute Name";
             this.labelHomeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelHomeTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
-            this.labelHomeTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
+            this.labelHomeTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelHomeTitle_MouseDown);
+            this.labelHomeTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.labelHomeTitle_MouseMove);
             // 
             // labelMinimize
             // 
@@ -256,7 +254,7 @@
             this.labelMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.labelMinimize.Location = new System.Drawing.Point(575, 0);
+            this.labelMinimize.Location = new System.Drawing.Point(675, 0);
             this.labelMinimize.Name = "labelMinimize";
             this.labelMinimize.Size = new System.Drawing.Size(21, 27);
             this.labelMinimize.TabIndex = 2;
@@ -273,7 +271,7 @@
             this.labelMaximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.labelMaximize.Location = new System.Drawing.Point(596, 0);
+            this.labelMaximize.Location = new System.Drawing.Point(696, 0);
             this.labelMaximize.Name = "labelMaximize";
             this.labelMaximize.Size = new System.Drawing.Size(26, 27);
             this.labelMaximize.TabIndex = 1;
@@ -290,7 +288,7 @@
             this.labelClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.labelClose.Location = new System.Drawing.Point(622, 0);
+            this.labelClose.Location = new System.Drawing.Point(722, 0);
             this.labelClose.Name = "labelClose";
             this.labelClose.Size = new System.Drawing.Size(28, 27);
             this.labelClose.TabIndex = 0;
@@ -304,19 +302,19 @@
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 30);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(650, 570);
+            this.panelBody.Size = new System.Drawing.Size(750, 510);
             this.panelBody.TabIndex = 6;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(900, 540);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(900, 540);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";

@@ -1,6 +1,6 @@
 ﻿namespace M_CGPA
 {
-    partial class FormSetting
+    partial class Setting
     {
         /// <summary>
         /// Required designer variable.
@@ -137,6 +137,7 @@
             // 
             this.comboBoxLanguage.DataSource = this.languageMBindingSource;
             this.comboBoxLanguage.DisplayMember = "Name";
+            this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Location = new System.Drawing.Point(190, 109);

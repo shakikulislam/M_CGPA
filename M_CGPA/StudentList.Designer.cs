@@ -1,6 +1,6 @@
 ﻿namespace M_CGPA
 {
-    partial class FormStudentList
+    partial class StudentList
     {
         /// <summary>
         /// Required designer variable.

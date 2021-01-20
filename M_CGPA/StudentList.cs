@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace M_CGPA
 {
-    public partial class FormStudentList : Form
+    public partial class StudentList : Form
     {
-        public FormStudentList()
+        public StudentList()
         {
             InitializeComponent();
         }

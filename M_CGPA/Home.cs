@@ -8,13 +8,15 @@ namespace M_CGPA
 {
     public partial class Home : Form
     {
-        public Point FormLocationPoint;
+        private int _x;
+        private int _y;
+        private Point _point;
+        public readonly LanguagePro Language = new LanguagePro();
 
         public Home()
         {
             InitializeComponent();
 
-            LoadMenubarLanguage();
             FieldLanguage();
 
 
@@ -23,10 +25,10 @@ namespace M_CGPA
 
         }
 
-        public readonly LanguagePro Language = new LanguagePro();
+
         public void LoadMenubarLanguage()
         {
-            var language=new SelectLanguage();
+            var language = new SelectLanguage();
             language.UserLanguage(Settings.Default.Language);
 
             //fileToolStripMenuItem.Text = language.Language.MenuFile;
@@ -40,7 +42,7 @@ namespace M_CGPA
             //reportResultToolStripMenuItem.Text = language.Language.MenuReportResult;
             //settingToolStripMenuItem.Text = language.Language.MenuSetting;
             //helpToolStripMenuItem.Text = language.Language.MenuHelp;
-            
+
         }
 
         private void ShowForm(object form)
@@ -50,46 +52,35 @@ namespace M_CGPA
                 panelBody.Controls.RemoveAt(0);
             }
 
-            Form frm = form as Form;
-            frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
-            panelBody.Controls.Add(frm);
-            panelBody.Tag = frm;
-            frm.Show();
-
+            var frm = form as Form;
+            if (frm != null)
+            {
+                frm.TopLevel = false;
+                frm.Dock = DockStyle.Fill;
+                panelBody.Controls.Add(frm);
+                panelBody.Tag = frm;
+                frm.Show();
+            }
         }
 
         public void FieldLanguage()
         {
-            
+
         }
 
-        private void studentToolStripMenuItem_Click(object sender, System.EventArgs e)
+        private void MenuButtonsBackcolor(object activeButton)
         {
-            //var student=new FormAddStudent();
-            //student.ShowDialog();
-            ShowForm(new FormAddStudent());
-        }
-
-        
-
-        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
-        {
-            FormLocationPoint = new Point(-e.X, -e.Y);
-        }
-
-        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && WindowState==FormWindowState.Normal)
+            foreach (Control control in panelMenu.Controls)
             {
-                //Point point = MousePosition;
-                var point = MousePosition;
-                point.Offset(FormLocationPoint.X, FormLocationPoint.Y);
-                Location = point;
-
+                if (control is Button)
+                {
+                    control.BackColor = Color.Transparent;
+                }
             }
-        }
 
+            var activeBtn = activeButton as Button;
+            if (activeBtn != null) activeBtn.BackColor = Color.FromArgb(33, 31, 46);
+        }
 
         private void labelClose_Click(object sender, EventArgs e)
         {
@@ -108,29 +99,38 @@ namespace M_CGPA
 
         private void buttonSetting_Click(object sender, EventArgs e)
         {
-            ResetMenuButtonBackcolor();
-            ShowForm(new FormSetting());
-            buttonSetting.BackColor = Color.FromArgb(33, 31, 46);
+            MenuButtonsBackcolor(buttonSetting);
+            ShowForm(new Setting());
         }
 
         private void buttonStudent_Click(object sender, EventArgs e)
         {
-            ResetMenuButtonBackcolor();
-            ShowForm(new FormAddStudent());
-            buttonStudent.BackColor = Color.FromArgb(33, 31, 46);
+            MenuButtonsBackcolor(buttonStudent);
+            ShowForm(new AddStudent());
+
+            var addStudent = new AddStudent();
+            addStudent.Size = new Size(740, 540);
+            addStudent.Dock = DockStyle.Left;
 
         }
 
-        private void ResetMenuButtonBackcolor()
+        private void labelHomeTitle_MouseDown(object sender, MouseEventArgs e)
         {
-            foreach (Control control in panelMenu.Controls)
+            _x = MousePosition.X - Location.X;
+            _y = MousePosition.Y - Location.Y;
+        }
+
+        private void labelHomeTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && WindowState == FormWindowState.Normal)
             {
-                if (control is Button)
-                {
-                    control.BackColor= Color.Transparent;
-                }
+                _point = MousePosition;
+                _point.X = _point.X - _x;
+                _point.Y = _point.Y - _y;
+                Location = _point;
             }
         }
+
 
 
     }

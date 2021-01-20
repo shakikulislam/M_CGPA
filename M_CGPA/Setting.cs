@@ -6,14 +6,14 @@ using M_CGPA.Properties;
 
 namespace M_CGPA
 {
-    public partial class FormSetting : Form
+    public partial class Setting : Form
     {
         LanguageBll _bll=new LanguageBll();
         public Point FormCurrentPoint;
         
 
 
-        public FormSetting()
+        public Setting()
         {
             InitializeComponent();
 

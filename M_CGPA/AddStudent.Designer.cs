@@ -1,6 +1,6 @@
 ﻿namespace M_CGPA
 {
-    partial class FormAddStudent
+    partial class AddStudent
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,7 @@
             this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitlebar.Location = new System.Drawing.Point(0, 0);
             this.panelTitlebar.Name = "panelTitlebar";
-            this.panelTitlebar.Size = new System.Drawing.Size(734, 31);
+            this.panelTitlebar.Size = new System.Drawing.Size(740, 31);
             this.panelTitlebar.TabIndex = 0;
             // 
             // labelClose
@@ -104,7 +104,7 @@
             this.labelTitleAddStudent.ForeColor = System.Drawing.Color.White;
             this.labelTitleAddStudent.Location = new System.Drawing.Point(0, 0);
             this.labelTitleAddStudent.Name = "labelTitleAddStudent";
-            this.labelTitleAddStudent.Size = new System.Drawing.Size(734, 31);
+            this.labelTitleAddStudent.Size = new System.Drawing.Size(740, 31);
             this.labelTitleAddStudent.TabIndex = 2;
             this.labelTitleAddStudent.Text = "Add Student";
             this.labelTitleAddStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -390,7 +390,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(557, 493);
+            this.buttonAdd.Location = new System.Drawing.Point(563, 493);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(152, 31);
             this.buttonAdd.TabIndex = 5;
@@ -404,7 +404,7 @@
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.Color.White;
-            this.buttonClear.Location = new System.Drawing.Point(399, 493);
+            this.buttonClear.Location = new System.Drawing.Point(405, 493);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(152, 31);
             this.buttonClear.TabIndex = 5;
@@ -417,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(734, 540);
+            this.ClientSize = new System.Drawing.Size(740, 540);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBoxAcademicInformation);

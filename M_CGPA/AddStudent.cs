@@ -6,9 +6,9 @@ using M_CGPA.Properties;
 
 namespace M_CGPA
 {
-    public partial class FormAddStudent : Form
+    public partial class AddStudent : Form
     {
-        public FormAddStudent()
+        public AddStudent()
         {
             InitializeComponent();
 
