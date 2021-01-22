@@ -70,7 +70,7 @@
             this.labelClassName.AutoSize = true;
             this.labelClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClassName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.labelClassName.Location = new System.Drawing.Point(43, 7);
+            this.labelClassName.Location = new System.Drawing.Point(43, 12);
             this.labelClassName.Name = "labelClassName";
             this.labelClassName.Size = new System.Drawing.Size(94, 20);
             this.labelClassName.TabIndex = 2;
@@ -80,7 +80,7 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 4);
+            this.textBox1.Location = new System.Drawing.Point(144, 9);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(189, 26);
             this.textBox1.TabIndex = 3;
@@ -92,9 +92,9 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(339, 4);
+            this.buttonAdd.Location = new System.Drawing.Point(350, 4);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(90, 26);
+            this.buttonAdd.Size = new System.Drawing.Size(90, 36);
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@
             this.panelAddClass.Controls.Add(this.textBox1);
             this.panelAddClass.Location = new System.Drawing.Point(61, 55);
             this.panelAddClass.Name = "panelAddClass";
-            this.panelAddClass.Size = new System.Drawing.Size(473, 35);
+            this.panelAddClass.Size = new System.Drawing.Size(473, 45);
             this.panelAddClass.TabIndex = 7;
             // 
             // AddClass

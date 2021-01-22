@@ -22,6 +22,7 @@ namespace M_CGPA
             if (selectLanguage.Language.Language == "Bengali")
             {
                 new SetPanelLabelFont(panelAddClass);
+                new SetPanelButtonFont(panelAddClass);
 
                 foreach (Control control in Controls)
                 {
@@ -34,6 +35,7 @@ namespace M_CGPA
 
             labelTitle.Text = selectLanguage.Language.TitleClass;
             labelClassName.Text = selectLanguage.Language.ClassName;
+            buttonAdd.Text = selectLanguage.Language.BtnAdd;
         }
 
 
