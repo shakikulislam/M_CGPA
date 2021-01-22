@@ -8,6 +8,7 @@ namespace M_CGPA.Language
         public string Language { get; set; }
         public string Font { get; set; }
 
+        #region Menubar Items Name
         public string MenuFile { get; set; }
         public string MenuFileExit { get; set; }
         public string MenuInsert { get; set; }
@@ -19,7 +20,11 @@ namespace M_CGPA.Language
         public string MenuReportResult { get; set; }
         public string MenuSetting { get; set; }
         public string MenuHelp { get; set; }
-        
+        #endregion
+
+        #region All Field Name
+
+        public string Student { get; set; }
         public string TitleAddStudent { get; set; }
         public string StudentInformation { get; set; }
         public string AcademicInformation { get; set; }
@@ -39,5 +44,15 @@ namespace M_CGPA.Language
         public string BtnClear { get; set; }
         public string BtnAdd { get; set; }
         public string Setting { get; set; }
+        public string TitleAddClass { get; set; }
+
+        #endregion
+
+        #region Message
+
+        public string SaveStudentSuccessMessage { get; set; }
+        public string SaveStudentErrorMessage { get; set; }
+
+        #endregion
     }
 }

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using M_CGPA.Language;
+using M_CGPA.Language.Font;
 using M_CGPA.Properties;
 
 namespace M_CGPA
@@ -17,54 +18,41 @@ namespace M_CGPA
 
         public void FieldLanguage()
         {
-            var language = new SelectLanguage();
-            language.UserLanguage(Settings.Default.Language);
+            var selectLanguage = new SelectLanguage();
+            selectLanguage.UserLanguage(Settings.Default.Language);
 
-            if (language.Language.Language=="Bengali")
+            if (selectLanguage.Language.Language=="Bengali")
             {
-                foreach (Control control in groupBoxAcademicInformation.Controls)
-                {
-                    if (control is Label)
-                    {
-                        control.Font = new Font(this.Font.Name,16);
-                    }
-                }
 
-                foreach (Control control in groupBoxStudentInformation.Controls)
-                {
-                    if (control is Label)
-                    {
-                        control.Font = new Font(this.Font.Name,16);
-                    }
-                }
+                new SetGroupBoxLabelFont(groupBoxAcademicInformation,groupBoxStudentInformation);
 
                 foreach (Control control in Controls)
                 {
                     if (control is Button)
                     {
-                        control.Font = new Font(this.Font.Name,14);
+                        control.Font = new Font(this.Font.Name, 14);
                     }
                 }
             }
 
-            labelTitleAddStudent.Text =language.Language.TitleAddStudent;
-            groupBoxAcademicInformation.Text = language.Language.AcademicInformation;
-            groupBoxStudentInformation.Text = language.Language.StudentInformation;
-            labelRoll.Text = language.Language.Roll;
-            labelReg.Text = language.Language.Reg;
-            labelSession.Text = language.Language.Session;
-            labelClass.Text = language.Language.Class;
-            labelAdmissionDate.Text = language.Language.AdmissionDate;
-            labelStudentName.Text = language.Language.StudentName;
-            labelFatherName.Text = language.Language.FatherName;
-            labelMotherName.Text = language.Language.MotherName;
-            labelDob.Text = language.Language.DOB;
-            labelNid.Text = language.Language.NID;
-            labelBrn.Text = language.Language.BRN;
-            labelPresentAddress.Text = language.Language.PresentAddress;
-            labelPermanentAddress.Text = language.Language.PermanenetAddress;
-            buttonClear.Text = language.Language.BtnClear;
-            buttonAdd.Text = language.Language.BtnAdd;
+            labelTitleAddStudent.Text =selectLanguage.Language.TitleAddStudent;
+            groupBoxAcademicInformation.Text = selectLanguage.Language.AcademicInformation;
+            groupBoxStudentInformation.Text = selectLanguage.Language.StudentInformation;
+            labelRoll.Text = selectLanguage.Language.Roll;
+            labelReg.Text = selectLanguage.Language.Reg;
+            labelSession.Text = selectLanguage.Language.Session;
+            labelClass.Text = selectLanguage.Language.Class;
+            labelAdmissionDate.Text = selectLanguage.Language.AdmissionDate;
+            labelStudentName.Text = selectLanguage.Language.StudentName;
+            labelFatherName.Text = selectLanguage.Language.FatherName;
+            labelMotherName.Text = selectLanguage.Language.MotherName;
+            labelDob.Text = selectLanguage.Language.DOB;
+            labelNid.Text = selectLanguage.Language.NID;
+            labelBrn.Text = selectLanguage.Language.BRN;
+            labelPresentAddress.Text = selectLanguage.Language.PresentAddress;
+            labelPermanentAddress.Text = selectLanguage.Language.PermanenetAddress;
+            buttonClear.Text = selectLanguage.Language.BtnClear;
+            buttonAdd.Text = selectLanguage.Language.BtnAdd;
         }
 
         
@@ -90,6 +78,11 @@ namespace M_CGPA
         private void labelClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+
         }
 
 

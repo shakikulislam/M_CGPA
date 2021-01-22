@@ -11,13 +11,12 @@ namespace M_CGPA
         private int _x;
         private int _y;
         private Point _point;
-        public readonly LanguagePro Language = new LanguagePro();
 
         public Home()
         {
             InitializeComponent();
 
-            FieldLanguage();
+            LoadLanguage();
 
 
             //Bengali bengali=new Bengali();
@@ -26,22 +25,12 @@ namespace M_CGPA
         }
 
 
-        public void LoadMenubarLanguage()
+        public void LoadLanguage()
         {
             var language = new SelectLanguage();
             language.UserLanguage(Settings.Default.Language);
 
-            //fileToolStripMenuItem.Text = language.Language.MenuFile;
-            //exitToolStripMenuItem.Text = language.Language.MenuFileExit;
-            //insertToolStripMenuItem.Text = language.Language.MenuInsert;
-            //studentToolStripMenuItem.Text = language.Language.MenuInsertStudent;
-            //classToolStripMenuItem.Text = language.Language.MenuInsertClass;
-            //markToolStripMenuItem.Text = language.Language.MenuInsertMark;
-            //reportToolStripMenuItem.Text = language.Language.MenuReport;
-            //reportStudentToolStripMenuItem.Text = language.Language.MenuReportStudent;
-            //reportResultToolStripMenuItem.Text = language.Language.MenuReportResult;
-            //settingToolStripMenuItem.Text = language.Language.MenuSetting;
-            //helpToolStripMenuItem.Text = language.Language.MenuHelp;
+            
 
         }
 
@@ -63,10 +52,6 @@ namespace M_CGPA
             }
         }
 
-        public void FieldLanguage()
-        {
-
-        }
 
         private void MenuButtonsBackcolor(object activeButton)
         {

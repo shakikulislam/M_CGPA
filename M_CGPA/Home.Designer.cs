@@ -34,7 +34,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.buttonTest = new System.Windows.Forms.Button();
+            this.buttonClass = new System.Windows.Forms.Button();
             this.buttonStudent = new System.Windows.Forms.Button();
             this.panelUserPicture = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
@@ -55,7 +55,7 @@
             this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.button3);
             this.panelMenu.Controls.Add(this.button2);
-            this.panelMenu.Controls.Add(this.buttonTest);
+            this.panelMenu.Controls.Add(this.buttonClass);
             this.panelMenu.Controls.Add(this.buttonStudent);
             this.panelMenu.Controls.Add(this.panelUserPicture);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -165,25 +165,25 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // buttonTest
+            // buttonClass
             // 
-            this.buttonTest.AutoSize = true;
-            this.buttonTest.BackColor = System.Drawing.Color.Transparent;
-            this.buttonTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonTest.FlatAppearance.BorderSize = 0;
-            this.buttonTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.buttonTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.buttonTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.buttonTest.Location = new System.Drawing.Point(0, 154);
-            this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(150, 34);
-            this.buttonTest.TabIndex = 7;
-            this.buttonTest.Text = "Button1";
-            this.buttonTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTest.UseVisualStyleBackColor = false;
+            this.buttonClass.AutoSize = true;
+            this.buttonClass.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClass.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonClass.FlatAppearance.BorderSize = 0;
+            this.buttonClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.buttonClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.buttonClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.buttonClass.Location = new System.Drawing.Point(0, 154);
+            this.buttonClass.Name = "buttonClass";
+            this.buttonClass.Size = new System.Drawing.Size(150, 34);
+            this.buttonClass.TabIndex = 7;
+            this.buttonClass.Text = "Class";
+            this.buttonClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClass.UseVisualStyleBackColor = false;
             // 
             // buttonStudent
             // 
@@ -339,7 +339,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button buttonTest;
+        private System.Windows.Forms.Button buttonClass;
         private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.Label labelMaximize;
         private System.Windows.Forms.Label labelMinimize;

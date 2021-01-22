@@ -24,8 +24,9 @@
 
             #endregion
 
-            #region Others Field Name
+            #region All Field Name
 
+            Pro.Student = "ছাত্র";
             Pro.TitleAddStudent = "ছাত্র যুক্ত করুন";
             Pro.AcademicInformation = "একাডেমিক তথ্য";
             Pro.StudentInformation = "শিক্ষার্থীদের তথ্য";
@@ -45,9 +46,16 @@
             Pro.BtnClear = "পরিষ্কার করুন";
             Pro.BtnAdd = "যুক্ত করুন";
             Pro.Setting = "সেটিংস";
+            Pro.TitleAddClass = "ক্লাস যুক্ত তরুন";
 
             #endregion
 
+            #region Message
+
+            Pro.SaveStudentSuccessMessage = "সফলভাবে ছাত্র সংরক্ষণ করা হয়েছে।";
+            Pro.SaveStudentErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";
+
+            #endregion
         }
         
     }

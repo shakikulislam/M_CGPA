@@ -24,8 +24,9 @@
 
             #endregion
 
-            #region Others Field Name
+            #region All Field Name
 
+            Pro.Student = "Student";
             Pro.TitleAddStudent = "Add Student";
             Pro.AcademicInformation = "Academic Information";
             Pro.StudentInformation = "Student Information";
@@ -45,6 +46,14 @@
             Pro.BtnClear = "Clear";
             Pro.BtnAdd = "Add";
             Pro.Setting = "Setting";
+            Pro.TitleAddClass = "Add Class";
+
+            #endregion
+
+            #region Message
+
+            Pro.SaveStudentSuccessMessage = "Successfully saved students...";
+            Pro.SaveStudentErrorMessage = "Failed, please try again...";
 
             #endregion
 
