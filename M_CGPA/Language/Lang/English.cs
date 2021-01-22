@@ -46,7 +46,8 @@
             Pro.BtnClear = "Clear";
             Pro.BtnAdd = "Add";
             Pro.Setting = "Setting";
-            Pro.TitleAddClass = "Add Class";
+            Pro.TitleClass = "Add Class";
+            Pro.ClassName = "Class Name";
 
             #endregion
 

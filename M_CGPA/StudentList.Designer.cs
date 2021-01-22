@@ -90,7 +90,7 @@
             this.dataGridViewStudentList.Size = new System.Drawing.Size(780, 346);
             this.dataGridViewStudentList.TabIndex = 2;
             // 
-            // FormStudentList
+            // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             this.Controls.Add(this.dataGridViewStudentList);
             this.Controls.Add(this.panelTitlebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormStudentList";
+            this.Name = "StudentList";
             this.Text = "FormStudentList";
             this.panelTitlebar.ResumeLayout(false);
             this.panelTitlebar.PerformLayout();

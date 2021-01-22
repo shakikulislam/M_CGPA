@@ -46,7 +46,8 @@
             Pro.BtnClear = "পরিষ্কার করুন";
             Pro.BtnAdd = "যুক্ত করুন";
             Pro.Setting = "সেটিংস";
-            Pro.TitleAddClass = "ক্লাস যুক্ত তরুন";
+            Pro.TitleClass = "ক্লাস যুক্ত করুন";
+            Pro.ClassName = "শ্রেণির নাম";
 
             #endregion
 

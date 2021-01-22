@@ -184,6 +184,7 @@
             this.buttonClass.Text = "Class";
             this.buttonClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClass.UseVisualStyleBackColor = false;
+            this.buttonClass.Click += new System.EventHandler(this.buttonClass_Click);
             // 
             // buttonStudent
             // 

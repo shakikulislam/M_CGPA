@@ -116,6 +116,13 @@ namespace M_CGPA
             }
         }
 
+        private void buttonClass_Click(object sender, EventArgs e)
+        {
+            MenuButtonsBackcolor(buttonClass);
+            ShowForm(new AddClass());
+
+        }
+
 
 
     }

@@ -44,7 +44,8 @@ namespace M_CGPA.Language
         public string BtnClear { get; set; }
         public string BtnAdd { get; set; }
         public string Setting { get; set; }
-        public string TitleAddClass { get; set; }
+        public string TitleClass { get; set; }
+        public string ClassName { get; set; }
 
         #endregion
 

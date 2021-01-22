@@ -1,5 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using M_CGPA.Language;
+using M_CGPA.Language.Font;
+using M_CGPA.Properties;
 
 namespace M_CGPA
 {
@@ -14,7 +17,25 @@ namespace M_CGPA
         private void LoadLanguage()
         {
             var selectLanguage=new SelectLanguage();
-            labelTitlebar.Text = selectLanguage.Language.TitleAddClass;
+            selectLanguage.UserLanguage(Settings.Default.Language);
+
+            if (selectLanguage.Language.Language == "Bengali")
+            {
+                new SetPanelLabelFont(panelAddClass);
+
+                foreach (Control control in Controls)
+                {
+                    if (control is Button)
+                    {
+                        control.Font = new Font(this.Font.Name, 14);
+                    }
+                }
+            }
+
+            labelTitle.Text = selectLanguage.Language.TitleClass;
+            labelClassName.Text = selectLanguage.Language.ClassName;
         }
+
+
     }
 }

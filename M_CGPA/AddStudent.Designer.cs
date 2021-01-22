@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTitlebar = new System.Windows.Forms.Panel();
-            this.labelClose = new System.Windows.Forms.Label();
             this.labelTitleAddStudent = new System.Windows.Forms.Label();
             this.groupBoxStudentInformation = new System.Windows.Forms.GroupBox();
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
@@ -74,7 +73,6 @@
             // panelTitlebar
             // 
             this.panelTitlebar.BackColor = System.Drawing.Color.Black;
-            this.panelTitlebar.Controls.Add(this.labelClose);
             this.panelTitlebar.Controls.Add(this.labelTitleAddStudent);
             this.panelTitlebar.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,26 +81,10 @@
             this.panelTitlebar.Size = new System.Drawing.Size(740, 31);
             this.panelTitlebar.TabIndex = 0;
             // 
-            // labelClose
-            // 
-            this.labelClose.AutoSize = true;
-            this.labelClose.BackColor = System.Drawing.Color.Transparent;
-            this.labelClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelClose.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
-            this.labelClose.Location = new System.Drawing.Point(0, 0);
-            this.labelClose.Name = "labelClose";
-            this.labelClose.Size = new System.Drawing.Size(28, 27);
-            this.labelClose.TabIndex = 6;
-            this.labelClose.Text = "X";
-            this.labelClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelClose.Click += new System.EventHandler(this.labelClose_Click);
-            // 
             // labelTitleAddStudent
             // 
             this.labelTitleAddStudent.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitleAddStudent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelTitleAddStudent.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelTitleAddStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTitleAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,7 +429,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
             this.panelTitlebar.ResumeLayout(false);
-            this.panelTitlebar.PerformLayout();
             this.groupBoxStudentInformation.ResumeLayout(false);
             this.groupBoxStudentInformation.PerformLayout();
             this.groupBoxAcademicInformation.ResumeLayout(false);
@@ -492,7 +473,6 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.TextBox textBoxPresentAddress;
         private System.Windows.Forms.TextBox textBoxPermanentAddress;
-        private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.BindingSource languageMBindingSource;
         private System.Windows.Forms.BindingSource classMBindingSource;
     }

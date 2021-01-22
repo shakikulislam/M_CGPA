@@ -32,16 +32,14 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelTitleSetting = new System.Windows.Forms.Label();
-            this.labelClose = new System.Windows.Forms.Label();
-            this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelLanguage = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.languageMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonChangeLanguage = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelTitlebar.SuspendLayout();
+            this.panelTitlebar = new System.Windows.Forms.Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.languageMBindingSource)).BeginInit();
+            this.panelTitlebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClear
@@ -78,50 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(624, 10);
             this.panel1.TabIndex = 7;
-            // 
-            // labelTitleSetting
-            // 
-            this.labelTitleSetting.AutoSize = true;
-            this.labelTitleSetting.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitleSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitleSetting.ForeColor = System.Drawing.Color.White;
-            this.labelTitleSetting.Location = new System.Drawing.Point(3, 2);
-            this.labelTitleSetting.Name = "labelTitleSetting";
-            this.labelTitleSetting.Size = new System.Drawing.Size(74, 24);
-            this.labelTitleSetting.TabIndex = 2;
-            this.labelTitleSetting.Text = "Setting";
-            this.labelTitleSetting.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitlebar_MouseDown);
-            this.labelTitleSetting.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitlebar_MouseMove);
-            // 
-            // labelClose
-            // 
-            this.labelClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelClose.AutoSize = true;
-            this.labelClose.BackColor = System.Drawing.Color.Transparent;
-            this.labelClose.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClose.ForeColor = System.Drawing.Color.Red;
-            this.labelClose.Location = new System.Drawing.Point(600, 7);
-            this.labelClose.Name = "labelClose";
-            this.labelClose.Size = new System.Drawing.Size(17, 16);
-            this.labelClose.TabIndex = 2;
-            this.labelClose.Tag = "";
-            this.labelClose.Text = "X";
-            this.labelClose.Click += new System.EventHandler(this.labelClose_Click);
-            // 
-            // panelTitlebar
-            // 
-            this.panelTitlebar.BackColor = System.Drawing.Color.Black;
-            this.panelTitlebar.Controls.Add(this.labelTitleSetting);
-            this.panelTitlebar.Controls.Add(this.labelClose);
-            this.panelTitlebar.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitlebar.Location = new System.Drawing.Point(0, 0);
-            this.panelTitlebar.Name = "panelTitlebar";
-            this.panelTitlebar.Size = new System.Drawing.Size(624, 31);
-            this.panelTitlebar.TabIndex = 6;
-            this.panelTitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitlebar_MouseDown);
-            this.panelTitlebar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitlebar_MouseMove);
             // 
             // labelLanguage
             // 
@@ -164,37 +118,52 @@
             this.buttonChangeLanguage.UseVisualStyleBackColor = false;
             this.buttonChangeLanguage.Click += new System.EventHandler(this.buttonChangeLanguage_Click);
             // 
-            // label1
+            // panelTitlebar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(436, 247);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "label1";
+            this.panelTitlebar.BackColor = System.Drawing.Color.Black;
+            this.panelTitlebar.Controls.Add(this.labelTitle);
+            this.panelTitlebar.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitlebar.Location = new System.Drawing.Point(0, 0);
+            this.panelTitlebar.Name = "panelTitlebar";
+            this.panelTitlebar.Size = new System.Drawing.Size(624, 31);
+            this.panelTitlebar.TabIndex = 15;
             // 
-            // FormSetting
+            // labelTitle
+            // 
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(0, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(624, 31);
+            this.labelTitle.TabIndex = 2;
+            this.labelTitle.Text = "Setting";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(624, 490);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.comboBoxLanguage);
             this.Controls.Add(this.labelLanguage);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonChangeLanguage);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelTitlebar);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormSetting";
+            this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSetting";
-            this.panelTitlebar.ResumeLayout(false);
-            this.panelTitlebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.languageMBindingSource)).EndInit();
+            this.panelTitlebar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,13 +174,11 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelTitleSetting;
-        private System.Windows.Forms.Label labelClose;
-        private System.Windows.Forms.Panel panelTitlebar;
         private System.Windows.Forms.Label labelLanguage;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Button buttonChangeLanguage;
         private System.Windows.Forms.BindingSource languageMBindingSource;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelTitlebar;
+        private System.Windows.Forms.Label labelTitle;
     }
 }

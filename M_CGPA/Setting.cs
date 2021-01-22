@@ -8,8 +8,7 @@ namespace M_CGPA
 {
     public partial class Setting : Form
     {
-        LanguageBll _bll=new LanguageBll();
-        public Point FormCurrentPoint;
+        readonly LanguageBll _bll=new LanguageBll();
         
 
 
@@ -18,30 +17,8 @@ namespace M_CGPA
             InitializeComponent();
 
             comboBoxLanguage.DataSource = _bll.LanguageList();
-            label1.Text = "Your Server Name is: " + Environment.MachineName;
         }
 
-
-
-        private void labelClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void panelTitlebar_MouseDown(object sender, MouseEventArgs e)
-        {
-            FormCurrentPoint= new Point(-e.X, -e.Y);
-        }
-
-        private void panelTitlebar_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button==MouseButtons.Left)
-            {
-                var mousePosition = MousePosition;
-                mousePosition.Offset(FormCurrentPoint.X,FormCurrentPoint.Y);
-                Location = mousePosition;
-            }
-        }
 
         private void buttonChangeLanguage_Click(object sender, EventArgs e)
         {
