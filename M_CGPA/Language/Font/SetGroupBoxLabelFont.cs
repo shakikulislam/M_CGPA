@@ -5,6 +5,16 @@ namespace M_CGPA.Language.Font
 {
     public class SetGroupBoxLabelFont
     {
+        //
+        //
+        // Congrol 5 GroupBox for Label
+        //
+        //
+
+        private const float FontSize = 16;
+        private const string FontName = "Microsoft Sans Serif";
+        private const FontStyle Style = FontStyle.Regular;
+
         public SetGroupBoxLabelFont()
         {
 
@@ -16,7 +26,7 @@ namespace M_CGPA.Language.Font
             {
                 if (control is Label)
                 {
-                    control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    control.Font = new System.Drawing.Font(FontName, FontSize, Style, GraphicsUnit.Point, (0));
                 }
             }
         }
@@ -27,7 +37,7 @@ namespace M_CGPA.Language.Font
             {
                 if (control is Label)
                 {
-                    control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    control.Font = new System.Drawing.Font(FontName, FontSize, Style, GraphicsUnit.Point, (0));
                 }
             }
         }
@@ -38,7 +48,7 @@ namespace M_CGPA.Language.Font
             {
                 if (control is Label)
                 {
-                    control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    control.Font = new System.Drawing.Font(FontName, FontSize, Style, GraphicsUnit.Point, (0));
                 }
             }
         }
@@ -49,7 +59,7 @@ namespace M_CGPA.Language.Font
             {
                 if (control is Label)
                 {
-                    control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    control.Font = new System.Drawing.Font(FontName, FontSize, Style, GraphicsUnit.Point, (0));
                 }
             }
         }
@@ -60,7 +70,7 @@ namespace M_CGPA.Language.Font
             {
                 if (control is Label)
                 {
-                    control.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, (0));
+                    control.Font = new System.Drawing.Font(FontName, FontSize, Style, GraphicsUnit.Point, (0));
                 }
             }
         }

@@ -75,7 +75,6 @@
     <Compile Include="AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Language\Font\SetFont.cs" />
     <Compile Include="Language\Font\SetGroupBoxLabelFont.cs" />
     <Compile Include="Model\ClassM.cs" />
     <Compile Include="Setting.cs">
