@@ -31,7 +31,7 @@
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelClassName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxClassName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelAddClass = new System.Windows.Forms.Panel();
             this.panelTitlebar.SuspendLayout();
@@ -76,14 +76,14 @@
             this.labelClassName.TabIndex = 2;
             this.labelClassName.Text = "Class Name";
             // 
-            // textBox1
+            // textBoxClassName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 26);
-            this.textBox1.TabIndex = 3;
+            this.textBoxClassName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClassName.Location = new System.Drawing.Point(144, 9);
+            this.textBoxClassName.Name = "textBoxClassName";
+            this.textBoxClassName.Size = new System.Drawing.Size(189, 26);
+            this.textBoxClassName.TabIndex = 3;
             // 
             // buttonAdd
             // 
@@ -98,6 +98,7 @@
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // panelAddClass
             // 
@@ -105,7 +106,7 @@
             this.panelAddClass.BackColor = System.Drawing.Color.Transparent;
             this.panelAddClass.Controls.Add(this.labelClassName);
             this.panelAddClass.Controls.Add(this.buttonAdd);
-            this.panelAddClass.Controls.Add(this.textBox1);
+            this.panelAddClass.Controls.Add(this.textBoxClassName);
             this.panelAddClass.Location = new System.Drawing.Point(61, 55);
             this.panelAddClass.Name = "panelAddClass";
             this.panelAddClass.Size = new System.Drawing.Size(473, 45);
@@ -135,7 +136,7 @@
         private System.Windows.Forms.Panel panelTitlebar;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelClassName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxClassName;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Panel panelAddClass;
 

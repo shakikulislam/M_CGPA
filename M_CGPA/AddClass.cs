@@ -1,28 +1,38 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
+using M_CGPA.Model;
 using M_CGPA.Properties;
 
 namespace M_CGPA
 {
     public partial class AddClass : Form
     {
+        readonly ClassBll _classBll=new ClassBll();
+        readonly ClassM _classM=new ClassM();
+        readonly SelectLanguage _selectLanguage=new SelectLanguage();
+
         public AddClass()
         {
             InitializeComponent();
+
+            SelectLanguage();
+
             LoadLanguage();
         }
 
-        private void LoadLanguage()
+        private void SelectLanguage()
         {
-            var selectLanguage=new SelectLanguage();
-            selectLanguage.UserLanguage(Settings.Default.Language);
+            _selectLanguage.UserLanguage(Settings.Default.Language);
 
-            if (selectLanguage.Language.Language == "Bengali")
+            if (_selectLanguage.Language.Language == "Bengali")
             {
-                new SetPanelLabelFont(panelAddClass);
+                new SetPanelLabelFont(panelAddClass, panelTitlebar);
                 new SetPanelButtonFont(panelAddClass);
+
 
                 foreach (Control control in Controls)
                 {
@@ -32,10 +42,39 @@ namespace M_CGPA
                     }
                 }
             }
+        }
 
-            labelTitle.Text = selectLanguage.Language.TitleClass;
-            labelClassName.Text = selectLanguage.Language.ClassName;
-            buttonAdd.Text = selectLanguage.Language.BtnAdd;
+        private void LoadLanguage()
+        {
+            labelTitle.Text = _selectLanguage.Language.TitleClass;
+            labelClassName.Text = _selectLanguage.Language.ClassName;
+            buttonAdd.Text = _selectLanguage.Language.BtnAdd;
+        }
+
+        private void buttonAdd_Click(object sender, System.EventArgs e)
+        {
+            var className = textBoxClassName.Text;
+            try
+            {
+                if (className !="")
+                {
+                    _classM.Name = className;
+                    var isSaved=_classBll.AddClass(_classM);
+                    if (isSaved)
+                    {
+                        MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage,"",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(_selectLanguage.Language.SaveErrorMessage,"",MessageBoxButtons.RetryCancel,MessageBoxIcon.Error);
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

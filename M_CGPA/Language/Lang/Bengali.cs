@@ -53,8 +53,8 @@
 
             #region Message
 
-            Pro.SaveStudentSuccessMessage = "সফলভাবে ছাত্র সংরক্ষণ করা হয়েছে।";
-            Pro.SaveStudentErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";
+            Pro.SaveSuccessMessage = "সফলভাবে সংরক্ষণ করা হয়েছে...";
+            Pro.SaveErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";
 
             #endregion
         }

@@ -51,8 +51,8 @@ namespace M_CGPA.Language
 
         #region Message
 
-        public string SaveStudentSuccessMessage { get; set; }
-        public string SaveStudentErrorMessage { get; set; }
+        public string SaveSuccessMessage { get; set; }
+        public string SaveErrorMessage { get; set; }
 
         #endregion
     }

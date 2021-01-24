@@ -53,8 +53,8 @@
 
             #region Message
 
-            Pro.SaveStudentSuccessMessage = "Successfully saved students...";
-            Pro.SaveStudentErrorMessage = "Failed, please try again...";
+            Pro.SaveSuccessMessage = "Successfully saved...";
+            Pro.SaveErrorMessage = "Failed, please try again...";
 
             #endregion
 

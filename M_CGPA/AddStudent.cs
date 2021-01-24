@@ -25,6 +25,7 @@ namespace M_CGPA
             {
 
                 new SetGroupBoxLabelFont(groupBoxAcademicInformation,groupBoxStudentInformation);
+                new SetPanelLabelFont(panelTitlebar);
 
                 foreach (Control control in Controls)
                 {
