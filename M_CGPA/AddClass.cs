@@ -26,7 +26,7 @@ namespace M_CGPA
 
         private void SelectLanguage()
         {
-            _selectLanguage.UserLanguage(Settings.Default.Language);
+            _selectLanguage.UserLanguage();
 
             if (_selectLanguage.Language.Language == "Bengali")
             {
@@ -71,9 +71,9 @@ namespace M_CGPA
                     
                 }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(exception.Message,"",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

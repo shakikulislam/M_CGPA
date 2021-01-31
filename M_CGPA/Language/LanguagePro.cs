@@ -53,6 +53,7 @@ namespace M_CGPA.Language
 
         public string SaveSuccessMessage { get; set; }
         public string SaveErrorMessage { get; set; }
+        public string ClassAlreadyExist { get; set; }
 
         #endregion
     }

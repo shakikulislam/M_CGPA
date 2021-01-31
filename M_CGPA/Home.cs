@@ -28,7 +28,7 @@ namespace M_CGPA
         public void LoadLanguage()
         {
             var language = new SelectLanguage();
-            language.UserLanguage(Settings.Default.Language);
+            //language.UserLanguage(Settings.Default.Language);
 
             
 

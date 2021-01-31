@@ -19,7 +19,7 @@ namespace M_CGPA
         public void FieldLanguage()
         {
             var selectLanguage = new SelectLanguage();
-            selectLanguage.UserLanguage(Settings.Default.Language);
+            selectLanguage.UserLanguage();
 
             if (selectLanguage.Language.Language=="Bengali")
             {

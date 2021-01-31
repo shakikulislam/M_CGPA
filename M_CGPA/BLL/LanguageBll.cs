@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using M_CGPA.DAL;
+﻿using M_CGPA.DAL;
 
 namespace M_CGPA.BLL
 {

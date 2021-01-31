@@ -1,4 +1,5 @@
 ﻿using M_CGPA.Language.Lang;
+using M_CGPA.Properties;
 
 namespace M_CGPA.Language
 {
@@ -9,8 +10,11 @@ namespace M_CGPA.Language
 
         public LanguagePro Language=new LanguagePro();
 
-        public void UserLanguage(int id)
+        
+
+        public void UserLanguage()
         {
+            var id = Settings.Default.Language;
             switch (id)
             {
                 case 1:

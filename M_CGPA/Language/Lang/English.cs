@@ -55,6 +55,7 @@
 
             Pro.SaveSuccessMessage = "Successfully saved...";
             Pro.SaveErrorMessage = "Failed, please try again...";
+            Pro.ClassAlreadyExist = "This class already exists...";
 
             #endregion
 
