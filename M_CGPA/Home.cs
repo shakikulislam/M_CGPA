@@ -48,6 +48,7 @@ namespace M_CGPA
                 frm.Dock = DockStyle.Fill;
                 panelBody.Controls.Add(frm);
                 panelBody.Tag = frm;
+                frm.BackColor = panelBody.BackColor;
                 frm.Show();
             }
         }
@@ -60,11 +61,13 @@ namespace M_CGPA
                 if (control is Button)
                 {
                     control.BackColor = Color.Transparent;
+                    control.ForeColor = Color.White;
                 }
             }
 
             var activeBtn = activeButton as Button;
-            if (activeBtn != null) activeBtn.BackColor = Color.FromArgb(33, 31, 46);
+            if (activeBtn != null) activeBtn.BackColor = Color.FromArgb(153, 180, 209);
+            if (activeBtn != null) activeBtn.ForeColor = Color.Black;
         }
 
         private void labelClose_Click(object sender, EventArgs e)

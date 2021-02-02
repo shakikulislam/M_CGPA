@@ -49,7 +49,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(7)))), ((int)(((byte)(21)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.button5);
             this.panelMenu.Controls.Add(this.button4);
@@ -71,11 +71,11 @@
             this.buttonSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSetting.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonSetting.FlatAppearance.BorderSize = 0;
-            this.buttonSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.buttonSetting.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.buttonSetting.ForeColor = System.Drawing.Color.White;
             this.buttonSetting.Location = new System.Drawing.Point(0, 324);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Size = new System.Drawing.Size(150, 34);
@@ -92,11 +92,11 @@
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
             this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Location = new System.Drawing.Point(0, 290);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 34);
@@ -112,11 +112,11 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(0, 256);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 34);
@@ -132,11 +132,11 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(0, 222);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 34);
@@ -152,11 +152,11 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(0, 188);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 34);
@@ -172,11 +172,11 @@
             this.buttonClass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClass.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonClass.FlatAppearance.BorderSize = 0;
-            this.buttonClass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.buttonClass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.buttonClass.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonClass.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.buttonClass.ForeColor = System.Drawing.Color.White;
             this.buttonClass.Location = new System.Drawing.Point(0, 154);
             this.buttonClass.Name = "buttonClass";
             this.buttonClass.Size = new System.Drawing.Size(150, 34);
@@ -193,11 +193,11 @@
             this.buttonStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonStudent.FlatAppearance.BorderSize = 0;
-            this.buttonStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.buttonStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.buttonStudent.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonStudent.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.buttonStudent.ForeColor = System.Drawing.Color.White;
             this.buttonStudent.Location = new System.Drawing.Point(0, 120);
             this.buttonStudent.Name = "buttonStudent";
             this.buttonStudent.Size = new System.Drawing.Size(150, 34);
@@ -209,7 +209,7 @@
             // 
             // panelUserPicture
             // 
-            this.panelUserPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(7)))), ((int)(((byte)(21)))));
+            this.panelUserPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panelUserPicture.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUserPicture.Location = new System.Drawing.Point(0, 0);
             this.panelUserPicture.Name = "panelUserPicture";
@@ -218,7 +218,7 @@
             // 
             // panelTitle
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(7)))), ((int)(((byte)(21)))));
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panelTitle.Controls.Add(this.labelHomeTitle);
             this.panelTitle.Controls.Add(this.labelMinimize);
             this.panelTitle.Controls.Add(this.labelMaximize);
@@ -254,7 +254,7 @@
             this.labelMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.labelMinimize.ForeColor = System.Drawing.Color.White;
             this.labelMinimize.Location = new System.Drawing.Point(675, 0);
             this.labelMinimize.Name = "labelMinimize";
             this.labelMinimize.Size = new System.Drawing.Size(21, 27);
@@ -271,7 +271,7 @@
             this.labelMaximize.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelMaximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.labelMaximize.ForeColor = System.Drawing.Color.White;
             this.labelMaximize.Location = new System.Drawing.Point(696, 0);
             this.labelMaximize.Name = "labelMaximize";
             this.labelMaximize.Size = new System.Drawing.Size(26, 27);
@@ -288,7 +288,7 @@
             this.labelClose.Cursor = System.Windows.Forms.Cursors.Default;
             this.labelClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.labelClose.ForeColor = System.Drawing.Color.White;
             this.labelClose.Location = new System.Drawing.Point(722, 0);
             this.labelClose.Name = "labelClose";
             this.labelClose.Size = new System.Drawing.Size(28, 27);
@@ -299,7 +299,7 @@
             // 
             // panelBody
             // 
-            this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.panelBody.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 30);
             this.panelBody.Name = "panelBody";

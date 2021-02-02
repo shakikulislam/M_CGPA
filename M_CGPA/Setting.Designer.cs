@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.labelLanguage = new System.Windows.Forms.Label();
             this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
             this.languageMBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,15 +66,6 @@
             this.buttonAdd.TabIndex = 11;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 480);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(624, 10);
-            this.panel1.TabIndex = 7;
             // 
             // labelLanguage
             // 
@@ -148,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(624, 490);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.comboBoxLanguage);
@@ -156,8 +146,7 @@
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonChangeLanguage);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(67)))), ((int)(((byte)(86)))));
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Setting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -173,7 +162,6 @@
 
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelLanguage;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Button buttonChangeLanguage;

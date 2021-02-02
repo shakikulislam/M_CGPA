@@ -13,7 +13,6 @@ namespace M_CGPA
 
         public void Connection()
         {
-            SqlConnection.Close();
             SqlConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS; AttachDbFileName=" + _databaseLink + "; Integrated Security=True;Connect Timeout=30;User Instance=True");
             SqlConnection.Open();
         }

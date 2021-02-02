@@ -1,6 +1,6 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Net.Configuration;
 using M_CGPA.Model;
 
 namespace M_CGPA.DAL
@@ -32,8 +32,20 @@ namespace M_CGPA.DAL
             _sqlCommand.CommandText = "SELECT *FROM Class WHERE Name='" + classM.Name + "'";
             _sqlDataReader = _sqlCommand.ExecuteReader();
 
-            return _sqlDataReader.Read() ? true : false;
+            return _sqlDataReader.Read();
 
+        }
+
+        public object GetAllClass()
+        {
+            _connectionString.Connection();
+            _sqlCommand.Connection = _connectionString.SqlConnection;
+
+            _sqlCommand.CommandText = "SELECT *FROM Class";
+            _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
+            _sqlDataAdapter.Fill(_dataSet);
+
+            return _dataSet.Tables[0];
         }
     }
 }

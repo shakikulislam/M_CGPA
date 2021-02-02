@@ -23,7 +23,11 @@ namespace M_CGPA.BLL
             var isSaved=_classDal.AddClass(classM);
             return isSaved;
             
+        }
 
+        public object GetAllClass()
+        {
+            return _classDal.GetAllClass();
         }
 
     }

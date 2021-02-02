@@ -22,6 +22,8 @@ namespace M_CGPA
             SelectLanguage();
 
             LoadLanguage();
+
+            AllClass();
         }
 
         private void SelectLanguage()
@@ -77,6 +79,15 @@ namespace M_CGPA
             }
         }
 
+        private void AllClass()
+        {
+            dataGridViewListOfClass.DataSource = _classBll.GetAllClass();
+        }
+
+        private void dataGridViewListOfClass_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewListOfClass.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
 
     }
 }
