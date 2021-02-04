@@ -9,7 +9,8 @@ namespace M_CGPA
     {
         public string Server = Environment.MachineName;
         //private readonly string _databaseLink = Settings.Default.DatabaseLink;
-        private readonly string _databaseLink = @"D:\Shakikul Islam\Create\dbfile\M_CGPA\m_cgpa.mdf";
+        private readonly string _databaseLink = @"E:\dbfile\M_CGPA\m_cgpa.mdf";
+        //private readonly string _databaseLink = @"D:\Shakikul Islam\Create\dbfile\M_CGPA\m_cgpa.mdf";
         public SqlConnection SqlConnection = new SqlConnection();
 
         public void Connection()
