@@ -10,7 +10,7 @@ namespace M_CGPA.DAL
         readonly ConnectionString _connectionString = new ConnectionString();
         private readonly SqlCommand _sqlCommand = new SqlCommand();
         private SqlDataAdapter _sqlDataAdapter;
-        readonly DataSet _dataSet = new DataSet();
+        DataSet _dataSet;
         private SqlDataReader _sqlDataReader;
 
         public bool AddClass(ClassM classM)
@@ -43,6 +43,7 @@ namespace M_CGPA.DAL
 
             _sqlCommand.CommandText = "SELECT *FROM Class";
             _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
+            _dataSet=new DataSet();
             _sqlDataAdapter.Fill(_dataSet);
 
             return _dataSet.Tables[0];

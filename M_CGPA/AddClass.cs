@@ -64,6 +64,7 @@ namespace M_CGPA
                     var isSaved=_classBll.AddClass(_classM);
                     if (isSaved)
                     {
+                        textBoxClassName.Clear();
                         AllClass();
                         MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage,"",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
