@@ -123,8 +123,10 @@
             // 
             this.dataGridViewListOfClass.AllowUserToAddRows = false;
             this.dataGridViewListOfClass.AllowUserToDeleteRows = false;
+            this.dataGridViewListOfClass.AllowUserToResizeRows = false;
             this.dataGridViewListOfClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dataGridViewListOfClass.AutoGenerateColumns = false;
+            this.dataGridViewListOfClass.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewListOfClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListOfClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

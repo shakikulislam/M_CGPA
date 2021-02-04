@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using M_CGPA.Properties;
 
@@ -13,6 +14,10 @@ namespace M_CGPA
 
         public void Connection()
         {
+            if (SqlConnection.State==ConnectionState.Open)
+            {
+                SqlConnection.Close();
+            }
             SqlConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS; AttachDbFileName=" + _databaseLink + "; Integrated Security=True;Connect Timeout=30;User Instance=True");
             SqlConnection.Open();
         }
