@@ -8,19 +8,12 @@
             Pro.Language = "English";
             Pro.Font = "Segoe UI";
 
-            #region Menubar Items Name
+            #region Button
 
-            Pro.MenuFile = "File";
-            Pro.MenuFileExit = "Exit";
-            Pro.MenuInsert = "Insert";
-            Pro.MenuInsertStudent = "Student";
-            Pro.MenuInsertClass = "Class";
-            Pro.MenuInsertMark = "Mark";
-            Pro.MenuReport = "Report";
-            Pro.MenuReportStudent = "Student";
-            Pro.MenuReportResult = "Result";
-            Pro.MenuSetting = "Setting";
-            Pro.MenuHelp = "Help";
+            Pro.BtnClear = "Clear";
+            Pro.BtnAdd = "Add";
+            Pro.BtnUpdate = "Update";
+            Pro.BtnDelete = "Delete";
 
             #endregion
 
@@ -43,8 +36,6 @@
             Pro.BRN = "Birth Registration No";
             Pro.PresentAddress = "Present Address";
             Pro.PermanenetAddress = "Permanent Address";
-            Pro.BtnClear = "Clear";
-            Pro.BtnAdd = "Add";
             Pro.Setting = "Setting";
             Pro.TitleClass = "Add Class";
             Pro.ClassName = "Class Name";
@@ -53,9 +44,14 @@
 
             #region Message
 
+            Pro.MessageTitle = "Message";
             Pro.SaveSuccessMessage = "Successfully saved...";
-            Pro.SaveErrorMessage = "Failed, please try again...";
+            Pro.UpdateSuccessMessage = "Updated successfully...";
+            Pro.DeleteSuccessMessage = "Deleted successfully.";
+            Pro.ErrorMessage = "Failed, please try again...";
             Pro.ClassAlreadyExist = "This class already exists...";
+            Pro.BlankFiled = "Please fill out this form and try again.";
+            Pro.DeleteConfirmation = "Are you sure, want to delete it?";
 
             #endregion
 

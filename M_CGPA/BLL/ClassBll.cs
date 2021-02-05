@@ -22,7 +22,6 @@ namespace M_CGPA.BLL
 
             var isSaved=_classDal.AddClass(classM);
             return isSaved;
-            
         }
 
         public object GetAllClass()
@@ -30,5 +29,22 @@ namespace M_CGPA.BLL
             return _classDal.GetAllClass();
         }
 
+        public bool UpdateClass(ClassM classM)
+        {
+            _language.UserLanguage();
+
+            var isClassExist = _classDal.GetClass(classM);
+            if (isClassExist)
+            {
+                throw new Exception(_language.Language.ClassAlreadyExist);
+            }
+
+            return _classDal.UpdateClass(classM);
+        }
+
+        public bool DeleteClass(ClassM classM)
+        {
+            return _classDal.DeleteClass(classM);
+        }
     }
 }

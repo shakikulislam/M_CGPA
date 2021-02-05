@@ -1,4 +1,5 @@
 ﻿
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.AccessControl;
 
 namespace M_CGPA.Language
@@ -8,18 +9,11 @@ namespace M_CGPA.Language
         public string Language { get; set; }
         public string Font { get; set; }
 
-        #region Menubar Items Name
-        public string MenuFile { get; set; }
-        public string MenuFileExit { get; set; }
-        public string MenuInsert { get; set; }
-        public string MenuInsertStudent { get; set; }
-        public string MenuInsertClass { get; set; }
-        public string MenuInsertMark { get; set; }
-        public string MenuReport { get; set; }
-        public string MenuReportStudent { get; set; }
-        public string MenuReportResult { get; set; }
-        public string MenuSetting { get; set; }
-        public string MenuHelp { get; set; }
+        #region Button
+        public string BtnClear { get; set; }
+        public string BtnAdd { get; set; }
+        public string BtnUpdate { get; set; }
+        public string BtnDelete { get; set; }
         #endregion
 
         #region All Field Name
@@ -41,8 +35,6 @@ namespace M_CGPA.Language
         public string BRN { get; set; }
         public string PresentAddress { get; set; }
         public string PermanenetAddress { get; set; }
-        public string BtnClear { get; set; }
-        public string BtnAdd { get; set; }
         public string Setting { get; set; }
         public string TitleClass { get; set; }
         public string ClassName { get; set; }
@@ -51,10 +43,14 @@ namespace M_CGPA.Language
 
         #region Message
 
+        public string MessageTitle { get; set; }
         public string SaveSuccessMessage { get; set; }
-        public string SaveErrorMessage { get; set; }
+        public string UpdateSuccessMessage { get; set; }
+        public string DeleteSuccessMessage { get; set; }
+        public string ErrorMessage { get; set; }
         public string ClassAlreadyExist { get; set; }
-
+        public string BlankFiled { get; set; }
+        public string DeleteConfirmation { get; set; }
         #endregion
     }
 }

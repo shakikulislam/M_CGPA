@@ -8,19 +8,12 @@
             Pro.Language = "Bengali";
             Pro.Font = "SutonnyMJ";
 
-            #region Menubar Items Name
+            #region Button
 
-            Pro.MenuFile = "ফাইল";
-            Pro.MenuFileExit = "প্রস্থান";
-            Pro.MenuInsert = "যুক্ত করুন";
-            Pro.MenuInsertStudent = "শিক্ষার্থী";
-            Pro.MenuInsertClass = "শ্রেণী";
-            Pro.MenuInsertMark = "প্রাপ্ত নম্বর";
-            Pro.MenuReport = "রিপোর্ট";
-            Pro.MenuReportStudent = "শিক্ষার্থী";
-            Pro.MenuReportResult = "ফলাফল";
-            Pro.MenuSetting = "সেটিংস";
-            Pro.MenuHelp = "সাহায্য";
+            Pro.BtnClear = "পরিষ্কার করুন";
+            Pro.BtnAdd = "যুক্ত করুন";
+            Pro.BtnUpdate = "হালনাগাদ";
+            Pro.BtnDelete = "এটি মুছুন";
 
             #endregion
 
@@ -43,8 +36,6 @@
             Pro.BRN = "জন্ম নিবন্ধন নং";
             Pro.PresentAddress = "বর্তমান ঠিকানা";
             Pro.PermanenetAddress = "স্থায়ী ঠিকানা";
-            Pro.BtnClear = "পরিষ্কার করুন";
-            Pro.BtnAdd = "যুক্ত করুন";
             Pro.Setting = "সেটিংস";
             Pro.TitleClass = "ক্লাস যুক্ত করুন";
             Pro.ClassName = "শ্রেণির নাম";
@@ -53,9 +44,14 @@
 
             #region Message
 
+            Pro.MessageTitle = "বার্তা";
             Pro.SaveSuccessMessage = "সফলভাবে সংরক্ষণ করা হয়েছে...";
-            Pro.SaveErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";
+            Pro.ErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";
+            Pro.UpdateSuccessMessage = "সফলভাবে হালনাগাদ হয়েছে...";
+            Pro.DeleteSuccessMessage = "সফলভাবে মোছা হয়েছে।";
             Pro.ClassAlreadyExist = "এই শ্রেণিটি ইতিমধ্যে বিদ্যমান...";
+            Pro.BlankFiled = "দয়া করে এই ফর্মটি পূরণ করুন এবং আবার চেষ্টা করুন।";
+            Pro.DeleteConfirmation = "আপনি কি নিশ্চিত, এটি মুছতে চান?";
 
             #endregion
         }
