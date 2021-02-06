@@ -73,6 +73,12 @@
     </Compile>
     <Compile Include="BLL\ClassBll.cs" />
     <Compile Include="BLL\LanguageBll.cs" />
+    <Compile Include="Common\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\ClassDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
     <Compile Include="AddStudent.cs">
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>

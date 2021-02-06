@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using M_CGPA.BLL;
+using M_CGPA.Common;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
@@ -14,7 +15,7 @@ namespace M_CGPA
         readonly ClassBll _classBll=new ClassBll();
         readonly ClassM _classM=new ClassM();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
-
+        CustomMessageBox customMessageBox=new CustomMessageBox();
         
         public AddClass()
         {
@@ -149,21 +150,21 @@ namespace M_CGPA
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(_selectLanguage.Language.DeleteConfirmation,_selectLanguage.Language.MessageTitle,new MessageBoxButtons(),MessageBoxIcon.Information)==DialogResult.Yes)
-            {
-                var isDelete = _classBll.DeleteClass(_classM);
-                if (isDelete)
-                {
-                    AllClass();
-                    MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    textBoxClassName.Clear();
-                    buttonUpdate.Visible = false;
-                    buttonDelete.Visible = false;
-                    buttonAdd.Visible = true;
-                }
-            }
-            
+            //if (MessageBox.Show(_selectLanguage.Language.DeleteConfirmation,_selectLanguage.Language.MessageTitle,new MessageBoxButtons(),MessageBoxIcon.Information)==DialogResult.Yes)
+            //{
+            //    var isDelete = _classBll.DeleteClass(_classM);
+            //    if (isDelete)
+            //    {
+            //        AllClass();
+            //        MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //        textBoxClassName.Clear();
+            //        buttonUpdate.Visible = false;
+            //        buttonDelete.Visible = false;
+            //        buttonAdd.Visible = true;
+            //    }
+            //}
+
         }
 
 
