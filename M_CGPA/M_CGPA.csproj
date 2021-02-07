@@ -71,14 +71,22 @@
     <Compile Include="AddClass.Designer.cs">
       <DependentUpon>AddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\BookBll.cs" />
     <Compile Include="BLL\ClassBll.cs" />
     <Compile Include="BLL\LanguageBll.cs" />
+    <Compile Include="Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Book.Designer.cs">
+      <DependentUpon>Book.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Common\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\BookDal.cs" />
     <Compile Include="DAL\ClassDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
     <Compile Include="AddStudent.cs">
@@ -90,6 +98,7 @@
     <Compile Include="Language\Font\SetGroupBoxLabelFont.cs" />
     <Compile Include="Language\Font\SetPanelButtonFont.cs" />
     <Compile Include="Language\Font\SetPanelLabelFont.cs" />
+    <Compile Include="Model\BookM.cs" />
     <Compile Include="Model\ClassM.cs" />
     <Compile Include="Setting.cs">
       <SubType>Form</SubType>
@@ -124,6 +133,9 @@
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Book.resx">
+      <DependentUpon>Book.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Common\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +157,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\M_CGPA.Model.BookM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.ClassM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.LanguageM.datasource" />
     <None Include="Properties\Settings.settings">

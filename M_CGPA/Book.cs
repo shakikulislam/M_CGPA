@@ -2,31 +2,26 @@
 using System.Drawing;
 using System.Windows.Forms;
 using M_CGPA.BLL;
-using M_CGPA.Common;
 using M_CGPA.Language;
-using M_CGPA.Language.Font;
 using M_CGPA.Model;
-using M_CGPA.Properties;
 
 namespace M_CGPA
 {
-    public partial class AddClass : Form
+    public partial class Book : Form
     {
-        readonly ClassBll _classBll=new ClassBll();
-        readonly ClassM _classM=new ClassM();
-        readonly SelectLanguage _selectLanguage=new SelectLanguage();
-        CustomMessageBox customMessageBox=new CustomMessageBox();
-        
-        public AddClass()
+        readonly BookBll _bookBll=new BookBll();
+        readonly BookM _bookM=new BookM();
+        readonly SelectLanguage _selectLanguage = new SelectLanguage();
+        public Book()
         {
             InitializeComponent();
-
+            
             SelectLanguage();
 
             LoadLanguage();
-
-            AllClass();
+            GetAll();
         }
+
 
         private void SelectLanguage()
         {
@@ -34,8 +29,8 @@ namespace M_CGPA
 
             if (_selectLanguage.Language.Language == "Bengali")
             {
-                new SetPanelLabelFont(panelAddClass, panelTitlebar);
-                new SetPanelButtonFont(panelAddClass);
+                //new SetPanelLabelFont(panelAddClass, panelTitlebar);
+                //new SetPanelButtonFont(panelAddClass);
 
 
                 foreach (Control control in Controls)
@@ -52,49 +47,37 @@ namespace M_CGPA
         {
             _selectLanguage.UserLanguage();
 
-            labelTitle.Text = _selectLanguage.Language.TitleClass;
+            labelTitle.Text = _selectLanguage.Language.Book;
             labelClassName.Text = _selectLanguage.Language.ClassName;
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
         }
-        
-        private void AllClass()
-        {
-            bDataGridClassList.DataSource = _classBll.GetAllClass();
-        }
-        
-        private void bunifuCustomDataGrid1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            bDataGridClassList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-        }
-        
-        private void bDataGridClassList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _classM.Id = (int) bDataGridClassList.Rows[e.RowIndex].Cells[1].Value;
-            _classM.Name = bDataGridClassList.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBoxClassName.Text = _classM.Name;
 
-            buttonAdd.Visible = false;
-            buttonUpdate.Visible = true;
-            buttonDelete.Visible = true;
-
-            textBoxClassName.Focus();
+        private void GetAll()
+        {
+            bDataGridBookList.DataSource = _bookBll.GetAll();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void bDataGridBookList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var className = textBoxClassName.Text.Trim();
+            bDataGridBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void buttonAdd_Click(object sender, System.EventArgs e)
+        {
+            _bookM.Code = textBoxBookCode.Text.Trim();
+            _bookM.Name = textBoxBookName.Text;
             try
             {
-                if (className != "")
+                if (_bookM.Code != "" && _bookM.Name != "")
                 {
-                    _classM.Name = className;
-                    var isSaved = _classBll.AddClass(_classM);
+                    var isSaved = _bookBll.Insert(_bookM);
                     if (isSaved)
                     {
-                        textBoxClassName.Clear();
-                        AllClass();
+                        textBoxBookCode.Clear();
+                        textBoxBookName.Clear();
+                        GetAll();
                         MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -114,19 +97,40 @@ namespace M_CGPA
             }
         }
 
+        private void bDataGridBookList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _bookM.Id = (int)bDataGridBookList.Rows[e.RowIndex].Cells[1].Value;
+            _bookM.Code = bDataGridBookList.Rows[e.RowIndex].Cells[2].Value.ToString();
+            _bookM.Name = bDataGridBookList.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+            textBoxBookCode.Text = _bookM.Code;
+            textBoxBookName.Text = _bookM.Name;
+
+            buttonAdd.Visible = false;
+            buttonUpdate.Visible = true;
+            buttonDelete.Visible = true;
+
+            textBoxBookName.Focus();
+        }
+
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (textBoxClassName.Text != "")
+                if (textBoxBookCode.Text != "" && textBoxBookName.Text!="")
                 {
-                    _classM.Name = textBoxClassName.Text.Trim();
-                    var isUpdate = _classBll.UpdateClass(_classM);
+                    _bookM.Code = textBoxBookCode.Text.Trim();
+                    _bookM.Name = textBoxBookName.Text;
+                    
+                    var isUpdate = _bookBll.Update(_bookM);
                     if (isUpdate)
                     {
-                        AllClass();
+                        GetAll();
                         MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        textBoxClassName.Clear();
+                        
+                        textBoxBookCode.Clear();
+                        textBoxBookName.Clear();
+
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
                         buttonAdd.Visible = true;
@@ -150,25 +154,23 @@ namespace M_CGPA
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            //customMessageBox.Show("titless","tt",CustomMessageBox.Buttons.YesNoCancel);
-            //customMessageBox.ShowDialog();
             if (MessageBox.Show(_selectLanguage.Language.DeleteConfirmation, _selectLanguage.Language.MessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                var isDelete = _classBll.DeleteClass(_classM);
+                var isDelete = _bookBll.Delete(_bookM);
                 if (isDelete)
                 {
-                    AllClass();
+                    GetAll();
                     MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    textBoxClassName.Clear();
+                    textBoxBookCode.Clear();
+                    textBoxBookName.Clear();
+
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
                     buttonAdd.Visible = true;
                 }
             }
-
         }
-
 
     }
 }

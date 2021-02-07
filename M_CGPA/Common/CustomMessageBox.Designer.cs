@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bunifuCardsTitle = new Bunifu.Framework.UI.BunifuCards();
+            this.labelMessageTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.buttonYes = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.labelMessageTitle = new System.Windows.Forms.Label();
             this.bunifuDragControlMain = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControlMessage = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControlIcon = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -64,6 +64,19 @@
             this.bunifuCardsTitle.ShadowDepth = 20;
             this.bunifuCardsTitle.Size = new System.Drawing.Size(389, 40);
             this.bunifuCardsTitle.TabIndex = 0;
+            // 
+            // labelMessageTitle
+            // 
+            this.labelMessageTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelMessageTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelMessageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessageTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelMessageTitle.Location = new System.Drawing.Point(0, 0);
+            this.labelMessageTitle.Name = "labelMessageTitle";
+            this.labelMessageTitle.Size = new System.Drawing.Size(389, 40);
+            this.labelMessageTitle.TabIndex = 1;
+            this.labelMessageTitle.Text = "label1";
+            this.labelMessageTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelMessage
             // 
@@ -122,24 +135,11 @@
             this.buttonCancel.Location = new System.Drawing.Point(143, 0);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(74, 31);
-            this.buttonCancel.TabIndex = 15;
+            this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // labelMessageTitle
-            // 
-            this.labelMessageTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelMessageTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMessageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessageTitle.ForeColor = System.Drawing.Color.Black;
-            this.labelMessageTitle.Location = new System.Drawing.Point(0, 0);
-            this.labelMessageTitle.Name = "labelMessageTitle";
-            this.labelMessageTitle.Size = new System.Drawing.Size(389, 40);
-            this.labelMessageTitle.TabIndex = 1;
-            this.labelMessageTitle.Text = "label1";
-            this.labelMessageTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // bunifuDragControlMain
             // 

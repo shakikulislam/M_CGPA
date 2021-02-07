@@ -39,6 +39,7 @@
             Pro.Setting = "Setting";
             Pro.TitleClass = "Add Class";
             Pro.ClassName = "Class Name";
+            Pro.Book = "Book";
 
             #endregion
 
@@ -52,6 +53,7 @@
             Pro.ClassAlreadyExist = "This class already exists...";
             Pro.BlankFiled = "Please fill out this form and try again.";
             Pro.DeleteConfirmation = "Are you sure, want to delete it?";
+            Pro.BookAlreadyExist = "This book already exists...";
 
             #endregion
 

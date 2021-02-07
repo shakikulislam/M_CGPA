@@ -20,18 +20,31 @@ namespace M_CGPA.Common
             Information = 0, Error = 1, Question = 2, Stop = 3, Warning=4
         }
 
-        public CustomMessageBox(string message)
+        public void Show(string message)
+        {
+            labelMessageTitle.Text = "";
+            labelMessage.Text = "";
+            labelMessage.Text = message;
+            buttonOk.Visible = true;
+        }
+
+        public void Show(string message, string title)
         {
             labelMessage.Text = "";
             labelMessage.Text = message;
-        }
-        public CustomMessageBox(string message, string title):this(message)
-        {
             labelMessageTitle.Text = "";
             labelMessageTitle.Text = title;
+            buttonOk.Visible = true;
         }
-        public CustomMessageBox(string message, string title, Buttons button):this(message,title)
+
+        public void Show(string message, string title, Buttons button)       
         {
+
+            labelMessage.Text = "";
+            labelMessage.Text = message;
+            labelMessageTitle.Text = "";
+            labelMessageTitle.Text = title;
+
             if (Buttons.Ok==button)
             {
                 buttonOk.Visible = true;
@@ -48,8 +61,6 @@ namespace M_CGPA.Common
                 buttonCancel.Visible = true;
             }
         }
-
-
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {

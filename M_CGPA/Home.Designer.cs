@@ -33,7 +33,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonBook = new System.Windows.Forms.Button();
             this.buttonClass = new System.Windows.Forms.Button();
             this.buttonStudent = new System.Windows.Forms.Button();
             this.panelUserPicture = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
             this.panelMenu.Controls.Add(this.button5);
             this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.button3);
-            this.panelMenu.Controls.Add(this.button2);
+            this.panelMenu.Controls.Add(this.buttonBook);
             this.panelMenu.Controls.Add(this.buttonClass);
             this.panelMenu.Controls.Add(this.buttonStudent);
             this.panelMenu.Controls.Add(this.panelUserPicture);
@@ -145,25 +145,26 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // buttonBook
             // 
-            this.button2.AutoSize = true;
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 188);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 34);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Button2";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonBook.AutoSize = true;
+            this.buttonBook.BackColor = System.Drawing.Color.Transparent;
+            this.buttonBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBook.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonBook.FlatAppearance.BorderSize = 0;
+            this.buttonBook.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonBook.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBook.ForeColor = System.Drawing.Color.White;
+            this.buttonBook.Location = new System.Drawing.Point(0, 188);
+            this.buttonBook.Name = "buttonBook";
+            this.buttonBook.Size = new System.Drawing.Size(150, 34);
+            this.buttonBook.TabIndex = 7;
+            this.buttonBook.Text = "Book";
+            this.buttonBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBook.UseVisualStyleBackColor = false;
+            this.buttonBook.Click += new System.EventHandler(this.buttonBook_Click);
             // 
             // buttonClass
             // 
@@ -339,7 +340,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonBook;
         private System.Windows.Forms.Button buttonClass;
         private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.Label labelMaximize;

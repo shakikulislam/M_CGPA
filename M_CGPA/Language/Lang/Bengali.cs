@@ -52,6 +52,7 @@
             Pro.ClassAlreadyExist = "এই শ্রেণিটি ইতিমধ্যে বিদ্যমান...";
             Pro.BlankFiled = "দয়া করে এই ফর্মটি পূরণ করুন এবং আবার চেষ্টা করুন।";
             Pro.DeleteConfirmation = "আপনি কি নিশ্চিত, এটি মুছতে চান?";
+            Pro.BookAlreadyExist = "এই বইটি ইতিমধ্যে বিদ্যমান...";
 
             #endregion
         }

@@ -38,6 +38,7 @@ namespace M_CGPA.Language
         public string Setting { get; set; }
         public string TitleClass { get; set; }
         public string ClassName { get; set; }
+        public string Book { get; set; }
 
         #endregion
 
@@ -51,6 +52,7 @@ namespace M_CGPA.Language
         public string ClassAlreadyExist { get; set; }
         public string BlankFiled { get; set; }
         public string DeleteConfirmation { get; set; }
+        public string BookAlreadyExist { get; set; }
         #endregion
     }
 }

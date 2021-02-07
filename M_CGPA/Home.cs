@@ -126,6 +126,12 @@ namespace M_CGPA
 
         }
 
+        private void buttonBook_Click(object sender, EventArgs e)
+        {
+            MenuButtonsBackcolor(buttonBook);
+            ShowForm(new Book());
+        }
+
 
 
     }
