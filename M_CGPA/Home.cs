@@ -18,7 +18,7 @@ namespace M_CGPA
 
             LoadLanguage();
 
-
+            timerClock.Start();
             //Bengali bengali=new Bengali();
             //bengali.Lang();
 
@@ -136,6 +136,13 @@ namespace M_CGPA
         {
             MenuButtonsBackcolor(buttonSyllabus);
             ShowForm(new Syllabus());
+        }
+
+        private void timerClock_Tick(object sender, EventArgs e)
+        {
+            labelTime.Text = DateTime.Now.ToLongTimeString();
+            labelDate.Text = DateTime.Now.ToShortDateString();
+
         }
 
 

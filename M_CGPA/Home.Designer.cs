@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -43,6 +44,9 @@
             this.labelMaximize = new System.Windows.Forms.Label();
             this.labelClose = new System.Windows.Forms.Label();
             this.panelBody = new System.Windows.Forms.Panel();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.timerClock = new System.Windows.Forms.Timer(this.components);
+            this.labelTime = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +54,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panelMenu.Controls.Add(this.labelTime);
+            this.panelMenu.Controls.Add(this.labelDate);
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.button5);
             this.panelMenu.Controls.Add(this.button4);
@@ -308,6 +314,35 @@
             this.panelBody.Size = new System.Drawing.Size(750, 510);
             this.panelBody.TabIndex = 6;
             // 
+            // labelDate
+            // 
+            this.labelDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelDate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.ForeColor = System.Drawing.Color.White;
+            this.labelDate.Location = new System.Drawing.Point(0, 516);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(150, 24);
+            this.labelDate.TabIndex = 8;
+            this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timerClock
+            // 
+            this.timerClock.Interval = 1000;
+            this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
+            // 
+            // labelTime
+            // 
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.Yellow;
+            this.labelTime.Location = new System.Drawing.Point(0, 492);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(150, 24);
+            this.labelTime.TabIndex = 9;
+            this.labelTime.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +382,8 @@
         private System.Windows.Forms.Label labelMaximize;
         private System.Windows.Forms.Label labelMinimize;
         private System.Windows.Forms.Label labelHomeTitle;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Timer timerClock;
+        private System.Windows.Forms.Label labelTime;
     }
 }
