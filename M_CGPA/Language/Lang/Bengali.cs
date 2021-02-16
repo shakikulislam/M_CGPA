@@ -14,6 +14,7 @@
             Pro.BtnAdd = "যুক্ত করুন";
             Pro.BtnUpdate = "হালনাগাদ";
             Pro.BtnDelete = "এটি মুছুন";
+            Pro.BtnCancel = "বাতিল";
 
             #endregion
 
@@ -39,6 +40,11 @@
             Pro.Setting = "সেটিংস";
             Pro.TitleClass = "ক্লাস যুক্ত করুন";
             Pro.ClassName = "শ্রেণির নাম";
+            Pro.TitleBook = "বই যুক্ত করুন";
+            Pro.BookCode = "বইয়ের কোড";
+            Pro.BookName = "বইয়ের নাম";
+            Pro.Year = "বছর";
+            Pro.TitleSyllabus = "পাঠ্যক্রম যুক্ত করুন";
 
             #endregion
 

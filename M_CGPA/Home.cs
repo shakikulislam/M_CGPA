@@ -132,6 +132,12 @@ namespace M_CGPA
             ShowForm(new Book());
         }
 
+        private void buttonSyllabus_Click(object sender, EventArgs e)
+        {
+            MenuButtonsBackcolor(buttonSyllabus);
+            ShowForm(new Syllabus());
+        }
+
 
 
     }

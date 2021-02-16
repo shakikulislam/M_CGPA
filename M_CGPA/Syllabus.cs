@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
@@ -8,18 +10,24 @@ using M_CGPA.Model;
 
 namespace M_CGPA
 {
-    public partial class Book : Form
+    public partial class Syllabus : Form
     {
-        readonly BookBll _bookBll=new BookBll();
-        readonly BookM _bookM=new BookM();
+
+        readonly BookBll _bookBll = new BookBll();
+        readonly SyllabusBll _syllabusBll=new SyllabusBll();
+        readonly SyllabusM _syllabusM=new SyllabusM();
+        readonly ClassBll _classBll=new ClassBll();
         readonly SelectLanguage _selectLanguage = new SelectLanguage();
-        public Book()
+
+        public Syllabus()
         {
             InitializeComponent();
-            
-            SelectLanguage();
 
+            SelectLanguage();
             LoadLanguage();
+
+            comboBoxClass.DataSource = _classBll.GetAllClass();
+            comboBoxBook.DataSource = _bookBll.GetAll();
             GetAll();
         }
 
@@ -30,12 +38,9 @@ namespace M_CGPA
 
             if (_selectLanguage.Language.Language == "Bengali")
             {
-                //new SetPanelLabelFont(panelAddClass, panelTitlebar);
-                //new SetPanelButtonFont(panelAddClass);
-                new SetPanelLabelFont(panelForm);
+                new SetPanelLabelFont(panelForm,panelTitlebar);
                 new SetPanelButtonFont(panelForm);
-
-
+                
                 foreach (Control control in Controls)
                 {
                     if (control is Button)
@@ -50,37 +55,34 @@ namespace M_CGPA
         {
             _selectLanguage.UserLanguage();
 
-            labelTitle.Text = _selectLanguage.Language.TitleBook;
-            labelBookCode.Text = _selectLanguage.Language.BookCode;
-            labelBookName.Text = _selectLanguage.Language.BookName;
+            labelTitle.Text = _selectLanguage.Language.TitleSyllabus;
+            labelClass.Text = _selectLanguage.Language.ClassName;
+            labelBook.Text = _selectLanguage.Language.BookName;
+            labelYear.Text = _selectLanguage.Language.Year;
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
+            buttonCancel.Text = _selectLanguage.Language.BtnCancel;
         }
 
         private void GetAll()
         {
-            bDataGridBookList.DataSource = _bookBll.GetAll();
+            dataGridViewSyllabusList.DataSource = _syllabusBll.GetAllByJoin();
         }
-
-        private void bDataGridBookList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            bDataGridBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-        }
-
         private void buttonAdd_Click(object sender, System.EventArgs e)
         {
-            _bookM.Code = textBoxBookCode.Text.Trim();
-            _bookM.Name = textBoxBookName.Text;
+
             try
             {
-                if (_bookM.Code != "" && _bookM.Name != "")
+                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text != "")
                 {
-                    var isSaved = _bookBll.Insert(_bookM);
+                    _syllabusM.Year = textBoxYear.Text.Trim();
+                    _syllabusM.ClassId = (int)comboBoxClass.SelectedValue;
+                    _syllabusM.BookId = (int)comboBoxBook.SelectedValue;
+
+                    var isSaved = _syllabusBll.Insert(_syllabusM);
                     if (isSaved)
                     {
-                        textBoxBookCode.Clear();
-                        textBoxBookName.Clear();
                         GetAll();
                         MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -88,55 +90,78 @@ namespace M_CGPA
                     {
                         MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                     }
-
                 }
                 else
                 {
                     MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 }
+
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void bDataGridBookList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void dataGridViewSyllabusList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            _bookM.Id = (int)bDataGridBookList.Rows[e.RowIndex].Cells[1].Value;
-            _bookM.Code = bDataGridBookList.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _bookM.Name = bDataGridBookList.Rows[e.RowIndex].Cells[3].Value.ToString();
+            dataGridViewSyllabusList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
 
-            textBoxBookCode.Text = _bookM.Code;
-            textBoxBookName.Text = _bookM.Name;
+        private void dataGridViewSyllabusList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _syllabusM.Id = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells[1].Value;
+            _syllabusM.Year = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Year"].Value.ToString();
+            _syllabusM.ClassId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["ClassId"].Value;
+            _syllabusM.BookId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["BookId"].Value;
+            _syllabusM.Class = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Class"].Value.ToString();
+            _syllabusM.Book = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Book"].Value.ToString();
 
-            buttonAdd.Visible = false;
+            textBoxYear.Text = _syllabusM.Year;
+            comboBoxClass.SelectedValue = _syllabusM.ClassId;
+            comboBoxBook.SelectedValue = _syllabusM.BookId;
             buttonUpdate.Visible = true;
             buttonDelete.Visible = true;
+            buttonCancel.Visible = true;
+            buttonAdd.Visible = false;
+        }
 
-            textBoxBookName.Focus();
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            textBoxYear.Clear();
+            comboBoxClass.SelectedValue = 0;
+            comboBoxBook.SelectedValue = 0;
+
+            buttonUpdate.Visible = false;
+            buttonDelete.Visible = false;
+            buttonCancel.Visible = false;
+            buttonAdd.Visible = true;
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (textBoxBookCode.Text != "" && textBoxBookName.Text!="")
+
+                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text!="")
                 {
-                    _bookM.Code = textBoxBookCode.Text.Trim();
-                    _bookM.Name = textBoxBookName.Text;
+                    _syllabusM.Year = textBoxYear.Text.Trim();
+                    _syllabusM.ClassId = (int) comboBoxClass.SelectedValue;
+                    _syllabusM.BookId = (int) comboBoxBook.SelectedValue;
                     
-                    var isUpdate = _bookBll.Update(_bookM);
+                    var isUpdate = _syllabusBll.Update(_syllabusM);
                     if (isUpdate)
                     {
                         GetAll();
                         MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        textBoxBookCode.Clear();
-                        textBoxBookName.Clear();
+
+                        textBoxYear.Clear();
+                        comboBoxClass.SelectedValue = 0;
+                        comboBoxBook.SelectedValue = 0;
 
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
+                        buttonCancel.Visible = false;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -160,21 +185,24 @@ namespace M_CGPA
         {
             if (MessageBox.Show(_selectLanguage.Language.DeleteConfirmation, _selectLanguage.Language.MessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                var isDelete = _bookBll.Delete(_bookM);
+                var isDelete = _syllabusBll.Delete(_syllabusM);
                 if (isDelete)
                 {
                     GetAll();
                     MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    textBoxBookCode.Clear();
-                    textBoxBookName.Clear();
+                    textBoxYear.Clear();
+                    comboBoxClass.SelectedValue = 0;
+                    comboBoxBook.SelectedValue = 0;
 
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
+                    buttonCancel.Visible = false;
                     buttonAdd.Visible = true;
                 }
             }
         }
+
 
     }
 }

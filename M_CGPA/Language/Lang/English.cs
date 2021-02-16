@@ -14,6 +14,7 @@
             Pro.BtnAdd = "Add";
             Pro.BtnUpdate = "Update";
             Pro.BtnDelete = "Delete";
+            Pro.BtnCancel = "Cancel";
 
             #endregion
 
@@ -39,7 +40,11 @@
             Pro.Setting = "Setting";
             Pro.TitleClass = "Add Class";
             Pro.ClassName = "Class Name";
-            Pro.Book = "Book";
+            Pro.TitleBook = "Add Book";
+            Pro.BookCode = "Book Code";
+            Pro.BookName = "Book Name";
+            Pro.Year = "Year";
+            Pro.TitleSyllabus = "Add Syllabus";
 
             #endregion
 

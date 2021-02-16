@@ -1,0 +1,406 @@
+﻿namespace M_CGPA
+{
+    partial class Syllabus
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelTitlebar = new System.Windows.Forms.Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelYear = new System.Windows.Forms.Label();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.panelForm = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.comboBoxBook = new System.Windows.Forms.ComboBox();
+            this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelBook = new System.Windows.Forms.Label();
+            this.comboBoxClass = new System.Windows.Forms.ComboBox();
+            this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelClass = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewSyllabusList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Book = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTitlebar.SuspendLayout();
+            this.panelForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyllabusList)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelTitlebar
+            // 
+            this.panelTitlebar.BackColor = System.Drawing.Color.Black;
+            this.panelTitlebar.Controls.Add(this.labelTitle);
+            this.panelTitlebar.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitlebar.Location = new System.Drawing.Point(0, 0);
+            this.panelTitlebar.Name = "panelTitlebar";
+            this.panelTitlebar.Size = new System.Drawing.Size(790, 31);
+            this.panelTitlebar.TabIndex = 13;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(0, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(790, 31);
+            this.labelTitle.TabIndex = 2;
+            this.labelTitle.Text = "Syllabus";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelYear
+            // 
+            this.labelYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelYear.ForeColor = System.Drawing.Color.Black;
+            this.labelYear.Location = new System.Drawing.Point(-3, 11);
+            this.labelYear.Name = "labelYear";
+            this.labelYear.Size = new System.Drawing.Size(136, 20);
+            this.labelYear.TabIndex = 2;
+            this.labelYear.Text = "Year";
+            this.labelYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxYear.Location = new System.Drawing.Point(139, 8);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(189, 26);
+            this.textBoxYear.TabIndex = 3;
+            // 
+            // panelForm
+            // 
+            this.panelForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelForm.BackColor = System.Drawing.Color.Transparent;
+            this.panelForm.Controls.Add(this.buttonCancel);
+            this.panelForm.Controls.Add(this.comboBoxBook);
+            this.panelForm.Controls.Add(this.labelBook);
+            this.panelForm.Controls.Add(this.comboBoxClass);
+            this.panelForm.Controls.Add(this.labelClass);
+            this.panelForm.Controls.Add(this.buttonDelete);
+            this.panelForm.Controls.Add(this.buttonUpdate);
+            this.panelForm.Controls.Add(this.labelYear);
+            this.panelForm.Controls.Add(this.textBoxYear);
+            this.panelForm.Controls.Add(this.buttonAdd);
+            this.panelForm.Location = new System.Drawing.Point(159, 61);
+            this.panelForm.Name = "panelForm";
+            this.panelForm.Size = new System.Drawing.Size(473, 126);
+            this.panelForm.TabIndex = 14;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.Purple;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.White;
+            this.buttonCancel.Location = new System.Drawing.Point(334, 80);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(122, 31);
+            this.buttonCancel.TabIndex = 17;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // comboBoxBook
+            // 
+            this.comboBoxBook.DataSource = this.bookMBindingSource;
+            this.comboBoxBook.DisplayMember = "Name";
+            this.comboBoxBook.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBook.FormattingEnabled = true;
+            this.comboBoxBook.Location = new System.Drawing.Point(139, 82);
+            this.comboBoxBook.Name = "comboBoxBook";
+            this.comboBoxBook.Size = new System.Drawing.Size(189, 28);
+            this.comboBoxBook.TabIndex = 17;
+            this.comboBoxBook.ValueMember = "Id";
+            // 
+            // bookMBindingSource
+            // 
+            this.bookMBindingSource.DataSource = typeof(M_CGPA.Model.BookM);
+            // 
+            // labelBook
+            // 
+            this.labelBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBook.ForeColor = System.Drawing.Color.Black;
+            this.labelBook.Location = new System.Drawing.Point(-2, 85);
+            this.labelBook.Name = "labelBook";
+            this.labelBook.Size = new System.Drawing.Size(135, 20);
+            this.labelBook.TabIndex = 15;
+            this.labelBook.Text = "Book";
+            this.labelBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxClass
+            // 
+            this.comboBoxClass.DataSource = this.classMBindingSource;
+            this.comboBoxClass.DisplayMember = "Name";
+            this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxClass.FormattingEnabled = true;
+            this.comboBoxClass.Location = new System.Drawing.Point(139, 44);
+            this.comboBoxClass.Name = "comboBoxClass";
+            this.comboBoxClass.Size = new System.Drawing.Size(189, 28);
+            this.comboBoxClass.TabIndex = 17;
+            this.comboBoxClass.ValueMember = "Id";
+            // 
+            // classMBindingSource
+            // 
+            this.classMBindingSource.DataSource = typeof(M_CGPA.Model.ClassM);
+            // 
+            // labelClass
+            // 
+            this.labelClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClass.ForeColor = System.Drawing.Color.Black;
+            this.labelClass.Location = new System.Drawing.Point(-2, 47);
+            this.labelClass.Name = "labelClass";
+            this.labelClass.Size = new System.Drawing.Size(135, 20);
+            this.labelClass.TabIndex = 15;
+            this.labelClass.Text = "Class";
+            this.labelClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.BackColor = System.Drawing.Color.Red;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(334, 42);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(122, 31);
+            this.buttonDelete.TabIndex = 14;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Visible = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.BackColor = System.Drawing.Color.Green;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Location = new System.Drawing.Point(334, 5);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(122, 31);
+            this.buttonUpdate.TabIndex = 13;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Visible = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.BackColor = System.Drawing.Color.Navy;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(334, 79);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(122, 31);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // syllabusMBindingSource
+            // 
+            this.syllabusMBindingSource.DataSource = typeof(M_CGPA.Model.SyllabusM);
+            // 
+            // dataGridViewSyllabusList
+            // 
+            this.dataGridViewSyllabusList.AllowUserToAddRows = false;
+            this.dataGridViewSyllabusList.AllowUserToDeleteRows = false;
+            this.dataGridViewSyllabusList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridViewSyllabusList.AutoGenerateColumns = false;
+            this.dataGridViewSyllabusList.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSyllabusList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewSyllabusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSyllabusList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Id,
+            this.Year,
+            this.ClassId,
+            this.BookId,
+            this.Class,
+            this.Book});
+            this.dataGridViewSyllabusList.DataSource = this.syllabusMBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSyllabusList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewSyllabusList.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(161, 193);
+            this.dataGridViewSyllabusList.Name = "dataGridViewSyllabusList";
+            this.dataGridViewSyllabusList.ReadOnly = true;
+            this.dataGridViewSyllabusList.RowHeadersVisible = false;
+            this.dataGridViewSyllabusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(471, 135);
+            this.dataGridViewSyllabusList.TabIndex = 16;
+            this.dataGridViewSyllabusList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSyllabusList_CellDoubleClick);
+            this.dataGridViewSyllabusList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSyllabusList_RowPostPaint);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 5;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
+            // 
+            // ClassId
+            // 
+            this.ClassId.DataPropertyName = "ClassId";
+            this.ClassId.HeaderText = "ClassId";
+            this.ClassId.Name = "ClassId";
+            this.ClassId.ReadOnly = true;
+            this.ClassId.Visible = false;
+            // 
+            // BookId
+            // 
+            this.BookId.DataPropertyName = "BookId";
+            this.BookId.HeaderText = "BookId";
+            this.BookId.Name = "BookId";
+            this.BookId.ReadOnly = true;
+            this.BookId.Visible = false;
+            // 
+            // Class
+            // 
+            this.Class.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Class.DataPropertyName = "Class";
+            this.Class.HeaderText = "Class";
+            this.Class.Name = "Class";
+            this.Class.ReadOnly = true;
+            // 
+            // Book
+            // 
+            this.Book.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Book.DataPropertyName = "Book";
+            this.Book.HeaderText = "Book";
+            this.Book.Name = "Book";
+            this.Book.ReadOnly = true;
+            // 
+            // Syllabus
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(790, 353);
+            this.Controls.Add(this.dataGridViewSyllabusList);
+            this.Controls.Add(this.panelTitlebar);
+            this.Controls.Add(this.panelForm);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Syllabus";
+            this.Text = "Syllabus";
+            this.panelTitlebar.ResumeLayout(false);
+            this.panelForm.ResumeLayout(false);
+            this.panelForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyllabusList)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panelTitlebar;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelYear;
+        private System.Windows.Forms.TextBox textBoxYear;
+        private System.Windows.Forms.Panel panelForm;
+        private System.Windows.Forms.Label labelClass;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ComboBox comboBoxClass;
+        private System.Windows.Forms.BindingSource classMBindingSource;
+        private System.Windows.Forms.ComboBox comboBoxBook;
+        private System.Windows.Forms.Label labelBook;
+        private System.Windows.Forms.BindingSource bookMBindingSource;
+        private System.Windows.Forms.BindingSource syllabusMBindingSource;
+        private System.Windows.Forms.DataGridView dataGridViewSyllabusList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Year;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Book;
+        private System.Windows.Forms.Button buttonCancel;
+    }
+}

@@ -14,6 +14,7 @@ namespace M_CGPA.Language
         public string BtnAdd { get; set; }
         public string BtnUpdate { get; set; }
         public string BtnDelete { get; set; }
+        public string BtnCancel { get; set; }
         #endregion
 
         #region All Field Name
@@ -38,7 +39,11 @@ namespace M_CGPA.Language
         public string Setting { get; set; }
         public string TitleClass { get; set; }
         public string ClassName { get; set; }
-        public string Book { get; set; }
+        public string TitleBook { get; set; }
+        public string BookCode { get; set; }
+        public string BookName { get; set; }
+        public string Year { get; set; }
+        public string TitleSyllabus { get; set; }
 
         #endregion
 

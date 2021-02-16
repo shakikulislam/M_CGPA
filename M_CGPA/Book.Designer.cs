@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.labelClassName = new System.Windows.Forms.Label();
+            this.labelBookName = new System.Windows.Forms.Label();
             this.textBoxBookName = new System.Windows.Forms.TextBox();
-            this.panelAddClass = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelForm = new System.Windows.Forms.Panel();
+            this.labelBookCode = new System.Windows.Forms.Label();
             this.textBoxBookCode = new System.Windows.Forms.TextBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTitlebar.SuspendLayout();
-            this.panelAddClass.SuspendLayout();
+            this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bDataGridBookList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -79,17 +79,17 @@
             this.labelTitle.Text = "Book";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelClassName
+            // labelBookName
             // 
-            this.labelClassName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelClassName.AutoSize = true;
-            this.labelClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClassName.ForeColor = System.Drawing.Color.Black;
-            this.labelClassName.Location = new System.Drawing.Point(38, 68);
-            this.labelClassName.Name = "labelClassName";
-            this.labelClassName.Size = new System.Drawing.Size(92, 20);
-            this.labelClassName.TabIndex = 2;
-            this.labelClassName.Text = "Book Name";
+            this.labelBookName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBookName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBookName.ForeColor = System.Drawing.Color.Black;
+            this.labelBookName.Location = new System.Drawing.Point(-1, 68);
+            this.labelBookName.Name = "labelBookName";
+            this.labelBookName.Size = new System.Drawing.Size(136, 20);
+            this.labelBookName.TabIndex = 2;
+            this.labelBookName.Text = "Book Name";
+            this.labelBookName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxBookName
             // 
@@ -101,33 +101,33 @@
             this.textBoxBookName.Size = new System.Drawing.Size(189, 26);
             this.textBoxBookName.TabIndex = 3;
             // 
-            // panelAddClass
+            // panelForm
             // 
-            this.panelAddClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panelAddClass.BackColor = System.Drawing.Color.Transparent;
-            this.panelAddClass.Controls.Add(this.label1);
-            this.panelAddClass.Controls.Add(this.textBoxBookCode);
-            this.panelAddClass.Controls.Add(this.buttonDelete);
-            this.panelAddClass.Controls.Add(this.buttonUpdate);
-            this.panelAddClass.Controls.Add(this.labelClassName);
-            this.panelAddClass.Controls.Add(this.textBoxBookName);
-            this.panelAddClass.Controls.Add(this.buttonAdd);
-            this.panelAddClass.Location = new System.Drawing.Point(51, 57);
-            this.panelAddClass.Name = "panelAddClass";
-            this.panelAddClass.Size = new System.Drawing.Size(473, 119);
-            this.panelAddClass.TabIndex = 11;
+            this.panelForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelForm.BackColor = System.Drawing.Color.Transparent;
+            this.panelForm.Controls.Add(this.labelBookCode);
+            this.panelForm.Controls.Add(this.textBoxBookCode);
+            this.panelForm.Controls.Add(this.buttonDelete);
+            this.panelForm.Controls.Add(this.buttonUpdate);
+            this.panelForm.Controls.Add(this.labelBookName);
+            this.panelForm.Controls.Add(this.textBoxBookName);
+            this.panelForm.Controls.Add(this.buttonAdd);
+            this.panelForm.Location = new System.Drawing.Point(96, 57);
+            this.panelForm.Name = "panelForm";
+            this.panelForm.Size = new System.Drawing.Size(473, 119);
+            this.panelForm.TabIndex = 11;
             // 
-            // label1
+            // labelBookCode
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(38, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Book Code";
+            this.labelBookCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBookCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBookCode.ForeColor = System.Drawing.Color.Black;
+            this.labelBookCode.Location = new System.Drawing.Point(0, 26);
+            this.labelBookCode.Name = "labelBookCode";
+            this.labelBookCode.Size = new System.Drawing.Size(135, 20);
+            this.labelBookCode.TabIndex = 15;
+            this.labelBookCode.Text = "Book Code";
+            this.labelBookCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxBookCode
             // 
@@ -190,21 +190,21 @@
             // 
             this.bDataGridBookList.AllowUserToAddRows = false;
             this.bDataGridBookList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bDataGridBookList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bDataGridBookList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bDataGridBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.bDataGridBookList.AutoGenerateColumns = false;
             this.bDataGridBookList.BackgroundColor = System.Drawing.Color.White;
             this.bDataGridBookList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bDataGridBookList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bDataGridBookList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bDataGridBookList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bDataGridBookList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bDataGridBookList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
@@ -212,19 +212,19 @@
             this.codeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.bDataGridBookList.DataSource = this.bookMBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bDataGridBookList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bDataGridBookList.DefaultCellStyle = dataGridViewCellStyle3;
             this.bDataGridBookList.DoubleBuffered = true;
             this.bDataGridBookList.EnableHeadersVisualStyles = false;
             this.bDataGridBookList.HeaderBgColor = System.Drawing.Color.Navy;
             this.bDataGridBookList.HeaderForeColor = System.Drawing.Color.White;
-            this.bDataGridBookList.Location = new System.Drawing.Point(51, 182);
+            this.bDataGridBookList.Location = new System.Drawing.Point(96, 182);
             this.bDataGridBookList.Name = "bDataGridBookList";
             this.bDataGridBookList.ReadOnly = true;
             this.bDataGridBookList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -276,14 +276,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 440);
             this.Controls.Add(this.panelTitlebar);
-            this.Controls.Add(this.panelAddClass);
+            this.Controls.Add(this.panelForm);
             this.Controls.Add(this.bDataGridBookList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Book";
             this.Text = "Book";
             this.panelTitlebar.ResumeLayout(false);
-            this.panelAddClass.ResumeLayout(false);
-            this.panelAddClass.PerformLayout();
+            this.panelForm.ResumeLayout(false);
+            this.panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bDataGridBookList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -294,15 +294,15 @@
 
         private System.Windows.Forms.Panel panelTitlebar;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelClassName;
+        private System.Windows.Forms.Label labelBookName;
         private System.Windows.Forms.TextBox textBoxBookName;
-        private System.Windows.Forms.Panel panelAddClass;
+        private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonAdd;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bDataGridBookList;
         private System.Windows.Forms.BindingSource bookMBindingSource;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelBookCode;
         private System.Windows.Forms.TextBox textBoxBookCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
