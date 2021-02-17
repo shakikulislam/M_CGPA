@@ -50,12 +50,12 @@
             this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewSyllabusList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.years = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classIds = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookIds = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.books = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitlebar.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
@@ -273,12 +273,12 @@
             this.dataGridViewSyllabusList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSyllabusList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.ids,
-            this.years,
-            this.classIds,
-            this.bookIds,
-            this.classs,
-            this.books});
+            this.idDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.classIdDataGridViewTextBoxColumn,
+            this.bookIdDataGridViewTextBoxColumn,
+            this.classDataGridViewTextBoxColumn,
+            this.bookDataGridViewTextBoxColumn});
             this.dataGridViewSyllabusList.DataSource = this.syllabusMBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -289,7 +289,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSyllabusList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSyllabusList.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(159, 193);
+            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(161, 193);
             this.dataGridViewSyllabusList.Name = "dataGridViewSyllabusList";
             this.dataGridViewSyllabusList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -302,8 +302,8 @@
             this.dataGridViewSyllabusList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSyllabusList.RowHeadersVisible = false;
             this.dataGridViewSyllabusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(473, 135);
-            this.dataGridViewSyllabusList.TabIndex = 18;
+            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(471, 135);
+            this.dataGridViewSyllabusList.TabIndex = 16;
             this.dataGridViewSyllabusList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSyllabusList_CellDoubleClick);
             this.dataGridViewSyllabusList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSyllabusList_RowPostPaint);
             // 
@@ -315,52 +315,52 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 5;
             // 
-            // ids
+            // idDataGridViewTextBoxColumn
             // 
-            this.ids.DataPropertyName = "Id";
-            this.ids.HeaderText = "Id";
-            this.ids.Name = "ids";
-            this.ids.ReadOnly = true;
-            this.ids.Visible = false;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // years
+            // yearDataGridViewTextBoxColumn
             // 
-            this.years.DataPropertyName = "Year";
-            this.years.HeaderText = "Year";
-            this.years.Name = "years";
-            this.years.ReadOnly = true;
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // classIds
+            // classIdDataGridViewTextBoxColumn
             // 
-            this.classIds.DataPropertyName = "ClassId";
-            this.classIds.HeaderText = "ClassId";
-            this.classIds.Name = "classIds";
-            this.classIds.ReadOnly = true;
-            this.classIds.Visible = false;
+            this.classIdDataGridViewTextBoxColumn.DataPropertyName = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.HeaderText = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.Name = "classIdDataGridViewTextBoxColumn";
+            this.classIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.classIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // bookIds
+            // bookIdDataGridViewTextBoxColumn
             // 
-            this.bookIds.DataPropertyName = "BookId";
-            this.bookIds.HeaderText = "BookId";
-            this.bookIds.Name = "bookIds";
-            this.bookIds.ReadOnly = true;
-            this.bookIds.Visible = false;
+            this.bookIdDataGridViewTextBoxColumn.DataPropertyName = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.HeaderText = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.Name = "bookIdDataGridViewTextBoxColumn";
+            this.bookIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // classs
+            // classDataGridViewTextBoxColumn
             // 
-            this.classs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.classs.DataPropertyName = "Class";
-            this.classs.HeaderText = "Class";
-            this.classs.Name = "classs";
-            this.classs.ReadOnly = true;
+            this.classDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
+            this.classDataGridViewTextBoxColumn.HeaderText = "Class";
+            this.classDataGridViewTextBoxColumn.Name = "classDataGridViewTextBoxColumn";
+            this.classDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // books
+            // bookDataGridViewTextBoxColumn
             // 
-            this.books.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.books.DataPropertyName = "Book";
-            this.books.HeaderText = "Book";
-            this.books.Name = "books";
-            this.books.ReadOnly = true;
+            this.bookDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bookDataGridViewTextBoxColumn.DataPropertyName = "Book";
+            this.bookDataGridViewTextBoxColumn.HeaderText = "Book";
+            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
+            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Syllabus
             // 
@@ -411,11 +411,11 @@
         private System.Windows.Forms.BindingSource syllabusMBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewSyllabusList;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ids;
-        private System.Windows.Forms.DataGridViewTextBoxColumn years;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classIds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookIds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn books;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
     }
 }

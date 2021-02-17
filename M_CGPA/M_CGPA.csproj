@@ -47,10 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddClass.cs">
+    <Compile Include="Class.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddClass.Designer.cs">
-      <DependentUpon>AddClass.cs</DependentUpon>
+    <Compile Include="Class.Designer.cs">
+      <DependentUpon>Class.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\BookBll.cs" />
     <Compile Include="BLL\ClassBll.cs" />
@@ -136,8 +132,8 @@
     <Compile Include="Syllabus.Designer.cs">
       <DependentUpon>Syllabus.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddClass.resx">
-      <DependentUpon>AddClass.cs</DependentUpon>
+    <EmbeddedResource Include="Class.resx">
+      <DependentUpon>Class.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using M_CGPA.BLL;
@@ -110,12 +111,12 @@ namespace M_CGPA
 
         private void dataGridViewSyllabusList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _syllabusM.Id = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells[1].Value;
-            _syllabusM.Year = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Year"].Value.ToString();
-            _syllabusM.ClassId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["ClassId"].Value;
-            _syllabusM.BookId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["BookId"].Value;
-            _syllabusM.Class = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Class"].Value.ToString();
-            _syllabusM.Book = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Book"].Value.ToString();
+            _syllabusM.Id = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["ids"].Value;
+            _syllabusM.Year = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Years"].Value.ToString();
+            _syllabusM.ClassId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["ClassIds"].Value;
+            _syllabusM.BookId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["BookIds"].Value;
+            _syllabusM.Class = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Classs"].Value.ToString();
+            _syllabusM.Book = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Books"].Value.ToString();
 
             textBoxYear.Text = _syllabusM.Year;
             comboBoxClass.SelectedValue = _syllabusM.ClassId;
@@ -203,6 +204,6 @@ namespace M_CGPA
             }
         }
 
-
+        
     }
 }

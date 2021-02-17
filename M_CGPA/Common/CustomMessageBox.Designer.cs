@@ -29,41 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bunifuCardsTitle = new Bunifu.Framework.UI.BunifuCards();
             this.labelMessageTitle = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.buttonYes = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.bunifuDragControlMain = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuDragControlMessage = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuDragControlIcon = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuDragControlTitle = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelButtonBox = new System.Windows.Forms.Panel();
             this.buttonNo = new System.Windows.Forms.Button();
-            this.bunifuDragControlButtonPanel = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuCardsTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             this.panelButtonBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bunifuCardsTitle
-            // 
-            this.bunifuCardsTitle.BackColor = System.Drawing.Color.White;
-            this.bunifuCardsTitle.BorderRadius = 0;
-            this.bunifuCardsTitle.BottomSahddow = true;
-            this.bunifuCardsTitle.color = System.Drawing.Color.Navy;
-            this.bunifuCardsTitle.Controls.Add(this.labelMessageTitle);
-            this.bunifuCardsTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuCardsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCardsTitle.LeftSahddow = false;
-            this.bunifuCardsTitle.Location = new System.Drawing.Point(0, 0);
-            this.bunifuCardsTitle.Name = "bunifuCardsTitle";
-            this.bunifuCardsTitle.RightSahddow = true;
-            this.bunifuCardsTitle.ShadowDepth = 20;
-            this.bunifuCardsTitle.Size = new System.Drawing.Size(389, 40);
-            this.bunifuCardsTitle.TabIndex = 0;
             // 
             // labelMessageTitle
             // 
@@ -141,34 +117,6 @@
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // bunifuDragControlMain
-            // 
-            this.bunifuDragControlMain.Fixed = true;
-            this.bunifuDragControlMain.Horizontal = true;
-            this.bunifuDragControlMain.TargetControl = this;
-            this.bunifuDragControlMain.Vertical = true;
-            // 
-            // bunifuDragControlMessage
-            // 
-            this.bunifuDragControlMessage.Fixed = true;
-            this.bunifuDragControlMessage.Horizontal = true;
-            this.bunifuDragControlMessage.TargetControl = this.labelMessage;
-            this.bunifuDragControlMessage.Vertical = true;
-            // 
-            // bunifuDragControlIcon
-            // 
-            this.bunifuDragControlIcon.Fixed = true;
-            this.bunifuDragControlIcon.Horizontal = true;
-            this.bunifuDragControlIcon.TargetControl = this.pictureBoxIcon;
-            this.bunifuDragControlIcon.Vertical = true;
-            // 
-            // bunifuDragControlTitle
-            // 
-            this.bunifuDragControlTitle.Fixed = true;
-            this.bunifuDragControlTitle.Horizontal = true;
-            this.bunifuDragControlTitle.TargetControl = this.labelMessageTitle;
-            this.bunifuDragControlTitle.Vertical = true;
-            // 
             // panelButtonBox
             // 
             this.panelButtonBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -196,13 +144,6 @@
             this.buttonNo.UseVisualStyleBackColor = false;
             this.buttonNo.Visible = false;
             // 
-            // bunifuDragControlButtonPanel
-            // 
-            this.bunifuDragControlButtonPanel.Fixed = true;
-            this.bunifuDragControlButtonPanel.Horizontal = true;
-            this.bunifuDragControlButtonPanel.TargetControl = this.panelButtonBox;
-            this.bunifuDragControlButtonPanel.Vertical = true;
-            // 
             // CustomMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,14 +151,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(389, 193);
             this.Controls.Add(this.panelButtonBox);
-            this.Controls.Add(this.bunifuCardsTitle);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.pictureBoxIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomMessageBox";
-            this.bunifuCardsTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             this.panelButtonBox.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -226,19 +165,13 @@
 
         #endregion
 
-        private Bunifu.Framework.UI.BunifuCards bunifuCardsTitle;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControlMain;
         private System.Windows.Forms.Label labelMessageTitle;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.PictureBox pictureBoxIcon;
         private System.Windows.Forms.Button buttonYes;
         private System.Windows.Forms.Button buttonOk;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControlMessage;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControlIcon;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControlTitle;
         private System.Windows.Forms.Panel panelButtonBox;
         private System.Windows.Forms.Button buttonNo;
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControlButtonPanel;
     }
 }

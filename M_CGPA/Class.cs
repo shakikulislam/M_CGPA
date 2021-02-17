@@ -10,14 +10,14 @@ using M_CGPA.Properties;
 
 namespace M_CGPA
 {
-    public partial class AddClass : Form
+    public partial class Class : Form
     {
         readonly ClassBll _classBll=new ClassBll();
         readonly ClassM _classM=new ClassM();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
         CustomMessageBox customMessageBox=new CustomMessageBox();
         
-        public AddClass()
+        public Class()
         {
             InitializeComponent();
 
@@ -57,31 +57,14 @@ namespace M_CGPA
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
+            buttonCancel.Text = _selectLanguage.Language.BtnCancel;
         }
         
         private void AllClass()
         {
-            bDataGridClassList.DataSource = _classBll.GetAllClass();
+            dataGridViewClassList.DataSource = _classBll.GetAllClass();
         }
         
-        private void bunifuCustomDataGrid1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            bDataGridClassList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-        }
-        
-        private void bDataGridClassList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _classM.Id = (int) bDataGridClassList.Rows[e.RowIndex].Cells[1].Value;
-            _classM.Name = bDataGridClassList.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBoxClassName.Text = _classM.Name;
-
-            buttonAdd.Visible = false;
-            buttonUpdate.Visible = true;
-            buttonDelete.Visible = true;
-
-            textBoxClassName.Focus();
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var className = textBoxClassName.Text.Trim();
@@ -129,6 +112,7 @@ namespace M_CGPA
                         textBoxClassName.Clear();
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
+                        buttonCancel.Visible = false;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -163,11 +147,41 @@ namespace M_CGPA
                     textBoxClassName.Clear();
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
+                    buttonCancel.Visible = false;
                     buttonAdd.Visible = true;
                 }
             }
 
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            textBoxClassName.Clear();
+            buttonUpdate.Visible = false;
+            buttonDelete.Visible = false;
+            buttonCancel.Visible = false;
+            buttonAdd.Visible = true;
+        }
+
+        private void dataGridViewClassList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _classM.Id = (int)dataGridViewClassList.Rows[e.RowIndex].Cells["id"].Value;
+            _classM.Name = dataGridViewClassList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+            textBoxClassName.Text = _classM.Name;
+
+            buttonAdd.Visible = false;
+            buttonUpdate.Visible = true;
+            buttonDelete.Visible = true;
+            buttonCancel.Visible = true;
+
+            textBoxClassName.Focus();
+        }
+
+        private void dataGridViewClassList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewClassList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
 
 
     }

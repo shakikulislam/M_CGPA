@@ -23,7 +23,6 @@ namespace M_CGPA
             GetAll();
         }
 
-
         private void SelectLanguage()
         {
             _selectLanguage.UserLanguage();
@@ -56,18 +55,14 @@ namespace M_CGPA
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
+            buttonCancel.Text = _selectLanguage.Language.BtnCancel;
         }
 
         private void GetAll()
         {
-            bDataGridBookList.DataSource = _bookBll.GetAll();
+            dataGridViewBookList.DataSource = _bookBll.GetAll();
         }
-
-        private void bDataGridBookList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            bDataGridBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-        }
-
+        
         private void buttonAdd_Click(object sender, System.EventArgs e)
         {
             _bookM.Code = textBoxBookCode.Text.Trim();
@@ -101,22 +96,6 @@ namespace M_CGPA
             }
         }
 
-        private void bDataGridBookList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _bookM.Id = (int)bDataGridBookList.Rows[e.RowIndex].Cells[1].Value;
-            _bookM.Code = bDataGridBookList.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _bookM.Name = bDataGridBookList.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-            textBoxBookCode.Text = _bookM.Code;
-            textBoxBookName.Text = _bookM.Name;
-
-            buttonAdd.Visible = false;
-            buttonUpdate.Visible = true;
-            buttonDelete.Visible = true;
-
-            textBoxBookName.Focus();
-        }
-
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -137,6 +116,7 @@ namespace M_CGPA
 
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
+                        buttonCancel.Visible = false;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -171,10 +151,46 @@ namespace M_CGPA
 
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
+                    buttonCancel.Visible = false;
                     buttonAdd.Visible = true;
                 }
             }
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
+            textBoxBookCode.Clear();
+            textBoxBookName.Clear();
+
+            buttonUpdate.Visible = false;
+            buttonDelete.Visible = false;
+            buttonCancel.Visible = false;
+            buttonAdd.Visible = true;
+        }
+
+        private void dataGridViewBookList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _bookM.Id = (int) dataGridViewBookList.Rows[e.RowIndex].Cells["id"].Value;
+            _bookM.Code = dataGridViewBookList.Rows[e.RowIndex].Cells["code"].Value.ToString();
+            _bookM.Name = dataGridViewBookList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+
+            textBoxBookCode.Text = _bookM.Code;
+            textBoxBookName.Text = _bookM.Name;
+
+            buttonAdd.Visible = false;
+            buttonUpdate.Visible = true;
+            buttonDelete.Visible = true;
+            buttonCancel.Visible = true;
+
+            textBoxBookName.Focus();
+        }
+
+        private void dataGridViewBookList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
 
     }
 }
