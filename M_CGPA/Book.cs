@@ -31,8 +31,8 @@ namespace M_CGPA
             {
                 //new SetPanelLabelFont(panelAddClass, panelTitlebar);
                 //new SetPanelButtonFont(panelAddClass);
-                new SetPanelLabelFont(panelForm);
-                new SetPanelButtonFont(panelForm);
+                new SetPanelLabelFont(panelForm,panelFilter);
+                new SetPanelButtonFont(panelForm,panelFilter);
 
 
                 foreach (Control control in Controls)
@@ -56,6 +56,10 @@ namespace M_CGPA
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
             buttonCancel.Text = _selectLanguage.Language.BtnCancel;
+            labelBookCodeFilter.Text = _selectLanguage.Language.BookCode;
+            labelBookNameFilter.Text = _selectLanguage.Language.BookName;
+            buttonSearchForm.Text = _selectLanguage.Language.BtnSearch;
+            buttonAddForm.Text = _selectLanguage.Language.BtnAdd;
         }
 
         private void GetAll()
@@ -117,6 +121,7 @@ namespace M_CGPA
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
                         buttonCancel.Visible = false;
+                        buttonSearchForm.Visible = true;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -152,6 +157,7 @@ namespace M_CGPA
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
                     buttonCancel.Visible = false;
+                    buttonSearchForm.Visible = true;
                     buttonAdd.Visible = true;
                 }
             }
@@ -166,6 +172,7 @@ namespace M_CGPA
             buttonUpdate.Visible = false;
             buttonDelete.Visible = false;
             buttonCancel.Visible = false;
+            buttonSearchForm.Visible = true;
             buttonAdd.Visible = true;
         }
 
@@ -179,6 +186,7 @@ namespace M_CGPA
             textBoxBookName.Text = _bookM.Name;
 
             buttonAdd.Visible = false;
+            buttonSearchForm.Visible = false;
             buttonUpdate.Visible = true;
             buttonDelete.Visible = true;
             buttonCancel.Visible = true;
@@ -191,6 +199,40 @@ namespace M_CGPA
             dataGridViewBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
+        private void buttonSearchForm_Click(object sender, EventArgs e)
+        {
+            panelFilter.Location = panelForm.Location;
+            panelForm.Visible = false;
+            panelFilter.Visible = true;
+        }
+
+        private void buttonAddForm_Click(object sender, EventArgs e)
+        {
+            panelFilter.Visible = false;
+            panelForm.Visible = true;
+            GetAll();
+        }
+
+        private void textBoxBookCodeFilter_TextChanged(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void textBoxBookNameFilter_TextChanged(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void Filter()
+        {
+            dataGridViewBookList.DataSource = null;
+
+            _bookM.Code = textBoxBookCodeFilter.Text;
+            _bookM.Name = textBoxBookNameFilter.Text;
+
+            dataGridViewBookList.DataSource = _bookBll.GetByFilter(_bookM);
+
+        }
 
     }
 }

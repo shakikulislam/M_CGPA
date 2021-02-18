@@ -15,6 +15,7 @@ namespace M_CGPA.Language
         public string BtnUpdate { get; set; }
         public string BtnDelete { get; set; }
         public string BtnCancel { get; set; }
+        public string BtnSearch { get; set; }
         #endregion
 
         #region All Field Name

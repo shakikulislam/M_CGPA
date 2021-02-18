@@ -46,5 +46,10 @@ namespace M_CGPA.BLL
         {
             return _book.GetAll();
         }
+
+        public object GetByFilter(BookM bookM)
+        {
+            return _book.GetByFilter(bookM);
+        }
     }
 }

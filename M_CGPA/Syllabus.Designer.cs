@@ -37,6 +37,7 @@
             this.labelYear = new System.Windows.Forms.Label();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.buttonSearchForm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.comboBoxBook = new System.Windows.Forms.ComboBox();
             this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -56,12 +57,19 @@
             this.bookIds = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelFilter = new System.Windows.Forms.Panel();
+            this.buttonAddForm = new System.Windows.Forms.Button();
+            this.comboBoxClassFilter = new System.Windows.Forms.ComboBox();
+            this.labelClassFilter = new System.Windows.Forms.Label();
+            this.labelYearFilter = new System.Windows.Forms.Label();
+            this.textBoxYearFilter = new System.Windows.Forms.TextBox();
             this.panelTitlebar.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyllabusList)).BeginInit();
+            this.panelFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -115,6 +123,7 @@
             // 
             this.panelForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelForm.BackColor = System.Drawing.Color.Transparent;
+            this.panelForm.Controls.Add(this.buttonSearchForm);
             this.panelForm.Controls.Add(this.buttonCancel);
             this.panelForm.Controls.Add(this.comboBoxBook);
             this.panelForm.Controls.Add(this.labelBook);
@@ -129,6 +138,21 @@
             this.panelForm.Name = "panelForm";
             this.panelForm.Size = new System.Drawing.Size(473, 126);
             this.panelForm.TabIndex = 14;
+            // 
+            // buttonSearchForm
+            // 
+            this.buttonSearchForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSearchForm.BackColor = System.Drawing.Color.Green;
+            this.buttonSearchForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSearchForm.ForeColor = System.Drawing.Color.White;
+            this.buttonSearchForm.Location = new System.Drawing.Point(335, 5);
+            this.buttonSearchForm.Name = "buttonSearchForm";
+            this.buttonSearchForm.Size = new System.Drawing.Size(122, 31);
+            this.buttonSearchForm.TabIndex = 25;
+            this.buttonSearchForm.Text = "Search";
+            this.buttonSearchForm.UseVisualStyleBackColor = false;
+            this.buttonSearchForm.Click += new System.EventHandler(this.buttonSearchForm_Click);
             // 
             // buttonCancel
             // 
@@ -289,7 +313,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSyllabusList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSyllabusList.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(159, 193);
+            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(161, 210);
             this.dataGridViewSyllabusList.Name = "dataGridViewSyllabusList";
             this.dataGridViewSyllabusList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -302,7 +326,7 @@
             this.dataGridViewSyllabusList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSyllabusList.RowHeadersVisible = false;
             this.dataGridViewSyllabusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(473, 135);
+            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(473, 140);
             this.dataGridViewSyllabusList.TabIndex = 18;
             this.dataGridViewSyllabusList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSyllabusList_CellDoubleClick);
             this.dataGridViewSyllabusList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSyllabusList_RowPostPaint);
@@ -362,11 +386,90 @@
             this.books.Name = "books";
             this.books.ReadOnly = true;
             // 
+            // panelFilter
+            // 
+            this.panelFilter.BackColor = System.Drawing.Color.Transparent;
+            this.panelFilter.Controls.Add(this.buttonAddForm);
+            this.panelFilter.Controls.Add(this.comboBoxClassFilter);
+            this.panelFilter.Controls.Add(this.labelClassFilter);
+            this.panelFilter.Controls.Add(this.labelYearFilter);
+            this.panelFilter.Controls.Add(this.textBoxYearFilter);
+            this.panelFilter.Location = new System.Drawing.Point(160, 193);
+            this.panelFilter.Name = "panelFilter";
+            this.panelFilter.Size = new System.Drawing.Size(473, 119);
+            this.panelFilter.TabIndex = 19;
+            this.panelFilter.Visible = false;
+            // 
+            // buttonAddForm
+            // 
+            this.buttonAddForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddForm.BackColor = System.Drawing.Color.Green;
+            this.buttonAddForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddForm.ForeColor = System.Drawing.Color.White;
+            this.buttonAddForm.Location = new System.Drawing.Point(334, 6);
+            this.buttonAddForm.Name = "buttonAddForm";
+            this.buttonAddForm.Size = new System.Drawing.Size(122, 31);
+            this.buttonAddForm.TabIndex = 24;
+            this.buttonAddForm.Text = "Add";
+            this.buttonAddForm.UseVisualStyleBackColor = false;
+            this.buttonAddForm.Click += new System.EventHandler(this.buttonAddForm_Click);
+            // 
+            // comboBoxClassFilter
+            // 
+            this.comboBoxClassFilter.DataSource = this.classMBindingSource;
+            this.comboBoxClassFilter.DisplayMember = "Name";
+            this.comboBoxClassFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClassFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxClassFilter.FormattingEnabled = true;
+            this.comboBoxClassFilter.Location = new System.Drawing.Point(139, 45);
+            this.comboBoxClassFilter.Name = "comboBoxClassFilter";
+            this.comboBoxClassFilter.Size = new System.Drawing.Size(189, 28);
+            this.comboBoxClassFilter.TabIndex = 23;
+            this.comboBoxClassFilter.ValueMember = "Id";
+            this.comboBoxClassFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxClassFilter_SelectedIndexChanged);
+            // 
+            // labelClassFilter
+            // 
+            this.labelClassFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelClassFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClassFilter.ForeColor = System.Drawing.Color.Black;
+            this.labelClassFilter.Location = new System.Drawing.Point(-2, 48);
+            this.labelClassFilter.Name = "labelClassFilter";
+            this.labelClassFilter.Size = new System.Drawing.Size(135, 20);
+            this.labelClassFilter.TabIndex = 21;
+            this.labelClassFilter.Text = "Class";
+            this.labelClassFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelYearFilter
+            // 
+            this.labelYearFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelYearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelYearFilter.ForeColor = System.Drawing.Color.Black;
+            this.labelYearFilter.Location = new System.Drawing.Point(-3, 12);
+            this.labelYearFilter.Name = "labelYearFilter";
+            this.labelYearFilter.Size = new System.Drawing.Size(136, 20);
+            this.labelYearFilter.TabIndex = 18;
+            this.labelYearFilter.Text = "Year";
+            this.labelYearFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxYearFilter
+            // 
+            this.textBoxYearFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxYearFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxYearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxYearFilter.Location = new System.Drawing.Point(139, 9);
+            this.textBoxYearFilter.Name = "textBoxYearFilter";
+            this.textBoxYearFilter.Size = new System.Drawing.Size(189, 26);
+            this.textBoxYearFilter.TabIndex = 19;
+            this.textBoxYearFilter.TextChanged += new System.EventHandler(this.textBoxYearFilter_TextChanged);
+            // 
             // Syllabus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 353);
+            this.ClientSize = new System.Drawing.Size(790, 408);
+            this.Controls.Add(this.panelFilter);
             this.Controls.Add(this.dataGridViewSyllabusList);
             this.Controls.Add(this.panelTitlebar);
             this.Controls.Add(this.panelForm);
@@ -381,6 +484,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyllabusList)).EndInit();
+            this.panelFilter.ResumeLayout(false);
+            this.panelFilter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -396,7 +501,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.ComboBox comboBoxBook;
         private System.Windows.Forms.Label labelBook;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
@@ -417,5 +521,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookIds;
         private System.Windows.Forms.DataGridViewTextBoxColumn classs;
         private System.Windows.Forms.DataGridViewTextBoxColumn books;
+        private System.Windows.Forms.ComboBox comboBoxClass;
+        private System.Windows.Forms.Panel panelFilter;
+        private System.Windows.Forms.ComboBox comboBoxClassFilter;
+        private System.Windows.Forms.Label labelClassFilter;
+        private System.Windows.Forms.Label labelYearFilter;
+        private System.Windows.Forms.TextBox textBoxYearFilter;
+        private System.Windows.Forms.Button buttonSearchForm;
+        private System.Windows.Forms.Button buttonAddForm;
     }
 }

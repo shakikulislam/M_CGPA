@@ -15,6 +15,7 @@
             Pro.BtnUpdate = "হালনাগাদ";
             Pro.BtnDelete = "এটি মুছুন";
             Pro.BtnCancel = "বাতিল";
+            Pro.BtnSearch = "অনুসন্ধান";
 
             #endregion
 

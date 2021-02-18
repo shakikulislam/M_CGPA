@@ -68,5 +68,22 @@ namespace M_CGPA.DAL
 
             return _dataSet.Tables[0];
         }
+
+        public object GetByFilter(SyllabusM syllabus)
+        {
+            DbConnection();
+            var querry = "SELECT Syllabus.Id, Syllabus.Year,Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
+                       "FROM Syllabus " +
+                       "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
+                       "INNER JOIN Class ON Syllabus.ClassId=Class.Id "+
+                       "WHERE Year LIKE '%" + syllabus.Year + "%' "+
+                       "AND ClassId LIKE '%" + syllabus.ClassId + "%' ";
+            _sqlCommand.CommandText = querry;
+            _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
+            _dataSet=new DataSet();
+            _sqlDataAdapter.Fill(_dataSet);
+
+            return _dataSet.Tables[0];
+        }
     }
 }

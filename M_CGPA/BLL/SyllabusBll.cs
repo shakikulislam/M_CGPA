@@ -47,5 +47,10 @@ namespace M_CGPA.BLL
         {
             return _syllabus.GetAllByJoin();
         }
+
+        public object GetByFilter(SyllabusM syllabus)
+        {
+            return _syllabus.GetByFilter(syllabus);
+        }
     }
 }

@@ -15,6 +15,7 @@
             Pro.BtnUpdate = "Update";
             Pro.BtnDelete = "Delete";
             Pro.BtnCancel = "Cancel";
+            Pro.BtnSearch = "Search";
 
             #endregion
 

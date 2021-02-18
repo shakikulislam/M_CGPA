@@ -65,5 +65,15 @@ namespace M_CGPA.DAL
 
             return _dataSet.Tables[0];
         }
+        public object GetByFilter(BookM book)
+        {
+            DbConnection();
+            _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code LIKE '%" + book.Code + "%' AND Name LIKE '%" + book.Name + "%' ";
+            _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
+            _dataSet = new DataSet();
+            _sqlDataAdapter.Fill(_dataSet);
+
+            return _dataSet.Tables[0];
+        }
     }
 }

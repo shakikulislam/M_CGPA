@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Threading;
@@ -29,6 +30,8 @@ namespace M_CGPA
 
             comboBoxClass.DataSource = _classBll.GetAllClass();
             comboBoxBook.DataSource = _bookBll.GetAll();
+            comboBoxClassFilter.DataSource = _classBll.GetAllClass();
+
             GetAll();
         }
 
@@ -39,7 +42,7 @@ namespace M_CGPA
 
             if (_selectLanguage.Language.Language == "Bengali")
             {
-                new SetPanelLabelFont(panelForm,panelTitlebar);
+                new SetPanelLabelFont(panelForm, panelTitlebar, panelFilter);
                 new SetPanelButtonFont(panelForm);
                 
                 foreach (Control control in Controls)
@@ -64,12 +67,18 @@ namespace M_CGPA
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
             buttonCancel.Text = _selectLanguage.Language.BtnCancel;
+            labelYearFilter.Text = _selectLanguage.Language.Year;
+            labelClassFilter.Text=_selectLanguage.Language.ClassName;
+            buttonSearchForm.Text = _selectLanguage.Language.BtnSearch;
+            buttonAddForm.Text = _selectLanguage.Language.BtnAdd;
+
         }
 
         private void GetAll()
         {
             dataGridViewSyllabusList.DataSource = _syllabusBll.GetAllByJoin();
         }
+
         private void buttonAdd_Click(object sender, System.EventArgs e)
         {
 
@@ -121,9 +130,11 @@ namespace M_CGPA
             textBoxYear.Text = _syllabusM.Year;
             comboBoxClass.SelectedValue = _syllabusM.ClassId;
             comboBoxBook.SelectedValue = _syllabusM.BookId;
+
             buttonUpdate.Visible = true;
             buttonDelete.Visible = true;
             buttonCancel.Visible = true;
+            buttonSearchForm.Visible = false;
             buttonAdd.Visible = false;
         }
 
@@ -136,6 +147,7 @@ namespace M_CGPA
             buttonUpdate.Visible = false;
             buttonDelete.Visible = false;
             buttonCancel.Visible = false;
+            buttonSearchForm.Visible = true;
             buttonAdd.Visible = true;
         }
 
@@ -163,6 +175,7 @@ namespace M_CGPA
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
                         buttonCancel.Visible = false;
+                        buttonSearchForm.Visible = true;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -199,11 +212,47 @@ namespace M_CGPA
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
                     buttonCancel.Visible = false;
+                    buttonSearchForm.Visible = true;
                     buttonAdd.Visible = true;
                 }
             }
         }
-
         
+        private void buttonSearchForm_Click(object sender, EventArgs e)
+        {
+            panelFilter.Location = panelForm.Location;
+            panelForm.Visible = false;
+            panelFilter.Visible = true;
+        }
+
+        private void buttonAddForm_Click(object sender, EventArgs e)
+        {
+            panelForm.Visible = true;
+            panelFilter.Visible = false;
+            GetAll();
+        }
+
+        private void textBoxYearFilter_TextChanged(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void comboBoxClassFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void Filter()
+        {
+            dataGridViewSyllabusList.DataSource = null;
+
+            _syllabusM.Year = textBoxYearFilter.Text;
+            _syllabusM.ClassId = (int) comboBoxClassFilter.SelectedValue;
+
+            dataGridViewSyllabusList.DataSource = _syllabusBll.GetByFilter(_syllabusM);
+
+        }
+
+
     }
 }
