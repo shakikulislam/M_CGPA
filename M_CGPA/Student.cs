@@ -7,9 +7,9 @@ using M_CGPA.Properties;
 
 namespace M_CGPA
 {
-    public partial class AddStudent : Form
+    public partial class Student : Form
     {
-        public AddStudent()
+        public Student()
         {
             InitializeComponent();
 
@@ -24,8 +24,9 @@ namespace M_CGPA
             if (selectLanguage.Language.Language=="Bengali")
             {
 
-                new SetGroupBoxLabelFont(groupBoxAcademicInformation,groupBoxStudentInformation);
-                new SetPanelLabelFont(panelTitlebar);
+                new SetGroupBoxLabelFont(groupBoxAddStudent,groupBoxFilter);
+                new SetPanelLabelFont(panelTitlebar,panelAddForm);
+                new SetPanelButtonFont(panelAddForm);
 
                 foreach (Control control in Controls)
                 {
@@ -37,8 +38,8 @@ namespace M_CGPA
             }
 
             labelTitleAddStudent.Text =selectLanguage.Language.TitleAddStudent;
-            groupBoxAcademicInformation.Text = selectLanguage.Language.AcademicInformation;
-            groupBoxStudentInformation.Text = selectLanguage.Language.StudentInformation;
+            groupBoxAddStudent.Text = selectLanguage.Language.AcademicInformation;
+            groupBoxFilter.Text = selectLanguage.Language.BtnSearch;
             labelRoll.Text = selectLanguage.Language.Roll;
             labelReg.Text = selectLanguage.Language.Reg;
             labelSession.Text = selectLanguage.Language.Session;
@@ -59,7 +60,7 @@ namespace M_CGPA
         
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            foreach (Control control in groupBoxAcademicInformation.Controls)
+            foreach (Control control in groupBoxAddStudent.Controls)
             {
                 if (control is TextBox)
                 {
@@ -67,7 +68,7 @@ namespace M_CGPA
                 }
             }
 
-            foreach (Control control in groupBoxStudentInformation.Controls)
+            foreach (Control control in groupBoxFilter.Controls)
             {
                 if (control is TextBox)
                 {

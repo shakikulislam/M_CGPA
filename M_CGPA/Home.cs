@@ -94,9 +94,9 @@ namespace M_CGPA
         private void buttonStudent_Click(object sender, EventArgs e)
         {
             MenuButtonsBackcolor(buttonStudent);
-            ShowForm(new AddStudent());
+            ShowForm(new Student());
 
-            var addStudent = new AddStudent();
+            var addStudent = new Student();
             addStudent.Size = new Size(740, 540);
             addStudent.Dock = DockStyle.Left;
 

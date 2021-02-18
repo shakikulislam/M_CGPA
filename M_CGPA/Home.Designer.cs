@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.labelDate = new System.Windows.Forms.Label();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,9 +46,7 @@
             this.labelMaximize = new System.Windows.Forms.Label();
             this.labelClose = new System.Windows.Forms.Label();
             this.panelBody = new System.Windows.Forms.Panel();
-            this.labelDate = new System.Windows.Forms.Label();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
-            this.labelTime = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,30 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(150, 540);
             this.panelMenu.TabIndex = 4;
+            // 
+            // labelTime
+            // 
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.Yellow;
+            this.labelTime.Location = new System.Drawing.Point(0, 492);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(150, 24);
+            this.labelTime.TabIndex = 9;
+            this.labelTime.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // labelDate
+            // 
+            this.labelDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelDate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.ForeColor = System.Drawing.Color.White;
+            this.labelDate.Location = new System.Drawing.Point(0, 516);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(150, 24);
+            this.labelDate.TabIndex = 8;
+            this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonSetting
             // 
@@ -235,7 +259,7 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(150, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(750, 30);
+            this.panelTitle.Size = new System.Drawing.Size(910, 30);
             this.panelTitle.TabIndex = 5;
             // 
             // labelHomeTitle
@@ -246,7 +270,7 @@
             this.labelHomeTitle.ForeColor = System.Drawing.Color.White;
             this.labelHomeTitle.Location = new System.Drawing.Point(0, 0);
             this.labelHomeTitle.Name = "labelHomeTitle";
-            this.labelHomeTitle.Size = new System.Drawing.Size(675, 30);
+            this.labelHomeTitle.Size = new System.Drawing.Size(835, 30);
             this.labelHomeTitle.TabIndex = 3;
             this.labelHomeTitle.Text = "Your Institute Name";
             this.labelHomeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,7 +287,7 @@
             this.labelMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMinimize.ForeColor = System.Drawing.Color.White;
-            this.labelMinimize.Location = new System.Drawing.Point(675, 0);
+            this.labelMinimize.Location = new System.Drawing.Point(835, 0);
             this.labelMinimize.Name = "labelMinimize";
             this.labelMinimize.Size = new System.Drawing.Size(21, 27);
             this.labelMinimize.TabIndex = 2;
@@ -280,7 +304,7 @@
             this.labelMaximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaximize.ForeColor = System.Drawing.Color.White;
-            this.labelMaximize.Location = new System.Drawing.Point(696, 0);
+            this.labelMaximize.Location = new System.Drawing.Point(856, 0);
             this.labelMaximize.Name = "labelMaximize";
             this.labelMaximize.Size = new System.Drawing.Size(26, 27);
             this.labelMaximize.TabIndex = 1;
@@ -297,7 +321,7 @@
             this.labelClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelClose.ForeColor = System.Drawing.Color.White;
-            this.labelClose.Location = new System.Drawing.Point(722, 0);
+            this.labelClose.Location = new System.Drawing.Point(882, 0);
             this.labelClose.Name = "labelClose";
             this.labelClose.Size = new System.Drawing.Size(28, 27);
             this.labelClose.TabIndex = 0;
@@ -311,48 +335,24 @@
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(150, 30);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(750, 510);
+            this.panelBody.Size = new System.Drawing.Size(910, 510);
             this.panelBody.TabIndex = 6;
-            // 
-            // labelDate
-            // 
-            this.labelDate.BackColor = System.Drawing.Color.Transparent;
-            this.labelDate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDate.ForeColor = System.Drawing.Color.White;
-            this.labelDate.Location = new System.Drawing.Point(0, 516);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(150, 24);
-            this.labelDate.TabIndex = 8;
-            this.labelDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timerClock
             // 
             this.timerClock.Interval = 1000;
             this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
             // 
-            // labelTime
-            // 
-            this.labelTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelTime.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.ForeColor = System.Drawing.Color.Yellow;
-            this.labelTime.Location = new System.Drawing.Point(0, 492);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(150, 24);
-            this.labelTime.TabIndex = 9;
-            this.labelTime.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 540);
+            this.ClientSize = new System.Drawing.Size(1060, 540);
             this.Controls.Add(this.panelBody);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(900, 540);
+            this.MinimumSize = new System.Drawing.Size(1060, 540);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";
