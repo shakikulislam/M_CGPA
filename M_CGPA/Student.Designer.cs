@@ -32,6 +32,24 @@
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelTitleAddStudent = new System.Windows.Forms.Label();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
+            this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.session = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.admissionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.presentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permanentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
             this.labelPermanentAddress = new System.Windows.Forms.Label();
             this.labelPresentAddress = new System.Windows.Forms.Label();
@@ -63,12 +81,13 @@
             this.labelSession = new System.Windows.Forms.Label();
             this.labelReg = new System.Windows.Forms.Label();
             this.textBoxSession = new System.Windows.Forms.TextBox();
-            this.languageMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTitlebar.SuspendLayout();
+            this.groupBoxFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentMBindingSource)).BeginInit();
             this.groupBoxAddStudent.SuspendLayout();
             this.panelAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -102,6 +121,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFilter.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxFilter.Controls.Add(this.dataGridViewStudentList);
             this.groupBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxFilter.ForeColor = System.Drawing.Color.Black;
             this.groupBoxFilter.Location = new System.Drawing.Point(520, 47);
@@ -110,6 +130,172 @@
             this.groupBoxFilter.TabIndex = 2;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
+            // 
+            // dataGridViewStudentList
+            // 
+            this.dataGridViewStudentList.AllowUserToAddRows = false;
+            this.dataGridViewStudentList.AllowUserToDeleteRows = false;
+            this.dataGridViewStudentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewStudentList.AutoGenerateColumns = false;
+            this.dataGridViewStudentList.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudentList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.id,
+            this.roll,
+            this.reg,
+            this.studentName,
+            this.fatherName,
+            this.classId,
+            this.clas,
+            this.session,
+            this.admissionDate,
+            this.dob,
+            this.motherName,
+            this.nid,
+            this.brn,
+            this.presentAddress,
+            this.permanentAddress});
+            this.dataGridViewStudentList.DataSource = this.studentMBindingSource;
+            this.dataGridViewStudentList.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dataGridViewStudentList.Location = new System.Drawing.Point(3, 79);
+            this.dataGridViewStudentList.Name = "dataGridViewStudentList";
+            this.dataGridViewStudentList.ReadOnly = true;
+            this.dataGridViewStudentList.RowHeadersVisible = false;
+            this.dataGridViewStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(349, 370);
+            this.dataGridViewStudentList.TabIndex = 18;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 5;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // roll
+            // 
+            this.roll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.roll.DataPropertyName = "Roll";
+            this.roll.HeaderText = "Roll";
+            this.roll.Name = "roll";
+            this.roll.ReadOnly = true;
+            this.roll.Width = 5;
+            // 
+            // reg
+            // 
+            this.reg.DataPropertyName = "Reg";
+            this.reg.HeaderText = "Reg";
+            this.reg.Name = "reg";
+            this.reg.ReadOnly = true;
+            this.reg.Visible = false;
+            // 
+            // studentName
+            // 
+            this.studentName.DataPropertyName = "StudentName";
+            this.studentName.HeaderText = "Student Name";
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            this.studentName.Width = 200;
+            // 
+            // fatherName
+            // 
+            this.fatherName.DataPropertyName = "FatherName";
+            this.fatherName.HeaderText = "Father Name";
+            this.fatherName.Name = "fatherName";
+            this.fatherName.ReadOnly = true;
+            this.fatherName.Width = 150;
+            // 
+            // classId
+            // 
+            this.classId.DataPropertyName = "ClassId";
+            this.classId.HeaderText = "ClassId";
+            this.classId.Name = "classId";
+            this.classId.ReadOnly = true;
+            this.classId.Visible = false;
+            // 
+            // clas
+            // 
+            this.clas.DataPropertyName = "Class";
+            this.clas.HeaderText = "Class";
+            this.clas.Name = "clas";
+            this.clas.ReadOnly = true;
+            // 
+            // session
+            // 
+            this.session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.session.DataPropertyName = "Session";
+            this.session.HeaderText = "Session";
+            this.session.Name = "session";
+            this.session.ReadOnly = true;
+            this.session.Width = 5;
+            // 
+            // admissionDate
+            // 
+            this.admissionDate.DataPropertyName = "AdmissionDate";
+            this.admissionDate.HeaderText = "AD";
+            this.admissionDate.Name = "admissionDate";
+            this.admissionDate.ReadOnly = true;
+            // 
+            // dob
+            // 
+            this.dob.DataPropertyName = "Dob";
+            this.dob.HeaderText = "DOB";
+            this.dob.Name = "dob";
+            this.dob.ReadOnly = true;
+            // 
+            // motherName
+            // 
+            this.motherName.DataPropertyName = "MotherName";
+            this.motherName.HeaderText = "Mother Name";
+            this.motherName.Name = "motherName";
+            this.motherName.ReadOnly = true;
+            this.motherName.Visible = false;
+            // 
+            // nid
+            // 
+            this.nid.DataPropertyName = "Nid";
+            this.nid.HeaderText = "NID";
+            this.nid.Name = "nid";
+            this.nid.ReadOnly = true;
+            // 
+            // brn
+            // 
+            this.brn.DataPropertyName = "Brn";
+            this.brn.HeaderText = "BRN";
+            this.brn.Name = "brn";
+            this.brn.ReadOnly = true;
+            // 
+            // presentAddress
+            // 
+            this.presentAddress.DataPropertyName = "PresentAddress";
+            this.presentAddress.HeaderText = "Present Address";
+            this.presentAddress.Name = "presentAddress";
+            this.presentAddress.ReadOnly = true;
+            this.presentAddress.Width = 200;
+            // 
+            // permanentAddress
+            // 
+            this.permanentAddress.DataPropertyName = "PermanentAddress";
+            this.permanentAddress.HeaderText = "Permanent Address";
+            this.permanentAddress.Name = "permanentAddress";
+            this.permanentAddress.ReadOnly = true;
+            this.permanentAddress.Width = 200;
+            // 
+            // studentMBindingSource
+            // 
+            this.studentMBindingSource.DataSource = typeof(M_CGPA.Model.StudentM);
             // 
             // dateTimePickerDob
             // 
@@ -267,7 +453,7 @@
             this.groupBoxAddStudent.Size = new System.Drawing.Size(489, 452);
             this.groupBoxAddStudent.TabIndex = 2;
             this.groupBoxAddStudent.TabStop = false;
-            this.groupBoxAddStudent.Text = "Academic Information";
+            this.groupBoxAddStudent.Text = "Student Information";
             // 
             // panelAddForm
             // 
@@ -276,8 +462,8 @@
             this.panelAddForm.Controls.Add(this.textBoxRoll);
             this.panelAddForm.Controls.Add(this.labelPermanentAddress);
             this.panelAddForm.Controls.Add(this.labelFatherName);
-            this.panelAddForm.Controls.Add(this.buttonAdd);
             this.panelAddForm.Controls.Add(this.textBoxFName);
+            this.panelAddForm.Controls.Add(this.buttonAdd);
             this.panelAddForm.Controls.Add(this.dateTimePickerDob);
             this.panelAddForm.Controls.Add(this.labelStudentName);
             this.panelAddForm.Controls.Add(this.textBoxPermanentAddress);
@@ -310,11 +496,11 @@
             // 
             this.buttonClear.BackColor = System.Drawing.Color.Navy;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClear.ForeColor = System.Drawing.Color.White;
-            this.buttonClear.Location = new System.Drawing.Point(153, 453);
+            this.buttonClear.Location = new System.Drawing.Point(213, 445);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(152, 31);
+            this.buttonClear.Size = new System.Drawing.Size(122, 31);
             this.buttonClear.TabIndex = 5;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = false;
@@ -331,11 +517,11 @@
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.Green;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(311, 453);
+            this.buttonAdd.Location = new System.Drawing.Point(341, 445);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(152, 31);
+            this.buttonAdd.Size = new System.Drawing.Size(122, 31);
             this.buttonAdd.TabIndex = 5;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -416,10 +602,6 @@
             this.textBoxSession.Size = new System.Drawing.Size(116, 26);
             this.textBoxSession.TabIndex = 1;
             // 
-            // languageMBindingSource
-            // 
-            this.languageMBindingSource.DataSource = typeof(M_CGPA.Model.LanguageM);
-            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,11 +617,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
             this.panelTitlebar.ResumeLayout(false);
+            this.groupBoxFilter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentMBindingSource)).EndInit();
             this.groupBoxAddStudent.ResumeLayout(false);
             this.panelAddForm.ResumeLayout(false);
             this.panelAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,8 +662,25 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.TextBox textBoxPresentAddress;
         private System.Windows.Forms.TextBox textBoxPermanentAddress;
-        private System.Windows.Forms.BindingSource languageMBindingSource;
-        private System.Windows.Forms.BindingSource classMBindingSource;
         private System.Windows.Forms.Panel panelAddForm;
+        private System.Windows.Forms.DataGridView dataGridViewStudentList;
+        private System.Windows.Forms.BindingSource classMBindingSource;
+        private System.Windows.Forms.BindingSource studentMBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fatherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn session;
+        private System.Windows.Forms.DataGridViewTextBoxColumn admissionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
     }
 }

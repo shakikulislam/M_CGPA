@@ -59,6 +59,7 @@ namespace M_CGPA.Language
         public string BlankFiled { get; set; }
         public string DeleteConfirmation { get; set; }
         public string BookAlreadyExist { get; set; }
+        public string StudentAlreadyExist { get; set; }
         #endregion
     }
 }

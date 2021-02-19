@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\StudentBll.cs" />
     <Compile Include="Class.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +87,8 @@
     <Compile Include="DAL\BookDal.cs" />
     <Compile Include="DAL\ClassDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
+    <Compile Include="DAL\StudentDal.cs" />
+    <Compile Include="Model\StudentM.cs" />
     <Compile Include="Student.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,12 +107,6 @@
     </Compile>
     <Compile Include="Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StudentList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StudentList.Designer.cs">
-      <DependentUpon>StudentList.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -147,9 +144,6 @@
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentList.resx">
-      <DependentUpon>StudentList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +162,7 @@
     <None Include="Properties\DataSources\M_CGPA.Model.BookM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.ClassM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.LanguageM.datasource" />
+    <None Include="Properties\DataSources\M_CGPA.Model.StudentM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.SyllabusM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

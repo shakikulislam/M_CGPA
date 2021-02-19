@@ -60,6 +60,7 @@
             Pro.BlankFiled = "Please fill out this form and try again.";
             Pro.DeleteConfirmation = "Are you sure, want to delete it?";
             Pro.BookAlreadyExist = "This book already exists...";
+            Pro.StudentAlreadyExist = "This student or roll already exists...";
 
             #endregion
 

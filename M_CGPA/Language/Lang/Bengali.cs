@@ -10,7 +10,7 @@
 
             #region Button
 
-            Pro.BtnClear = "পরিষ্কার করুন";
+            Pro.BtnClear = "পরিষ্কার";
             Pro.BtnAdd = "যুক্ত করুন";
             Pro.BtnUpdate = "হালনাগাদ";
             Pro.BtnDelete = "এটি মুছুন";
@@ -60,6 +60,7 @@
             Pro.BlankFiled = "দয়া করে এই ফর্মটি পূরণ করুন এবং আবার চেষ্টা করুন।";
             Pro.DeleteConfirmation = "আপনি কি নিশ্চিত, এটি মুছতে চান?";
             Pro.BookAlreadyExist = "এই বইটি ইতিমধ্যে বিদ্যমান...";
+            Pro.StudentAlreadyExist = "এই ছাত্র বা রোল ইতিমধ্যে বিদ্যমান...";
 
             #endregion
         }
