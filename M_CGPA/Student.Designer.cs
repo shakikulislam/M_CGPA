@@ -32,6 +32,8 @@
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelTitleAddStudent = new System.Windows.Forms.Label();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelSearch = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,10 +70,14 @@
             this.labelStudentName = new System.Windows.Forms.Label();
             this.labelAdmissionDate = new System.Windows.Forms.Label();
             this.groupBoxAddStudent = new System.Windows.Forms.GroupBox();
-            this.panelAddForm = new System.Windows.Forms.Panel();
+            this.panelButtons = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.textBoxRoll = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.panelAddForm = new System.Windows.Forms.Panel();
+            this.textBoxRoll = new System.Windows.Forms.TextBox();
             this.dateTimePickerAdmissionDate = new System.Windows.Forms.DateTimePicker();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -86,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentMBindingSource)).BeginInit();
             this.groupBoxAddStudent.SuspendLayout();
+            this.panelButtons.SuspendLayout();
             this.panelAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +128,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFilter.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxFilter.Controls.Add(this.textBoxSearch);
+            this.groupBoxFilter.Controls.Add(this.labelSearch);
             this.groupBoxFilter.Controls.Add(this.dataGridViewStudentList);
             this.groupBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxFilter.ForeColor = System.Drawing.Color.Black;
@@ -130,6 +139,25 @@
             this.groupBoxFilter.TabIndex = 2;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxSearch.Location = new System.Drawing.Point(28, 53);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxSearch.TabIndex = 20;
+            this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelSearch.Location = new System.Drawing.Point(28, 22);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(298, 25);
+            this.labelSearch.TabIndex = 19;
+            this.labelSearch.Text = "Search for anything";
+            this.labelSearch.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataGridViewStudentList
             // 
@@ -160,13 +188,15 @@
             this.permanentAddress});
             this.dataGridViewStudentList.DataSource = this.studentMBindingSource;
             this.dataGridViewStudentList.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridViewStudentList.Location = new System.Drawing.Point(3, 79);
+            this.dataGridViewStudentList.Location = new System.Drawing.Point(3, 96);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.ReadOnly = true;
             this.dataGridViewStudentList.RowHeadersVisible = false;
             this.dataGridViewStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudentList.Size = new System.Drawing.Size(349, 370);
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(349, 353);
             this.dataGridViewStudentList.TabIndex = 18;
+            this.dataGridViewStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellDoubleClick);
+            this.dataGridViewStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudentList_RowPostPaint);
             // 
             // Column1
             // 
@@ -234,12 +264,12 @@
             // 
             // session
             // 
-            this.session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.session.DataPropertyName = "Session";
             this.session.HeaderText = "Session";
             this.session.Name = "session";
             this.session.ReadOnly = true;
-            this.session.Width = 5;
+            this.session.Width = 91;
             // 
             // admissionDate
             // 
@@ -303,26 +333,26 @@
             this.dateTimePickerDob.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dateTimePickerDob.Location = new System.Drawing.Point(347, 91);
             this.dateTimePickerDob.Name = "dateTimePickerDob";
-            this.dateTimePickerDob.Size = new System.Drawing.Size(116, 26);
+            this.dateTimePickerDob.Size = new System.Drawing.Size(108, 26);
             this.dateTimePickerDob.TabIndex = 3;
             // 
             // labelPermanentAddress
             // 
             this.labelPermanentAddress.Location = new System.Drawing.Point(5, 377);
             this.labelPermanentAddress.Name = "labelPermanentAddress";
-            this.labelPermanentAddress.Size = new System.Drawing.Size(150, 20);
+            this.labelPermanentAddress.Size = new System.Drawing.Size(150, 25);
             this.labelPermanentAddress.TabIndex = 0;
             this.labelPermanentAddress.Text = "Permanent Address";
-            this.labelPermanentAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelPermanentAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelPresentAddress
             // 
             this.labelPresentAddress.Location = new System.Drawing.Point(4, 316);
             this.labelPresentAddress.Name = "labelPresentAddress";
-            this.labelPresentAddress.Size = new System.Drawing.Size(151, 20);
+            this.labelPresentAddress.Size = new System.Drawing.Size(151, 25);
             this.labelPresentAddress.TabIndex = 0;
             this.labelPresentAddress.Text = "Present Address";
-            this.labelPresentAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelPresentAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxPermanentAddress
             // 
@@ -330,7 +360,7 @@
             this.textBoxPermanentAddress.Multiline = true;
             this.textBoxPermanentAddress.Name = "textBoxPermanentAddress";
             this.textBoxPermanentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPermanentAddress.Size = new System.Drawing.Size(309, 50);
+            this.textBoxPermanentAddress.Size = new System.Drawing.Size(301, 50);
             this.textBoxPermanentAddress.TabIndex = 1;
             // 
             // textBoxPresentAddress
@@ -339,112 +369,113 @@
             this.textBoxPresentAddress.Multiline = true;
             this.textBoxPresentAddress.Name = "textBoxPresentAddress";
             this.textBoxPresentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPresentAddress.Size = new System.Drawing.Size(309, 50);
+            this.textBoxPresentAddress.Size = new System.Drawing.Size(301, 50);
             this.textBoxPresentAddress.TabIndex = 1;
             // 
             // textBoxBRN
             // 
             this.textBoxBRN.Location = new System.Drawing.Point(154, 276);
             this.textBoxBRN.Name = "textBoxBRN";
-            this.textBoxBRN.Size = new System.Drawing.Size(309, 26);
+            this.textBoxBRN.Size = new System.Drawing.Size(301, 26);
             this.textBoxBRN.TabIndex = 1;
             // 
             // labelBrn
             // 
             this.labelBrn.Location = new System.Drawing.Point(0, 280);
             this.labelBrn.Name = "labelBrn";
-            this.labelBrn.Size = new System.Drawing.Size(156, 20);
+            this.labelBrn.Size = new System.Drawing.Size(156, 25);
             this.labelBrn.TabIndex = 0;
             this.labelBrn.Text = "Birth Registration No";
-            this.labelBrn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelBrn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxNid
             // 
             this.textBoxNid.Location = new System.Drawing.Point(122, 239);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(341, 26);
+            this.textBoxNid.Size = new System.Drawing.Size(333, 26);
             this.textBoxNid.TabIndex = 1;
             // 
             // labelNid
             // 
-            this.labelNid.Location = new System.Drawing.Point(38, 242);
+            this.labelNid.Location = new System.Drawing.Point(9, 242);
             this.labelNid.Name = "labelNid";
-            this.labelNid.Size = new System.Drawing.Size(84, 20);
+            this.labelNid.Size = new System.Drawing.Size(113, 25);
             this.labelNid.TabIndex = 0;
             this.labelNid.Text = "NID";
-            this.labelNid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelNid.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelDob
             // 
             this.labelDob.Location = new System.Drawing.Point(238, 95);
             this.labelDob.Name = "labelDob";
-            this.labelDob.Size = new System.Drawing.Size(103, 20);
+            this.labelDob.Size = new System.Drawing.Size(103, 25);
             this.labelDob.TabIndex = 0;
             this.labelDob.Text = "Date of Birth";
-            this.labelDob.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelDob.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxMName
             // 
             this.textBoxMName.Location = new System.Drawing.Point(122, 202);
             this.textBoxMName.Name = "textBoxMName";
-            this.textBoxMName.Size = new System.Drawing.Size(341, 26);
+            this.textBoxMName.Size = new System.Drawing.Size(333, 26);
             this.textBoxMName.TabIndex = 1;
             // 
             // labelMotherName
             // 
             this.labelMotherName.Location = new System.Drawing.Point(1, 205);
             this.labelMotherName.Name = "labelMotherName";
-            this.labelMotherName.Size = new System.Drawing.Size(121, 20);
+            this.labelMotherName.Size = new System.Drawing.Size(121, 25);
             this.labelMotherName.TabIndex = 0;
             this.labelMotherName.Text = "Mother Name";
-            this.labelMotherName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelMotherName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxFName
             // 
             this.textBoxFName.Location = new System.Drawing.Point(122, 165);
             this.textBoxFName.Name = "textBoxFName";
-            this.textBoxFName.Size = new System.Drawing.Size(341, 26);
+            this.textBoxFName.Size = new System.Drawing.Size(333, 26);
             this.textBoxFName.TabIndex = 1;
             // 
             // labelFatherName
             // 
             this.labelFatherName.Location = new System.Drawing.Point(1, 168);
             this.labelFatherName.Name = "labelFatherName";
-            this.labelFatherName.Size = new System.Drawing.Size(121, 20);
+            this.labelFatherName.Size = new System.Drawing.Size(121, 25);
             this.labelFatherName.TabIndex = 0;
             this.labelFatherName.Text = "Father Name";
-            this.labelFatherName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelFatherName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxSName
             // 
             this.textBoxSName.Location = new System.Drawing.Point(122, 128);
             this.textBoxSName.Name = "textBoxSName";
-            this.textBoxSName.Size = new System.Drawing.Size(341, 26);
+            this.textBoxSName.Size = new System.Drawing.Size(333, 26);
             this.textBoxSName.TabIndex = 1;
             // 
             // labelStudentName
             // 
             this.labelStudentName.Location = new System.Drawing.Point(1, 131);
             this.labelStudentName.Name = "labelStudentName";
-            this.labelStudentName.Size = new System.Drawing.Size(121, 20);
+            this.labelStudentName.Size = new System.Drawing.Size(121, 25);
             this.labelStudentName.TabIndex = 0;
             this.labelStudentName.Text = "Student Name";
-            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelAdmissionDate
             // 
             this.labelAdmissionDate.Location = new System.Drawing.Point(0, 96);
             this.labelAdmissionDate.Name = "labelAdmissionDate";
-            this.labelAdmissionDate.Size = new System.Drawing.Size(122, 20);
+            this.labelAdmissionDate.Size = new System.Drawing.Size(122, 25);
             this.labelAdmissionDate.TabIndex = 0;
             this.labelAdmissionDate.Text = "Admission Date";
-            this.labelAdmissionDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelAdmissionDate.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // groupBoxAddStudent
             // 
             this.groupBoxAddStudent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxAddStudent.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxAddStudent.Controls.Add(this.panelButtons);
             this.groupBoxAddStudent.Controls.Add(this.panelAddForm);
             this.groupBoxAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAddStudent.ForeColor = System.Drawing.Color.Black;
@@ -455,15 +486,102 @@
             this.groupBoxAddStudent.TabStop = false;
             this.groupBoxAddStudent.Text = "Student Information";
             // 
+            // panelButtons
+            // 
+            this.panelButtons.Controls.Add(this.buttonCancel);
+            this.panelButtons.Controls.Add(this.buttonDelete);
+            this.panelButtons.Controls.Add(this.buttonUpdate);
+            this.panelButtons.Controls.Add(this.buttonClear);
+            this.panelButtons.Controls.Add(this.buttonAdd);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButtons.Location = new System.Drawing.Point(3, 412);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(483, 37);
+            this.panelButtons.TabIndex = 7;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.Purple;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.White;
+            this.buttonCancel.Location = new System.Drawing.Point(102, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(122, 31);
+            this.buttonCancel.TabIndex = 29;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.Red;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(358, 3);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(122, 31);
+            this.buttonDelete.TabIndex = 28;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Visible = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.Green;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Location = new System.Drawing.Point(230, 3);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(122, 31);
+            this.buttonUpdate.TabIndex = 27;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Visible = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Navy;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.ForeColor = System.Drawing.Color.White;
+            this.buttonClear.Location = new System.Drawing.Point(230, 3);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(122, 31);
+            this.buttonClear.TabIndex = 5;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.Green;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(358, 3);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(122, 31);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // panelAddForm
             // 
+            this.panelAddForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAddForm.AutoScroll = true;
-            this.panelAddForm.Controls.Add(this.buttonClear);
             this.panelAddForm.Controls.Add(this.textBoxRoll);
             this.panelAddForm.Controls.Add(this.labelPermanentAddress);
             this.panelAddForm.Controls.Add(this.labelFatherName);
             this.panelAddForm.Controls.Add(this.textBoxFName);
-            this.panelAddForm.Controls.Add(this.buttonAdd);
             this.panelAddForm.Controls.Add(this.dateTimePickerDob);
             this.panelAddForm.Controls.Add(this.labelStudentName);
             this.panelAddForm.Controls.Add(this.textBoxPermanentAddress);
@@ -486,46 +604,17 @@
             this.panelAddForm.Controls.Add(this.labelNid);
             this.panelAddForm.Controls.Add(this.textBoxSession);
             this.panelAddForm.Controls.Add(this.textBoxNid);
-            this.panelAddForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAddForm.Location = new System.Drawing.Point(3, 22);
+            this.panelAddForm.Location = new System.Drawing.Point(3, 25);
             this.panelAddForm.Name = "panelAddForm";
-            this.panelAddForm.Size = new System.Drawing.Size(483, 427);
+            this.panelAddForm.Size = new System.Drawing.Size(480, 381);
             this.panelAddForm.TabIndex = 6;
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.BackColor = System.Drawing.Color.Navy;
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.ForeColor = System.Drawing.Color.White;
-            this.buttonClear.Location = new System.Drawing.Point(213, 445);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(122, 31);
-            this.buttonClear.TabIndex = 5;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = false;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // textBoxRoll
             // 
             this.textBoxRoll.Location = new System.Drawing.Point(122, 17);
             this.textBoxRoll.Name = "textBoxRoll";
-            this.textBoxRoll.Size = new System.Drawing.Size(110, 26);
+            this.textBoxRoll.Size = new System.Drawing.Size(102, 26);
             this.textBoxRoll.TabIndex = 1;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.BackColor = System.Drawing.Color.Green;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(341, 445);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(122, 31);
-            this.buttonAdd.TabIndex = 5;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // dateTimePickerAdmissionDate
             // 
@@ -533,7 +622,7 @@
             this.dateTimePickerAdmissionDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dateTimePickerAdmissionDate.Location = new System.Drawing.Point(122, 91);
             this.dateTimePickerAdmissionDate.Name = "dateTimePickerAdmissionDate";
-            this.dateTimePickerAdmissionDate.Size = new System.Drawing.Size(110, 26);
+            this.dateTimePickerAdmissionDate.Size = new System.Drawing.Size(102, 26);
             this.dateTimePickerAdmissionDate.TabIndex = 3;
             // 
             // comboBoxClass
@@ -544,7 +633,7 @@
             this.comboBoxClass.FormattingEnabled = true;
             this.comboBoxClass.Location = new System.Drawing.Point(347, 15);
             this.comboBoxClass.Name = "comboBoxClass";
-            this.comboBoxClass.Size = new System.Drawing.Size(116, 28);
+            this.comboBoxClass.Size = new System.Drawing.Size(108, 28);
             this.comboBoxClass.TabIndex = 2;
             this.comboBoxClass.ValueMember = "Id";
             // 
@@ -556,7 +645,7 @@
             // 
             this.labelRoll.Location = new System.Drawing.Point(4, 19);
             this.labelRoll.Name = "labelRoll";
-            this.labelRoll.Size = new System.Drawing.Size(118, 20);
+            this.labelRoll.Size = new System.Drawing.Size(118, 24);
             this.labelRoll.TabIndex = 0;
             this.labelRoll.Text = "Roll No";
             this.labelRoll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -565,14 +654,14 @@
             // 
             this.textBoxReg.Location = new System.Drawing.Point(122, 54);
             this.textBoxReg.Name = "textBoxReg";
-            this.textBoxReg.Size = new System.Drawing.Size(110, 26);
+            this.textBoxReg.Size = new System.Drawing.Size(102, 26);
             this.textBoxReg.TabIndex = 1;
             // 
             // labelClass
             // 
             this.labelClass.Location = new System.Drawing.Point(265, 18);
             this.labelClass.Name = "labelClass";
-            this.labelClass.Size = new System.Drawing.Size(76, 20);
+            this.labelClass.Size = new System.Drawing.Size(76, 25);
             this.labelClass.TabIndex = 0;
             this.labelClass.Text = "Class";
             this.labelClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -581,25 +670,25 @@
             // 
             this.labelSession.Location = new System.Drawing.Point(265, 57);
             this.labelSession.Name = "labelSession";
-            this.labelSession.Size = new System.Drawing.Size(76, 20);
+            this.labelSession.Size = new System.Drawing.Size(76, 25);
             this.labelSession.TabIndex = 0;
             this.labelSession.Text = "Session";
-            this.labelSession.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelSession.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelReg
             // 
             this.labelReg.Location = new System.Drawing.Point(0, 57);
             this.labelReg.Name = "labelReg";
-            this.labelReg.Size = new System.Drawing.Size(122, 20);
+            this.labelReg.Size = new System.Drawing.Size(122, 25);
             this.labelReg.TabIndex = 0;
             this.labelReg.Text = "Registration No";
-            this.labelReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelReg.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxSession
             // 
             this.textBoxSession.Location = new System.Drawing.Point(347, 54);
             this.textBoxSession.Name = "textBoxSession";
-            this.textBoxSession.Size = new System.Drawing.Size(116, 26);
+            this.textBoxSession.Size = new System.Drawing.Size(108, 26);
             this.textBoxSession.TabIndex = 1;
             // 
             // Student
@@ -618,9 +707,11 @@
             this.Text = "Add Student";
             this.panelTitlebar.ResumeLayout(false);
             this.groupBoxFilter.ResumeLayout(false);
+            this.groupBoxFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentMBindingSource)).EndInit();
             this.groupBoxAddStudent.ResumeLayout(false);
+            this.panelButtons.ResumeLayout(false);
             this.panelAddForm.ResumeLayout(false);
             this.panelAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
@@ -682,5 +773,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brn;
         private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
+        private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label labelSearch;
     }
 }

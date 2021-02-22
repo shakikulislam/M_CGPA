@@ -46,7 +46,7 @@
             Pro.BookName = "Book Name";
             Pro.Year = "Year";
             Pro.TitleSyllabus = "Add Syllabus";
-
+            Pro.Search = "Search";
             #endregion
 
             #region Message

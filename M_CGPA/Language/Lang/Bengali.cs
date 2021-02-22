@@ -46,7 +46,7 @@
             Pro.BookName = "বইয়ের নাম";
             Pro.Year = "বছর";
             Pro.TitleSyllabus = "পাঠ্যক্রম যুক্ত করুন";
-
+            Pro.Search = "অনুসন্ধান করুন";
             #endregion
 
             #region Message

@@ -45,7 +45,7 @@ namespace M_CGPA.Language
         public string BookName { get; set; }
         public string Year { get; set; }
         public string TitleSyllabus { get; set; }
-
+        public string Search { get; set; }
         #endregion
 
         #region Message
