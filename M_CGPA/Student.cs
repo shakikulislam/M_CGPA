@@ -5,7 +5,6 @@ using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
-using M_CGPA.Properties;
 
 namespace M_CGPA
 {
@@ -115,8 +114,12 @@ namespace M_CGPA
                     var isSaved = _studentBll.Insert(_studentM);
                     if (isSaved)
                     {
-                        GetAll();
                         MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        GetAll();
+
+                        ClearFields();
+                        
                     }
                     else
                     {
@@ -137,12 +140,75 @@ namespace M_CGPA
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(_selectLanguage.Language.DeleteConfirmation, _selectLanguage.Language.MessageTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                var isDelete = _studentBll.Delete(_studentM);
+                if (isDelete)
+                {
+                    GetAll();
+                    MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    ClearFields();
+                    comboBoxClass.SelectedValue = 0;
+
+                    buttonDelete.Visible = false;
+                    buttonUpdate.Visible = false;
+                    buttonCancel.Visible = false;
+                    buttonClear.Visible = true;
+                    buttonAdd.Visible = true;
+                }
+            }
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "")
+                {
+                    _studentM.Roll = Convert.ToInt32(textBoxRoll.Text.Trim());
+                    _studentM.Reg = Convert.ToInt32(textBoxReg.Text.Trim());
+                    _studentM.ClassId = (int)comboBoxClass.SelectedValue;
+                    _studentM.Session = textBoxSession.Text.Trim();
+                    _studentM.AdmissionDate = dateTimePickerAdmissionDate.Value;
+                    _studentM.Dob = dateTimePickerDob.Value;
+                    _studentM.StudentName = textBoxSName.Text.Trim();
+                    _studentM.FatherName = textBoxFName.Text.Trim();
+                    _studentM.MotherName = textBoxMName.Text.Trim();
+                    _studentM.Nid = textBoxNid.Text.Trim();
+                    _studentM.Brn = textBoxBRN.Text.Trim();
+                    _studentM.PresentAddress = textBoxPresentAddress.Text.Trim();
+                    _studentM.PermanentAddress = textBoxPermanentAddress.Text.Trim();
 
+                    var isUpdate = _studentBll.Update(_studentM);
+                    if (isUpdate)
+                    {
+                        MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        GetAll();
+                        
+                        ClearFields();
+                        buttonDelete.Visible = false;
+                        buttonUpdate.Visible = false;
+                        buttonCancel.Visible = false;
+                        buttonClear.Visible = true;
+                        buttonAdd.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -199,6 +265,12 @@ namespace M_CGPA
             buttonCancel.Visible = true;
             buttonClear.Visible = false;
             buttonAdd.Visible = false;
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string filter = textBoxSearch.Text;
+            dataGridViewStudentList.DataSource = _studentBll.GetByFilter(filter);
         }
 
 

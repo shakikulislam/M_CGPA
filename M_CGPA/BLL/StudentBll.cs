@@ -30,13 +30,13 @@ namespace M_CGPA.BLL
 
         public bool Update(StudentM student)
         {
-            _language.UserLanguage();
+            //_language.UserLanguage();
 
-            var isExist = _studentDal.Get(student);
-            if (isExist)
-            {
-                throw new Exception(_language.Language.StudentAlreadyExist);
-            }
+            //var isExist = _studentDal.Get(student);
+            //if (isExist)
+            //{
+            //    throw new Exception(_language.Language.StudentAlreadyExist);
+            //}
 
             return _studentDal.Update(student);
         }
@@ -51,9 +51,9 @@ namespace M_CGPA.BLL
             return _studentDal.GetAllByJoin();
         }
 
-        public object GetByFilter(StudentM student)
+        public object GetByFilter(string filter)
         {
-            return _studentDal.GetByFilter(student);
+            return _studentDal.GetByFilter(filter);
         }
     }
 }

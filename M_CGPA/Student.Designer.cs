@@ -148,6 +148,7 @@
             this.textBoxSearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxSearch.TabIndex = 20;
             this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // labelSearch
             // 

@@ -1,7 +1,4 @@
 ﻿
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.AccessControl;
-
 namespace M_CGPA.Language
 {
     public class LanguagePro

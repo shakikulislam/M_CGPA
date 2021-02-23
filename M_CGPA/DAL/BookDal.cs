@@ -8,7 +8,7 @@ namespace M_CGPA.DAL
     class BookDal
     {
         readonly ConnectionString _connectionString = new ConnectionString();
-        private readonly SqlCommand _sqlCommand = new SqlCommand();
+        private SqlCommand _sqlCommand;
         private SqlDataAdapter _sqlDataAdapter;
         DataSet _dataSet;
         private SqlDataReader _sqlDataReader;
@@ -16,7 +16,7 @@ namespace M_CGPA.DAL
         public void DbConnection()
         {
             _connectionString.Connection();
-            _sqlCommand.Connection = _connectionString.SqlConnection;
+            _sqlCommand = new SqlCommand {Connection = _connectionString.SqlConnection};
         }
 
         public bool Insert(BookM book)
