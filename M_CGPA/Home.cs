@@ -66,7 +66,7 @@ namespace M_CGPA
             }
 
             var activeBtn = activeButton as Button;
-            if (activeBtn != null) activeBtn.BackColor = Color.FromArgb(153, 180, 209);
+            if (activeBtn != null) activeBtn.BackColor = panelBody.BackColor;
             if (activeBtn != null) activeBtn.ForeColor = Color.Black;
         }
 
@@ -143,6 +143,12 @@ namespace M_CGPA
             labelTime.Text = DateTime.Now.ToLongTimeString();
             labelDate.Text = DateTime.Now.ToShortDateString();
 
+        }
+
+        private void buttonInformation_Click(object sender, EventArgs e)
+        {
+            MenuButtonsBackcolor(buttonInformation);
+            ShowForm(new Information());
         }
 
 

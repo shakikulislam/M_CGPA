@@ -21,6 +21,8 @@
 
             #region All Field Name
 
+            Pro.Phone = "ফোন নম্বর";
+            Pro.TitleInformation = "শিক্ষার্থীদের তথ্য।";
             Pro.Student = "ছাত্র";
             Pro.TitleAddStudent = "ছাত্র যুক্ত করুন";
             Pro.AcademicInformation = "একাডেমিক তথ্য";

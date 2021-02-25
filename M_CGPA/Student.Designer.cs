@@ -35,22 +35,6 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.session = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.admissionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.presentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permanentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
             this.labelPermanentAddress = new System.Windows.Forms.Label();
@@ -77,6 +61,12 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelAddForm = new System.Windows.Forms.Panel();
+            this.labelMPhone = new System.Windows.Forms.Label();
+            this.textBoxMPhone = new System.Windows.Forms.TextBox();
+            this.labelFPhone = new System.Windows.Forms.Label();
+            this.textBoxFPhone = new System.Windows.Forms.TextBox();
+            this.labelSPhone = new System.Windows.Forms.Label();
+            this.textBoxSPhone = new System.Windows.Forms.TextBox();
             this.textBoxRoll = new System.Windows.Forms.TextBox();
             this.dateTimePickerAdmissionDate = new System.Windows.Forms.DateTimePicker();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
@@ -87,6 +77,25 @@
             this.labelSession = new System.Windows.Forms.Label();
             this.labelReg = new System.Windows.Forms.Label();
             this.textBoxSession = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.session = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.admissionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.presentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permanentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -175,14 +184,17 @@
             this.id,
             this.roll,
             this.reg,
-            this.studentName,
-            this.fatherName,
             this.classId,
+            this.studentName,
             this.clas,
             this.session,
             this.admissionDate,
             this.dob,
+            this.sPhone,
+            this.fatherName,
+            this.fPhone,
             this.motherName,
+            this.mPhone,
             this.nid,
             this.brn,
             this.presentAddress,
@@ -199,131 +211,6 @@
             this.dataGridViewStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellDoubleClick);
             this.dataGridViewStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudentList_RowPostPaint);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Column1.HeaderText = "#";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 5;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // roll
-            // 
-            this.roll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.roll.DataPropertyName = "Roll";
-            this.roll.HeaderText = "Roll";
-            this.roll.Name = "roll";
-            this.roll.ReadOnly = true;
-            this.roll.Width = 5;
-            // 
-            // reg
-            // 
-            this.reg.DataPropertyName = "Reg";
-            this.reg.HeaderText = "Reg";
-            this.reg.Name = "reg";
-            this.reg.ReadOnly = true;
-            this.reg.Visible = false;
-            // 
-            // studentName
-            // 
-            this.studentName.DataPropertyName = "StudentName";
-            this.studentName.HeaderText = "Student Name";
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
-            this.studentName.Width = 200;
-            // 
-            // fatherName
-            // 
-            this.fatherName.DataPropertyName = "FatherName";
-            this.fatherName.HeaderText = "Father Name";
-            this.fatherName.Name = "fatherName";
-            this.fatherName.ReadOnly = true;
-            this.fatherName.Width = 150;
-            // 
-            // classId
-            // 
-            this.classId.DataPropertyName = "ClassId";
-            this.classId.HeaderText = "ClassId";
-            this.classId.Name = "classId";
-            this.classId.ReadOnly = true;
-            this.classId.Visible = false;
-            // 
-            // clas
-            // 
-            this.clas.DataPropertyName = "Class";
-            this.clas.HeaderText = "Class";
-            this.clas.Name = "clas";
-            this.clas.ReadOnly = true;
-            // 
-            // session
-            // 
-            this.session.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.session.DataPropertyName = "Session";
-            this.session.HeaderText = "Session";
-            this.session.Name = "session";
-            this.session.ReadOnly = true;
-            this.session.Width = 91;
-            // 
-            // admissionDate
-            // 
-            this.admissionDate.DataPropertyName = "AdmissionDate";
-            this.admissionDate.HeaderText = "AD";
-            this.admissionDate.Name = "admissionDate";
-            this.admissionDate.ReadOnly = true;
-            // 
-            // dob
-            // 
-            this.dob.DataPropertyName = "Dob";
-            this.dob.HeaderText = "DOB";
-            this.dob.Name = "dob";
-            this.dob.ReadOnly = true;
-            // 
-            // motherName
-            // 
-            this.motherName.DataPropertyName = "MotherName";
-            this.motherName.HeaderText = "Mother Name";
-            this.motherName.Name = "motherName";
-            this.motherName.ReadOnly = true;
-            this.motherName.Visible = false;
-            // 
-            // nid
-            // 
-            this.nid.DataPropertyName = "Nid";
-            this.nid.HeaderText = "NID";
-            this.nid.Name = "nid";
-            this.nid.ReadOnly = true;
-            // 
-            // brn
-            // 
-            this.brn.DataPropertyName = "Brn";
-            this.brn.HeaderText = "BRN";
-            this.brn.Name = "brn";
-            this.brn.ReadOnly = true;
-            // 
-            // presentAddress
-            // 
-            this.presentAddress.DataPropertyName = "PresentAddress";
-            this.presentAddress.HeaderText = "Present Address";
-            this.presentAddress.Name = "presentAddress";
-            this.presentAddress.ReadOnly = true;
-            this.presentAddress.Width = 200;
-            // 
-            // permanentAddress
-            // 
-            this.permanentAddress.DataPropertyName = "PermanentAddress";
-            this.permanentAddress.HeaderText = "Permanent Address";
-            this.permanentAddress.Name = "permanentAddress";
-            this.permanentAddress.ReadOnly = true;
-            this.permanentAddress.Width = 200;
-            // 
             // studentMBindingSource
             // 
             this.studentMBindingSource.DataSource = typeof(M_CGPA.Model.StudentM);
@@ -339,7 +226,7 @@
             // 
             // labelPermanentAddress
             // 
-            this.labelPermanentAddress.Location = new System.Drawing.Point(5, 377);
+            this.labelPermanentAddress.Location = new System.Drawing.Point(5, 487);
             this.labelPermanentAddress.Name = "labelPermanentAddress";
             this.labelPermanentAddress.Size = new System.Drawing.Size(150, 25);
             this.labelPermanentAddress.TabIndex = 0;
@@ -348,7 +235,7 @@
             // 
             // labelPresentAddress
             // 
-            this.labelPresentAddress.Location = new System.Drawing.Point(4, 316);
+            this.labelPresentAddress.Location = new System.Drawing.Point(4, 426);
             this.labelPresentAddress.Name = "labelPresentAddress";
             this.labelPresentAddress.Size = new System.Drawing.Size(151, 25);
             this.labelPresentAddress.TabIndex = 0;
@@ -357,7 +244,7 @@
             // 
             // textBoxPermanentAddress
             // 
-            this.textBoxPermanentAddress.Location = new System.Drawing.Point(154, 374);
+            this.textBoxPermanentAddress.Location = new System.Drawing.Point(154, 484);
             this.textBoxPermanentAddress.Multiline = true;
             this.textBoxPermanentAddress.Name = "textBoxPermanentAddress";
             this.textBoxPermanentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -366,7 +253,7 @@
             // 
             // textBoxPresentAddress
             // 
-            this.textBoxPresentAddress.Location = new System.Drawing.Point(154, 313);
+            this.textBoxPresentAddress.Location = new System.Drawing.Point(154, 423);
             this.textBoxPresentAddress.Multiline = true;
             this.textBoxPresentAddress.Name = "textBoxPresentAddress";
             this.textBoxPresentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -375,14 +262,14 @@
             // 
             // textBoxBRN
             // 
-            this.textBoxBRN.Location = new System.Drawing.Point(154, 276);
+            this.textBoxBRN.Location = new System.Drawing.Point(154, 386);
             this.textBoxBRN.Name = "textBoxBRN";
             this.textBoxBRN.Size = new System.Drawing.Size(301, 26);
             this.textBoxBRN.TabIndex = 1;
             // 
             // labelBrn
             // 
-            this.labelBrn.Location = new System.Drawing.Point(0, 280);
+            this.labelBrn.Location = new System.Drawing.Point(0, 390);
             this.labelBrn.Name = "labelBrn";
             this.labelBrn.Size = new System.Drawing.Size(156, 25);
             this.labelBrn.TabIndex = 0;
@@ -391,14 +278,14 @@
             // 
             // textBoxNid
             // 
-            this.textBoxNid.Location = new System.Drawing.Point(122, 239);
+            this.textBoxNid.Location = new System.Drawing.Point(122, 349);
             this.textBoxNid.Name = "textBoxNid";
             this.textBoxNid.Size = new System.Drawing.Size(333, 26);
             this.textBoxNid.TabIndex = 1;
             // 
             // labelNid
             // 
-            this.labelNid.Location = new System.Drawing.Point(9, 242);
+            this.labelNid.Location = new System.Drawing.Point(9, 352);
             this.labelNid.Name = "labelNid";
             this.labelNid.Size = new System.Drawing.Size(113, 25);
             this.labelNid.TabIndex = 0;
@@ -416,14 +303,14 @@
             // 
             // textBoxMName
             // 
-            this.textBoxMName.Location = new System.Drawing.Point(122, 202);
+            this.textBoxMName.Location = new System.Drawing.Point(122, 275);
             this.textBoxMName.Name = "textBoxMName";
             this.textBoxMName.Size = new System.Drawing.Size(333, 26);
             this.textBoxMName.TabIndex = 1;
             // 
             // labelMotherName
             // 
-            this.labelMotherName.Location = new System.Drawing.Point(1, 205);
+            this.labelMotherName.Location = new System.Drawing.Point(1, 278);
             this.labelMotherName.Name = "labelMotherName";
             this.labelMotherName.Size = new System.Drawing.Size(121, 25);
             this.labelMotherName.TabIndex = 0;
@@ -432,14 +319,14 @@
             // 
             // textBoxFName
             // 
-            this.textBoxFName.Location = new System.Drawing.Point(122, 165);
+            this.textBoxFName.Location = new System.Drawing.Point(122, 202);
             this.textBoxFName.Name = "textBoxFName";
             this.textBoxFName.Size = new System.Drawing.Size(333, 26);
             this.textBoxFName.TabIndex = 1;
             // 
             // labelFatherName
             // 
-            this.labelFatherName.Location = new System.Drawing.Point(1, 168);
+            this.labelFatherName.Location = new System.Drawing.Point(1, 205);
             this.labelFatherName.Name = "labelFatherName";
             this.labelFatherName.Size = new System.Drawing.Size(121, 25);
             this.labelFatherName.TabIndex = 0;
@@ -579,6 +466,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAddForm.AutoScroll = true;
+            this.panelAddForm.Controls.Add(this.labelMPhone);
+            this.panelAddForm.Controls.Add(this.textBoxMPhone);
+            this.panelAddForm.Controls.Add(this.labelFPhone);
+            this.panelAddForm.Controls.Add(this.textBoxFPhone);
+            this.panelAddForm.Controls.Add(this.labelSPhone);
+            this.panelAddForm.Controls.Add(this.textBoxSPhone);
             this.panelAddForm.Controls.Add(this.textBoxRoll);
             this.panelAddForm.Controls.Add(this.labelPermanentAddress);
             this.panelAddForm.Controls.Add(this.labelFatherName);
@@ -609,6 +502,54 @@
             this.panelAddForm.Name = "panelAddForm";
             this.panelAddForm.Size = new System.Drawing.Size(480, 381);
             this.panelAddForm.TabIndex = 6;
+            // 
+            // labelMPhone
+            // 
+            this.labelMPhone.Location = new System.Drawing.Point(1, 315);
+            this.labelMPhone.Name = "labelMPhone";
+            this.labelMPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelMPhone.TabIndex = 8;
+            this.labelMPhone.Text = "Phone";
+            this.labelMPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // textBoxMPhone
+            // 
+            this.textBoxMPhone.Location = new System.Drawing.Point(122, 312);
+            this.textBoxMPhone.Name = "textBoxMPhone";
+            this.textBoxMPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxMPhone.TabIndex = 9;
+            // 
+            // labelFPhone
+            // 
+            this.labelFPhone.Location = new System.Drawing.Point(1, 241);
+            this.labelFPhone.Name = "labelFPhone";
+            this.labelFPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelFPhone.TabIndex = 6;
+            this.labelFPhone.Text = "Phone";
+            this.labelFPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // textBoxFPhone
+            // 
+            this.textBoxFPhone.Location = new System.Drawing.Point(122, 238);
+            this.textBoxFPhone.Name = "textBoxFPhone";
+            this.textBoxFPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxFPhone.TabIndex = 7;
+            // 
+            // labelSPhone
+            // 
+            this.labelSPhone.Location = new System.Drawing.Point(1, 168);
+            this.labelSPhone.Name = "labelSPhone";
+            this.labelSPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelSPhone.TabIndex = 4;
+            this.labelSPhone.Text = "Phone";
+            this.labelSPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // textBoxSPhone
+            // 
+            this.textBoxSPhone.Location = new System.Drawing.Point(122, 165);
+            this.textBoxSPhone.Name = "textBoxSPhone";
+            this.textBoxSPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxSPhone.TabIndex = 5;
             // 
             // textBoxRoll
             // 
@@ -692,6 +633,156 @@
             this.textBoxSession.Size = new System.Drawing.Size(108, 26);
             this.textBoxSession.TabIndex = 1;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 5;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // roll
+            // 
+            this.roll.DataPropertyName = "Roll";
+            this.roll.HeaderText = "Roll";
+            this.roll.Name = "roll";
+            this.roll.ReadOnly = true;
+            // 
+            // reg
+            // 
+            this.reg.DataPropertyName = "Reg";
+            this.reg.HeaderText = "Reg";
+            this.reg.Name = "reg";
+            this.reg.ReadOnly = true;
+            this.reg.Visible = false;
+            // 
+            // classId
+            // 
+            this.classId.DataPropertyName = "ClassId";
+            this.classId.HeaderText = "ClassId";
+            this.classId.Name = "classId";
+            this.classId.ReadOnly = true;
+            this.classId.Visible = false;
+            // 
+            // studentName
+            // 
+            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentName.DataPropertyName = "StudentName";
+            this.studentName.HeaderText = "Student Name";
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            // 
+            // clas
+            // 
+            this.clas.DataPropertyName = "Class";
+            this.clas.HeaderText = "Class";
+            this.clas.Name = "clas";
+            this.clas.ReadOnly = true;
+            // 
+            // session
+            // 
+            this.session.DataPropertyName = "Session";
+            this.session.HeaderText = "Session";
+            this.session.Name = "session";
+            this.session.ReadOnly = true;
+            this.session.Visible = false;
+            // 
+            // admissionDate
+            // 
+            this.admissionDate.DataPropertyName = "AdmissionDate";
+            this.admissionDate.HeaderText = "Admission Date";
+            this.admissionDate.Name = "admissionDate";
+            this.admissionDate.ReadOnly = true;
+            this.admissionDate.Visible = false;
+            // 
+            // dob
+            // 
+            this.dob.DataPropertyName = "Dob";
+            this.dob.HeaderText = "DOB";
+            this.dob.Name = "dob";
+            this.dob.ReadOnly = true;
+            this.dob.Visible = false;
+            // 
+            // sPhone
+            // 
+            this.sPhone.DataPropertyName = "SPhone";
+            this.sPhone.HeaderText = "Student Phone";
+            this.sPhone.Name = "sPhone";
+            this.sPhone.ReadOnly = true;
+            this.sPhone.Visible = false;
+            // 
+            // fatherName
+            // 
+            this.fatherName.DataPropertyName = "FatherName";
+            this.fatherName.HeaderText = "Father Name";
+            this.fatherName.Name = "fatherName";
+            this.fatherName.ReadOnly = true;
+            this.fatherName.Visible = false;
+            // 
+            // fPhone
+            // 
+            this.fPhone.DataPropertyName = "FPhone";
+            this.fPhone.HeaderText = "Father Phone";
+            this.fPhone.Name = "fPhone";
+            this.fPhone.ReadOnly = true;
+            this.fPhone.Visible = false;
+            // 
+            // motherName
+            // 
+            this.motherName.DataPropertyName = "MotherName";
+            this.motherName.HeaderText = "MotherName";
+            this.motherName.Name = "motherName";
+            this.motherName.ReadOnly = true;
+            this.motherName.Visible = false;
+            // 
+            // mPhone
+            // 
+            this.mPhone.DataPropertyName = "MPhone";
+            this.mPhone.HeaderText = "MPhone";
+            this.mPhone.Name = "mPhone";
+            this.mPhone.ReadOnly = true;
+            this.mPhone.Visible = false;
+            // 
+            // nid
+            // 
+            this.nid.DataPropertyName = "Nid";
+            this.nid.HeaderText = "Nid";
+            this.nid.Name = "nid";
+            this.nid.ReadOnly = true;
+            this.nid.Visible = false;
+            // 
+            // brn
+            // 
+            this.brn.DataPropertyName = "Brn";
+            this.brn.HeaderText = "Brn";
+            this.brn.Name = "brn";
+            this.brn.ReadOnly = true;
+            this.brn.Visible = false;
+            // 
+            // presentAddress
+            // 
+            this.presentAddress.DataPropertyName = "PresentAddress";
+            this.presentAddress.HeaderText = "PresentAddress";
+            this.presentAddress.Name = "presentAddress";
+            this.presentAddress.ReadOnly = true;
+            this.presentAddress.Visible = false;
+            // 
+            // permanentAddress
+            // 
+            this.permanentAddress.DataPropertyName = "PermanentAddress";
+            this.permanentAddress.HeaderText = "PermanentAddress";
+            this.permanentAddress.Name = "permanentAddress";
+            this.permanentAddress.ReadOnly = true;
+            this.permanentAddress.Visible = false;
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,27 +849,36 @@
         private System.Windows.Forms.DataGridView dataGridViewStudentList;
         private System.Windows.Forms.BindingSource classMBindingSource;
         private System.Windows.Forms.BindingSource studentMBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fatherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn session;
-        private System.Windows.Forms.DataGridViewTextBoxColumn admissionDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.Label labelMPhone;
+        private System.Windows.Forms.TextBox textBoxMPhone;
+        private System.Windows.Forms.Label labelFPhone;
+        private System.Windows.Forms.TextBox textBoxFPhone;
+        private System.Windows.Forms.Label labelSPhone;
+        private System.Windows.Forms.TextBox textBoxSPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn session;
+        private System.Windows.Forms.DataGridViewTextBoxColumn admissionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fatherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
     }
 }

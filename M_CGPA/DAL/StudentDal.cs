@@ -21,8 +21,8 @@ namespace M_CGPA.DAL
         public bool Insert(StudentM student)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO Student(Roll,Reg,ClassId,Session,AdmissionDate,DOB,StudentName,FatherName,MotherName,NID,BRN,PresentAddress,PermanentAddress)"+
-                "VALUES(@Roll, @Reg, @ClassId, @Session, @AdmissionDate, @DOB, @StudentName, @FatherName, @MotherName, @NID, @BRN, @PresentAddress, @PermanentAddress)";
+            _sqlCommand.CommandText = "INSERT INTO Student(Roll,Reg,ClassId,Session,AdmissionDate,DOB,StudentName,SPhone,FatherName,FPhone,MotherName,MPhone,NID,BRN,PresentAddress,PermanentAddress)"+
+                "VALUES(@Roll, @Reg, @ClassId, @Session, @AdmissionDate, @DOB, @StudentName, @SPhone, @FatherName, @FPhone, @MotherName, @MPhone, @NID, @BRN, @PresentAddress, @PermanentAddress)";
             
             _sqlCommand.Parameters.AddWithValue("@Roll",student.Roll);
             _sqlCommand.Parameters.AddWithValue("@Reg",student.Reg);
@@ -31,8 +31,11 @@ namespace M_CGPA.DAL
             _sqlCommand.Parameters.AddWithValue("@AdmissionDate",student.AdmissionDate);
             _sqlCommand.Parameters.AddWithValue("@DOB",student.Dob);
             _sqlCommand.Parameters.AddWithValue("@StudentName",student.StudentName);
+            _sqlCommand.Parameters.AddWithValue("@SPhone",student.SPhone);
             _sqlCommand.Parameters.AddWithValue("@FatherName",student.FatherName);
+            _sqlCommand.Parameters.AddWithValue("@FPhone",student.FPhone);
             _sqlCommand.Parameters.AddWithValue("@MotherName",student.MotherName);
+            _sqlCommand.Parameters.AddWithValue("@MPhone",student.MPhone);
             _sqlCommand.Parameters.AddWithValue("@NID",student.Nid);
             _sqlCommand.Parameters.AddWithValue("@BRN",student.Brn);
             _sqlCommand.Parameters.AddWithValue("@PresentAddress",student.PresentAddress);
@@ -47,8 +50,8 @@ namespace M_CGPA.DAL
         {
             DbConnection();
             _sqlCommand.CommandText = "UPDATE Student SET Roll=@Roll, Reg=@Reg ,ClassId=@ClassId, Session=@Session, "+
-                "AdmissionDate=@AdmissionDate, DOB=@DOB, StudentName=@StudentName, FatherName=@FatherName, "+
-                "MotherName=@MotherName, NID=@NID, BRN=@BRN, PresentAddress=@PresentAddress, PermanentAddress=@PermanentAddress " +
+                "AdmissionDate=@AdmissionDate, DOB=@DOB, StudentName=@StudentName, SPhone=@SPhone, FatherName=@FatherName, FPhone=@FPhone, "+
+                "MotherName=@MotherName, MPhone=@MPhone, NID=@NID, BRN=@BRN, PresentAddress=@PresentAddress, PermanentAddress=@PermanentAddress " +
                 "WHERE Id='"+student.Id+"'";
 
             _sqlCommand.Parameters.AddWithValue("@Roll", student.Roll);
@@ -58,8 +61,11 @@ namespace M_CGPA.DAL
             _sqlCommand.Parameters.AddWithValue("@AdmissionDate", student.AdmissionDate);
             _sqlCommand.Parameters.AddWithValue("@DOB", student.Dob);
             _sqlCommand.Parameters.AddWithValue("@StudentName", student.StudentName);
+            _sqlCommand.Parameters.AddWithValue("@SPhone", student.SPhone);
             _sqlCommand.Parameters.AddWithValue("@FatherName", student.FatherName);
+            _sqlCommand.Parameters.AddWithValue("@FPhone", student.FPhone);
             _sqlCommand.Parameters.AddWithValue("@MotherName", student.MotherName);
+            _sqlCommand.Parameters.AddWithValue("@MPhone", student.MPhone);
             _sqlCommand.Parameters.AddWithValue("@NID", student.Nid);
             _sqlCommand.Parameters.AddWithValue("@BRN", student.Brn);
             _sqlCommand.Parameters.AddWithValue("@PresentAddress", student.PresentAddress);
@@ -91,7 +97,7 @@ namespace M_CGPA.DAL
         public object GetAllByJoin()
         {
             DbConnection();
-            var querry = "SELECT Student.Id, Student.Roll, Student.Reg, Student.Session, Student.AdmissionDate, Student.DOB, Student.StudentName, Student.FatherName, Student.MotherName, Student.NID, Student.BRN, Student.PresentAddress, Student.PermanentAddress, Class.Id AS ClassId, Class.Name AS Class " +
+            var querry = "SELECT Student.Id, Student.Roll, Student.Reg, Student.Session, Student.AdmissionDate, Student.DOB, Student.StudentName, Student.SPhone, Student.FatherName, Student.FPhone, Student.MotherName, Student.MPhone, Student.NID, Student.BRN, Student.PresentAddress, Student.PermanentAddress, Class.Id AS ClassId, Class.Name AS Class " +
                        "FROM Student " +
                        "INNER JOIN Class ON Student.ClassId=Class.Id";
             _sqlCommand.CommandText = querry;
@@ -111,8 +117,11 @@ namespace M_CGPA.DAL
                        "WHERE Roll LIKE '%" + filter + "%' "+
                        "OR Session LIKE '%" + filter + "%' " +
                        "OR StudentName LIKE '%" + filter + "%' " +
+                       "OR SPhone LIKE '%" + filter + "%' " +
                        "OR FatherName LIKE '%" + filter + "%' " +
+                       "OR FPhone LIKE '%" + filter + "%' " +
                        "OR MotherName LIKE '%" + filter + "%' " +
+                       "OR MPhone LIKE '%" + filter + "%' " +
                        "OR NID LIKE '%" + filter + "%' " +
                        "OR BRN LIKE '%" + filter + "%' " +
                        "OR PresentAddress LIKE '%" + filter + "%' " +

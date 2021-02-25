@@ -31,7 +31,7 @@ namespace M_CGPA
             {
                 //new SetPanelLabelFont(panelAddClass, panelTitlebar);
                 //new SetPanelButtonFont(panelAddClass);
-                new SetPanelLabelFont(panelForm,panelFilter);
+                new SetPanelLabelFont(panelTitlebar,panelForm,panelFilter);
                 new SetPanelButtonFont(panelForm,panelFilter);
 
 

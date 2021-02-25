@@ -57,8 +57,11 @@ namespace M_CGPA
             labelClass.Text = _selectLanguage.Language.Class;
             labelAdmissionDate.Text = _selectLanguage.Language.AdmissionDate;
             labelStudentName.Text = _selectLanguage.Language.StudentName;
+            labelSPhone.Text = _selectLanguage.Language.Phone;
             labelFatherName.Text = _selectLanguage.Language.FatherName;
+            labelFPhone.Text = _selectLanguage.Language.Phone;
             labelMotherName.Text = _selectLanguage.Language.MotherName;
+            labelMPhone.Text = _selectLanguage.Language.Phone;
             labelDob.Text = _selectLanguage.Language.DOB;
             labelNid.Text = _selectLanguage.Language.NID;
             labelBrn.Text = _selectLanguage.Language.BRN;
@@ -95,7 +98,7 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "")
+                if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "" && textBoxFPhone.Text!="")
                 {
                     _studentM.Roll =Convert.ToInt32(textBoxRoll.Text.Trim());
                     _studentM.Reg = Convert.ToInt32(textBoxReg.Text.Trim());
@@ -104,8 +107,11 @@ namespace M_CGPA
                     _studentM.AdmissionDate = dateTimePickerAdmissionDate.Value;
                     _studentM.Dob = dateTimePickerDob.Value;
                     _studentM.StudentName = textBoxSName.Text.Trim();
+                    _studentM.SPhone = textBoxSPhone.Text.Trim();
                     _studentM.FatherName = textBoxFName.Text.Trim();
+                    _studentM.FPhone = textBoxFPhone.Text.Trim();
                     _studentM.MotherName = textBoxMName.Text.Trim();
+                    _studentM.MPhone = textBoxMPhone.Text.Trim();
                     _studentM.Nid = textBoxNid.Text.Trim();
                     _studentM.Brn = textBoxBRN.Text.Trim();
                     _studentM.PresentAddress = textBoxPresentAddress.Text.Trim();
@@ -164,7 +170,7 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "")
+                if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "" && textBoxFPhone.Text!="")
                 {
                     _studentM.Roll = Convert.ToInt32(textBoxRoll.Text.Trim());
                     _studentM.Reg = Convert.ToInt32(textBoxReg.Text.Trim());
@@ -173,8 +179,11 @@ namespace M_CGPA
                     _studentM.AdmissionDate = dateTimePickerAdmissionDate.Value;
                     _studentM.Dob = dateTimePickerDob.Value;
                     _studentM.StudentName = textBoxSName.Text.Trim();
+                    _studentM.SPhone = textBoxSPhone.Text.Trim();
                     _studentM.FatherName = textBoxFName.Text.Trim();
+                    _studentM.FPhone = textBoxFPhone.Text.Trim();
                     _studentM.MotherName = textBoxMName.Text.Trim();
+                    _studentM.MPhone = textBoxMPhone.Text.Trim();
                     _studentM.Nid = textBoxNid.Text.Trim();
                     _studentM.Brn = textBoxBRN.Text.Trim();
                     _studentM.PresentAddress = textBoxPresentAddress.Text.Trim();
@@ -229,6 +238,8 @@ namespace M_CGPA
 
         private void dataGridViewStudentList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            ClearFields();
+
             _studentM.Id = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["id"].Value);
             _studentM.Roll = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["roll"].Value);
             _studentM.Reg = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["reg"].Value);
@@ -238,8 +249,11 @@ namespace M_CGPA
             _studentM.AdmissionDate = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["admissionDate"].Value);
             _studentM.Dob = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["dob"].Value);
             _studentM.StudentName = dataGridViewStudentList.Rows[e.RowIndex].Cells["studentName"].Value.ToString();
+            _studentM.SPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["sPhone"].Value.ToString();
             _studentM.FatherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["fatherName"].Value.ToString();
+            _studentM.FPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["fPhone"].Value.ToString();
             _studentM.MotherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["motherName"].Value.ToString();
+            _studentM.MPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["mPhone"].Value.ToString();
             _studentM.Nid = dataGridViewStudentList.Rows[e.RowIndex].Cells["nid"].Value.ToString();
             _studentM.Brn = dataGridViewStudentList.Rows[e.RowIndex].Cells["brn"].Value.ToString();
             _studentM.PresentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["presentAddress"].Value.ToString();
@@ -252,8 +266,11 @@ namespace M_CGPA
             dateTimePickerAdmissionDate.Value = _studentM.AdmissionDate;
             dateTimePickerDob.Value = _studentM.Dob;
             textBoxSName.Text = _studentM.StudentName;
+            textBoxSPhone.Text = _studentM.SPhone;
             textBoxFName.Text = _studentM.FatherName;
+            textBoxFPhone.Text = _studentM.FPhone;
             textBoxMName.Text = _studentM.MotherName;
+            textBoxMPhone.Text = _studentM.MPhone;
             textBoxNid.Text = _studentM.Nid;
             textBoxBRN.Text = _studentM.Brn;
             textBoxPresentAddress.Text = _studentM.PresentAddress;

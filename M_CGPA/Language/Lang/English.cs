@@ -21,6 +21,8 @@
 
             #region All Field Name
 
+            Pro.Phone = "Phone";
+            Pro.TitleInformation = "Student Information";
             Pro.Student = "Student";
             Pro.TitleAddStudent = "Add Student";
             Pro.AcademicInformation = "Academic Information";

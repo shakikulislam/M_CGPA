@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using M_CGPA.DAL;
 using M_CGPA.Language;
 using M_CGPA.Model;

@@ -13,8 +13,11 @@ namespace M_CGPA.Model
         public DateTime AdmissionDate { get; set; }
         public DateTime Dob { get; set; }
         public string StudentName { get; set; }
+        public string SPhone { get; set; }
         public string FatherName { get; set; }
+        public string FPhone { get; set; }
         public string MotherName { get; set; }
+        public string MPhone { get; set; }
         public string Nid { get; set; }
         public string Brn { get; set; }
         public string PresentAddress { get; set; }
