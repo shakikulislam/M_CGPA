@@ -122,7 +122,7 @@ namespace M_CGPA
                     {
                         MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
-                        GetAll();
+                        dataGridViewStudentList.DataSource = _studentBll.GetByFilter(_studentM.Roll.ToString());
 
                         ClearFields();
                         
@@ -239,55 +239,82 @@ namespace M_CGPA
         private void dataGridViewStudentList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ClearFields();
+            try
+            {
+                _studentM.Id = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["id"].Value);
+                _studentM.Roll = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["roll"].Value);
+                _studentM.Reg = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["reg"].Value);
+                _studentM.ClassId = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["classId"].Value);
+                _studentM.Class = dataGridViewStudentList.Rows[e.RowIndex].Cells["clas"].Value.ToString();
+                _studentM.Session = dataGridViewStudentList.Rows[e.RowIndex].Cells["session"].Value.ToString();
+                _studentM.AdmissionDate = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["admissionDate"].Value);
+                _studentM.Dob = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["dob"].Value);
+                _studentM.StudentName = dataGridViewStudentList.Rows[e.RowIndex].Cells["studentName"].Value.ToString();
+                _studentM.SPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["sPhone"].Value.ToString();
+                _studentM.FatherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["fatherName"].Value.ToString();
+                _studentM.FPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["fPhone"].Value.ToString();
+                _studentM.MotherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["motherName"].Value.ToString();
+                _studentM.MPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["mPhone"].Value.ToString();
+                _studentM.Nid = dataGridViewStudentList.Rows[e.RowIndex].Cells["nid"].Value.ToString();
+                _studentM.Brn = dataGridViewStudentList.Rows[e.RowIndex].Cells["brn"].Value.ToString();
+                _studentM.PresentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["presentAddress"].Value.ToString();
+                _studentM.PermanentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["permanentAddress"].Value.ToString();
 
-            _studentM.Id = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["id"].Value);
-            _studentM.Roll = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["roll"].Value);
-            _studentM.Reg = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["reg"].Value);
-            _studentM.ClassId = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["classId"].Value);
-            _studentM.Class = dataGridViewStudentList.Rows[e.RowIndex].Cells["clas"].Value.ToString();
-            _studentM.Session = dataGridViewStudentList.Rows[e.RowIndex].Cells["session"].Value.ToString();
-            _studentM.AdmissionDate = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["admissionDate"].Value);
-            _studentM.Dob = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["dob"].Value);
-            _studentM.StudentName = dataGridViewStudentList.Rows[e.RowIndex].Cells["studentName"].Value.ToString();
-            _studentM.SPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["sPhone"].Value.ToString();
-            _studentM.FatherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["fatherName"].Value.ToString();
-            _studentM.FPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["fPhone"].Value.ToString();
-            _studentM.MotherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["motherName"].Value.ToString();
-            _studentM.MPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["mPhone"].Value.ToString();
-            _studentM.Nid = dataGridViewStudentList.Rows[e.RowIndex].Cells["nid"].Value.ToString();
-            _studentM.Brn = dataGridViewStudentList.Rows[e.RowIndex].Cells["brn"].Value.ToString();
-            _studentM.PresentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["presentAddress"].Value.ToString();
-            _studentM.PermanentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["permanentAddress"].Value.ToString();
-
-            textBoxRoll.Text = _studentM.Roll.ToString();
-            comboBoxClass.SelectedValue = _studentM.ClassId;
-            textBoxReg.Text = _studentM.Reg.ToString();
-            textBoxSession.Text = _studentM.Session;
-            dateTimePickerAdmissionDate.Value = _studentM.AdmissionDate;
-            dateTimePickerDob.Value = _studentM.Dob;
-            textBoxSName.Text = _studentM.StudentName;
-            textBoxSPhone.Text = _studentM.SPhone;
-            textBoxFName.Text = _studentM.FatherName;
-            textBoxFPhone.Text = _studentM.FPhone;
-            textBoxMName.Text = _studentM.MotherName;
-            textBoxMPhone.Text = _studentM.MPhone;
-            textBoxNid.Text = _studentM.Nid;
-            textBoxBRN.Text = _studentM.Brn;
-            textBoxPresentAddress.Text = _studentM.PresentAddress;
-            textBoxPermanentAddress.Text = _studentM.PermanentAddress;
+                textBoxRoll.Text = _studentM.Roll.ToString();
+                comboBoxClass.SelectedValue = _studentM.ClassId;
+                textBoxReg.Text = _studentM.Reg.ToString();
+                textBoxSession.Text = _studentM.Session;
+                dateTimePickerAdmissionDate.Value = _studentM.AdmissionDate;
+                dateTimePickerDob.Value = _studentM.Dob;
+                textBoxSName.Text = _studentM.StudentName;
+                textBoxSPhone.Text = _studentM.SPhone;
+                textBoxFName.Text = _studentM.FatherName;
+                textBoxFPhone.Text = _studentM.FPhone;
+                textBoxMName.Text = _studentM.MotherName;
+                textBoxMPhone.Text = _studentM.MPhone;
+                textBoxNid.Text = _studentM.Nid;
+                textBoxBRN.Text = _studentM.Brn;
+                textBoxPresentAddress.Text = _studentM.PresentAddress;
+                textBoxPermanentAddress.Text = _studentM.PermanentAddress;
 
 
-            buttonDelete.Visible = true;
-            buttonUpdate.Visible = true;
-            buttonCancel.Visible = true;
-            buttonClear.Visible = false;
-            buttonAdd.Visible = false;
+                buttonDelete.Visible = true;
+                buttonUpdate.Visible = true;
+                buttonCancel.Visible = true;
+                buttonClear.Visible = false;
+                buttonAdd.Visible = false;
+            }
+            catch (Exception)
+            {
+                
+            }
+
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             string filter = textBoxSearch.Text;
             dataGridViewStudentList.DataSource = _studentBll.GetByFilter(filter);
+        }
+
+        private void textBoxARSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (textBoxARSearch.Text != "" && e.KeyCode==Keys.Enter)
+                {
+                    var student = _studentBll.GetByRollFilter(textBoxARSearch.Text);
+                    labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
+                    labelARStudentClass.Text = student.Rows[0]["Class"].ToString();
+                    var classId = student.Rows[0]["classId"];
+                }
+                else
+                {
+                    labelARStudentName.Text = "";
+                    labelARStudentClass.Text = "";
+                }
+            }
+            catch{}
         }
 
 

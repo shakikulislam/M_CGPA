@@ -10,6 +10,7 @@ namespace M_CGPA.DAL
         private SqlCommand _sqlCommand;
         private SqlDataAdapter _sqlDataAdapter;
         DataSet _dataSet;
+        private DataTable _dataTable;
         private SqlDataReader _sqlDataReader;
 
         public void DbConnection()
@@ -132,6 +133,21 @@ namespace M_CGPA.DAL
             _sqlDataAdapter.Fill(_dataSet);
 
             return _dataSet.Tables[0];
+        }
+
+        public DataTable GetByRollFilter(string roll)
+        {
+            DbConnection();
+            var querry = "SELECT Student.Id, Student.Roll, Student.Reg, Student.Session, Student.AdmissionDate, Student.DOB, Student.StudentName, Student.FatherName, Student.MotherName, Student.NID, Student.BRN, Student.PresentAddress, Student.PermanentAddress, Class.Id AS ClassId, Class.Name AS Class " +
+                       "FROM Student " +
+                       "INNER JOIN Class ON Student.ClassId=Class.Id " +
+                       "WHERE Roll='"+roll+"'";
+            _sqlCommand.CommandText = querry;
+            _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
+            _dataTable = new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
+
+            return _dataTable;
         }
     }
 }

@@ -35,6 +35,25 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.session = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.admissionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.presentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permanentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerDob = new System.Windows.Forms.DateTimePicker();
             this.labelPermanentAddress = new System.Windows.Forms.Label();
@@ -77,25 +96,16 @@
             this.labelSession = new System.Windows.Forms.Label();
             this.labelReg = new System.Windows.Forms.Label();
             this.textBoxSession = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.session = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.admissionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fatherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.presentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permanentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControlStudent = new System.Windows.Forms.TabControl();
+            this.tabPageAddStudent = new System.Windows.Forms.TabPage();
+            this.tabPageAddResult = new System.Windows.Forms.TabPage();
+            this.labelARStudentName = new System.Windows.Forms.Label();
+            this.labelARName = new System.Windows.Forms.Label();
+            this.textBoxARSearch = new System.Windows.Forms.TextBox();
+            this.labelARRoll = new System.Windows.Forms.Label();
+            this.tabPageBook = new System.Windows.Forms.TabPage();
+            this.labelARStudentClass = new System.Windows.Forms.Label();
+            this.labelARClass = new System.Windows.Forms.Label();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -104,6 +114,9 @@
             this.panelButtons.SuspendLayout();
             this.panelAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
+            this.tabControlStudent.SuspendLayout();
+            this.tabPageAddStudent.SuspendLayout();
+            this.tabPageAddResult.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -142,9 +155,9 @@
             this.groupBoxFilter.Controls.Add(this.dataGridViewStudentList);
             this.groupBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxFilter.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxFilter.Location = new System.Drawing.Point(520, 47);
+            this.groupBoxFilter.Location = new System.Drawing.Point(541, 19);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(355, 452);
+            this.groupBoxFilter.Size = new System.Drawing.Size(333, 433);
             this.groupBoxFilter.TabIndex = 2;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
@@ -152,7 +165,7 @@
             // textBoxSearch
             // 
             this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxSearch.Location = new System.Drawing.Point(28, 53);
+            this.textBoxSearch.Location = new System.Drawing.Point(17, 53);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxSearch.TabIndex = 20;
@@ -162,7 +175,7 @@
             // labelSearch
             // 
             this.labelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelSearch.Location = new System.Drawing.Point(28, 22);
+            this.labelSearch.Location = new System.Drawing.Point(17, 22);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(298, 25);
             this.labelSearch.TabIndex = 19;
@@ -206,10 +219,160 @@
             this.dataGridViewStudentList.ReadOnly = true;
             this.dataGridViewStudentList.RowHeadersVisible = false;
             this.dataGridViewStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudentList.Size = new System.Drawing.Size(349, 353);
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(327, 275);
             this.dataGridViewStudentList.TabIndex = 18;
             this.dataGridViewStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellDoubleClick);
             this.dataGridViewStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudentList_RowPostPaint);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 5;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // roll
+            // 
+            this.roll.DataPropertyName = "Roll";
+            this.roll.HeaderText = "Roll";
+            this.roll.Name = "roll";
+            this.roll.ReadOnly = true;
+            // 
+            // reg
+            // 
+            this.reg.DataPropertyName = "Reg";
+            this.reg.HeaderText = "Reg";
+            this.reg.Name = "reg";
+            this.reg.ReadOnly = true;
+            this.reg.Visible = false;
+            // 
+            // classId
+            // 
+            this.classId.DataPropertyName = "ClassId";
+            this.classId.HeaderText = "ClassId";
+            this.classId.Name = "classId";
+            this.classId.ReadOnly = true;
+            this.classId.Visible = false;
+            // 
+            // studentName
+            // 
+            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentName.DataPropertyName = "StudentName";
+            this.studentName.HeaderText = "Student Name";
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            // 
+            // clas
+            // 
+            this.clas.DataPropertyName = "Class";
+            this.clas.HeaderText = "Class";
+            this.clas.Name = "clas";
+            this.clas.ReadOnly = true;
+            // 
+            // session
+            // 
+            this.session.DataPropertyName = "Session";
+            this.session.HeaderText = "Session";
+            this.session.Name = "session";
+            this.session.ReadOnly = true;
+            this.session.Visible = false;
+            // 
+            // admissionDate
+            // 
+            this.admissionDate.DataPropertyName = "AdmissionDate";
+            this.admissionDate.HeaderText = "Admission Date";
+            this.admissionDate.Name = "admissionDate";
+            this.admissionDate.ReadOnly = true;
+            this.admissionDate.Visible = false;
+            // 
+            // dob
+            // 
+            this.dob.DataPropertyName = "Dob";
+            this.dob.HeaderText = "DOB";
+            this.dob.Name = "dob";
+            this.dob.ReadOnly = true;
+            this.dob.Visible = false;
+            // 
+            // sPhone
+            // 
+            this.sPhone.DataPropertyName = "SPhone";
+            this.sPhone.HeaderText = "Student Phone";
+            this.sPhone.Name = "sPhone";
+            this.sPhone.ReadOnly = true;
+            this.sPhone.Visible = false;
+            // 
+            // fatherName
+            // 
+            this.fatherName.DataPropertyName = "FatherName";
+            this.fatherName.HeaderText = "Father Name";
+            this.fatherName.Name = "fatherName";
+            this.fatherName.ReadOnly = true;
+            this.fatherName.Visible = false;
+            // 
+            // fPhone
+            // 
+            this.fPhone.DataPropertyName = "FPhone";
+            this.fPhone.HeaderText = "Father Phone";
+            this.fPhone.Name = "fPhone";
+            this.fPhone.ReadOnly = true;
+            this.fPhone.Visible = false;
+            // 
+            // motherName
+            // 
+            this.motherName.DataPropertyName = "MotherName";
+            this.motherName.HeaderText = "MotherName";
+            this.motherName.Name = "motherName";
+            this.motherName.ReadOnly = true;
+            this.motherName.Visible = false;
+            // 
+            // mPhone
+            // 
+            this.mPhone.DataPropertyName = "MPhone";
+            this.mPhone.HeaderText = "MPhone";
+            this.mPhone.Name = "mPhone";
+            this.mPhone.ReadOnly = true;
+            this.mPhone.Visible = false;
+            // 
+            // nid
+            // 
+            this.nid.DataPropertyName = "Nid";
+            this.nid.HeaderText = "Nid";
+            this.nid.Name = "nid";
+            this.nid.ReadOnly = true;
+            this.nid.Visible = false;
+            // 
+            // brn
+            // 
+            this.brn.DataPropertyName = "Brn";
+            this.brn.HeaderText = "Brn";
+            this.brn.Name = "brn";
+            this.brn.ReadOnly = true;
+            this.brn.Visible = false;
+            // 
+            // presentAddress
+            // 
+            this.presentAddress.DataPropertyName = "PresentAddress";
+            this.presentAddress.HeaderText = "PresentAddress";
+            this.presentAddress.Name = "presentAddress";
+            this.presentAddress.ReadOnly = true;
+            this.presentAddress.Visible = false;
+            // 
+            // permanentAddress
+            // 
+            this.permanentAddress.DataPropertyName = "PermanentAddress";
+            this.permanentAddress.HeaderText = "PermanentAddress";
+            this.permanentAddress.Name = "permanentAddress";
+            this.permanentAddress.ReadOnly = true;
+            this.permanentAddress.Visible = false;
             // 
             // studentMBindingSource
             // 
@@ -367,9 +530,9 @@
             this.groupBoxAddStudent.Controls.Add(this.panelAddForm);
             this.groupBoxAddStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAddStudent.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxAddStudent.Location = new System.Drawing.Point(25, 47);
+            this.groupBoxAddStudent.Location = new System.Drawing.Point(18, 19);
             this.groupBoxAddStudent.Name = "groupBoxAddStudent";
-            this.groupBoxAddStudent.Size = new System.Drawing.Size(489, 452);
+            this.groupBoxAddStudent.Size = new System.Drawing.Size(489, 436);
             this.groupBoxAddStudent.TabIndex = 2;
             this.groupBoxAddStudent.TabStop = false;
             this.groupBoxAddStudent.Text = "Student Information";
@@ -382,7 +545,7 @@
             this.panelButtons.Controls.Add(this.buttonClear);
             this.panelButtons.Controls.Add(this.buttonAdd);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtons.Location = new System.Drawing.Point(3, 412);
+            this.panelButtons.Location = new System.Drawing.Point(3, 396);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(483, 37);
             this.panelButtons.TabIndex = 7;
@@ -500,7 +663,7 @@
             this.panelAddForm.Controls.Add(this.textBoxNid);
             this.panelAddForm.Location = new System.Drawing.Point(3, 25);
             this.panelAddForm.Name = "panelAddForm";
-            this.panelAddForm.Size = new System.Drawing.Size(480, 381);
+            this.panelAddForm.Size = new System.Drawing.Size(480, 346);
             this.panelAddForm.TabIndex = 6;
             // 
             // labelMPhone
@@ -633,155 +796,113 @@
             this.textBoxSession.Size = new System.Drawing.Size(108, 26);
             this.textBoxSession.TabIndex = 1;
             // 
-            // Column1
+            // tabControlStudent
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Column1.HeaderText = "#";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 5;
+            this.tabControlStudent.Controls.Add(this.tabPageAddStudent);
+            this.tabControlStudent.Controls.Add(this.tabPageAddResult);
+            this.tabControlStudent.Controls.Add(this.tabPageBook);
+            this.tabControlStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlStudent.ItemSize = new System.Drawing.Size(71, 25);
+            this.tabControlStudent.Location = new System.Drawing.Point(0, 31);
+            this.tabControlStudent.Name = "tabControlStudent";
+            this.tabControlStudent.SelectedIndex = 0;
+            this.tabControlStudent.Size = new System.Drawing.Size(900, 509);
+            this.tabControlStudent.TabIndex = 3;
             // 
-            // id
+            // tabPageAddStudent
             // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.tabPageAddStudent.BackColor = System.Drawing.Color.White;
+            this.tabPageAddStudent.Controls.Add(this.groupBoxAddStudent);
+            this.tabPageAddStudent.Controls.Add(this.groupBoxFilter);
+            this.tabPageAddStudent.Location = new System.Drawing.Point(4, 29);
+            this.tabPageAddStudent.Name = "tabPageAddStudent";
+            this.tabPageAddStudent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddStudent.Size = new System.Drawing.Size(892, 476);
+            this.tabPageAddStudent.TabIndex = 0;
+            this.tabPageAddStudent.Text = "Add Student";
             // 
-            // roll
+            // tabPageAddResult
             // 
-            this.roll.DataPropertyName = "Roll";
-            this.roll.HeaderText = "Roll";
-            this.roll.Name = "roll";
-            this.roll.ReadOnly = true;
+            this.tabPageAddResult.BackColor = System.Drawing.Color.White;
+            this.tabPageAddResult.Controls.Add(this.labelARStudentClass);
+            this.tabPageAddResult.Controls.Add(this.labelARClass);
+            this.tabPageAddResult.Controls.Add(this.labelARStudentName);
+            this.tabPageAddResult.Controls.Add(this.labelARName);
+            this.tabPageAddResult.Controls.Add(this.textBoxARSearch);
+            this.tabPageAddResult.Controls.Add(this.labelARRoll);
+            this.tabPageAddResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageAddResult.Location = new System.Drawing.Point(4, 29);
+            this.tabPageAddResult.Name = "tabPageAddResult";
+            this.tabPageAddResult.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddResult.Size = new System.Drawing.Size(892, 476);
+            this.tabPageAddResult.TabIndex = 1;
+            this.tabPageAddResult.Text = "Add Result";
             // 
-            // reg
+            // labelARStudentName
             // 
-            this.reg.DataPropertyName = "Reg";
-            this.reg.HeaderText = "Reg";
-            this.reg.Name = "reg";
-            this.reg.ReadOnly = true;
-            this.reg.Visible = false;
+            this.labelARStudentName.AutoSize = true;
+            this.labelARStudentName.Location = new System.Drawing.Point(175, 130);
+            this.labelARStudentName.Name = "labelARStudentName";
+            this.labelARStudentName.Size = new System.Drawing.Size(0, 20);
+            this.labelARStudentName.TabIndex = 24;
+            this.labelARStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // classId
+            // labelARName
             // 
-            this.classId.DataPropertyName = "ClassId";
-            this.classId.HeaderText = "ClassId";
-            this.classId.Name = "classId";
-            this.classId.ReadOnly = true;
-            this.classId.Visible = false;
+            this.labelARName.Location = new System.Drawing.Point(22, 128);
+            this.labelARName.Name = "labelARName";
+            this.labelARName.Size = new System.Drawing.Size(147, 25);
+            this.labelARName.TabIndex = 23;
+            this.labelARName.Text = "Name";
+            this.labelARName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // studentName
+            // textBoxARSearch
             // 
-            this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.studentName.DataPropertyName = "StudentName";
-            this.studentName.HeaderText = "Student Name";
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
+            this.textBoxARSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxARSearch.Location = new System.Drawing.Point(297, 64);
+            this.textBoxARSearch.Name = "textBoxARSearch";
+            this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxARSearch.TabIndex = 22;
+            this.textBoxARSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxARSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
             // 
-            // clas
+            // labelARRoll
             // 
-            this.clas.DataPropertyName = "Class";
-            this.clas.HeaderText = "Class";
-            this.clas.Name = "clas";
-            this.clas.ReadOnly = true;
+            this.labelARRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelARRoll.Location = new System.Drawing.Point(297, 33);
+            this.labelARRoll.Name = "labelARRoll";
+            this.labelARRoll.Size = new System.Drawing.Size(298, 25);
+            this.labelARRoll.TabIndex = 21;
+            this.labelARRoll.Text = "Roll";
+            this.labelARRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // session
+            // tabPageBook
             // 
-            this.session.DataPropertyName = "Session";
-            this.session.HeaderText = "Session";
-            this.session.Name = "session";
-            this.session.ReadOnly = true;
-            this.session.Visible = false;
+            this.tabPageBook.BackColor = System.Drawing.Color.White;
+            this.tabPageBook.Location = new System.Drawing.Point(4, 29);
+            this.tabPageBook.Name = "tabPageBook";
+            this.tabPageBook.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBook.Size = new System.Drawing.Size(892, 476);
+            this.tabPageBook.TabIndex = 2;
+            this.tabPageBook.Text = "Book";
             // 
-            // admissionDate
+            // labelARStudentClass
             // 
-            this.admissionDate.DataPropertyName = "AdmissionDate";
-            this.admissionDate.HeaderText = "Admission Date";
-            this.admissionDate.Name = "admissionDate";
-            this.admissionDate.ReadOnly = true;
-            this.admissionDate.Visible = false;
+            this.labelARStudentClass.AutoSize = true;
+            this.labelARStudentClass.Location = new System.Drawing.Point(175, 155);
+            this.labelARStudentClass.Name = "labelARStudentClass";
+            this.labelARStudentClass.Size = new System.Drawing.Size(0, 20);
+            this.labelARStudentClass.TabIndex = 26;
+            this.labelARStudentClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dob
+            // labelARClass
             // 
-            this.dob.DataPropertyName = "Dob";
-            this.dob.HeaderText = "DOB";
-            this.dob.Name = "dob";
-            this.dob.ReadOnly = true;
-            this.dob.Visible = false;
-            // 
-            // sPhone
-            // 
-            this.sPhone.DataPropertyName = "SPhone";
-            this.sPhone.HeaderText = "Student Phone";
-            this.sPhone.Name = "sPhone";
-            this.sPhone.ReadOnly = true;
-            this.sPhone.Visible = false;
-            // 
-            // fatherName
-            // 
-            this.fatherName.DataPropertyName = "FatherName";
-            this.fatherName.HeaderText = "Father Name";
-            this.fatherName.Name = "fatherName";
-            this.fatherName.ReadOnly = true;
-            this.fatherName.Visible = false;
-            // 
-            // fPhone
-            // 
-            this.fPhone.DataPropertyName = "FPhone";
-            this.fPhone.HeaderText = "Father Phone";
-            this.fPhone.Name = "fPhone";
-            this.fPhone.ReadOnly = true;
-            this.fPhone.Visible = false;
-            // 
-            // motherName
-            // 
-            this.motherName.DataPropertyName = "MotherName";
-            this.motherName.HeaderText = "MotherName";
-            this.motherName.Name = "motherName";
-            this.motherName.ReadOnly = true;
-            this.motherName.Visible = false;
-            // 
-            // mPhone
-            // 
-            this.mPhone.DataPropertyName = "MPhone";
-            this.mPhone.HeaderText = "MPhone";
-            this.mPhone.Name = "mPhone";
-            this.mPhone.ReadOnly = true;
-            this.mPhone.Visible = false;
-            // 
-            // nid
-            // 
-            this.nid.DataPropertyName = "Nid";
-            this.nid.HeaderText = "Nid";
-            this.nid.Name = "nid";
-            this.nid.ReadOnly = true;
-            this.nid.Visible = false;
-            // 
-            // brn
-            // 
-            this.brn.DataPropertyName = "Brn";
-            this.brn.HeaderText = "Brn";
-            this.brn.Name = "brn";
-            this.brn.ReadOnly = true;
-            this.brn.Visible = false;
-            // 
-            // presentAddress
-            // 
-            this.presentAddress.DataPropertyName = "PresentAddress";
-            this.presentAddress.HeaderText = "PresentAddress";
-            this.presentAddress.Name = "presentAddress";
-            this.presentAddress.ReadOnly = true;
-            this.presentAddress.Visible = false;
-            // 
-            // permanentAddress
-            // 
-            this.permanentAddress.DataPropertyName = "PermanentAddress";
-            this.permanentAddress.HeaderText = "PermanentAddress";
-            this.permanentAddress.Name = "permanentAddress";
-            this.permanentAddress.ReadOnly = true;
-            this.permanentAddress.Visible = false;
+            this.labelARClass.Location = new System.Drawing.Point(22, 153);
+            this.labelARClass.Name = "labelARClass";
+            this.labelARClass.Size = new System.Drawing.Size(147, 25);
+            this.labelARClass.TabIndex = 25;
+            this.labelARClass.Text = "Class";
+            this.labelARClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Student
             // 
@@ -789,8 +910,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 540);
-            this.Controls.Add(this.groupBoxAddStudent);
-            this.Controls.Add(this.groupBoxFilter);
+            this.Controls.Add(this.tabControlStudent);
             this.Controls.Add(this.panelTitlebar);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -807,6 +927,10 @@
             this.panelAddForm.ResumeLayout(false);
             this.panelAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
+            this.tabControlStudent.ResumeLayout(false);
+            this.tabPageAddStudent.ResumeLayout(false);
+            this.tabPageAddResult.ResumeLayout(false);
+            this.tabPageAddResult.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -880,5 +1004,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brn;
         private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
+        private System.Windows.Forms.TabControl tabControlStudent;
+        private System.Windows.Forms.TabPage tabPageAddResult;
+        private System.Windows.Forms.TabPage tabPageBook;
+        private System.Windows.Forms.TabPage tabPageAddStudent;
+        private System.Windows.Forms.TextBox textBoxARSearch;
+        private System.Windows.Forms.Label labelARRoll;
+        private System.Windows.Forms.Label labelARName;
+        private System.Windows.Forms.Label labelARStudentName;
+        private System.Windows.Forms.Label labelARStudentClass;
+        private System.Windows.Forms.Label labelARClass;
     }
 }

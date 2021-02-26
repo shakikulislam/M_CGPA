@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using M_CGPA.DAL;
 using M_CGPA.Language;
 using M_CGPA.Model;
@@ -50,6 +51,11 @@ namespace M_CGPA.BLL
         public object GetByFilter(string filter)
         {
             return _studentDal.GetByFilter(filter);
+        }
+
+        public DataTable GetByRollFilter(string roll)
+        {
+            return _studentDal.GetByRollFilter(roll);
         }
     }
 }
