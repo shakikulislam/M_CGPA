@@ -75,6 +75,7 @@ namespace M_CGPA
         private void GetAll()
         {
             dataGridViewStudentList.DataSource = _studentBll.GetAllByJoin();
+            labelTotalStudent.Text = "Total= " + dataGridViewStudentList.Rows.Count;
         }
 
         private void ClearFields()
@@ -295,28 +296,37 @@ namespace M_CGPA
         {
             string filter = textBoxSearch.Text;
             dataGridViewStudentList.DataSource = _studentBll.GetByFilter(filter);
+            labelTotalStudent.Text = "Total= " + dataGridViewStudentList.Rows.Count;
         }
 
         private void textBoxARSearch_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
-                if (textBoxARSearch.Text != "" && e.KeyCode==Keys.Enter)
+                if (textBoxABSearch.Text != "" && e.KeyCode==Keys.Enter)
                 {
-                    var student = _studentBll.GetByRollFilter(textBoxARSearch.Text);
-                    labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
-                    labelARStudentClass.Text = student.Rows[0]["Class"].ToString();
-                    var classId = student.Rows[0]["classId"];
+                    var student = _studentBll.GetByRollFilter(textBoxABSearch.Text);
+                    labelABStudentName.Text = student.Rows[0]["StudentName"].ToString();
+
+                    var classId = (int) student.Rows[0]["classId"];
+                    comboBoxABClass.DataSource = _classBll.GetById(classId);
+                    labelABClass.Text = comboBoxABClass.SelectedValue.ToString();
+                }
+                else if (e.KeyCode==Keys.Delete)
+                {
+                    textBoxABSearch.Clear();
+                    labelABStudentName.Text = "";
+                    comboBoxABClass.SelectedValue = 0;
                 }
                 else
                 {
-                    labelARStudentName.Text = "";
-                    labelARStudentClass.Text = "";
+                    labelABStudentName.Text = "";
+                    comboBoxABClass.SelectedValue = 0;
                 }
             }
             catch{}
         }
 
-
+        
     }
 }

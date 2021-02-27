@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using M_CGPA.DAL;
 using M_CGPA.Language;
 using M_CGPA.Model;
@@ -45,6 +46,10 @@ namespace M_CGPA.BLL
         public bool DeleteClass(ClassM classM)
         {
             return _classDal.Delete(classM);
+        }
+        public DataTable GetById(int id)
+        {
+            return _classDal.GetById(id);
         }
     }
 }

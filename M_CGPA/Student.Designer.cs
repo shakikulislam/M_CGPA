@@ -1,4 +1,6 @@
-﻿namespace M_CGPA
+﻿using System.Security.AccessControl;
+
+namespace M_CGPA
 {
     partial class Student
     {
@@ -32,6 +34,7 @@
             this.panelTitlebar = new System.Windows.Forms.Panel();
             this.labelTitleAddStudent = new System.Windows.Forms.Label();
             this.groupBoxFilter = new System.Windows.Forms.GroupBox();
+            this.labelTotalStudent = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
             this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
@@ -99,13 +102,13 @@
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
             this.tabPageAddResult = new System.Windows.Forms.TabPage();
-            this.labelARStudentName = new System.Windows.Forms.Label();
-            this.labelARName = new System.Windows.Forms.Label();
-            this.textBoxARSearch = new System.Windows.Forms.TextBox();
-            this.labelARRoll = new System.Windows.Forms.Label();
             this.tabPageBook = new System.Windows.Forms.TabPage();
-            this.labelARStudentClass = new System.Windows.Forms.Label();
-            this.labelARClass = new System.Windows.Forms.Label();
+            this.comboBoxABClass = new System.Windows.Forms.ComboBox();
+            this.labelABClass = new System.Windows.Forms.Label();
+            this.labelABStudentName = new System.Windows.Forms.Label();
+            this.labelABName = new System.Windows.Forms.Label();
+            this.textBoxABSearch = new System.Windows.Forms.TextBox();
+            this.labelABRoll = new System.Windows.Forms.Label();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -116,7 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
-            this.tabPageAddResult.SuspendLayout();
+            this.tabPageBook.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -150,24 +153,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFilter.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxFilter.Controls.Add(this.labelTotalStudent);
             this.groupBoxFilter.Controls.Add(this.textBoxSearch);
             this.groupBoxFilter.Controls.Add(this.labelSearch);
             this.groupBoxFilter.Controls.Add(this.dataGridViewStudentList);
             this.groupBoxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxFilter.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxFilter.Location = new System.Drawing.Point(541, 19);
+            this.groupBoxFilter.Location = new System.Drawing.Point(597, 19);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(333, 433);
+            this.groupBoxFilter.Size = new System.Drawing.Size(277, 433);
             this.groupBoxFilter.TabIndex = 2;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
             // 
+            // labelTotalStudent
+            // 
+            this.labelTotalStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTotalStudent.Location = new System.Drawing.Point(14, 396);
+            this.labelTotalStudent.Name = "labelTotalStudent";
+            this.labelTotalStudent.Size = new System.Drawing.Size(257, 25);
+            this.labelTotalStudent.TabIndex = 21;
+            this.labelTotalStudent.Text = "Total";
+            this.labelTotalStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // textBoxSearch
             // 
             this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxSearch.Location = new System.Drawing.Point(17, 53);
+            this.textBoxSearch.Location = new System.Drawing.Point(14, 53);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxSearch.Size = new System.Drawing.Size(249, 26);
             this.textBoxSearch.TabIndex = 20;
             this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
@@ -175,9 +189,9 @@
             // labelSearch
             // 
             this.labelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelSearch.Location = new System.Drawing.Point(17, 22);
+            this.labelSearch.Location = new System.Drawing.Point(13, 22);
             this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(298, 25);
+            this.labelSearch.Size = new System.Drawing.Size(250, 25);
             this.labelSearch.TabIndex = 19;
             this.labelSearch.Text = "Search for anything";
             this.labelSearch.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -219,7 +233,7 @@
             this.dataGridViewStudentList.ReadOnly = true;
             this.dataGridViewStudentList.RowHeadersVisible = false;
             this.dataGridViewStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudentList.Size = new System.Drawing.Size(327, 275);
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(271, 275);
             this.dataGridViewStudentList.TabIndex = 18;
             this.dataGridViewStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellDoubleClick);
             this.dataGridViewStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudentList_RowPostPaint);
@@ -242,10 +256,12 @@
             // 
             // roll
             // 
+            this.roll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.roll.DataPropertyName = "Roll";
             this.roll.HeaderText = "Roll";
             this.roll.Name = "roll";
             this.roll.ReadOnly = true;
+            this.roll.Width = 61;
             // 
             // reg
             // 
@@ -268,15 +284,18 @@
             this.studentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.studentName.DataPropertyName = "StudentName";
             this.studentName.HeaderText = "Student Name";
+            this.studentName.MinimumWidth = 200;
             this.studentName.Name = "studentName";
             this.studentName.ReadOnly = true;
             // 
             // clas
             // 
+            this.clas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.clas.DataPropertyName = "Class";
             this.clas.HeaderText = "Class";
             this.clas.Name = "clas";
             this.clas.ReadOnly = true;
+            this.clas.Width = 73;
             // 
             // session
             // 
@@ -382,141 +401,141 @@
             // 
             this.dateTimePickerDob.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDob.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePickerDob.Location = new System.Drawing.Point(347, 91);
+            this.dateTimePickerDob.Location = new System.Drawing.Point(406, 94);
             this.dateTimePickerDob.Name = "dateTimePickerDob";
             this.dateTimePickerDob.Size = new System.Drawing.Size(108, 26);
             this.dateTimePickerDob.TabIndex = 3;
             // 
             // labelPermanentAddress
             // 
-            this.labelPermanentAddress.Location = new System.Drawing.Point(5, 487);
+            this.labelPermanentAddress.Location = new System.Drawing.Point(3, 487);
             this.labelPermanentAddress.Name = "labelPermanentAddress";
-            this.labelPermanentAddress.Size = new System.Drawing.Size(150, 25);
+            this.labelPermanentAddress.Size = new System.Drawing.Size(169, 25);
             this.labelPermanentAddress.TabIndex = 0;
             this.labelPermanentAddress.Text = "Permanent Address";
             this.labelPermanentAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelPresentAddress
             // 
-            this.labelPresentAddress.Location = new System.Drawing.Point(4, 426);
+            this.labelPresentAddress.Location = new System.Drawing.Point(3, 426);
             this.labelPresentAddress.Name = "labelPresentAddress";
-            this.labelPresentAddress.Size = new System.Drawing.Size(151, 25);
+            this.labelPresentAddress.Size = new System.Drawing.Size(169, 25);
             this.labelPresentAddress.TabIndex = 0;
             this.labelPresentAddress.Text = "Present Address";
             this.labelPresentAddress.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxPermanentAddress
             // 
-            this.textBoxPermanentAddress.Location = new System.Drawing.Point(154, 484);
+            this.textBoxPermanentAddress.Location = new System.Drawing.Point(178, 487);
             this.textBoxPermanentAddress.Multiline = true;
             this.textBoxPermanentAddress.Name = "textBoxPermanentAddress";
             this.textBoxPermanentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPermanentAddress.Size = new System.Drawing.Size(301, 50);
+            this.textBoxPermanentAddress.Size = new System.Drawing.Size(336, 50);
             this.textBoxPermanentAddress.TabIndex = 1;
             // 
             // textBoxPresentAddress
             // 
-            this.textBoxPresentAddress.Location = new System.Drawing.Point(154, 423);
+            this.textBoxPresentAddress.Location = new System.Drawing.Point(178, 426);
             this.textBoxPresentAddress.Multiline = true;
             this.textBoxPresentAddress.Name = "textBoxPresentAddress";
             this.textBoxPresentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxPresentAddress.Size = new System.Drawing.Size(301, 50);
+            this.textBoxPresentAddress.Size = new System.Drawing.Size(336, 50);
             this.textBoxPresentAddress.TabIndex = 1;
             // 
             // textBoxBRN
             // 
-            this.textBoxBRN.Location = new System.Drawing.Point(154, 386);
+            this.textBoxBRN.Location = new System.Drawing.Point(178, 389);
             this.textBoxBRN.Name = "textBoxBRN";
-            this.textBoxBRN.Size = new System.Drawing.Size(301, 26);
+            this.textBoxBRN.Size = new System.Drawing.Size(336, 26);
             this.textBoxBRN.TabIndex = 1;
             // 
             // labelBrn
             // 
-            this.labelBrn.Location = new System.Drawing.Point(0, 390);
+            this.labelBrn.Location = new System.Drawing.Point(3, 390);
             this.labelBrn.Name = "labelBrn";
-            this.labelBrn.Size = new System.Drawing.Size(156, 25);
+            this.labelBrn.Size = new System.Drawing.Size(169, 25);
             this.labelBrn.TabIndex = 0;
             this.labelBrn.Text = "Birth Registration No";
             this.labelBrn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxNid
             // 
-            this.textBoxNid.Location = new System.Drawing.Point(122, 349);
+            this.textBoxNid.Location = new System.Drawing.Point(178, 352);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(333, 26);
+            this.textBoxNid.Size = new System.Drawing.Size(336, 26);
             this.textBoxNid.TabIndex = 1;
             // 
             // labelNid
             // 
-            this.labelNid.Location = new System.Drawing.Point(9, 352);
+            this.labelNid.Location = new System.Drawing.Point(3, 352);
             this.labelNid.Name = "labelNid";
-            this.labelNid.Size = new System.Drawing.Size(113, 25);
+            this.labelNid.Size = new System.Drawing.Size(169, 25);
             this.labelNid.TabIndex = 0;
             this.labelNid.Text = "NID";
             this.labelNid.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelDob
             // 
-            this.labelDob.Location = new System.Drawing.Point(238, 95);
+            this.labelDob.Location = new System.Drawing.Point(286, 98);
             this.labelDob.Name = "labelDob";
-            this.labelDob.Size = new System.Drawing.Size(103, 25);
+            this.labelDob.Size = new System.Drawing.Size(114, 25);
             this.labelDob.TabIndex = 0;
             this.labelDob.Text = "Date of Birth";
             this.labelDob.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxMName
             // 
-            this.textBoxMName.Location = new System.Drawing.Point(122, 275);
+            this.textBoxMName.Location = new System.Drawing.Point(178, 278);
             this.textBoxMName.Name = "textBoxMName";
-            this.textBoxMName.Size = new System.Drawing.Size(333, 26);
+            this.textBoxMName.Size = new System.Drawing.Size(336, 26);
             this.textBoxMName.TabIndex = 1;
             // 
             // labelMotherName
             // 
-            this.labelMotherName.Location = new System.Drawing.Point(1, 278);
+            this.labelMotherName.Location = new System.Drawing.Point(3, 278);
             this.labelMotherName.Name = "labelMotherName";
-            this.labelMotherName.Size = new System.Drawing.Size(121, 25);
+            this.labelMotherName.Size = new System.Drawing.Size(169, 25);
             this.labelMotherName.TabIndex = 0;
             this.labelMotherName.Text = "Mother Name";
             this.labelMotherName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxFName
             // 
-            this.textBoxFName.Location = new System.Drawing.Point(122, 202);
+            this.textBoxFName.Location = new System.Drawing.Point(178, 205);
             this.textBoxFName.Name = "textBoxFName";
-            this.textBoxFName.Size = new System.Drawing.Size(333, 26);
+            this.textBoxFName.Size = new System.Drawing.Size(336, 26);
             this.textBoxFName.TabIndex = 1;
             // 
             // labelFatherName
             // 
-            this.labelFatherName.Location = new System.Drawing.Point(1, 205);
+            this.labelFatherName.Location = new System.Drawing.Point(3, 205);
             this.labelFatherName.Name = "labelFatherName";
-            this.labelFatherName.Size = new System.Drawing.Size(121, 25);
+            this.labelFatherName.Size = new System.Drawing.Size(169, 25);
             this.labelFatherName.TabIndex = 0;
             this.labelFatherName.Text = "Father Name";
             this.labelFatherName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxSName
             // 
-            this.textBoxSName.Location = new System.Drawing.Point(122, 128);
+            this.textBoxSName.Location = new System.Drawing.Point(178, 131);
             this.textBoxSName.Name = "textBoxSName";
-            this.textBoxSName.Size = new System.Drawing.Size(333, 26);
+            this.textBoxSName.Size = new System.Drawing.Size(336, 26);
             this.textBoxSName.TabIndex = 1;
             // 
             // labelStudentName
             // 
-            this.labelStudentName.Location = new System.Drawing.Point(1, 131);
+            this.labelStudentName.Location = new System.Drawing.Point(3, 131);
             this.labelStudentName.Name = "labelStudentName";
-            this.labelStudentName.Size = new System.Drawing.Size(121, 25);
+            this.labelStudentName.Size = new System.Drawing.Size(169, 25);
             this.labelStudentName.TabIndex = 0;
             this.labelStudentName.Text = "Student Name";
             this.labelStudentName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelAdmissionDate
             // 
-            this.labelAdmissionDate.Location = new System.Drawing.Point(0, 96);
+            this.labelAdmissionDate.Location = new System.Drawing.Point(3, 96);
             this.labelAdmissionDate.Name = "labelAdmissionDate";
-            this.labelAdmissionDate.Size = new System.Drawing.Size(122, 25);
+            this.labelAdmissionDate.Size = new System.Drawing.Size(169, 25);
             this.labelAdmissionDate.TabIndex = 0;
             this.labelAdmissionDate.Text = "Admission Date";
             this.labelAdmissionDate.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -532,7 +551,7 @@
             this.groupBoxAddStudent.ForeColor = System.Drawing.Color.Black;
             this.groupBoxAddStudent.Location = new System.Drawing.Point(18, 19);
             this.groupBoxAddStudent.Name = "groupBoxAddStudent";
-            this.groupBoxAddStudent.Size = new System.Drawing.Size(489, 436);
+            this.groupBoxAddStudent.Size = new System.Drawing.Size(552, 436);
             this.groupBoxAddStudent.TabIndex = 2;
             this.groupBoxAddStudent.TabStop = false;
             this.groupBoxAddStudent.Text = "Student Information";
@@ -547,7 +566,7 @@
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelButtons.Location = new System.Drawing.Point(3, 396);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(483, 37);
+            this.panelButtons.Size = new System.Drawing.Size(546, 37);
             this.panelButtons.TabIndex = 7;
             // 
             // buttonCancel
@@ -663,60 +682,60 @@
             this.panelAddForm.Controls.Add(this.textBoxNid);
             this.panelAddForm.Location = new System.Drawing.Point(3, 25);
             this.panelAddForm.Name = "panelAddForm";
-            this.panelAddForm.Size = new System.Drawing.Size(480, 346);
+            this.panelAddForm.Size = new System.Drawing.Size(543, 346);
             this.panelAddForm.TabIndex = 6;
             // 
             // labelMPhone
             // 
-            this.labelMPhone.Location = new System.Drawing.Point(1, 315);
+            this.labelMPhone.Location = new System.Drawing.Point(3, 315);
             this.labelMPhone.Name = "labelMPhone";
-            this.labelMPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelMPhone.Size = new System.Drawing.Size(169, 25);
             this.labelMPhone.TabIndex = 8;
             this.labelMPhone.Text = "Phone";
             this.labelMPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxMPhone
             // 
-            this.textBoxMPhone.Location = new System.Drawing.Point(122, 312);
+            this.textBoxMPhone.Location = new System.Drawing.Point(178, 315);
             this.textBoxMPhone.Name = "textBoxMPhone";
-            this.textBoxMPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxMPhone.Size = new System.Drawing.Size(336, 26);
             this.textBoxMPhone.TabIndex = 9;
             // 
             // labelFPhone
             // 
-            this.labelFPhone.Location = new System.Drawing.Point(1, 241);
+            this.labelFPhone.Location = new System.Drawing.Point(3, 241);
             this.labelFPhone.Name = "labelFPhone";
-            this.labelFPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelFPhone.Size = new System.Drawing.Size(169, 25);
             this.labelFPhone.TabIndex = 6;
             this.labelFPhone.Text = "Phone";
             this.labelFPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxFPhone
             // 
-            this.textBoxFPhone.Location = new System.Drawing.Point(122, 238);
+            this.textBoxFPhone.Location = new System.Drawing.Point(178, 241);
             this.textBoxFPhone.Name = "textBoxFPhone";
-            this.textBoxFPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxFPhone.Size = new System.Drawing.Size(336, 26);
             this.textBoxFPhone.TabIndex = 7;
             // 
             // labelSPhone
             // 
-            this.labelSPhone.Location = new System.Drawing.Point(1, 168);
+            this.labelSPhone.Location = new System.Drawing.Point(3, 168);
             this.labelSPhone.Name = "labelSPhone";
-            this.labelSPhone.Size = new System.Drawing.Size(121, 25);
+            this.labelSPhone.Size = new System.Drawing.Size(169, 25);
             this.labelSPhone.TabIndex = 4;
             this.labelSPhone.Text = "Phone";
             this.labelSPhone.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxSPhone
             // 
-            this.textBoxSPhone.Location = new System.Drawing.Point(122, 165);
+            this.textBoxSPhone.Location = new System.Drawing.Point(178, 168);
             this.textBoxSPhone.Name = "textBoxSPhone";
-            this.textBoxSPhone.Size = new System.Drawing.Size(333, 26);
+            this.textBoxSPhone.Size = new System.Drawing.Size(336, 26);
             this.textBoxSPhone.TabIndex = 5;
             // 
             // textBoxRoll
             // 
-            this.textBoxRoll.Location = new System.Drawing.Point(122, 17);
+            this.textBoxRoll.Location = new System.Drawing.Point(178, 17);
             this.textBoxRoll.Name = "textBoxRoll";
             this.textBoxRoll.Size = new System.Drawing.Size(102, 26);
             this.textBoxRoll.TabIndex = 1;
@@ -725,7 +744,7 @@
             // 
             this.dateTimePickerAdmissionDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerAdmissionDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePickerAdmissionDate.Location = new System.Drawing.Point(122, 91);
+            this.dateTimePickerAdmissionDate.Location = new System.Drawing.Point(178, 91);
             this.dateTimePickerAdmissionDate.Name = "dateTimePickerAdmissionDate";
             this.dateTimePickerAdmissionDate.Size = new System.Drawing.Size(102, 26);
             this.dateTimePickerAdmissionDate.TabIndex = 3;
@@ -736,7 +755,7 @@
             this.comboBoxClass.DisplayMember = "Name";
             this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(347, 15);
+            this.comboBoxClass.Location = new System.Drawing.Point(406, 18);
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(108, 28);
             this.comboBoxClass.TabIndex = 2;
@@ -748,50 +767,50 @@
             // 
             // labelRoll
             // 
-            this.labelRoll.Location = new System.Drawing.Point(4, 19);
+            this.labelRoll.Location = new System.Drawing.Point(3, 19);
             this.labelRoll.Name = "labelRoll";
-            this.labelRoll.Size = new System.Drawing.Size(118, 24);
+            this.labelRoll.Size = new System.Drawing.Size(169, 24);
             this.labelRoll.TabIndex = 0;
             this.labelRoll.Text = "Roll No";
             this.labelRoll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxReg
             // 
-            this.textBoxReg.Location = new System.Drawing.Point(122, 54);
+            this.textBoxReg.Location = new System.Drawing.Point(178, 54);
             this.textBoxReg.Name = "textBoxReg";
             this.textBoxReg.Size = new System.Drawing.Size(102, 26);
             this.textBoxReg.TabIndex = 1;
             // 
             // labelClass
             // 
-            this.labelClass.Location = new System.Drawing.Point(265, 18);
+            this.labelClass.Location = new System.Drawing.Point(286, 21);
             this.labelClass.Name = "labelClass";
-            this.labelClass.Size = new System.Drawing.Size(76, 25);
+            this.labelClass.Size = new System.Drawing.Size(114, 25);
             this.labelClass.TabIndex = 0;
             this.labelClass.Text = "Class";
             this.labelClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelSession
             // 
-            this.labelSession.Location = new System.Drawing.Point(265, 57);
+            this.labelSession.Location = new System.Drawing.Point(286, 60);
             this.labelSession.Name = "labelSession";
-            this.labelSession.Size = new System.Drawing.Size(76, 25);
+            this.labelSession.Size = new System.Drawing.Size(114, 25);
             this.labelSession.TabIndex = 0;
             this.labelSession.Text = "Session";
             this.labelSession.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelReg
             // 
-            this.labelReg.Location = new System.Drawing.Point(0, 57);
+            this.labelReg.Location = new System.Drawing.Point(3, 57);
             this.labelReg.Name = "labelReg";
-            this.labelReg.Size = new System.Drawing.Size(122, 25);
+            this.labelReg.Size = new System.Drawing.Size(169, 25);
             this.labelReg.TabIndex = 0;
             this.labelReg.Text = "Registration No";
             this.labelReg.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // textBoxSession
             // 
-            this.textBoxSession.Location = new System.Drawing.Point(347, 54);
+            this.textBoxSession.Location = new System.Drawing.Point(406, 57);
             this.textBoxSession.Name = "textBoxSession";
             this.textBoxSession.Size = new System.Drawing.Size(108, 26);
             this.textBoxSession.TabIndex = 1;
@@ -824,12 +843,6 @@
             // tabPageAddResult
             // 
             this.tabPageAddResult.BackColor = System.Drawing.Color.White;
-            this.tabPageAddResult.Controls.Add(this.labelARStudentClass);
-            this.tabPageAddResult.Controls.Add(this.labelARClass);
-            this.tabPageAddResult.Controls.Add(this.labelARStudentName);
-            this.tabPageAddResult.Controls.Add(this.labelARName);
-            this.tabPageAddResult.Controls.Add(this.textBoxARSearch);
-            this.tabPageAddResult.Controls.Add(this.labelARRoll);
             this.tabPageAddResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddResult.Location = new System.Drawing.Point(4, 29);
             this.tabPageAddResult.Name = "tabPageAddResult";
@@ -838,71 +851,81 @@
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
             // 
-            // labelARStudentName
-            // 
-            this.labelARStudentName.AutoSize = true;
-            this.labelARStudentName.Location = new System.Drawing.Point(175, 130);
-            this.labelARStudentName.Name = "labelARStudentName";
-            this.labelARStudentName.Size = new System.Drawing.Size(0, 20);
-            this.labelARStudentName.TabIndex = 24;
-            this.labelARStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelARName
-            // 
-            this.labelARName.Location = new System.Drawing.Point(22, 128);
-            this.labelARName.Name = "labelARName";
-            this.labelARName.Size = new System.Drawing.Size(147, 25);
-            this.labelARName.TabIndex = 23;
-            this.labelARName.Text = "Name";
-            this.labelARName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxARSearch
-            // 
-            this.textBoxARSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxARSearch.Location = new System.Drawing.Point(297, 64);
-            this.textBoxARSearch.Name = "textBoxARSearch";
-            this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
-            this.textBoxARSearch.TabIndex = 22;
-            this.textBoxARSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxARSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
-            // 
-            // labelARRoll
-            // 
-            this.labelARRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelARRoll.Location = new System.Drawing.Point(297, 33);
-            this.labelARRoll.Name = "labelARRoll";
-            this.labelARRoll.Size = new System.Drawing.Size(298, 25);
-            this.labelARRoll.TabIndex = 21;
-            this.labelARRoll.Text = "Roll";
-            this.labelARRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // tabPageBook
             // 
             this.tabPageBook.BackColor = System.Drawing.Color.White;
+            this.tabPageBook.Controls.Add(this.comboBoxABClass);
+            this.tabPageBook.Controls.Add(this.labelABClass);
+            this.tabPageBook.Controls.Add(this.labelABStudentName);
+            this.tabPageBook.Controls.Add(this.labelABName);
+            this.tabPageBook.Controls.Add(this.textBoxABSearch);
+            this.tabPageBook.Controls.Add(this.labelABRoll);
+            this.tabPageBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageBook.Location = new System.Drawing.Point(4, 29);
             this.tabPageBook.Name = "tabPageBook";
             this.tabPageBook.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageBook.Size = new System.Drawing.Size(892, 476);
             this.tabPageBook.TabIndex = 2;
-            this.tabPageBook.Text = "Book";
+            this.tabPageBook.Text = "Book Account";
             // 
-            // labelARStudentClass
+            // comboBoxABClass
             // 
-            this.labelARStudentClass.AutoSize = true;
-            this.labelARStudentClass.Location = new System.Drawing.Point(175, 155);
-            this.labelARStudentClass.Name = "labelARStudentClass";
-            this.labelARStudentClass.Size = new System.Drawing.Size(0, 20);
-            this.labelARStudentClass.TabIndex = 26;
-            this.labelARStudentClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.comboBoxABClass.DataSource = this.classMBindingSource;
+            this.comboBoxABClass.DisplayMember = "Name";
+            this.comboBoxABClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxABClass.FormattingEnabled = true;
+            this.comboBoxABClass.Location = new System.Drawing.Point(202, 175);
+            this.comboBoxABClass.Name = "comboBoxABClass";
+            this.comboBoxABClass.Size = new System.Drawing.Size(305, 28);
+            this.comboBoxABClass.TabIndex = 33;
+            this.comboBoxABClass.ValueMember = "Id";
             // 
-            // labelARClass
+            // labelABClass
             // 
-            this.labelARClass.Location = new System.Drawing.Point(22, 153);
-            this.labelARClass.Name = "labelARClass";
-            this.labelARClass.Size = new System.Drawing.Size(147, 25);
-            this.labelARClass.TabIndex = 25;
-            this.labelARClass.Text = "Class";
-            this.labelARClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelABClass.Location = new System.Drawing.Point(49, 176);
+            this.labelABClass.Name = "labelABClass";
+            this.labelABClass.Size = new System.Drawing.Size(147, 25);
+            this.labelABClass.TabIndex = 31;
+            this.labelABClass.Text = "Class";
+            this.labelABClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelABStudentName
+            // 
+            this.labelABStudentName.AutoSize = true;
+            this.labelABStudentName.Location = new System.Drawing.Point(202, 146);
+            this.labelABStudentName.Name = "labelABStudentName";
+            this.labelABStudentName.Size = new System.Drawing.Size(0, 20);
+            this.labelABStudentName.TabIndex = 30;
+            this.labelABStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelABName
+            // 
+            this.labelABName.Location = new System.Drawing.Point(49, 144);
+            this.labelABName.Name = "labelABName";
+            this.labelABName.Size = new System.Drawing.Size(147, 25);
+            this.labelABName.TabIndex = 29;
+            this.labelABName.Text = "Name";
+            this.labelABName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxABSearch
+            // 
+            this.textBoxABSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxABSearch.Location = new System.Drawing.Point(297, 71);
+            this.textBoxABSearch.Name = "textBoxABSearch";
+            this.textBoxABSearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxABSearch.TabIndex = 28;
+            this.textBoxABSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxABSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
+            // 
+            // labelABRoll
+            // 
+            this.labelABRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelABRoll.Location = new System.Drawing.Point(297, 40);
+            this.labelABRoll.Name = "labelABRoll";
+            this.labelABRoll.Size = new System.Drawing.Size(298, 25);
+            this.labelABRoll.TabIndex = 27;
+            this.labelABRoll.Text = "Roll";
+            this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Student
             // 
@@ -929,8 +952,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
             this.tabControlStudent.ResumeLayout(false);
             this.tabPageAddStudent.ResumeLayout(false);
-            this.tabPageAddResult.ResumeLayout(false);
-            this.tabPageAddResult.PerformLayout();
+            this.tabPageBook.ResumeLayout(false);
+            this.tabPageBook.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -985,6 +1008,10 @@
         private System.Windows.Forms.TextBox textBoxFPhone;
         private System.Windows.Forms.Label labelSPhone;
         private System.Windows.Forms.TextBox textBoxSPhone;
+        private System.Windows.Forms.TabControl tabControlStudent;
+        private System.Windows.Forms.TabPage tabPageAddResult;
+        private System.Windows.Forms.TabPage tabPageBook;
+        private System.Windows.Forms.TabPage tabPageAddStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn roll;
@@ -1004,15 +1031,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brn;
         private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
-        private System.Windows.Forms.TabControl tabControlStudent;
-        private System.Windows.Forms.TabPage tabPageAddResult;
-        private System.Windows.Forms.TabPage tabPageBook;
-        private System.Windows.Forms.TabPage tabPageAddStudent;
-        private System.Windows.Forms.TextBox textBoxARSearch;
-        private System.Windows.Forms.Label labelARRoll;
-        private System.Windows.Forms.Label labelARName;
-        private System.Windows.Forms.Label labelARStudentName;
-        private System.Windows.Forms.Label labelARStudentClass;
-        private System.Windows.Forms.Label labelARClass;
+        private System.Windows.Forms.Label labelTotalStudent;
+        private System.Windows.Forms.Label labelABClass;
+        private System.Windows.Forms.Label labelABStudentName;
+        private System.Windows.Forms.Label labelABName;
+        private System.Windows.Forms.TextBox textBoxABSearch;
+        private System.Windows.Forms.Label labelABRoll;
+        private System.Windows.Forms.ComboBox comboBoxABClass;
     }
 }

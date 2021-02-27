@@ -10,6 +10,7 @@ namespace M_CGPA.DAL
         private SqlCommand _sqlCommand;
         private SqlDataAdapter _sqlDataAdapter;
         DataSet _dataSet;
+        private DataTable _dataTable;
         private SqlDataReader _sqlDataReader;
 
         public void DbConnection()
@@ -53,7 +54,7 @@ namespace M_CGPA.DAL
 
             return _sqlDataReader.Read();
         }
-
+        
         public object GetAll()
         {
             DbConnection();
@@ -63,6 +64,17 @@ namespace M_CGPA.DAL
             _sqlDataAdapter.Fill(_dataSet);
 
             return _dataSet.Tables[0];
+        }
+
+        public DataTable GetById(int id)
+        {
+            DbConnection();
+            _sqlCommand.CommandText = "SELECT *FROM Class WHERE Id='" + id + "'";
+            _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
+            _dataTable=new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
+
+            return _dataTable;
         }
     }
 }
