@@ -249,7 +249,7 @@ namespace M_CGPA
             _syllabusM.Year = textBoxYearFilter.Text;
             _syllabusM.ClassId = (int) comboBoxClassFilter.SelectedValue;
 
-            dataGridViewSyllabusList.DataSource = _syllabusBll.GetByFilter(_syllabusM);
+            dataGridViewSyllabusList.DataSource = _syllabusBll.GetByLikeFilter(_syllabusM);
 
         }
 

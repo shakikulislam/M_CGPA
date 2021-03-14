@@ -102,13 +102,25 @@ namespace M_CGPA
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
             this.tabPageAddResult = new System.Windows.Forms.TabPage();
+            this.comboBoxARClass = new System.Windows.Forms.ComboBox();
+            this.labelARClass = new System.Windows.Forms.Label();
+            this.labelARStudentName = new System.Windows.Forms.Label();
+            this.labelARName = new System.Windows.Forms.Label();
+            this.textBoxARSearch = new System.Windows.Forms.TextBox();
+            this.labelARRoll = new System.Windows.Forms.Label();
             this.tabPageBook = new System.Windows.Forms.TabPage();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelBookList = new System.Windows.Forms.Panel();
             this.comboBoxABClass = new System.Windows.Forms.ComboBox();
             this.labelABClass = new System.Windows.Forms.Label();
             this.labelABStudentName = new System.Windows.Forms.Label();
             this.labelABName = new System.Windows.Forms.Label();
             this.textBoxABSearch = new System.Windows.Forms.TextBox();
             this.labelABRoll = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -119,6 +131,7 @@ namespace M_CGPA
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).BeginInit();
             this.tabControlStudent.SuspendLayout();
             this.tabPageAddStudent.SuspendLayout();
+            this.tabPageAddResult.SuspendLayout();
             this.tabPageBook.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -843,6 +856,12 @@ namespace M_CGPA
             // tabPageAddResult
             // 
             this.tabPageAddResult.BackColor = System.Drawing.Color.White;
+            this.tabPageAddResult.Controls.Add(this.comboBoxARClass);
+            this.tabPageAddResult.Controls.Add(this.labelARClass);
+            this.tabPageAddResult.Controls.Add(this.labelARStudentName);
+            this.tabPageAddResult.Controls.Add(this.labelARName);
+            this.tabPageAddResult.Controls.Add(this.textBoxARSearch);
+            this.tabPageAddResult.Controls.Add(this.labelARRoll);
             this.tabPageAddResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageAddResult.Location = new System.Drawing.Point(4, 29);
             this.tabPageAddResult.Name = "tabPageAddResult";
@@ -851,9 +870,74 @@ namespace M_CGPA
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
             // 
+            // comboBoxARClass
+            // 
+            this.comboBoxARClass.DataSource = this.classMBindingSource;
+            this.comboBoxARClass.DisplayMember = "Name";
+            this.comboBoxARClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxARClass.FormattingEnabled = true;
+            this.comboBoxARClass.Location = new System.Drawing.Point(244, 163);
+            this.comboBoxARClass.Name = "comboBoxARClass";
+            this.comboBoxARClass.Size = new System.Drawing.Size(305, 28);
+            this.comboBoxARClass.TabIndex = 39;
+            this.comboBoxARClass.ValueMember = "Id";
+            // 
+            // labelARClass
+            // 
+            this.labelARClass.Location = new System.Drawing.Point(91, 164);
+            this.labelARClass.Name = "labelARClass";
+            this.labelARClass.Size = new System.Drawing.Size(147, 25);
+            this.labelARClass.TabIndex = 38;
+            this.labelARClass.Text = "Class";
+            this.labelARClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelARStudentName
+            // 
+            this.labelARStudentName.AutoSize = true;
+            this.labelARStudentName.Location = new System.Drawing.Point(244, 134);
+            this.labelARStudentName.Name = "labelARStudentName";
+            this.labelARStudentName.Size = new System.Drawing.Size(0, 20);
+            this.labelARStudentName.TabIndex = 37;
+            this.labelARStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelARName
+            // 
+            this.labelARName.Location = new System.Drawing.Point(91, 132);
+            this.labelARName.Name = "labelARName";
+            this.labelARName.Size = new System.Drawing.Size(147, 25);
+            this.labelARName.TabIndex = 36;
+            this.labelARName.Text = "Name";
+            this.labelARName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxARSearch
+            // 
+            this.textBoxARSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxARSearch.Location = new System.Drawing.Point(339, 59);
+            this.textBoxARSearch.Name = "textBoxARSearch";
+            this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxARSearch.TabIndex = 35;
+            this.textBoxARSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxARSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
+            // 
+            // labelARRoll
+            // 
+            this.labelARRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelARRoll.Location = new System.Drawing.Point(339, 28);
+            this.labelARRoll.Name = "labelARRoll";
+            this.labelARRoll.Size = new System.Drawing.Size(298, 25);
+            this.labelARRoll.TabIndex = 34;
+            this.labelARRoll.Text = "Roll";
+            this.labelARRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // tabPageBook
             // 
             this.tabPageBook.BackColor = System.Drawing.Color.White;
+            this.tabPageBook.Controls.Add(this.button2);
+            this.tabPageBook.Controls.Add(this.checkedListBox1);
+            this.tabPageBook.Controls.Add(this.listBox1);
+            this.tabPageBook.Controls.Add(this.textBox1);
+            this.tabPageBook.Controls.Add(this.button1);
+            this.tabPageBook.Controls.Add(this.panelBookList);
             this.tabPageBook.Controls.Add(this.comboBoxABClass);
             this.tabPageBook.Controls.Add(this.labelABClass);
             this.tabPageBook.Controls.Add(this.labelABStudentName);
@@ -868,6 +952,52 @@ namespace M_CGPA
             this.tabPageBook.TabIndex = 2;
             this.tabPageBook.Text = "Book Account";
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(688, 248);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(176, 130);
+            this.checkedListBox1.TabIndex = 38;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(437, 248);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(223, 124);
+            this.listBox1.TabIndex = 37;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.Location = new System.Drawing.Point(383, 175);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 26);
+            this.textBox1.TabIndex = 36;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(662, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 47);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelBookList
+            // 
+            this.panelBookList.AutoScroll = true;
+            this.panelBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBookList.Location = new System.Drawing.Point(206, 226);
+            this.panelBookList.Name = "panelBookList";
+            this.panelBookList.Size = new System.Drawing.Size(171, 202);
+            this.panelBookList.TabIndex = 34;
+            // 
             // comboBoxABClass
             // 
             this.comboBoxABClass.DataSource = this.classMBindingSource;
@@ -876,7 +1006,7 @@ namespace M_CGPA
             this.comboBoxABClass.FormattingEnabled = true;
             this.comboBoxABClass.Location = new System.Drawing.Point(202, 175);
             this.comboBoxABClass.Name = "comboBoxABClass";
-            this.comboBoxABClass.Size = new System.Drawing.Size(305, 28);
+            this.comboBoxABClass.Size = new System.Drawing.Size(175, 28);
             this.comboBoxABClass.TabIndex = 33;
             this.comboBoxABClass.ValueMember = "Id";
             // 
@@ -915,7 +1045,7 @@ namespace M_CGPA
             this.textBoxABSearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxABSearch.TabIndex = 28;
             this.textBoxABSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxABSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
+            this.textBoxABSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxABSearch_KeyDown);
             // 
             // labelABRoll
             // 
@@ -926,6 +1056,16 @@ namespace M_CGPA
             this.labelABRoll.TabIndex = 27;
             this.labelABRoll.Text = "Roll";
             this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(571, 119);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 47);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Student
             // 
@@ -952,6 +1092,8 @@ namespace M_CGPA
             ((System.ComponentModel.ISupportInitialize)(this.classMBindingSource)).EndInit();
             this.tabControlStudent.ResumeLayout(false);
             this.tabPageAddStudent.ResumeLayout(false);
+            this.tabPageAddResult.ResumeLayout(false);
+            this.tabPageAddResult.PerformLayout();
             this.tabPageBook.ResumeLayout(false);
             this.tabPageBook.PerformLayout();
             this.ResumeLayout(false);
@@ -1038,5 +1180,17 @@ namespace M_CGPA
         private System.Windows.Forms.TextBox textBoxABSearch;
         private System.Windows.Forms.Label labelABRoll;
         private System.Windows.Forms.ComboBox comboBoxABClass;
+        private System.Windows.Forms.Panel panelBookList;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxARClass;
+        private System.Windows.Forms.Label labelARClass;
+        private System.Windows.Forms.Label labelARStudentName;
+        private System.Windows.Forms.Label labelARName;
+        private System.Windows.Forms.TextBox textBoxARSearch;
+        private System.Windows.Forms.Label labelARRoll;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

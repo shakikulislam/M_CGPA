@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Data;
 using M_CGPA.DAL;
 using M_CGPA.Language;
 using M_CGPA.Model;
@@ -48,7 +49,11 @@ namespace M_CGPA.BLL
             return _syllabus.GetAllByJoin();
         }
 
-        public object GetByFilter(SyllabusM syllabus)
+        public DataTable GetByLikeFilter(SyllabusM syllabus)
+        {
+            return _syllabus.GetByLikeFilter(syllabus);
+        }
+        public DataTable GetByFilter(SyllabusM syllabus)
         {
             return _syllabus.GetByFilter(syllabus);
         }

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.CodeDom;
+using System.Data;
 using System.Drawing;
+using System.Management;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
@@ -13,8 +16,10 @@ namespace M_CGPA
         readonly ClassBll _classBll=new ClassBll();
         readonly StudentM _studentM=new StudentM();
         readonly StudentBll _studentBll=new StudentBll();
+        static readonly SyllabusBll _syllabusBll=new SyllabusBll();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
-
+        static SyllabusM _syllabusM=new SyllabusM();
+        int _fieldLocation = 1;
         public Student()
         {
             InitializeComponent();
@@ -303,16 +308,92 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxABSearch.Text != "" && e.KeyCode==Keys.Enter)
+                if (textBoxARSearch.Text != "" && e.KeyCode == Keys.Enter)
+                {
+                    var student = _studentBll.GetByRollFilter(textBoxARSearch.Text);
+                    labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
+
+                    var classId = (int)student.Rows[0]["classId"];
+                    comboBoxARClass.DataSource = _classBll.GetById(classId);
+                }
+                else if (e.KeyCode == Keys.Delete)
+                {
+                    textBoxARSearch.Clear();
+                    labelARStudentName.Text = "";
+                    comboBoxARClass.SelectedValue = 0;
+                }
+                else
+                {
+                    labelARStudentName.Text = "";
+                    comboBoxARClass.SelectedValue = 0;
+                }
+            }
+            catch{}
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ms="";
+            
+                foreach (Control c in panelBookList.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        ms += c.Name+ c.Text +"\n";
+                    }
+                }
+            
+            MessageBox.Show(ms);
+
+        }
+
+        public CheckBox AddNewCheckBox(string CBName, string CBBook)
+        {
+            var newCheckBox = new CheckBox();
+            panelBookList.Controls.Add(newCheckBox);
+
+            newCheckBox.Top = _fieldLocation*28;
+            newCheckBox.Left = 15;
+            newCheckBox.Name = CBName;
+            newCheckBox.Text = newCheckBox.Name + " " + CBBook;
+            _fieldLocation += 1;
+
+            listBox1.Items.Add(newCheckBox);
+            //foreach (Control control in panelBookList.Controls)
+            //{
+            //    DeleteOptions deleteOptions=new DeleteOptions();
+            //    if (control is CheckBox)
+            //    {
+            //        if (CBName=="")
+            //        {
+                        
+            //        }
+            //    }
+            //}
+            //cb.AutoSize = true;
+            //cb.Location = new System.Drawing.Point(205, 45);
+            //cb.Name = "checkBox12";
+            //cb.Size = new System.Drawing.Size(106, 24);
+            //cb.TabIndex = 1;
+            //cb.Text = "checkBox1";
+            //cb.UseVisualStyleBackColor = true;
+
+            return newCheckBox;
+        }
+
+        private void textBoxABSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (textBoxABSearch.Text != "" && e.KeyCode == Keys.Enter)
                 {
                     var student = _studentBll.GetByRollFilter(textBoxABSearch.Text);
                     labelABStudentName.Text = student.Rows[0]["StudentName"].ToString();
 
-                    var classId = (int) student.Rows[0]["classId"];
+                    var classId = (int)student.Rows[0]["classId"];
                     comboBoxABClass.DataSource = _classBll.GetById(classId);
-                    labelABClass.Text = comboBoxABClass.SelectedValue.ToString();
                 }
-                else if (e.KeyCode==Keys.Delete)
+                else if (e.KeyCode == Keys.Delete)
                 {
                     textBoxABSearch.Clear();
                     labelABStudentName.Text = "";
@@ -324,9 +405,42 @@ namespace M_CGPA
                     comboBoxABClass.SelectedValue = 0;
                 }
             }
+            catch { }
+        }
+
+        DataTable bookLIst;
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _syllabusM.ClassId =(int) comboBoxABClass.SelectedValue;
+                _syllabusM.Year = textBox1.Text;
+                bookLIst = _syllabusBll.GetByFilter(_syllabusM);
+                if (bookLIst.Rows.Count > 0)
+                {
+
+                    for (int i = 0; i < bookLIst.Rows.Count; i++)
+                    {
+                        var cbName = bookLIst.Rows[i][0].ToString();
+                        var cbValue = bookLIst.Rows[i]["Book"].ToString();
+                        AddNewCheckBox(cbName, cbValue);
+                    }
+                }
+
+            }
             catch{}
         }
 
-        
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            DeleteAutoGenerateFields(panelBookList);
+        }
+
+        private void DeleteAutoGenerateFields(Control panel)
+        {
+            _fieldLocation = 1;
+            panel.Controls.Clear();
+        }
     }
 }
