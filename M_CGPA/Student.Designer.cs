@@ -109,10 +109,23 @@ namespace M_CGPA
             this.textBoxARSearch = new System.Windows.Forms.TextBox();
             this.labelARRoll = new System.Windows.Forms.Label();
             this.tabPageBook = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewBAAssignedBook = new System.Windows.Forms.DataGridView();
+            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelBASelectedBook = new System.Windows.Forms.Label();
+            this.labelBATottalBook = new System.Windows.Forms.Label();
+            this.panelBAButton = new System.Windows.Forms.Panel();
+            this.buttonBAUpdateBook = new System.Windows.Forms.Button();
+            this.labelBAYear = new System.Windows.Forms.Label();
+            this.textBoxBAYear = new System.Windows.Forms.TextBox();
             this.panelBookList = new System.Windows.Forms.Panel();
             this.comboBoxABClass = new System.Windows.Forms.ComboBox();
             this.labelABClass = new System.Windows.Forms.Label();
@@ -120,7 +133,6 @@ namespace M_CGPA
             this.labelABName = new System.Windows.Forms.Label();
             this.textBoxABSearch = new System.Windows.Forms.TextBox();
             this.labelABRoll = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -133,6 +145,10 @@ namespace M_CGPA
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageAddResult.SuspendLayout();
             this.tabPageBook.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).BeginInit();
+            this.panelBAButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -932,11 +948,13 @@ namespace M_CGPA
             // tabPageBook
             // 
             this.tabPageBook.BackColor = System.Drawing.Color.White;
-            this.tabPageBook.Controls.Add(this.button2);
-            this.tabPageBook.Controls.Add(this.checkedListBox1);
-            this.tabPageBook.Controls.Add(this.listBox1);
-            this.tabPageBook.Controls.Add(this.textBox1);
-            this.tabPageBook.Controls.Add(this.button1);
+            this.tabPageBook.Controls.Add(this.label1);
+            this.tabPageBook.Controls.Add(this.panel1);
+            this.tabPageBook.Controls.Add(this.labelBASelectedBook);
+            this.tabPageBook.Controls.Add(this.labelBATottalBook);
+            this.tabPageBook.Controls.Add(this.panelBAButton);
+            this.tabPageBook.Controls.Add(this.labelBAYear);
+            this.tabPageBook.Controls.Add(this.textBoxBAYear);
             this.tabPageBook.Controls.Add(this.panelBookList);
             this.tabPageBook.Controls.Add(this.comboBoxABClass);
             this.tabPageBook.Controls.Add(this.labelABClass);
@@ -952,59 +970,193 @@ namespace M_CGPA
             this.tabPageBook.TabIndex = 2;
             this.tabPageBook.Text = "Book Account";
             // 
-            // checkedListBox1
+            // label1
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(688, 248);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(176, 130);
-            this.checkedListBox1.TabIndex = 38;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Location = new System.Drawing.Point(493, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(313, 25);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "He already has the book";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // listBox1
+            // panel1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(437, 248);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(223, 124);
-            this.listBox1.TabIndex = 37;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.AutoScroll = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dataGridViewBAAssignedBook);
+            this.panel1.Location = new System.Drawing.Point(406, 226);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(401, 202);
+            this.panel1.TabIndex = 41;
             // 
-            // textBox1
+            // dataGridViewBAAssignedBook
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(383, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 26);
-            this.textBox1.TabIndex = 36;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dataGridViewBAAssignedBook.AllowUserToAddRows = false;
+            this.dataGridViewBAAssignedBook.AllowUserToDeleteRows = false;
+            this.dataGridViewBAAssignedBook.AutoGenerateColumns = false;
+            this.dataGridViewBAAssignedBook.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewBAAssignedBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBAAssignedBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sl,
+            this.idDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.classIdDataGridViewTextBoxColumn,
+            this.bookIdDataGridViewTextBoxColumn,
+            this.classDataGridViewTextBoxColumn,
+            this.bookDataGridViewTextBoxColumn});
+            this.dataGridViewBAAssignedBook.DataSource = this.syllabusMBindingSource;
+            this.dataGridViewBAAssignedBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBAAssignedBook.GridColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dataGridViewBAAssignedBook.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewBAAssignedBook.Name = "dataGridViewBAAssignedBook";
+            this.dataGridViewBAAssignedBook.ReadOnly = true;
+            this.dataGridViewBAAssignedBook.RowHeadersVisible = false;
+            this.dataGridViewBAAssignedBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBAAssignedBook.Size = new System.Drawing.Size(399, 200);
+            this.dataGridViewBAAssignedBook.TabIndex = 19;
             // 
-            // button1
+            // sl
             // 
-            this.button1.Location = new System.Drawing.Point(662, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 47);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.sl.HeaderText = "#";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            this.sl.Width = 30;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            this.yearDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // classIdDataGridViewTextBoxColumn
+            // 
+            this.classIdDataGridViewTextBoxColumn.DataPropertyName = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.HeaderText = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.Name = "classIdDataGridViewTextBoxColumn";
+            this.classIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.classIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bookIdDataGridViewTextBoxColumn
+            // 
+            this.bookIdDataGridViewTextBoxColumn.DataPropertyName = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.HeaderText = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.Name = "bookIdDataGridViewTextBoxColumn";
+            this.bookIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // classDataGridViewTextBoxColumn
+            // 
+            this.classDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
+            this.classDataGridViewTextBoxColumn.HeaderText = "Class";
+            this.classDataGridViewTextBoxColumn.Name = "classDataGridViewTextBoxColumn";
+            this.classDataGridViewTextBoxColumn.ReadOnly = true;
+            this.classDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // bookDataGridViewTextBoxColumn
+            // 
+            this.bookDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bookDataGridViewTextBoxColumn.DataPropertyName = "Book";
+            this.bookDataGridViewTextBoxColumn.HeaderText = "Book";
+            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
+            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // syllabusMBindingSource
+            // 
+            this.syllabusMBindingSource.DataSource = typeof(M_CGPA.Model.SyllabusM);
+            // 
+            // labelBASelectedBook
+            // 
+            this.labelBASelectedBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBASelectedBook.Location = new System.Drawing.Point(263, 198);
+            this.labelBASelectedBook.Name = "labelBASelectedBook";
+            this.labelBASelectedBook.Size = new System.Drawing.Size(137, 25);
+            this.labelBASelectedBook.TabIndex = 40;
+            this.labelBASelectedBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelBATottalBook
+            // 
+            this.labelBATottalBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBATottalBook.Location = new System.Drawing.Point(85, 198);
+            this.labelBATottalBook.Name = "labelBATottalBook";
+            this.labelBATottalBook.Size = new System.Drawing.Size(168, 25);
+            this.labelBATottalBook.TabIndex = 39;
+            this.labelBATottalBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelBAButton
+            // 
+            this.panelBAButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panelBAButton.Controls.Add(this.buttonBAUpdateBook);
+            this.panelBAButton.Location = new System.Drawing.Point(228, 434);
+            this.panelBAButton.Name = "panelBAButton";
+            this.panelBAButton.Size = new System.Drawing.Size(437, 37);
+            this.panelBAButton.TabIndex = 38;
+            // 
+            // buttonBAUpdateBook
+            // 
+            this.buttonBAUpdateBook.BackColor = System.Drawing.Color.Purple;
+            this.buttonBAUpdateBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBAUpdateBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBAUpdateBook.ForeColor = System.Drawing.Color.White;
+            this.buttonBAUpdateBook.Location = new System.Drawing.Point(41, 3);
+            this.buttonBAUpdateBook.Name = "buttonBAUpdateBook";
+            this.buttonBAUpdateBook.Size = new System.Drawing.Size(354, 31);
+            this.buttonBAUpdateBook.TabIndex = 27;
+            this.buttonBAUpdateBook.Text = "Update";
+            this.buttonBAUpdateBook.UseVisualStyleBackColor = false;
+            this.buttonBAUpdateBook.Click += new System.EventHandler(this.buttonBAUpdateBook_Click);
+            // 
+            // labelBAYear
+            // 
+            this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBAYear.Location = new System.Drawing.Point(489, 149);
+            this.labelBAYear.Name = "labelBAYear";
+            this.labelBAYear.Size = new System.Drawing.Size(147, 25);
+            this.labelBAYear.TabIndex = 37;
+            this.labelBAYear.Text = "Year";
+            this.labelBAYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxBAYear
+            // 
+            this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBAYear.Location = new System.Drawing.Point(642, 149);
+            this.textBoxBAYear.Name = "textBoxBAYear";
+            this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
+            this.textBoxBAYear.TabIndex = 36;
+            this.textBoxBAYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxBAYear.TextChanged += new System.EventHandler(this.textBoxBAYear_TextChanged);
             // 
             // panelBookList
             // 
+            this.panelBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelBookList.AutoScroll = true;
             this.panelBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBookList.Location = new System.Drawing.Point(206, 226);
+            this.panelBookList.Location = new System.Drawing.Point(85, 226);
             this.panelBookList.Name = "panelBookList";
-            this.panelBookList.Size = new System.Drawing.Size(171, 202);
+            this.panelBookList.Size = new System.Drawing.Size(315, 202);
             this.panelBookList.TabIndex = 34;
             // 
             // comboBoxABClass
             // 
+            this.comboBoxABClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBoxABClass.DataSource = this.classMBindingSource;
             this.comboBoxABClass.DisplayMember = "Name";
             this.comboBoxABClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxABClass.FormattingEnabled = true;
-            this.comboBoxABClass.Location = new System.Drawing.Point(202, 175);
+            this.comboBoxABClass.Location = new System.Drawing.Point(265, 149);
             this.comboBoxABClass.Name = "comboBoxABClass";
             this.comboBoxABClass.Size = new System.Drawing.Size(175, 28);
             this.comboBoxABClass.TabIndex = 33;
@@ -1012,7 +1164,8 @@ namespace M_CGPA
             // 
             // labelABClass
             // 
-            this.labelABClass.Location = new System.Drawing.Point(49, 176);
+            this.labelABClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelABClass.Location = new System.Drawing.Point(112, 150);
             this.labelABClass.Name = "labelABClass";
             this.labelABClass.Size = new System.Drawing.Size(147, 25);
             this.labelABClass.TabIndex = 31;
@@ -1021,8 +1174,9 @@ namespace M_CGPA
             // 
             // labelABStudentName
             // 
+            this.labelABStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelABStudentName.AutoSize = true;
-            this.labelABStudentName.Location = new System.Drawing.Point(202, 146);
+            this.labelABStudentName.Location = new System.Drawing.Point(265, 120);
             this.labelABStudentName.Name = "labelABStudentName";
             this.labelABStudentName.Size = new System.Drawing.Size(0, 20);
             this.labelABStudentName.TabIndex = 30;
@@ -1030,7 +1184,8 @@ namespace M_CGPA
             // 
             // labelABName
             // 
-            this.labelABName.Location = new System.Drawing.Point(49, 144);
+            this.labelABName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelABName.Location = new System.Drawing.Point(112, 118);
             this.labelABName.Name = "labelABName";
             this.labelABName.Size = new System.Drawing.Size(147, 25);
             this.labelABName.TabIndex = 29;
@@ -1056,16 +1211,6 @@ namespace M_CGPA
             this.labelABRoll.TabIndex = 27;
             this.labelABRoll.Text = "Roll";
             this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(571, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 47);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // Student
             // 
@@ -1096,6 +1241,10 @@ namespace M_CGPA
             this.tabPageAddResult.PerformLayout();
             this.tabPageBook.ResumeLayout(false);
             this.tabPageBook.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).EndInit();
+            this.panelBAButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1181,16 +1330,28 @@ namespace M_CGPA
         private System.Windows.Forms.Label labelABRoll;
         private System.Windows.Forms.ComboBox comboBoxABClass;
         private System.Windows.Forms.Panel panelBookList;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxARClass;
         private System.Windows.Forms.Label labelARClass;
         private System.Windows.Forms.Label labelARStudentName;
         private System.Windows.Forms.Label labelARName;
         private System.Windows.Forms.TextBox textBoxARSearch;
         private System.Windows.Forms.Label labelARRoll;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxBAYear;
+        private System.Windows.Forms.Label labelBAYear;
+        private System.Windows.Forms.Panel panelBAButton;
+        private System.Windows.Forms.Button buttonBAUpdateBook;
+        private System.Windows.Forms.Label labelBASelectedBook;
+        private System.Windows.Forms.Label labelBATottalBook;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridViewBAAssignedBook;
+        private System.Windows.Forms.BindingSource syllabusMBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
     }
 }

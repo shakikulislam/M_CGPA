@@ -22,6 +22,10 @@ namespace M_CGPA
             //Bengali bengali=new Bengali();
             //bengali.Lang();
 
+            //ConnectionString connectionString=new ConnectionString();
+            //connectionString.Connection();
+            
+
         }
 
 

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.CodeDom;
 using System.Data;
 using System.Drawing;
-using System.Management;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
@@ -19,7 +17,11 @@ namespace M_CGPA
         static readonly SyllabusBll _syllabusBll=new SyllabusBll();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
         static SyllabusM _syllabusM=new SyllabusM();
+        BookAccountM _bookAccountM=new BookAccountM();
+        BookAccountBll _bookAccountBll=new BookAccountBll();
+
         int _fieldLocation = 1;
+        DataTable _bookLIst;
         public Student()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace M_CGPA
             LoadLanguage();
 
             comboBoxClass.DataSource = _classBll.GetAllClass();
+            comboBoxABClass.DataSource = _classBll.GetAllClass();
             GetAll();
         }
 
@@ -331,22 +334,6 @@ namespace M_CGPA
             catch{}
         }
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var ms="";
-            
-                foreach (Control c in panelBookList.Controls)
-                {
-                    if (c is TextBox)
-                    {
-                        ms += c.Name+ c.Text +"\n";
-                    }
-                }
-            
-            MessageBox.Show(ms);
-
-        }
-
         public CheckBox AddNewCheckBox(string CBName, string CBBook)
         {
             var newCheckBox = new CheckBox();
@@ -358,7 +345,7 @@ namespace M_CGPA
             newCheckBox.Text = newCheckBox.Name + " " + CBBook;
             _fieldLocation += 1;
 
-            listBox1.Items.Add(newCheckBox);
+            //listBox1.Items.Add(newCheckBox);
             //foreach (Control control in panelBookList.Controls)
             //{
             //    DeleteOptions deleteOptions=new DeleteOptions();
@@ -390,57 +377,93 @@ namespace M_CGPA
                     var student = _studentBll.GetByRollFilter(textBoxABSearch.Text);
                     labelABStudentName.Text = student.Rows[0]["StudentName"].ToString();
 
+                    _bookAccountM.StudentId = (int) student.Rows[0]["Id"];
+
                     var classId = (int)student.Rows[0]["classId"];
-                    comboBoxABClass.DataSource = _classBll.GetById(classId);
+                    comboBoxABClass.SelectedValue = classId;
+
+                    LoadBook();
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
                     textBoxABSearch.Clear();
                     labelABStudentName.Text = "";
                     comboBoxABClass.SelectedValue = 0;
+                    DeleteAutoGenerateFields(panelBookList);
                 }
                 else
                 {
                     labelABStudentName.Text = "";
                     comboBoxABClass.SelectedValue = 0;
+                    DeleteAutoGenerateFields(panelBookList);
                 }
             }
             catch { }
         }
 
-        DataTable bookLIst;
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void LoadBook()
         {
             try
             {
-                _syllabusM.ClassId =(int) comboBoxABClass.SelectedValue;
-                _syllabusM.Year = textBox1.Text;
-                bookLIst = _syllabusBll.GetByFilter(_syllabusM);
-                if (bookLIst.Rows.Count > 0)
+                _syllabusM.ClassId = (int) comboBoxABClass.SelectedValue;
+                _syllabusM.Year = textBoxBAYear.Text;
+                _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
+                if (_bookLIst.Rows.Count > 0)
                 {
-
-                    for (int i = 0; i < bookLIst.Rows.Count; i++)
+                    for (int i = 0; i < _bookLIst.Rows.Count; i++)
                     {
-                        var cbName = bookLIst.Rows[i][0].ToString();
-                        var cbValue = bookLIst.Rows[i]["Book"].ToString();
+                        var cbName = _bookLIst.Rows[i][0].ToString();
+                        var cbValue = _bookLIst.Rows[i]["Book"].ToString();
                         AddNewCheckBox(cbName, cbValue);
                     }
+                    labelBATottalBook.Text = "Total Book " + _bookLIst.Rows.Count;
                 }
-
+                else
+                {
+                    DeleteAutoGenerateFields(panelBookList);
+                    labelBATottalBook.Text = "";
+                }
             }
-            catch{}
+            catch
+            {
+            }
         }
-
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            DeleteAutoGenerateFields(panelBookList);
-        }
-
+        
         private void DeleteAutoGenerateFields(Control panel)
         {
             _fieldLocation = 1;
             panel.Controls.Clear();
         }
+
+        private void textBoxBAYear_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook();
+        }
+
+        private void buttonBAUpdateBook_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _bookAccountM.Book = "";
+                foreach (Control control in panelBookList.Controls)
+                {
+                    if (control is CheckBox)
+                    {
+                        if (((CheckBox) control).Checked)
+                        {
+                            _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += control.Name : _bookAccountM.Book += "," + control.Name;
+                        }
+                    }
+                }
+
+                var isSuccess=_bookAccountBll.Insert(_bookAccountM);
+                if (isSuccess)
+                {
+                    MessageBox.Show("Success...");
+                }
+            }
+            catch{}
+        }
+
     }
 }

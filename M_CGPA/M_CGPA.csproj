@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BookAccountBll.cs" />
     <Compile Include="BLL\StudentBll.cs" />
     <Compile Include="Class.cs">
       <SubType>Form</SubType>
@@ -84,6 +85,7 @@
     <Compile Include="Common\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\BookAccountDal.cs" />
     <Compile Include="DAL\BookDal.cs" />
     <Compile Include="DAL\ClassDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\BookAccountM.cs" />
     <Compile Include="Model\StudentM.cs" />
     <Compile Include="Student.cs">
       <SubType>Form</SubType>
