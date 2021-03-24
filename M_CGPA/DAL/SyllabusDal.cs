@@ -105,6 +105,23 @@ namespace M_CGPA.DAL
 
             return _dataTable;
         }
+
+        public DataTable GetBySyllabusId(BookAccountM bookAccountM)
+        {
+            DbConnection();
+            var querry = "SELECT Syllabus.Id, Syllabus.Year, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
+                "FROM Syllabus " +
+                "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
+                "INNER JOIN Class ON Syllabus.ClassId=Class.Id " +
+                "WHERE Syllabus.Id IN (" + bookAccountM.Book + ") ";
+
+            _sqlCommand.CommandText = querry;
+            _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
+            _dataTable = new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
+
+            return _dataTable;
+        }
         
     }
 }

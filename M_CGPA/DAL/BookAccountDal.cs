@@ -57,17 +57,19 @@ namespace M_CGPA.DAL
 
             return _dataTable;
         }
+        
 
-        //public object GetAll()
+        //public object GetBook()
         //{
         //    DbConnection();
-        //    _sqlCommand.CommandText = "SELECT *FROM Book";
+        //    _sqlCommand.CommandText = "SELECT *FROM BookAccount";
         //    _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
         //    _dataSet = new DataSet();
         //    _sqlDataAdapter.Fill(_dataSet);
 
         //    return _dataSet.Tables[0];
         //}
+
         //public object GetByFilter(BookAccountM bookAccountM)
         //{
         //    DbConnection();

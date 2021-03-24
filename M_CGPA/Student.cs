@@ -342,28 +342,8 @@ namespace M_CGPA
             newCheckBox.Top = _fieldLocation*28;
             newCheckBox.Left = 15;
             newCheckBox.Name = CBName;
-            newCheckBox.Text = newCheckBox.Name + " " + CBBook;
+            newCheckBox.Text = CBBook;
             _fieldLocation += 1;
-
-            //listBox1.Items.Add(newCheckBox);
-            //foreach (Control control in panelBookList.Controls)
-            //{
-            //    DeleteOptions deleteOptions=new DeleteOptions();
-            //    if (control is CheckBox)
-            //    {
-            //        if (CBName=="")
-            //        {
-                        
-            //        }
-            //    }
-            //}
-            //cb.AutoSize = true;
-            //cb.Location = new System.Drawing.Point(205, 45);
-            //cb.Name = "checkBox12";
-            //cb.Size = new System.Drawing.Size(106, 24);
-            //cb.TabIndex = 1;
-            //cb.Text = "checkBox1";
-            //cb.UseVisualStyleBackColor = true;
 
             return newCheckBox;
         }
@@ -405,6 +385,10 @@ namespace M_CGPA
         {
             try
             {
+                panelBookList.Controls.Clear();
+                _fieldLocation = 1;
+
+                // load book list
                 _syllabusM.ClassId = (int) comboBoxABClass.SelectedValue;
                 _syllabusM.Year = textBoxBAYear.Text;
                 _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
@@ -425,22 +409,52 @@ namespace M_CGPA
                     labelBATottalBook.Text = "";
                 }
 
-                var bookAccountTable = _bookAccountBll.Get(_bookAccountM);
-
-                if (bookAccountTable.Rows.Count>0)
-                {
-                    _bookAccountM.Id = (int) bookAccountTable.Rows[0]["Id"];
-                    buttonBAAddBook.Visible = false;
-                    buttonBAUpdateBook.Visible = true;
-                }
-                else
-                {
-                    buttonBAAddBook.Visible = true;
-                    buttonBAUpdateBook.Visible = false;
-                }
+                LoadAssignedBookList();
             }
             catch
             {
+            }
+        }
+
+        private void LoadAssignedBookList()
+        {
+            // load assigned book list in DataGridView
+            var bookAccountTable = _bookAccountBll.Get(_bookAccountM);
+
+            if (bookAccountTable.Rows.Count > 0)
+            {
+                _bookAccountM.Id = (int)bookAccountTable.Rows[0]["Id"];
+                _bookAccountM.Book = bookAccountTable.Rows[0]["Book"].ToString();
+
+                if (_bookAccountM.Book == "" || _bookAccountM.Book == "0")
+                {
+                    dataGridViewBAAssignedBook.DataSource = null;
+                }
+                else
+                {
+                    var syllabusList=_syllabusBll.GetBySyllabusId(_bookAccountM);
+                    foreach (DataRow dataRow in syllabusList.Rows)
+                    {
+                        foreach (Control control in panelBookList.Controls)
+                        {
+                            if (dataRow["id"].ToString()==control.Name)
+                            {
+                                ((CheckBox) control).Checked = true;
+                            }
+                        }
+                    }
+                    dataGridViewBAAssignedBook.DataSource = syllabusList;
+                }
+
+
+                buttonBAAddBook.Visible = false;
+                buttonBAUpdateBook.Visible = true;
+            }
+            else
+            {
+                dataGridViewBAAssignedBook.DataSource = null;
+                buttonBAAddBook.Visible = true;
+                buttonBAUpdateBook.Visible = false;
             }
         }
         
@@ -474,6 +488,7 @@ namespace M_CGPA
                 var isUpdate = _bookAccountBll.Update(_bookAccountM);
                 if (isUpdate)
                 {
+                    LoadBook();
                     MessageBox.Show("Success...");
                 }
             }
@@ -499,10 +514,16 @@ namespace M_CGPA
                 var isSuccess = _bookAccountBll.Insert(_bookAccountM);
                 if (isSuccess)
                 {
+                    LoadBook();
                     MessageBox.Show("Success...");
                 }
             }
             catch { }
+        }
+
+        private void dataGridViewBAAssignedBook_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridViewBAAssignedBook.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
     }

@@ -57,5 +57,9 @@ namespace M_CGPA.BLL
         {
             return _syllabus.GetByFilter(syllabus);
         }
+        public DataTable GetBySyllabusId(BookAccountM bookAccountM)
+        {
+            return _syllabus.GetBySyllabusId(bookAccountM);
+        }
     }
 }

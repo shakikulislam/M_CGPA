@@ -123,6 +123,7 @@ namespace M_CGPA
             this.labelBASelectedBook = new System.Windows.Forms.Label();
             this.labelBATottalBook = new System.Windows.Forms.Label();
             this.panelBAButton = new System.Windows.Forms.Panel();
+            this.buttonBAAddBook = new System.Windows.Forms.Button();
             this.buttonBAUpdateBook = new System.Windows.Forms.Button();
             this.labelBAYear = new System.Windows.Forms.Label();
             this.textBoxBAYear = new System.Windows.Forms.TextBox();
@@ -133,7 +134,6 @@ namespace M_CGPA
             this.labelABName = new System.Windows.Forms.Label();
             this.textBoxABSearch = new System.Windows.Forms.TextBox();
             this.labelABRoll = new System.Windows.Forms.Label();
-            this.buttonBAAddBook = new System.Windows.Forms.Button();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -1017,6 +1017,7 @@ namespace M_CGPA
             this.dataGridViewBAAssignedBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBAAssignedBook.Size = new System.Drawing.Size(399, 200);
             this.dataGridViewBAAssignedBook.TabIndex = 19;
+            this.dataGridViewBAAssignedBook.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewBAAssignedBook_RowPostPaint);
             // 
             // sl
             // 
@@ -1107,6 +1108,21 @@ namespace M_CGPA
             this.panelBAButton.Size = new System.Drawing.Size(437, 37);
             this.panelBAButton.TabIndex = 38;
             // 
+            // buttonBAAddBook
+            // 
+            this.buttonBAAddBook.BackColor = System.Drawing.Color.Green;
+            this.buttonBAAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBAAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBAAddBook.ForeColor = System.Drawing.Color.White;
+            this.buttonBAAddBook.Location = new System.Drawing.Point(41, 5);
+            this.buttonBAAddBook.Name = "buttonBAAddBook";
+            this.buttonBAAddBook.Size = new System.Drawing.Size(354, 31);
+            this.buttonBAAddBook.TabIndex = 28;
+            this.buttonBAAddBook.Text = "Add";
+            this.buttonBAAddBook.UseVisualStyleBackColor = false;
+            this.buttonBAAddBook.Visible = false;
+            this.buttonBAAddBook.Click += new System.EventHandler(this.buttonBAAddBook_Click);
+            // 
             // buttonBAUpdateBook
             // 
             this.buttonBAUpdateBook.BackColor = System.Drawing.Color.Purple;
@@ -1124,9 +1140,9 @@ namespace M_CGPA
             // labelBAYear
             // 
             this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAYear.Location = new System.Drawing.Point(489, 149);
+            this.labelBAYear.Location = new System.Drawing.Point(472, 149);
             this.labelBAYear.Name = "labelBAYear";
-            this.labelBAYear.Size = new System.Drawing.Size(147, 25);
+            this.labelBAYear.Size = new System.Drawing.Size(117, 25);
             this.labelBAYear.TabIndex = 37;
             this.labelBAYear.Text = "Year";
             this.labelBAYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1134,7 +1150,7 @@ namespace M_CGPA
             // textBoxBAYear
             // 
             this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxBAYear.Location = new System.Drawing.Point(642, 149);
+            this.textBoxBAYear.Location = new System.Drawing.Point(595, 149);
             this.textBoxBAYear.Name = "textBoxBAYear";
             this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
             this.textBoxBAYear.TabIndex = 36;
@@ -1158,7 +1174,7 @@ namespace M_CGPA
             this.comboBoxABClass.DisplayMember = "Name";
             this.comboBoxABClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxABClass.FormattingEnabled = true;
-            this.comboBoxABClass.Location = new System.Drawing.Point(265, 149);
+            this.comboBoxABClass.Location = new System.Drawing.Point(271, 149);
             this.comboBoxABClass.Name = "comboBoxABClass";
             this.comboBoxABClass.Size = new System.Drawing.Size(175, 28);
             this.comboBoxABClass.TabIndex = 33;
@@ -1167,9 +1183,9 @@ namespace M_CGPA
             // labelABClass
             // 
             this.labelABClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABClass.Location = new System.Drawing.Point(112, 150);
+            this.labelABClass.Location = new System.Drawing.Point(159, 150);
             this.labelABClass.Name = "labelABClass";
-            this.labelABClass.Size = new System.Drawing.Size(147, 25);
+            this.labelABClass.Size = new System.Drawing.Size(106, 25);
             this.labelABClass.TabIndex = 31;
             this.labelABClass.Text = "Class";
             this.labelABClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1178,7 +1194,7 @@ namespace M_CGPA
             // 
             this.labelABStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelABStudentName.AutoSize = true;
-            this.labelABStudentName.Location = new System.Drawing.Point(265, 120);
+            this.labelABStudentName.Location = new System.Drawing.Point(271, 120);
             this.labelABStudentName.Name = "labelABStudentName";
             this.labelABStudentName.Size = new System.Drawing.Size(0, 20);
             this.labelABStudentName.TabIndex = 30;
@@ -1187,9 +1203,9 @@ namespace M_CGPA
             // labelABName
             // 
             this.labelABName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABName.Location = new System.Drawing.Point(112, 118);
+            this.labelABName.Location = new System.Drawing.Point(159, 118);
             this.labelABName.Name = "labelABName";
-            this.labelABName.Size = new System.Drawing.Size(147, 25);
+            this.labelABName.Size = new System.Drawing.Size(106, 25);
             this.labelABName.TabIndex = 29;
             this.labelABName.Text = "Name";
             this.labelABName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1213,21 +1229,6 @@ namespace M_CGPA
             this.labelABRoll.TabIndex = 27;
             this.labelABRoll.Text = "Roll";
             this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // buttonBAAddBook
-            // 
-            this.buttonBAAddBook.BackColor = System.Drawing.Color.Green;
-            this.buttonBAAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBAAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBAAddBook.ForeColor = System.Drawing.Color.White;
-            this.buttonBAAddBook.Location = new System.Drawing.Point(69, 5);
-            this.buttonBAAddBook.Name = "buttonBAAddBook";
-            this.buttonBAAddBook.Size = new System.Drawing.Size(354, 31);
-            this.buttonBAAddBook.TabIndex = 28;
-            this.buttonBAAddBook.Text = "Add";
-            this.buttonBAAddBook.UseVisualStyleBackColor = false;
-            this.buttonBAAddBook.Visible = false;
-            this.buttonBAAddBook.Click += new System.EventHandler(this.buttonBAAddBook_Click);
             // 
             // Student
             // 
