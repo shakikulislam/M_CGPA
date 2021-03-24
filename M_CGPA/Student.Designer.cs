@@ -133,6 +133,7 @@ namespace M_CGPA
             this.labelABName = new System.Windows.Forms.Label();
             this.textBoxABSearch = new System.Windows.Forms.TextBox();
             this.labelABRoll = new System.Windows.Forms.Label();
+            this.buttonBAAddBook = new System.Windows.Forms.Button();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -1099,6 +1100,7 @@ namespace M_CGPA
             // panelBAButton
             // 
             this.panelBAButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panelBAButton.Controls.Add(this.buttonBAAddBook);
             this.panelBAButton.Controls.Add(this.buttonBAUpdateBook);
             this.panelBAButton.Location = new System.Drawing.Point(228, 434);
             this.panelBAButton.Name = "panelBAButton";
@@ -1211,6 +1213,21 @@ namespace M_CGPA
             this.labelABRoll.TabIndex = 27;
             this.labelABRoll.Text = "Roll";
             this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buttonBAAddBook
+            // 
+            this.buttonBAAddBook.BackColor = System.Drawing.Color.Green;
+            this.buttonBAAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBAAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBAAddBook.ForeColor = System.Drawing.Color.White;
+            this.buttonBAAddBook.Location = new System.Drawing.Point(69, 5);
+            this.buttonBAAddBook.Name = "buttonBAAddBook";
+            this.buttonBAAddBook.Size = new System.Drawing.Size(354, 31);
+            this.buttonBAAddBook.TabIndex = 28;
+            this.buttonBAAddBook.Text = "Add";
+            this.buttonBAAddBook.UseVisualStyleBackColor = false;
+            this.buttonBAAddBook.Visible = false;
+            this.buttonBAAddBook.Click += new System.EventHandler(this.buttonBAAddBook_Click);
             // 
             // Student
             // 
@@ -1353,5 +1370,6 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn bookIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonBAAddBook;
     }
 }

@@ -6,5 +6,6 @@ namespace M_CGPA.Model
         public int Id { get; set; }
         public int StudentId { get; set; }
         public string Book { get; set; }
+        public string Year { get; set; }
     }
 }

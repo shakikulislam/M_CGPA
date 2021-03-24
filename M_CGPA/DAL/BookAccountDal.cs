@@ -11,6 +11,7 @@ namespace M_CGPA.DAL
         private SqlCommand _sqlCommand;
         private SqlDataAdapter _sqlDataAdapter;
         DataSet _dataSet;
+        private DataTable _dataTable;
         private SqlDataReader _sqlDataReader;
 
         public void DbConnection()
@@ -22,20 +23,20 @@ namespace M_CGPA.DAL
         public bool Insert(BookAccountM bookAccountM)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO BookAccount(StudentId,Book)VALUES('" + bookAccountM.StudentId + "','" + bookAccountM.Book + "')";
+            _sqlCommand.CommandText = "INSERT INTO BookAccount(StudentId,Book,Year)VALUES('" + bookAccountM.StudentId + "','" + bookAccountM.Book + "','" + bookAccountM.Year + "')";
             var isSaved = _sqlCommand.ExecuteNonQuery();
 
             return isSaved > 0;
         }
 
-        //public bool Update(BookAccountM bookAccountM)
-        //{
-        //    DbConnection();
-        //    _sqlCommand.CommandText = "UPDATE Book SET Code='" + book.Code + "', Name='" + book.Name + "' WHERE Id='" + book.Id + "'";
-        //    var isUpdate = _sqlCommand.ExecuteNonQuery();
+        public bool Update(BookAccountM bookAccountM)
+        {
+            DbConnection();
+            _sqlCommand.CommandText = "UPDATE BookAccount SET Book='" + bookAccountM.Book + "' WHERE Id='" + bookAccountM.Id + "'";
+            var isUpdate = _sqlCommand.ExecuteNonQuery();
 
-        //    return isUpdate > 0;
-        //}
+            return isUpdate > 0;
+        }
 
         //public bool Delete(BookAccountM bookAccountM)
         //{
@@ -46,14 +47,16 @@ namespace M_CGPA.DAL
         //    return isDelete > 0;
         //}
 
-        //public bool Get(BookAccountM bookAccountM)
-        //{
-        //    DbConnection();
-        //    _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code='" + book.Code + "' AND Name='" + book.Name + "'";
-        //    _sqlDataReader = _sqlCommand.ExecuteReader();
+        public DataTable Get(BookAccountM bookAccountM)
+        {
+            DbConnection();
+            _sqlCommand.CommandText = "SELECT *FROM BookAccount WHERE StudentId='" + bookAccountM.StudentId + "' AND Year='" + bookAccountM.Year + "'";
+            _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
+            _dataTable=new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
 
-        //    return _sqlDataReader.Read();
-        //}
+            return _dataTable;
+        }
 
         //public object GetAll()
         //{

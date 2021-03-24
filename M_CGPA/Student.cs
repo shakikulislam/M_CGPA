@@ -14,11 +14,11 @@ namespace M_CGPA
         readonly ClassBll _classBll=new ClassBll();
         readonly StudentM _studentM=new StudentM();
         readonly StudentBll _studentBll=new StudentBll();
-        static readonly SyllabusBll _syllabusBll=new SyllabusBll();
+        readonly SyllabusBll _syllabusBll=new SyllabusBll();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
-        static SyllabusM _syllabusM=new SyllabusM();
-        BookAccountM _bookAccountM=new BookAccountM();
-        BookAccountBll _bookAccountBll=new BookAccountBll();
+        readonly SyllabusM _syllabusM=new SyllabusM();
+        readonly BookAccountM _bookAccountM=new BookAccountM();
+        readonly BookAccountBll _bookAccountBll=new BookAccountBll();
 
         int _fieldLocation = 1;
         DataTable _bookLIst;
@@ -408,6 +408,7 @@ namespace M_CGPA
                 _syllabusM.ClassId = (int) comboBoxABClass.SelectedValue;
                 _syllabusM.Year = textBoxBAYear.Text;
                 _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
+                _bookAccountM.Year = textBoxBAYear.Text;
                 if (_bookLIst.Rows.Count > 0)
                 {
                     for (int i = 0; i < _bookLIst.Rows.Count; i++)
@@ -422,6 +423,20 @@ namespace M_CGPA
                 {
                     DeleteAutoGenerateFields(panelBookList);
                     labelBATottalBook.Text = "";
+                }
+
+                var bookAccountTable = _bookAccountBll.Get(_bookAccountM);
+
+                if (bookAccountTable.Rows.Count>0)
+                {
+                    _bookAccountM.Id = (int) bookAccountTable.Rows[0]["Id"];
+                    buttonBAAddBook.Visible = false;
+                    buttonBAUpdateBook.Visible = true;
+                }
+                else
+                {
+                    buttonBAAddBook.Visible = true;
+                    buttonBAUpdateBook.Visible = false;
                 }
             }
             catch
@@ -449,20 +464,45 @@ namespace M_CGPA
                 {
                     if (control is CheckBox)
                     {
-                        if (((CheckBox) control).Checked)
+                        if (((CheckBox)control).Checked)
                         {
                             _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += control.Name : _bookAccountM.Book += "," + control.Name;
                         }
                     }
                 }
 
-                var isSuccess=_bookAccountBll.Insert(_bookAccountM);
+                var isUpdate = _bookAccountBll.Update(_bookAccountM);
+                if (isUpdate)
+                {
+                    MessageBox.Show("Success...");
+                }
+            }
+            catch { }
+        }
+
+        private void buttonBAAddBook_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _bookAccountM.Book = "";
+                foreach (Control control in panelBookList.Controls)
+                {
+                    if (control is CheckBox)
+                    {
+                        if (((CheckBox)control).Checked)
+                        {
+                            _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += control.Name : _bookAccountM.Book += "," + control.Name;
+                        }
+                    }
+                }
+
+                var isSuccess = _bookAccountBll.Insert(_bookAccountM);
                 if (isSuccess)
                 {
                     MessageBox.Show("Success...");
                 }
             }
-            catch{}
+            catch { }
         }
 
     }

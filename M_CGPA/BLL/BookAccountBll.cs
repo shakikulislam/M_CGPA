@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using M_CGPA.DAL;
 using M_CGPA.Language;
 using M_CGPA.Model;
@@ -24,28 +25,28 @@ namespace M_CGPA.BLL
             return isSaved;
         }
 
-        //public bool Update(BookAccountM bookAccountM)
-        //{
-        //    _language.UserLanguage();
+        public bool Update(BookAccountM bookAccountM)
+        {
+            _language.UserLanguage();
 
-        //    var isExist = _book.Get(bookM);
-        //    if (isExist)
-        //    {
-        //        throw new Exception(_language.Language.BookAlreadyExist);
-        //    }
+            //var isExist = _book.Get(bookM);
+            //if (isExist)
+            //{
+            //    throw new Exception(_language.Language.BookAlreadyExist);
+            //}
 
-        //    return _book.Update(bookM);
-        //}
+            return _bookAccountDal.Update(bookAccountM);
+        }
 
         //public bool Delete(BookAccountM bookAccountM)
         //{
         //    return _book.Delete(bookM);
         //}
 
-        //public object GetAll()
-        //{
-        //    return _book.GetAll();
-        //}
+        public DataTable Get(BookAccountM bookAccountM)
+        {
+            return _bookAccountDal.Get(bookAccountM);
+        }
 
         //public object GetByFilter(BookAccountM bookAccountM)
         //{
