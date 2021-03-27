@@ -1179,6 +1179,7 @@ namespace M_CGPA
             this.comboBoxABClass.Size = new System.Drawing.Size(175, 28);
             this.comboBoxABClass.TabIndex = 33;
             this.comboBoxABClass.ValueMember = "Id";
+            this.comboBoxABClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxABClass_SelectedIndexChanged);
             // 
             // labelABClass
             // 

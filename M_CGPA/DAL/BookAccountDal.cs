@@ -47,10 +47,10 @@ namespace M_CGPA.DAL
         //    return isDelete > 0;
         //}
 
-        public DataTable Get(BookAccountM bookAccountM)
+        public DataTable GetAll(BookAccountM bookAccountM)
         {
             DbConnection();
-            _sqlCommand.CommandText = "SELECT *FROM BookAccount WHERE StudentId='" + bookAccountM.StudentId + "' AND Year='" + bookAccountM.Year + "'";
+            _sqlCommand.CommandText = "SELECT *FROM BookAccount WHERE StudentId='" + bookAccountM.StudentId + "' ";
             _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
             _dataTable=new DataTable();
             _sqlDataAdapter.Fill(_dataTable);

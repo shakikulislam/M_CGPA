@@ -363,6 +363,8 @@ namespace M_CGPA
                     comboBoxABClass.SelectedValue = classId;
 
                     LoadBook();
+                    LoadAssignedBookList();
+                    //CheckedAssignedBookList();
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
@@ -370,12 +372,14 @@ namespace M_CGPA
                     labelABStudentName.Text = "";
                     comboBoxABClass.SelectedValue = 0;
                     DeleteAutoGenerateFields(panelBookList);
+                    dataGridViewBAAssignedBook.DataSource = null;
                 }
                 else
                 {
                     labelABStudentName.Text = "";
                     comboBoxABClass.SelectedValue = 0;
                     DeleteAutoGenerateFields(panelBookList);
+                    dataGridViewBAAssignedBook.DataSource = null;
                 }
             }
             catch { }
@@ -408,8 +412,6 @@ namespace M_CGPA
                     DeleteAutoGenerateFields(panelBookList);
                     labelBATottalBook.Text = "";
                 }
-
-                LoadAssignedBookList();
             }
             catch
             {
@@ -419,7 +421,7 @@ namespace M_CGPA
         private void LoadAssignedBookList()
         {
             // load assigned book list in DataGridView
-            var bookAccountTable = _bookAccountBll.Get(_bookAccountM);
+            var bookAccountTable = _bookAccountBll.GetAll(_bookAccountM);
 
             if (bookAccountTable.Rows.Count > 0)
             {
@@ -432,20 +434,26 @@ namespace M_CGPA
                 }
                 else
                 {
-                    var syllabusList=_syllabusBll.GetBySyllabusId(_bookAccountM);
-                    foreach (DataRow dataRow in syllabusList.Rows)
+                    DataTable table=new DataTable();
+                    table.Columns.Add("year");
+                    table.Columns.Add("class");
+                    table.Columns.Add("book");
+                    foreach (DataRow dataRowBook in bookAccountTable.Rows)
                     {
-                        foreach (Control control in panelBookList.Controls)
+                        _bookAccountM.Book = dataRowBook["Book"].ToString();
+
+                        var syllabusList = _syllabusBll.GetBySyllabusId(_bookAccountM);
+                        foreach (DataRow dataRowSL in syllabusList.Rows)
                         {
-                            if (dataRow["id"].ToString()==control.Name)
-                            {
-                                ((CheckBox) control).Checked = true;
-                            }
+                            table.Rows.Add(
+                                dataRowSL["Year"].ToString(),
+                                dataRowSL["Class"].ToString(),
+                                dataRowSL["Book"].ToString()
+                                );
                         }
                     }
-                    dataGridViewBAAssignedBook.DataSource = syllabusList;
+                    dataGridViewBAAssignedBook.DataSource = table;
                 }
-
 
                 buttonBAAddBook.Visible = false;
                 buttonBAUpdateBook.Visible = true;
@@ -457,7 +465,23 @@ namespace M_CGPA
                 buttonBAUpdateBook.Visible = false;
             }
         }
-        
+
+        private void CheckedAssignedBookList()
+        {
+            var syllabusList = _syllabusBll.GetBySyllabusId(_bookAccountM);
+
+            foreach (DataRow dataRow in syllabusList.Rows)
+            {
+                foreach (Control control in panelBookList.Controls)
+                {
+                    if (dataRow["id"].ToString() == control.Name)
+                    {
+                        ((CheckBox)control).Checked = true;
+                    }
+                }
+            }
+        }
+
         private void DeleteAutoGenerateFields(Control panel)
         {
             _fieldLocation = 1;
@@ -524,6 +548,11 @@ namespace M_CGPA
         private void dataGridViewBAAssignedBook_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             dataGridViewBAAssignedBook.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void comboBoxABClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadBook();
         }
 
     }

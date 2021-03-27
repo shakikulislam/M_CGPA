@@ -43,9 +43,9 @@ namespace M_CGPA.BLL
         //    return _book.Delete(bookM);
         //}
 
-        public DataTable Get(BookAccountM bookAccountM)
+        public DataTable GetAll(BookAccountM bookAccountM)
         {
-            return _bookAccountDal.Get(bookAccountM);
+            return _bookAccountDal.GetAll(bookAccountM);
         }
         
         //public object GetByFilter(BookAccountM bookAccountM)
