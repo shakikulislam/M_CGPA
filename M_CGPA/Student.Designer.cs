@@ -109,7 +109,16 @@ namespace M_CGPA
             this.textBoxARSearch = new System.Windows.Forms.TextBox();
             this.labelARRoll = new System.Windows.Forms.Label();
             this.tabPageBook = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelBA = new System.Windows.Forms.Panel();
+            this.labelBAYear = new System.Windows.Forms.Label();
+            this.textBoxBAYear = new System.Windows.Forms.TextBox();
+            this.comboBoxBAClass = new System.Windows.Forms.ComboBox();
+            this.labelBAClass = new System.Windows.Forms.Label();
+            this.labelBAStudentName = new System.Windows.Forms.Label();
+            this.labelBAName = new System.Windows.Forms.Label();
+            this.textBoxBASearch = new System.Windows.Forms.TextBox();
+            this.labelBARoll = new System.Windows.Forms.Label();
+            this.labelHelAreadyHasTheBook = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewBAAssignedBook = new System.Windows.Forms.DataGridView();
             this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,15 +134,7 @@ namespace M_CGPA
             this.panelBAButton = new System.Windows.Forms.Panel();
             this.buttonBAAddBook = new System.Windows.Forms.Button();
             this.buttonBAUpdateBook = new System.Windows.Forms.Button();
-            this.labelBAYear = new System.Windows.Forms.Label();
-            this.textBoxBAYear = new System.Windows.Forms.TextBox();
             this.panelBookList = new System.Windows.Forms.Panel();
-            this.comboBoxABClass = new System.Windows.Forms.ComboBox();
-            this.labelABClass = new System.Windows.Forms.Label();
-            this.labelABStudentName = new System.Windows.Forms.Label();
-            this.labelABName = new System.Windows.Forms.Label();
-            this.textBoxABSearch = new System.Windows.Forms.TextBox();
-            this.labelABRoll = new System.Windows.Forms.Label();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -146,6 +147,7 @@ namespace M_CGPA
             this.tabPageAddStudent.SuspendLayout();
             this.tabPageAddResult.SuspendLayout();
             this.tabPageBook.SuspendLayout();
+            this.panelBA.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).BeginInit();
@@ -949,20 +951,13 @@ namespace M_CGPA
             // tabPageBook
             // 
             this.tabPageBook.BackColor = System.Drawing.Color.White;
-            this.tabPageBook.Controls.Add(this.label1);
+            this.tabPageBook.Controls.Add(this.panelBA);
+            this.tabPageBook.Controls.Add(this.labelHelAreadyHasTheBook);
             this.tabPageBook.Controls.Add(this.panel1);
             this.tabPageBook.Controls.Add(this.labelBASelectedBook);
             this.tabPageBook.Controls.Add(this.labelBATottalBook);
             this.tabPageBook.Controls.Add(this.panelBAButton);
-            this.tabPageBook.Controls.Add(this.labelBAYear);
-            this.tabPageBook.Controls.Add(this.textBoxBAYear);
             this.tabPageBook.Controls.Add(this.panelBookList);
-            this.tabPageBook.Controls.Add(this.comboBoxABClass);
-            this.tabPageBook.Controls.Add(this.labelABClass);
-            this.tabPageBook.Controls.Add(this.labelABStudentName);
-            this.tabPageBook.Controls.Add(this.labelABName);
-            this.tabPageBook.Controls.Add(this.textBoxABSearch);
-            this.tabPageBook.Controls.Add(this.labelABRoll);
             this.tabPageBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageBook.Location = new System.Drawing.Point(4, 29);
             this.tabPageBook.Name = "tabPageBook";
@@ -971,15 +966,116 @@ namespace M_CGPA
             this.tabPageBook.TabIndex = 2;
             this.tabPageBook.Text = "Book Account";
             // 
-            // label1
+            // panelBA
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Location = new System.Drawing.Point(493, 198);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 25);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "He already has the book";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.panelBA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBA.Controls.Add(this.labelBAYear);
+            this.panelBA.Controls.Add(this.textBoxBAYear);
+            this.panelBA.Controls.Add(this.comboBoxBAClass);
+            this.panelBA.Controls.Add(this.labelBAClass);
+            this.panelBA.Controls.Add(this.labelBAStudentName);
+            this.panelBA.Controls.Add(this.labelBAName);
+            this.panelBA.Controls.Add(this.textBoxBASearch);
+            this.panelBA.Controls.Add(this.labelBARoll);
+            this.panelBA.Location = new System.Drawing.Point(8, 6);
+            this.panelBA.Name = "panelBA";
+            this.panelBA.Size = new System.Drawing.Size(876, 179);
+            this.panelBA.TabIndex = 43;
+            // 
+            // labelBAYear
+            // 
+            this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBAYear.Location = new System.Drawing.Point(452, 138);
+            this.labelBAYear.Name = "labelBAYear";
+            this.labelBAYear.Size = new System.Drawing.Size(117, 25);
+            this.labelBAYear.TabIndex = 37;
+            this.labelBAYear.Text = "Year";
+            this.labelBAYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxBAYear
+            // 
+            this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBAYear.Location = new System.Drawing.Point(575, 137);
+            this.textBoxBAYear.Name = "textBoxBAYear";
+            this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
+            this.textBoxBAYear.TabIndex = 36;
+            this.textBoxBAYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxBAYear.TextChanged += new System.EventHandler(this.textBoxBAYear_TextChanged);
+            // 
+            // comboBoxBAClass
+            // 
+            this.comboBoxBAClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comboBoxBAClass.DataSource = this.classMBindingSource;
+            this.comboBoxBAClass.DisplayMember = "Name";
+            this.comboBoxBAClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBAClass.FormattingEnabled = true;
+            this.comboBoxBAClass.Location = new System.Drawing.Point(251, 136);
+            this.comboBoxBAClass.Name = "comboBoxBAClass";
+            this.comboBoxBAClass.Size = new System.Drawing.Size(175, 28);
+            this.comboBoxBAClass.TabIndex = 33;
+            this.comboBoxBAClass.ValueMember = "Id";
+            this.comboBoxBAClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxABClass_SelectedIndexChanged);
+            // 
+            // labelBAClass
+            // 
+            this.labelBAClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBAClass.Location = new System.Drawing.Point(139, 138);
+            this.labelBAClass.Name = "labelBAClass";
+            this.labelBAClass.Size = new System.Drawing.Size(106, 25);
+            this.labelBAClass.TabIndex = 31;
+            this.labelBAClass.Text = "Class";
+            this.labelBAClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelBAStudentName
+            // 
+            this.labelBAStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBAStudentName.AutoSize = true;
+            this.labelBAStudentName.Location = new System.Drawing.Point(251, 101);
+            this.labelBAStudentName.Name = "labelBAStudentName";
+            this.labelBAStudentName.Size = new System.Drawing.Size(0, 20);
+            this.labelBAStudentName.TabIndex = 30;
+            this.labelBAStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelBAName
+            // 
+            this.labelBAName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBAName.Location = new System.Drawing.Point(37, 99);
+            this.labelBAName.Name = "labelBAName";
+            this.labelBAName.Size = new System.Drawing.Size(208, 25);
+            this.labelBAName.TabIndex = 29;
+            this.labelBAName.Text = "Name";
+            this.labelBAName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxBASearch
+            // 
+            this.textBoxBASearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBASearch.Location = new System.Drawing.Point(277, 60);
+            this.textBoxBASearch.Name = "textBoxBASearch";
+            this.textBoxBASearch.Size = new System.Drawing.Size(298, 26);
+            this.textBoxBASearch.TabIndex = 28;
+            this.textBoxBASearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxBASearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxABSearch_KeyDown);
+            // 
+            // labelBARoll
+            // 
+            this.labelBARoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBARoll.Location = new System.Drawing.Point(277, 29);
+            this.labelBARoll.Name = "labelBARoll";
+            this.labelBARoll.Size = new System.Drawing.Size(298, 25);
+            this.labelBARoll.TabIndex = 27;
+            this.labelBARoll.Text = "Roll";
+            this.labelBARoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // labelHelAreadyHasTheBook
+            // 
+            this.labelHelAreadyHasTheBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelHelAreadyHasTheBook.Location = new System.Drawing.Point(493, 198);
+            this.labelHelAreadyHasTheBook.Name = "labelHelAreadyHasTheBook";
+            this.labelHelAreadyHasTheBook.Size = new System.Drawing.Size(313, 25);
+            this.labelHelAreadyHasTheBook.TabIndex = 42;
+            this.labelHelAreadyHasTheBook.Text = "He already has the book";
+            this.labelHelAreadyHasTheBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel1
             // 
@@ -1137,26 +1233,6 @@ namespace M_CGPA
             this.buttonBAUpdateBook.UseVisualStyleBackColor = false;
             this.buttonBAUpdateBook.Click += new System.EventHandler(this.buttonBAUpdateBook_Click);
             // 
-            // labelBAYear
-            // 
-            this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAYear.Location = new System.Drawing.Point(472, 149);
-            this.labelBAYear.Name = "labelBAYear";
-            this.labelBAYear.Size = new System.Drawing.Size(117, 25);
-            this.labelBAYear.TabIndex = 37;
-            this.labelBAYear.Text = "Year";
-            this.labelBAYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxBAYear
-            // 
-            this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxBAYear.Location = new System.Drawing.Point(595, 149);
-            this.textBoxBAYear.Name = "textBoxBAYear";
-            this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
-            this.textBoxBAYear.TabIndex = 36;
-            this.textBoxBAYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxBAYear.TextChanged += new System.EventHandler(this.textBoxBAYear_TextChanged);
-            // 
             // panelBookList
             // 
             this.panelBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -1166,70 +1242,6 @@ namespace M_CGPA
             this.panelBookList.Name = "panelBookList";
             this.panelBookList.Size = new System.Drawing.Size(315, 202);
             this.panelBookList.TabIndex = 34;
-            // 
-            // comboBoxABClass
-            // 
-            this.comboBoxABClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBoxABClass.DataSource = this.classMBindingSource;
-            this.comboBoxABClass.DisplayMember = "Name";
-            this.comboBoxABClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxABClass.FormattingEnabled = true;
-            this.comboBoxABClass.Location = new System.Drawing.Point(271, 149);
-            this.comboBoxABClass.Name = "comboBoxABClass";
-            this.comboBoxABClass.Size = new System.Drawing.Size(175, 28);
-            this.comboBoxABClass.TabIndex = 33;
-            this.comboBoxABClass.ValueMember = "Id";
-            this.comboBoxABClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxABClass_SelectedIndexChanged);
-            // 
-            // labelABClass
-            // 
-            this.labelABClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABClass.Location = new System.Drawing.Point(159, 150);
-            this.labelABClass.Name = "labelABClass";
-            this.labelABClass.Size = new System.Drawing.Size(106, 25);
-            this.labelABClass.TabIndex = 31;
-            this.labelABClass.Text = "Class";
-            this.labelABClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelABStudentName
-            // 
-            this.labelABStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABStudentName.AutoSize = true;
-            this.labelABStudentName.Location = new System.Drawing.Point(271, 120);
-            this.labelABStudentName.Name = "labelABStudentName";
-            this.labelABStudentName.Size = new System.Drawing.Size(0, 20);
-            this.labelABStudentName.TabIndex = 30;
-            this.labelABStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelABName
-            // 
-            this.labelABName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABName.Location = new System.Drawing.Point(159, 118);
-            this.labelABName.Name = "labelABName";
-            this.labelABName.Size = new System.Drawing.Size(106, 25);
-            this.labelABName.TabIndex = 29;
-            this.labelABName.Text = "Name";
-            this.labelABName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxABSearch
-            // 
-            this.textBoxABSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxABSearch.Location = new System.Drawing.Point(297, 71);
-            this.textBoxABSearch.Name = "textBoxABSearch";
-            this.textBoxABSearch.Size = new System.Drawing.Size(298, 26);
-            this.textBoxABSearch.TabIndex = 28;
-            this.textBoxABSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxABSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxABSearch_KeyDown);
-            // 
-            // labelABRoll
-            // 
-            this.labelABRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelABRoll.Location = new System.Drawing.Point(297, 40);
-            this.labelABRoll.Name = "labelABRoll";
-            this.labelABRoll.Size = new System.Drawing.Size(298, 25);
-            this.labelABRoll.TabIndex = 27;
-            this.labelABRoll.Text = "Roll";
-            this.labelABRoll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Student
             // 
@@ -1259,7 +1271,8 @@ namespace M_CGPA
             this.tabPageAddResult.ResumeLayout(false);
             this.tabPageAddResult.PerformLayout();
             this.tabPageBook.ResumeLayout(false);
-            this.tabPageBook.PerformLayout();
+            this.panelBA.ResumeLayout(false);
+            this.panelBA.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).EndInit();
@@ -1342,12 +1355,12 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn presentAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn permanentAddress;
         private System.Windows.Forms.Label labelTotalStudent;
-        private System.Windows.Forms.Label labelABClass;
-        private System.Windows.Forms.Label labelABStudentName;
-        private System.Windows.Forms.Label labelABName;
-        private System.Windows.Forms.TextBox textBoxABSearch;
-        private System.Windows.Forms.Label labelABRoll;
-        private System.Windows.Forms.ComboBox comboBoxABClass;
+        private System.Windows.Forms.Label labelBAClass;
+        private System.Windows.Forms.Label labelBAStudentName;
+        private System.Windows.Forms.Label labelBAName;
+        private System.Windows.Forms.TextBox textBoxBASearch;
+        private System.Windows.Forms.Label labelBARoll;
+        private System.Windows.Forms.ComboBox comboBoxBAClass;
         private System.Windows.Forms.Panel panelBookList;
         private System.Windows.Forms.ComboBox comboBoxARClass;
         private System.Windows.Forms.Label labelARClass;
@@ -1364,7 +1377,7 @@ namespace M_CGPA
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridViewBAAssignedBook;
         private System.Windows.Forms.BindingSource syllabusMBindingSource;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelHelAreadyHasTheBook;
         private System.Windows.Forms.DataGridViewTextBoxColumn sl;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
@@ -1373,5 +1386,6 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonBAAddBook;
+        private System.Windows.Forms.Panel panelBA;
     }
 }

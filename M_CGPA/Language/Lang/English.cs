@@ -21,6 +21,7 @@
 
             #region All Field Name
 
+            Pro.HelAreadyHasTheBook = "He already has the book";
             Pro.Phone = "Phone";
             Pro.TitleInformation = "Student Information";
             Pro.Student = "Student";

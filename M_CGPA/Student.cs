@@ -30,7 +30,7 @@ namespace M_CGPA
             LoadLanguage();
 
             comboBoxClass.DataSource = _classBll.GetAllClass();
-            comboBoxABClass.DataSource = _classBll.GetAllClass();
+            comboBoxBAClass.DataSource = _classBll.GetAllClass();
             GetAll();
         }
 
@@ -41,7 +41,7 @@ namespace M_CGPA
             if (_selectLanguage.Language.Language == "Bengali")
             {
                 new SetGroupBoxLabelFont(groupBoxAddStudent, groupBoxFilter);
-                new SetPanelLabelFont(panelTitlebar, panelAddForm);
+                new SetPanelLabelFont(panelTitlebar, panelAddForm, panelBA);
                 new SetPanelButtonFont(panelAddForm);
 
                 foreach (Control control in Controls)
@@ -78,6 +78,11 @@ namespace M_CGPA
             buttonClear.Text = _selectLanguage.Language.BtnClear;
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
             labelSearch.Text = _selectLanguage.Language.Search;
+            labelBARoll.Text = _selectLanguage.Language.Roll;
+            labelBAName.Text = _selectLanguage.Language.StudentName;
+            labelBAClass.Text = _selectLanguage.Language.Class;
+            labelBAYear.Text = _selectLanguage.Language.Year;
+            labelHelAreadyHasTheBook.Text = _selectLanguage.Language.HelAreadyHasTheBook;
         }
 
         private void GetAll()
@@ -352,15 +357,15 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxABSearch.Text != "" && e.KeyCode == Keys.Enter)
+                if (textBoxBASearch.Text != "" && e.KeyCode == Keys.Enter)
                 {
-                    var student = _studentBll.GetByRollFilter(textBoxABSearch.Text);
-                    labelABStudentName.Text = student.Rows[0]["StudentName"].ToString();
+                    var student = _studentBll.GetByRollFilter(textBoxBASearch.Text);
+                    labelBAStudentName.Text = student.Rows[0]["StudentName"].ToString();
 
                     _bookAccountM.StudentId = (int) student.Rows[0]["Id"];
 
                     var classId = (int)student.Rows[0]["classId"];
-                    comboBoxABClass.SelectedValue = classId;
+                    comboBoxBAClass.SelectedValue = classId;
 
                     LoadBook();
                     LoadAssignedBookList();
@@ -368,16 +373,16 @@ namespace M_CGPA
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
-                    textBoxABSearch.Clear();
-                    labelABStudentName.Text = "";
-                    comboBoxABClass.SelectedValue = 0;
+                    textBoxBASearch.Clear();
+                    labelBAStudentName.Text = "";
+                    comboBoxBAClass.SelectedValue = 0;
                     DeleteAutoGenerateFields(panelBookList);
                     dataGridViewBAAssignedBook.DataSource = null;
                 }
                 else
                 {
-                    labelABStudentName.Text = "";
-                    comboBoxABClass.SelectedValue = 0;
+                    labelBAStudentName.Text = "";
+                    comboBoxBAClass.SelectedValue = 0;
                     DeleteAutoGenerateFields(panelBookList);
                     dataGridViewBAAssignedBook.DataSource = null;
                 }
@@ -393,7 +398,7 @@ namespace M_CGPA
                 _fieldLocation = 1;
 
                 // load book list
-                _syllabusM.ClassId = (int) comboBoxABClass.SelectedValue;
+                _syllabusM.ClassId = (int) comboBoxBAClass.SelectedValue;
                 _syllabusM.Year = textBoxBAYear.Text;
                 _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
                 _bookAccountM.Year = textBoxBAYear.Text;

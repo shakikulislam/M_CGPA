@@ -17,6 +17,7 @@ namespace M_CGPA.Language
 
         #region All Field Name
 
+        public string HelAreadyHasTheBook { get; set; }
         public string Phone { get; set; }
         public string TitleInformation { get; set; }
         public string Student { get; set; }
