@@ -560,5 +560,12 @@ namespace M_CGPA
             LoadBook();
         }
 
+        private void dataGridViewBAAssignedBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var DG = dataGridViewBAAssignedBook.Rows[e.RowIndex];
+            comboBoxBAClass.Text = DG.Cells["classBA"].Value.ToString();
+            textBoxBAYear.Text = DG.Cells["yearBA"].Value.ToString();
+        }
+
     }
 }

@@ -20,8 +20,8 @@ namespace M_CGPA
             {
                 SqlConnection.Close();
             }
-            //SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=F:\dbfile\M_CGPA\m_cgpa.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Shakikul Islam\Create\dbfile\M_CGPA\m_cgpa.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=E:\dbfile\M_CGPA\m_cgpa.mdf;Integrated Security=True;Connect Timeout=30");
+            //SqlConnection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\Shakikul Islam\Create\dbfile\M_CGPA\m_cgpa.mdf;Integrated Security=True;Connect Timeout=30");
             //SqlConnection =new SqlConnection(@"Data Source=.\SQLEXPRESS; AttachDbFileName=" + _databaseLink +"; Integrated Security=True;Connect Timeout=30;User Instance=True");
             //Data Source=(LocalDB)\v11.0;AttachDbFilename=E:\dbfile\M_CGPA\m_cgpa.mdf;Integrated Security=True;Connect Timeout=30
             SqlConnection.Open();
