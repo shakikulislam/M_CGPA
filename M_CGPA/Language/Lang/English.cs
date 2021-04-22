@@ -1,4 +1,6 @@
-﻿namespace M_CGPA.Language.Lang
+﻿using System.CodeDom.Compiler;
+
+namespace M_CGPA.Language.Lang
 {
     class English
     {
@@ -21,6 +23,8 @@
 
             #region All Field Name
 
+            Pro.Mark = "Mark";
+            Pro.SearchForAnything = "Search by typing anything";
             Pro.HelAreadyHasTheBook = "He already has the book";
             Pro.Phone = "Phone";
             Pro.TitleInformation = "Student Information";

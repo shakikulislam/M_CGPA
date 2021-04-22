@@ -31,7 +31,7 @@ namespace M_CGPA.BLL
             var isExist = _book.Get(bookM);
             if (isExist)
             {
-                throw new Exception(_language.Language.BookAlreadyExist);
+                //throw new Exception(_language.Language.BookAlreadyExist);
             }
 
             return _book.Update(bookM);
@@ -47,9 +47,9 @@ namespace M_CGPA.BLL
             return _book.GetAll();
         }
 
-        public object GetByFilter(BookM bookM)
+        public object GetByFilter(string filtervalue)
         {
-            return _book.GetByFilter(bookM);
+            return _book.GetByFilter(filtervalue);
         }
     }
 }

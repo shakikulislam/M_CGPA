@@ -22,7 +22,7 @@ namespace M_CGPA.DAL
         public bool Insert(BookM book)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO Book(Code,Name)VALUES('"+book.Code+"','" + book.Name + "')";
+            _sqlCommand.CommandText = "INSERT INTO Book(Code,Name,Mark)VALUES('" + book.Code + "','" + book.Name + "','" + book.Mark + "')";
             var isSaved = _sqlCommand.ExecuteNonQuery();
 
             return isSaved > 0;
@@ -31,7 +31,7 @@ namespace M_CGPA.DAL
         public bool Update(BookM book)
         {
             DbConnection();
-            _sqlCommand.CommandText = "UPDATE Book SET Code='" + book.Code + "', Name='" + book.Name + "' WHERE Id='" + book.Id + "'";
+            _sqlCommand.CommandText = "UPDATE Book SET Code='" + book.Code + "', Name='" + book.Name + "', Mark='" + book.Mark + "' WHERE Id='" + book.Id + "'";
             var isUpdate = _sqlCommand.ExecuteNonQuery();
 
             return isUpdate > 0;
@@ -49,7 +49,7 @@ namespace M_CGPA.DAL
         public bool Get(BookM book)
         {
             DbConnection();
-            _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code='" + book.Code + "' AND Name='" + book.Name + "'";
+            _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code='" + book.Code + "' AND Name='" + book.Name + "' AND Mark='" + book.Mark + "'";
             _sqlDataReader = _sqlCommand.ExecuteReader();
 
             return _sqlDataReader.Read();
@@ -65,10 +65,10 @@ namespace M_CGPA.DAL
 
             return _dataSet.Tables[0];
         }
-        public object GetByFilter(BookM book)
+        public object GetByFilter(string filtervalue)
         {
             DbConnection();
-            _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code LIKE '%" + book.Code + "%' AND Name LIKE '%" + book.Name + "%' ";
+            _sqlCommand.CommandText = "SELECT *FROM Book WHERE Code LIKE '%" + filtervalue + "%' OR Name LIKE '%" + filtervalue + "%' OR Mark LIKE '%" + filtervalue + "%' ";
             _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
             _dataSet = new DataSet();
             _sqlDataAdapter.Fill(_dataSet);

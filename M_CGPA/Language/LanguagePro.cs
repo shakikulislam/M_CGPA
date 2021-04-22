@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+
 namespace M_CGPA.Language
 {
     public class LanguagePro
@@ -17,6 +20,8 @@ namespace M_CGPA.Language
 
         #region All Field Name
 
+        public string Mark { get; set; }
+        public string SearchForAnything { get; set; }
         public string HelAreadyHasTheBook { get; set; }
         public string Phone { get; set; }
         public string TitleInformation { get; set; }

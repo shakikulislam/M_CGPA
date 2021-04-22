@@ -31,8 +31,8 @@ namespace M_CGPA
             {
                 //new SetPanelLabelFont(panelAddClass, panelTitlebar);
                 //new SetPanelButtonFont(panelAddClass);
-                new SetPanelLabelFont(panelTitlebar,panelForm,panelFilter);
-                new SetPanelButtonFont(panelForm,panelFilter);
+                new SetPanelLabelFont(panelTitlebar,panelForm,panelSearch);
+                new SetPanelButtonFont(panelForm);
 
 
                 foreach (Control control in Controls)
@@ -56,10 +56,11 @@ namespace M_CGPA
             buttonUpdate.Text = _selectLanguage.Language.BtnUpdate;
             buttonDelete.Text = _selectLanguage.Language.BtnDelete;
             buttonCancel.Text = _selectLanguage.Language.BtnCancel;
-            labelBookCodeFilter.Text = _selectLanguage.Language.BookCode;
-            labelBookNameFilter.Text = _selectLanguage.Language.BookName;
-            buttonSearchForm.Text = _selectLanguage.Language.BtnSearch;
-            buttonAddForm.Text = _selectLanguage.Language.BtnAdd;
+            labelBookMark.Text = _selectLanguage.Language.Mark;
+            labelSearch.Text = _selectLanguage.Language.Search;
+            //labelBookCodeFilter.Text = _selectLanguage.Language.BookCode;
+            //labelBookNameFilter.Text = _selectLanguage.Language.BookName;
+            //buttonAddForm.Text = _selectLanguage.Language.BtnAdd;
         }
 
         private void GetAll()
@@ -69,12 +70,14 @@ namespace M_CGPA
         
         private void buttonAdd_Click(object sender, System.EventArgs e)
         {
-            _bookM.Code = textBoxBookCode.Text.Trim();
-            _bookM.Name = textBoxBookName.Text;
             try
             {
-                if (_bookM.Code != "" && _bookM.Name != "")
+                if (textBoxBookCode.Text != "" && textBoxBookName.Text != "" && textBoxBookMark.Text != "")
                 {
+                    _bookM.Code = textBoxBookCode.Text.Trim();
+                    _bookM.Name = textBoxBookName.Text;
+                    _bookM.Mark = Convert.ToInt32(textBoxBookMark.Text.Trim());
+
                     var isSaved = _bookBll.Insert(_bookM);
                     if (isSaved)
                     {
@@ -104,10 +107,11 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxBookCode.Text != "" && textBoxBookName.Text!="")
+                if (textBoxBookCode.Text != "" && textBoxBookName.Text!="" && textBoxBookMark.Text!="")
                 {
                     _bookM.Code = textBoxBookCode.Text.Trim();
                     _bookM.Name = textBoxBookName.Text;
+                    _bookM.Mark = Convert.ToInt32(textBoxBookMark.Text.Trim());
                     
                     var isUpdate = _bookBll.Update(_bookM);
                     if (isUpdate)
@@ -121,7 +125,6 @@ namespace M_CGPA
                         buttonUpdate.Visible = false;
                         buttonDelete.Visible = false;
                         buttonCancel.Visible = false;
-                        buttonSearchForm.Visible = true;
                         buttonAdd.Visible = true;
                     }
                     else
@@ -153,11 +156,11 @@ namespace M_CGPA
 
                     textBoxBookCode.Clear();
                     textBoxBookName.Clear();
-
+                    textBoxBookMark.Clear();
+                    
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
                     buttonCancel.Visible = false;
-                    buttonSearchForm.Visible = true;
                     buttonAdd.Visible = true;
                 }
             }
@@ -172,21 +175,22 @@ namespace M_CGPA
             buttonUpdate.Visible = false;
             buttonDelete.Visible = false;
             buttonCancel.Visible = false;
-            buttonSearchForm.Visible = true;
             buttonAdd.Visible = true;
         }
 
         private void dataGridViewBookList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _bookM.Id = (int) dataGridViewBookList.Rows[e.RowIndex].Cells["id"].Value;
-            _bookM.Code = dataGridViewBookList.Rows[e.RowIndex].Cells["code"].Value.ToString();
-            _bookM.Name = dataGridViewBookList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+            var DG = dataGridViewBookList.Rows[e.RowIndex];
+            _bookM.Id = (int) DG.Cells["id"].Value;
+            _bookM.Code = DG.Cells["code"].Value.ToString();
+            _bookM.Name = DG.Cells["name"].Value.ToString();
+            _bookM.Mark = (int) DG.Cells["mark"].Value;
 
             textBoxBookCode.Text = _bookM.Code;
             textBoxBookName.Text = _bookM.Name;
+            textBoxBookMark.Text = _bookM.Mark.ToString();
 
             buttonAdd.Visible = false;
-            buttonSearchForm.Visible = false;
             buttonUpdate.Visible = true;
             buttonDelete.Visible = true;
             buttonCancel.Visible = true;
@@ -201,14 +205,14 @@ namespace M_CGPA
 
         private void buttonSearchForm_Click(object sender, EventArgs e)
         {
-            panelFilter.Location = panelForm.Location;
+            //panelFilter.Location = panelForm.Location;
             panelForm.Visible = false;
-            panelFilter.Visible = true;
+            //panelFilter.Visible = true;
         }
 
         private void buttonAddForm_Click(object sender, EventArgs e)
         {
-            panelFilter.Visible = false;
+            //panelFilter.Visible = false;
             panelForm.Visible = true;
             GetAll();
         }
@@ -227,11 +231,15 @@ namespace M_CGPA
         {
             dataGridViewBookList.DataSource = null;
 
-            _bookM.Code = textBoxBookCodeFilter.Text;
-            _bookM.Name = textBoxBookNameFilter.Text;
+            string filtervalue = textBoxSearch.Text;
 
-            dataGridViewBookList.DataSource = _bookBll.GetByFilter(_bookM);
+            dataGridViewBookList.DataSource = _bookBll.GetByFilter(filtervalue);
 
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            Filter();
         }
 
     }
