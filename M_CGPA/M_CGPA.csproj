@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BookAccountBll.cs" />
+    <Compile Include="BLL\GradePoingBll.cs" />
     <Compile Include="BLL\StudentBll.cs" />
     <Compile Include="Class.cs">
       <SubType>Form</SubType>
@@ -88,6 +89,7 @@
     <Compile Include="DAL\BookAccountDal.cs" />
     <Compile Include="DAL\BookDal.cs" />
     <Compile Include="DAL\ClassDal.cs" />
+    <Compile Include="DAL\GradePointDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
     <Compile Include="DAL\StudentDal.cs" />
     <Compile Include="Information.cs">
@@ -97,6 +99,7 @@
       <DependentUpon>Information.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BookAccountM.cs" />
+    <Compile Include="Model\GradePointM.cs" />
     <Compile Include="Model\StudentM.cs" />
     <Compile Include="Student.cs">
       <SubType>Form</SubType>
@@ -173,6 +176,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\M_CGPA.Model.BookM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.ClassM.datasource" />
+    <None Include="Properties\DataSources\M_CGPA.Model.GradePointM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.LanguageM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.StudentM.datasource" />
     <None Include="Properties\DataSources\M_CGPA.Model.SyllabusM.datasource" />

@@ -55,6 +55,7 @@ namespace M_CGPA.Language
 
         #region Message
 
+        public string GradePointAlreadyExist { get; set; }
         public string MessageTitle { get; set; }
         public string SaveSuccessMessage { get; set; }
         public string UpdateSuccessMessage { get; set; }

@@ -121,13 +121,6 @@ namespace M_CGPA
             this.labelHelAreadyHasTheBook = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewBAAssignedBook = new System.Windows.Forms.DataGridView();
-            this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.labelBASelectedBook = new System.Windows.Forms.Label();
-            this.labelBATottalBook = new System.Windows.Forms.Label();
-            this.panelBAButton = new System.Windows.Forms.Panel();
-            this.buttonBAAddBook = new System.Windows.Forms.Button();
-            this.buttonBAUpdateBook = new System.Windows.Forms.Button();
-            this.panelBookList = new System.Windows.Forms.Panel();
             this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearBA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,6 +128,14 @@ namespace M_CGPA
             this.bookIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classBA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelBASelectedBook = new System.Windows.Forms.Label();
+            this.labelBATottalBook = new System.Windows.Forms.Label();
+            this.panelBAButton = new System.Windows.Forms.Panel();
+            this.buttonBAAddBook = new System.Windows.Forms.Button();
+            this.buttonBAUpdateBook = new System.Windows.Forms.Button();
+            this.panelBookList = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelTitlebar.SuspendLayout();
             this.groupBoxFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
@@ -152,6 +153,7 @@ namespace M_CGPA
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).BeginInit();
             this.panelBAButton.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -193,7 +195,7 @@ namespace M_CGPA
             this.groupBoxFilter.ForeColor = System.Drawing.Color.Black;
             this.groupBoxFilter.Location = new System.Drawing.Point(597, 19);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(277, 433);
+            this.groupBoxFilter.Size = new System.Drawing.Size(251, 407);
             this.groupBoxFilter.TabIndex = 2;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
@@ -201,7 +203,7 @@ namespace M_CGPA
             // labelTotalStudent
             // 
             this.labelTotalStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTotalStudent.Location = new System.Drawing.Point(14, 396);
+            this.labelTotalStudent.Location = new System.Drawing.Point(-12, 370);
             this.labelTotalStudent.Name = "labelTotalStudent";
             this.labelTotalStudent.Size = new System.Drawing.Size(257, 25);
             this.labelTotalStudent.TabIndex = 21;
@@ -211,7 +213,8 @@ namespace M_CGPA
             // textBoxSearch
             // 
             this.textBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxSearch.Location = new System.Drawing.Point(14, 53);
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxSearch.Location = new System.Drawing.Point(1, 53);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(249, 26);
             this.textBoxSearch.TabIndex = 20;
@@ -221,7 +224,7 @@ namespace M_CGPA
             // labelSearch
             // 
             this.labelSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelSearch.Location = new System.Drawing.Point(13, 22);
+            this.labelSearch.Location = new System.Drawing.Point(0, 22);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(250, 25);
             this.labelSearch.TabIndex = 19;
@@ -265,7 +268,7 @@ namespace M_CGPA
             this.dataGridViewStudentList.ReadOnly = true;
             this.dataGridViewStudentList.RowHeadersVisible = false;
             this.dataGridViewStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudentList.Size = new System.Drawing.Size(271, 275);
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(245, 249);
             this.dataGridViewStudentList.TabIndex = 18;
             this.dataGridViewStudentList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellDoubleClick);
             this.dataGridViewStudentList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudentList_RowPostPaint);
@@ -458,6 +461,7 @@ namespace M_CGPA
             // 
             // textBoxPermanentAddress
             // 
+            this.textBoxPermanentAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPermanentAddress.Location = new System.Drawing.Point(178, 487);
             this.textBoxPermanentAddress.Multiline = true;
             this.textBoxPermanentAddress.Name = "textBoxPermanentAddress";
@@ -467,6 +471,7 @@ namespace M_CGPA
             // 
             // textBoxPresentAddress
             // 
+            this.textBoxPresentAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPresentAddress.Location = new System.Drawing.Point(178, 426);
             this.textBoxPresentAddress.Multiline = true;
             this.textBoxPresentAddress.Name = "textBoxPresentAddress";
@@ -476,6 +481,7 @@ namespace M_CGPA
             // 
             // textBoxBRN
             // 
+            this.textBoxBRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBRN.Location = new System.Drawing.Point(178, 389);
             this.textBoxBRN.Name = "textBoxBRN";
             this.textBoxBRN.Size = new System.Drawing.Size(336, 26);
@@ -492,6 +498,7 @@ namespace M_CGPA
             // 
             // textBoxNid
             // 
+            this.textBoxNid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxNid.Location = new System.Drawing.Point(178, 352);
             this.textBoxNid.Name = "textBoxNid";
             this.textBoxNid.Size = new System.Drawing.Size(336, 26);
@@ -517,6 +524,7 @@ namespace M_CGPA
             // 
             // textBoxMName
             // 
+            this.textBoxMName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxMName.Location = new System.Drawing.Point(178, 278);
             this.textBoxMName.Name = "textBoxMName";
             this.textBoxMName.Size = new System.Drawing.Size(336, 26);
@@ -533,6 +541,7 @@ namespace M_CGPA
             // 
             // textBoxFName
             // 
+            this.textBoxFName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFName.Location = new System.Drawing.Point(178, 205);
             this.textBoxFName.Name = "textBoxFName";
             this.textBoxFName.Size = new System.Drawing.Size(336, 26);
@@ -549,6 +558,7 @@ namespace M_CGPA
             // 
             // textBoxSName
             // 
+            this.textBoxSName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSName.Location = new System.Drawing.Point(178, 131);
             this.textBoxSName.Name = "textBoxSName";
             this.textBoxSName.Size = new System.Drawing.Size(336, 26);
@@ -583,7 +593,7 @@ namespace M_CGPA
             this.groupBoxAddStudent.ForeColor = System.Drawing.Color.Black;
             this.groupBoxAddStudent.Location = new System.Drawing.Point(18, 19);
             this.groupBoxAddStudent.Name = "groupBoxAddStudent";
-            this.groupBoxAddStudent.Size = new System.Drawing.Size(552, 436);
+            this.groupBoxAddStudent.Size = new System.Drawing.Size(552, 410);
             this.groupBoxAddStudent.TabIndex = 2;
             this.groupBoxAddStudent.TabStop = false;
             this.groupBoxAddStudent.Text = "Student Information";
@@ -596,7 +606,7 @@ namespace M_CGPA
             this.panelButtons.Controls.Add(this.buttonClear);
             this.panelButtons.Controls.Add(this.buttonAdd);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtons.Location = new System.Drawing.Point(3, 396);
+            this.panelButtons.Location = new System.Drawing.Point(3, 370);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(546, 37);
             this.panelButtons.TabIndex = 7;
@@ -714,7 +724,7 @@ namespace M_CGPA
             this.panelAddForm.Controls.Add(this.textBoxNid);
             this.panelAddForm.Location = new System.Drawing.Point(3, 25);
             this.panelAddForm.Name = "panelAddForm";
-            this.panelAddForm.Size = new System.Drawing.Size(543, 346);
+            this.panelAddForm.Size = new System.Drawing.Size(543, 320);
             this.panelAddForm.TabIndex = 6;
             // 
             // labelMPhone
@@ -728,6 +738,7 @@ namespace M_CGPA
             // 
             // textBoxMPhone
             // 
+            this.textBoxMPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxMPhone.Location = new System.Drawing.Point(178, 315);
             this.textBoxMPhone.Name = "textBoxMPhone";
             this.textBoxMPhone.Size = new System.Drawing.Size(336, 26);
@@ -744,6 +755,7 @@ namespace M_CGPA
             // 
             // textBoxFPhone
             // 
+            this.textBoxFPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFPhone.Location = new System.Drawing.Point(178, 241);
             this.textBoxFPhone.Name = "textBoxFPhone";
             this.textBoxFPhone.Size = new System.Drawing.Size(336, 26);
@@ -760,6 +772,7 @@ namespace M_CGPA
             // 
             // textBoxSPhone
             // 
+            this.textBoxSPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSPhone.Location = new System.Drawing.Point(178, 168);
             this.textBoxSPhone.Name = "textBoxSPhone";
             this.textBoxSPhone.Size = new System.Drawing.Size(336, 26);
@@ -767,6 +780,7 @@ namespace M_CGPA
             // 
             // textBoxRoll
             // 
+            this.textBoxRoll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRoll.Location = new System.Drawing.Point(178, 17);
             this.textBoxRoll.Name = "textBoxRoll";
             this.textBoxRoll.Size = new System.Drawing.Size(102, 26);
@@ -808,6 +822,7 @@ namespace M_CGPA
             // 
             // textBoxReg
             // 
+            this.textBoxReg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxReg.Location = new System.Drawing.Point(178, 54);
             this.textBoxReg.Name = "textBoxReg";
             this.textBoxReg.Size = new System.Drawing.Size(102, 26);
@@ -842,6 +857,7 @@ namespace M_CGPA
             // 
             // textBoxSession
             // 
+            this.textBoxSession.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSession.Location = new System.Drawing.Point(406, 57);
             this.textBoxSession.Name = "textBoxSession";
             this.textBoxSession.Size = new System.Drawing.Size(108, 26);
@@ -853,11 +869,12 @@ namespace M_CGPA
             this.tabControlStudent.Controls.Add(this.tabPageAddResult);
             this.tabControlStudent.Controls.Add(this.tabPageBook);
             this.tabControlStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlStudent.ItemSize = new System.Drawing.Size(71, 25);
-            this.tabControlStudent.Location = new System.Drawing.Point(0, 31);
+            this.tabControlStudent.Location = new System.Drawing.Point(23, 23);
             this.tabControlStudent.Name = "tabControlStudent";
             this.tabControlStudent.SelectedIndex = 0;
-            this.tabControlStudent.Size = new System.Drawing.Size(900, 509);
+            this.tabControlStudent.Size = new System.Drawing.Size(874, 483);
             this.tabControlStudent.TabIndex = 3;
             // 
             // tabPageAddStudent
@@ -868,7 +885,7 @@ namespace M_CGPA
             this.tabPageAddStudent.Location = new System.Drawing.Point(4, 29);
             this.tabPageAddStudent.Name = "tabPageAddStudent";
             this.tabPageAddStudent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddStudent.Size = new System.Drawing.Size(892, 476);
+            this.tabPageAddStudent.Size = new System.Drawing.Size(866, 450);
             this.tabPageAddStudent.TabIndex = 0;
             this.tabPageAddStudent.Text = "Add Student";
             // 
@@ -885,7 +902,7 @@ namespace M_CGPA
             this.tabPageAddResult.Location = new System.Drawing.Point(4, 29);
             this.tabPageAddResult.Name = "tabPageAddResult";
             this.tabPageAddResult.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddResult.Size = new System.Drawing.Size(892, 476);
+            this.tabPageAddResult.Size = new System.Drawing.Size(866, 450);
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
             // 
@@ -962,7 +979,7 @@ namespace M_CGPA
             this.tabPageBook.Location = new System.Drawing.Point(4, 29);
             this.tabPageBook.Name = "tabPageBook";
             this.tabPageBook.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBook.Size = new System.Drawing.Size(892, 476);
+            this.tabPageBook.Size = new System.Drawing.Size(866, 450);
             this.tabPageBook.TabIndex = 2;
             this.tabPageBook.Text = "Book Account";
             // 
@@ -996,6 +1013,7 @@ namespace M_CGPA
             // textBoxBAYear
             // 
             this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBAYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBAYear.Location = new System.Drawing.Point(575, 137);
             this.textBoxBAYear.Name = "textBoxBAYear";
             this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
@@ -1050,6 +1068,7 @@ namespace M_CGPA
             // textBoxBASearch
             // 
             this.textBoxBASearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBASearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBASearch.Location = new System.Drawing.Point(277, 60);
             this.textBoxBASearch.Name = "textBoxBASearch";
             this.textBoxBASearch.Size = new System.Drawing.Size(298, 26);
@@ -1115,6 +1134,63 @@ namespace M_CGPA
             this.dataGridViewBAAssignedBook.TabIndex = 19;
             this.dataGridViewBAAssignedBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBAAssignedBook_CellDoubleClick);
             this.dataGridViewBAAssignedBook.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewBAAssignedBook_RowPostPaint);
+            // 
+            // sl
+            // 
+            this.sl.HeaderText = "#";
+            this.sl.Name = "sl";
+            this.sl.ReadOnly = true;
+            this.sl.Width = 30;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // yearBA
+            // 
+            this.yearBA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.yearBA.DataPropertyName = "Year";
+            this.yearBA.HeaderText = "Year";
+            this.yearBA.Name = "yearBA";
+            this.yearBA.ReadOnly = true;
+            this.yearBA.Width = 68;
+            // 
+            // classIdDataGridViewTextBoxColumn
+            // 
+            this.classIdDataGridViewTextBoxColumn.DataPropertyName = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.HeaderText = "ClassId";
+            this.classIdDataGridViewTextBoxColumn.Name = "classIdDataGridViewTextBoxColumn";
+            this.classIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.classIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bookIdDataGridViewTextBoxColumn
+            // 
+            this.bookIdDataGridViewTextBoxColumn.DataPropertyName = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.HeaderText = "BookId";
+            this.bookIdDataGridViewTextBoxColumn.Name = "bookIdDataGridViewTextBoxColumn";
+            this.bookIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // classBA
+            // 
+            this.classBA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classBA.DataPropertyName = "Class";
+            this.classBA.HeaderText = "Class";
+            this.classBA.Name = "classBA";
+            this.classBA.ReadOnly = true;
+            this.classBA.Width = 73;
+            // 
+            // bookDataGridViewTextBoxColumn
+            // 
+            this.bookDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bookDataGridViewTextBoxColumn.DataPropertyName = "Book";
+            this.bookDataGridViewTextBoxColumn.HeaderText = "Book";
+            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
+            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // syllabusMBindingSource
             // 
@@ -1187,62 +1263,20 @@ namespace M_CGPA
             this.panelBookList.Size = new System.Drawing.Size(315, 202);
             this.panelBookList.TabIndex = 34;
             // 
-            // sl
+            // tableLayoutPanel1
             // 
-            this.sl.HeaderText = "#";
-            this.sl.Name = "sl";
-            this.sl.ReadOnly = true;
-            this.sl.Width = 30;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // yearBA
-            // 
-            this.yearBA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.yearBA.DataPropertyName = "Year";
-            this.yearBA.HeaderText = "Year";
-            this.yearBA.Name = "yearBA";
-            this.yearBA.ReadOnly = true;
-            this.yearBA.Width = 68;
-            // 
-            // classIdDataGridViewTextBoxColumn
-            // 
-            this.classIdDataGridViewTextBoxColumn.DataPropertyName = "ClassId";
-            this.classIdDataGridViewTextBoxColumn.HeaderText = "ClassId";
-            this.classIdDataGridViewTextBoxColumn.Name = "classIdDataGridViewTextBoxColumn";
-            this.classIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.classIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // bookIdDataGridViewTextBoxColumn
-            // 
-            this.bookIdDataGridViewTextBoxColumn.DataPropertyName = "BookId";
-            this.bookIdDataGridViewTextBoxColumn.HeaderText = "BookId";
-            this.bookIdDataGridViewTextBoxColumn.Name = "bookIdDataGridViewTextBoxColumn";
-            this.bookIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bookIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // classBA
-            // 
-            this.classBA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.classBA.DataPropertyName = "Class";
-            this.classBA.HeaderText = "Class";
-            this.classBA.Name = "classBA";
-            this.classBA.ReadOnly = true;
-            this.classBA.Width = 73;
-            // 
-            // bookDataGridViewTextBoxColumn
-            // 
-            this.bookDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.bookDataGridViewTextBoxColumn.DataPropertyName = "Book";
-            this.bookDataGridViewTextBoxColumn.HeaderText = "Book";
-            this.bookDataGridViewTextBoxColumn.Name = "bookDataGridViewTextBoxColumn";
-            this.bookDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.tabControlStudent, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 31);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(900, 509);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // Student
             // 
@@ -1250,7 +1284,7 @@ namespace M_CGPA
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 540);
-            this.Controls.Add(this.tabControlStudent);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelTitlebar);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1278,6 +1312,7 @@ namespace M_CGPA
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBAAssignedBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.syllabusMBindingSource)).EndInit();
             this.panelBAButton.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1388,5 +1423,6 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn bookIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classBA;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

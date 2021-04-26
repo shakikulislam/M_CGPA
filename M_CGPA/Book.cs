@@ -29,8 +29,6 @@ namespace M_CGPA
 
             if (_selectLanguage.Language.Language == "Bengali")
             {
-                //new SetPanelLabelFont(panelAddClass, panelTitlebar);
-                //new SetPanelButtonFont(panelAddClass);
                 new SetPanelLabelFont(panelTitlebar,panelForm,panelSearch);
                 new SetPanelButtonFont(panelForm);
 
@@ -58,9 +56,6 @@ namespace M_CGPA
             buttonCancel.Text = _selectLanguage.Language.BtnCancel;
             labelBookMark.Text = _selectLanguage.Language.Mark;
             labelSearch.Text = _selectLanguage.Language.Search;
-            //labelBookCodeFilter.Text = _selectLanguage.Language.BookCode;
-            //labelBookNameFilter.Text = _selectLanguage.Language.BookName;
-            //buttonAddForm.Text = _selectLanguage.Language.BtnAdd;
         }
 
         private void GetAll()
@@ -202,45 +197,15 @@ namespace M_CGPA
         {
             dataGridViewBookList.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
-
-        private void buttonSearchForm_Click(object sender, EventArgs e)
-        {
-            //panelFilter.Location = panelForm.Location;
-            panelForm.Visible = false;
-            //panelFilter.Visible = true;
-        }
-
-        private void buttonAddForm_Click(object sender, EventArgs e)
-        {
-            //panelFilter.Visible = false;
-            panelForm.Visible = true;
-            GetAll();
-        }
-
-        private void textBoxBookCodeFilter_TextChanged(object sender, EventArgs e)
-        {
-            Filter();
-        }
-
-        private void textBoxBookNameFilter_TextChanged(object sender, EventArgs e)
-        {
-            Filter();
-        }
-
-        private void Filter()
+        
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             dataGridViewBookList.DataSource = null;
 
             string filtervalue = textBoxSearch.Text;
 
             dataGridViewBookList.DataSource = _bookBll.GetByFilter(filtervalue);
-
-        }
-
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            Filter();
-        }
+         }
 
     }
 }

@@ -56,6 +56,7 @@
 
             #region Message
 
+            Pro.GradePointAlreadyExist = "এই গ্রেড পয়েন্ট ইতিমধ্যে বিদ্যমান";
             Pro.MessageTitle = "বার্তা";
             Pro.SaveSuccessMessage = "সফলভাবে সংরক্ষণ করা হয়েছে...";
             Pro.ErrorMessage = "ব্যর্থ হয়েছে, দয়া করে আবার চেষ্টা করুন...";

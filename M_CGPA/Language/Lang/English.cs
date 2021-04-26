@@ -58,6 +58,7 @@ namespace M_CGPA.Language.Lang
 
             #region Message
 
+            Pro.GradePointAlreadyExist = "This Grade Point Already Exist";
             Pro.MessageTitle = "Message";
             Pro.SaveSuccessMessage = "Successfully saved...";
             Pro.UpdateSuccessMessage = "Updated successfully...";
