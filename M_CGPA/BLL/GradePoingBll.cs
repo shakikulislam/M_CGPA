@@ -30,7 +30,7 @@ namespace M_CGPA.BLL
         {
             //_language.UserLanguage();
 
-            //var isExist = _studentDal.Get(student);
+            //var isExist = _gradePointDal.Get(gradePoint);
             //if (isExist)
             //{
             //    throw new Exception(_language.Language.StudentAlreadyExist);

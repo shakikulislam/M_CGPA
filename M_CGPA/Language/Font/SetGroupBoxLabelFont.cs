@@ -7,7 +7,7 @@ namespace M_CGPA.Language.Font
     {
         //
         //
-        // Congrol 5 GroupBox for Label
+        // Control 5 GroupBox for Label
         //
         //
 

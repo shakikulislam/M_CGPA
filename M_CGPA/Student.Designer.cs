@@ -997,13 +997,13 @@ namespace M_CGPA
             this.panelBA.Controls.Add(this.labelBARoll);
             this.panelBA.Location = new System.Drawing.Point(8, 6);
             this.panelBA.Name = "panelBA";
-            this.panelBA.Size = new System.Drawing.Size(876, 179);
+            this.panelBA.Size = new System.Drawing.Size(876, 160);
             this.panelBA.TabIndex = 43;
             // 
             // labelBAYear
             // 
             this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAYear.Location = new System.Drawing.Point(452, 138);
+            this.labelBAYear.Location = new System.Drawing.Point(452, 128);
             this.labelBAYear.Name = "labelBAYear";
             this.labelBAYear.Size = new System.Drawing.Size(117, 25);
             this.labelBAYear.TabIndex = 37;
@@ -1014,7 +1014,7 @@ namespace M_CGPA
             // 
             this.textBoxBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxBAYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBAYear.Location = new System.Drawing.Point(575, 137);
+            this.textBoxBAYear.Location = new System.Drawing.Point(575, 127);
             this.textBoxBAYear.Name = "textBoxBAYear";
             this.textBoxBAYear.Size = new System.Drawing.Size(139, 26);
             this.textBoxBAYear.TabIndex = 36;
@@ -1028,7 +1028,7 @@ namespace M_CGPA
             this.comboBoxBAClass.DisplayMember = "Name";
             this.comboBoxBAClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBAClass.FormattingEnabled = true;
-            this.comboBoxBAClass.Location = new System.Drawing.Point(251, 136);
+            this.comboBoxBAClass.Location = new System.Drawing.Point(251, 126);
             this.comboBoxBAClass.Name = "comboBoxBAClass";
             this.comboBoxBAClass.Size = new System.Drawing.Size(175, 28);
             this.comboBoxBAClass.TabIndex = 33;
@@ -1038,7 +1038,7 @@ namespace M_CGPA
             // labelBAClass
             // 
             this.labelBAClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAClass.Location = new System.Drawing.Point(139, 138);
+            this.labelBAClass.Location = new System.Drawing.Point(139, 128);
             this.labelBAClass.Name = "labelBAClass";
             this.labelBAClass.Size = new System.Drawing.Size(106, 25);
             this.labelBAClass.TabIndex = 31;
@@ -1049,7 +1049,7 @@ namespace M_CGPA
             // 
             this.labelBAStudentName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelBAStudentName.AutoSize = true;
-            this.labelBAStudentName.Location = new System.Drawing.Point(251, 101);
+            this.labelBAStudentName.Location = new System.Drawing.Point(251, 91);
             this.labelBAStudentName.Name = "labelBAStudentName";
             this.labelBAStudentName.Size = new System.Drawing.Size(0, 20);
             this.labelBAStudentName.TabIndex = 30;
@@ -1058,7 +1058,7 @@ namespace M_CGPA
             // labelBAName
             // 
             this.labelBAName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAName.Location = new System.Drawing.Point(37, 99);
+            this.labelBAName.Location = new System.Drawing.Point(37, 89);
             this.labelBAName.Name = "labelBAName";
             this.labelBAName.Size = new System.Drawing.Size(208, 25);
             this.labelBAName.TabIndex = 29;
@@ -1069,7 +1069,7 @@ namespace M_CGPA
             // 
             this.textBoxBASearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxBASearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBASearch.Location = new System.Drawing.Point(277, 60);
+            this.textBoxBASearch.Location = new System.Drawing.Point(277, 50);
             this.textBoxBASearch.Name = "textBoxBASearch";
             this.textBoxBASearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxBASearch.TabIndex = 28;
@@ -1079,7 +1079,7 @@ namespace M_CGPA
             // labelBARoll
             // 
             this.labelBARoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBARoll.Location = new System.Drawing.Point(277, 29);
+            this.labelBARoll.Location = new System.Drawing.Point(277, 19);
             this.labelBARoll.Name = "labelBARoll";
             this.labelBARoll.Size = new System.Drawing.Size(298, 25);
             this.labelBARoll.TabIndex = 27;
@@ -1089,7 +1089,7 @@ namespace M_CGPA
             // labelHelAreadyHasTheBook
             // 
             this.labelHelAreadyHasTheBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelHelAreadyHasTheBook.Location = new System.Drawing.Point(493, 198);
+            this.labelHelAreadyHasTheBook.Location = new System.Drawing.Point(493, 182);
             this.labelHelAreadyHasTheBook.Name = "labelHelAreadyHasTheBook";
             this.labelHelAreadyHasTheBook.Size = new System.Drawing.Size(313, 25);
             this.labelHelAreadyHasTheBook.TabIndex = 42;
@@ -1102,9 +1102,9 @@ namespace M_CGPA
             this.panel1.AutoScroll = true;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.dataGridViewBAAssignedBook);
-            this.panel1.Location = new System.Drawing.Point(406, 226);
+            this.panel1.Location = new System.Drawing.Point(406, 210);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 202);
+            this.panel1.Size = new System.Drawing.Size(401, 163);
             this.panel1.TabIndex = 41;
             // 
             // dataGridViewBAAssignedBook
@@ -1130,7 +1130,7 @@ namespace M_CGPA
             this.dataGridViewBAAssignedBook.ReadOnly = true;
             this.dataGridViewBAAssignedBook.RowHeadersVisible = false;
             this.dataGridViewBAAssignedBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBAAssignedBook.Size = new System.Drawing.Size(399, 200);
+            this.dataGridViewBAAssignedBook.Size = new System.Drawing.Size(399, 161);
             this.dataGridViewBAAssignedBook.TabIndex = 19;
             this.dataGridViewBAAssignedBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBAAssignedBook_CellDoubleClick);
             this.dataGridViewBAAssignedBook.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewBAAssignedBook_RowPostPaint);
@@ -1199,7 +1199,7 @@ namespace M_CGPA
             // labelBASelectedBook
             // 
             this.labelBASelectedBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBASelectedBook.Location = new System.Drawing.Point(263, 198);
+            this.labelBASelectedBook.Location = new System.Drawing.Point(263, 182);
             this.labelBASelectedBook.Name = "labelBASelectedBook";
             this.labelBASelectedBook.Size = new System.Drawing.Size(137, 25);
             this.labelBASelectedBook.TabIndex = 40;
@@ -1208,7 +1208,7 @@ namespace M_CGPA
             // labelBATottalBook
             // 
             this.labelBATottalBook.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBATottalBook.Location = new System.Drawing.Point(85, 198);
+            this.labelBATottalBook.Location = new System.Drawing.Point(85, 182);
             this.labelBATottalBook.Name = "labelBATottalBook";
             this.labelBATottalBook.Size = new System.Drawing.Size(168, 25);
             this.labelBATottalBook.TabIndex = 39;
@@ -1219,7 +1219,7 @@ namespace M_CGPA
             this.panelBAButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panelBAButton.Controls.Add(this.buttonBAAddBook);
             this.panelBAButton.Controls.Add(this.buttonBAUpdateBook);
-            this.panelBAButton.Location = new System.Drawing.Point(228, 434);
+            this.panelBAButton.Location = new System.Drawing.Point(215, 381);
             this.panelBAButton.Name = "panelBAButton";
             this.panelBAButton.Size = new System.Drawing.Size(437, 37);
             this.panelBAButton.TabIndex = 38;
@@ -1258,9 +1258,9 @@ namespace M_CGPA
             this.panelBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelBookList.AutoScroll = true;
             this.panelBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBookList.Location = new System.Drawing.Point(85, 226);
+            this.panelBookList.Location = new System.Drawing.Point(85, 210);
             this.panelBookList.Name = "panelBookList";
-            this.panelBookList.Size = new System.Drawing.Size(315, 202);
+            this.panelBookList.Size = new System.Drawing.Size(315, 163);
             this.panelBookList.TabIndex = 34;
             // 
             // tableLayoutPanel1
