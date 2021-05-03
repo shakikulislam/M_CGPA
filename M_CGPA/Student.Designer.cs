@@ -102,6 +102,7 @@ namespace M_CGPA
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
             this.tabPageAddResult = new System.Windows.Forms.TabPage();
+            this.panelARBookList = new System.Windows.Forms.Panel();
             this.comboBoxARClass = new System.Windows.Forms.ComboBox();
             this.labelARClass = new System.Windows.Forms.Label();
             this.labelARStudentName = new System.Windows.Forms.Label();
@@ -892,6 +893,7 @@ namespace M_CGPA
             // tabPageAddResult
             // 
             this.tabPageAddResult.BackColor = System.Drawing.Color.White;
+            this.tabPageAddResult.Controls.Add(this.panelARBookList);
             this.tabPageAddResult.Controls.Add(this.comboBoxARClass);
             this.tabPageAddResult.Controls.Add(this.labelARClass);
             this.tabPageAddResult.Controls.Add(this.labelARStudentName);
@@ -906,21 +908,32 @@ namespace M_CGPA
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
             // 
+            // panelARBookList
+            // 
+            this.panelARBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelARBookList.AutoScroll = true;
+            this.panelARBookList.BackColor = System.Drawing.Color.Transparent;
+            this.panelARBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelARBookList.Location = new System.Drawing.Point(125, 203);
+            this.panelARBookList.Name = "panelARBookList";
+            this.panelARBookList.Size = new System.Drawing.Size(401, 197);
+            this.panelARBookList.TabIndex = 40;
+            // 
             // comboBoxARClass
             // 
             this.comboBoxARClass.DataSource = this.classMBindingSource;
             this.comboBoxARClass.DisplayMember = "Name";
             this.comboBoxARClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxARClass.FormattingEnabled = true;
-            this.comboBoxARClass.Location = new System.Drawing.Point(244, 163);
+            this.comboBoxARClass.Location = new System.Drawing.Point(244, 141);
             this.comboBoxARClass.Name = "comboBoxARClass";
-            this.comboBoxARClass.Size = new System.Drawing.Size(305, 28);
+            this.comboBoxARClass.Size = new System.Drawing.Size(215, 28);
             this.comboBoxARClass.TabIndex = 39;
             this.comboBoxARClass.ValueMember = "Id";
             // 
             // labelARClass
             // 
-            this.labelARClass.Location = new System.Drawing.Point(91, 164);
+            this.labelARClass.Location = new System.Drawing.Point(91, 142);
             this.labelARClass.Name = "labelARClass";
             this.labelARClass.Size = new System.Drawing.Size(147, 25);
             this.labelARClass.TabIndex = 38;
@@ -930,7 +943,7 @@ namespace M_CGPA
             // labelARStudentName
             // 
             this.labelARStudentName.AutoSize = true;
-            this.labelARStudentName.Location = new System.Drawing.Point(244, 134);
+            this.labelARStudentName.Location = new System.Drawing.Point(244, 112);
             this.labelARStudentName.Name = "labelARStudentName";
             this.labelARStudentName.Size = new System.Drawing.Size(0, 20);
             this.labelARStudentName.TabIndex = 37;
@@ -938,7 +951,7 @@ namespace M_CGPA
             // 
             // labelARName
             // 
-            this.labelARName.Location = new System.Drawing.Point(91, 132);
+            this.labelARName.Location = new System.Drawing.Point(91, 110);
             this.labelARName.Name = "labelARName";
             this.labelARName.Size = new System.Drawing.Size(147, 25);
             this.labelARName.TabIndex = 36;
@@ -953,6 +966,7 @@ namespace M_CGPA
             this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxARSearch.TabIndex = 35;
             this.textBoxARSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxARSearch.TextChanged += new System.EventHandler(this.textBoxARSearch_TextChanged);
             this.textBoxARSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxARSearch_KeyDown);
             // 
             // labelARRoll
@@ -1257,6 +1271,7 @@ namespace M_CGPA
             // 
             this.panelBookList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelBookList.AutoScroll = true;
+            this.panelBookList.BackColor = System.Drawing.Color.Transparent;
             this.panelBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBookList.Location = new System.Drawing.Point(85, 210);
             this.panelBookList.Name = "panelBookList";
@@ -1424,5 +1439,6 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn classBA;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panelARBookList;
     }
 }

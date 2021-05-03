@@ -36,6 +36,8 @@
             this.labelBookName = new System.Windows.Forms.Label();
             this.textBoxBookName = new System.Windows.Forms.TextBox();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.labelBookMark = new System.Windows.Forms.Label();
+            this.textBoxBookMark = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelBookCode = new System.Windows.Forms.Label();
             this.textBoxBookCode = new System.Windows.Forms.TextBox();
@@ -43,22 +45,20 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewBookList = new System.Windows.Forms.DataGridView();
-            this.labelBookMark = new System.Windows.Forms.Label();
-            this.textBoxBookMark = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.labelSearch = new System.Windows.Forms.Label();
-            this.panelSearch = new System.Windows.Forms.Panel();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.panelSearch = new System.Windows.Forms.Panel();
             this.panelTitlebar.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookList)).BeginInit();
-            this.panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
+            this.panelSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitlebar
@@ -127,13 +127,35 @@
             this.panelForm.Size = new System.Drawing.Size(547, 141);
             this.panelForm.TabIndex = 11;
             // 
+            // labelBookMark
+            // 
+            this.labelBookMark.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBookMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBookMark.ForeColor = System.Drawing.Color.Black;
+            this.labelBookMark.Location = new System.Drawing.Point(78, 70);
+            this.labelBookMark.Name = "labelBookMark";
+            this.labelBookMark.Size = new System.Drawing.Size(136, 20);
+            this.labelBookMark.TabIndex = 28;
+            this.labelBookMark.Text = "Mark";
+            this.labelBookMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxBookMark
+            // 
+            this.textBoxBookMark.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxBookMark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxBookMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBookMark.Location = new System.Drawing.Point(218, 67);
+            this.textBoxBookMark.Name = "textBoxBookMark";
+            this.textBoxBookMark.Size = new System.Drawing.Size(250, 26);
+            this.textBoxBookMark.TabIndex = 29;
+            // 
             // buttonCancel
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.Purple;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(309, 98);
+            this.buttonCancel.Location = new System.Drawing.Point(346, 99);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(122, 31);
             this.buttonCancel.TabIndex = 18;
@@ -170,7 +192,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(55, 98);
+            this.buttonDelete.Location = new System.Drawing.Point(92, 99);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(122, 31);
             this.buttonDelete.TabIndex = 14;
@@ -185,7 +207,7 @@
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(181, 98);
+            this.buttonUpdate.Location = new System.Drawing.Point(218, 99);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(122, 31);
             this.buttonUpdate.TabIndex = 13;
@@ -200,7 +222,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(309, 98);
+            this.buttonAdd.Location = new System.Drawing.Point(346, 99);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(122, 31);
             this.buttonAdd.TabIndex = 11;
@@ -250,28 +272,6 @@
             this.dataGridViewBookList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBookList_CellDoubleClick);
             this.dataGridViewBookList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewBookList_RowPostPaint);
             // 
-            // labelBookMark
-            // 
-            this.labelBookMark.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBookMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBookMark.ForeColor = System.Drawing.Color.Black;
-            this.labelBookMark.Location = new System.Drawing.Point(78, 70);
-            this.labelBookMark.Name = "labelBookMark";
-            this.labelBookMark.Size = new System.Drawing.Size(136, 20);
-            this.labelBookMark.TabIndex = 28;
-            this.labelBookMark.Text = "Mark";
-            this.labelBookMark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxBookMark
-            // 
-            this.textBoxBookMark.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxBookMark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBookMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBookMark.Location = new System.Drawing.Point(218, 67);
-            this.textBoxBookMark.Name = "textBoxBookMark";
-            this.textBoxBookMark.Size = new System.Drawing.Size(250, 26);
-            this.textBoxBookMark.TabIndex = 29;
-            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -279,6 +279,31 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 5;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // code
+            // 
+            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.code.DataPropertyName = "Code";
+            this.code.HeaderText = "Code";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Width = 57;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // Mark
             // 
@@ -288,6 +313,10 @@
             this.Mark.Name = "Mark";
             this.Mark.ReadOnly = true;
             this.Mark.Width = 56;
+            // 
+            // bookMBindingSource
+            // 
+            this.bookMBindingSource.DataSource = typeof(M_CGPA.Model.BookM);
             // 
             // textBoxSearch
             // 
@@ -321,35 +350,6 @@
             this.panelSearch.Size = new System.Drawing.Size(547, 39);
             this.panelSearch.TabIndex = 29;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // code
-            // 
-            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.code.DataPropertyName = "Code";
-            this.code.HeaderText = "Code";
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            this.code.Width = 57;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // bookMBindingSource
-            // 
-            this.bookMBindingSource.DataSource = typeof(M_CGPA.Model.BookM);
-            // 
             // Book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,9 +366,9 @@
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).EndInit();
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

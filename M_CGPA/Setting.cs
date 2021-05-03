@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
@@ -38,7 +39,7 @@ namespace M_CGPA
                 //new SetGroupBoxLabelFont(groupBoxAddStudent, groupBoxFilter);
                 //new SetPanelLabelFont(panelTitlebar, panelAddForm, panelBA);
                 //new SetPanelButtonFont(panelAddForm);
-
+                
                 foreach (Control control in Controls)
                 {
                     if (control is Button)
@@ -152,8 +153,7 @@ namespace M_CGPA
 
             PanelTextBoxClean(panelGPForm);
         }
-
-
+        
         private void buttonGPUpdate_Click(object sender, EventArgs e)
         {
             try

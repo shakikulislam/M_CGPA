@@ -145,8 +145,7 @@ namespace M_CGPA
         private void timerClock_Tick(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToLongTimeString();
-            labelDate.Text = DateTime.Now.ToShortDateString();
-
+            labelDate.Text = DateTime.Now.ToString("dd-MMM-yyyy dddd");
         }
 
         private void buttonInformation_Click(object sender, EventArgs e)

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.buttonSetting = new System.Windows.Forms.Button();
@@ -54,6 +56,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panelMenu.Controls.Add(this.button2);
+            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.labelTime);
             this.panelMenu.Controls.Add(this.labelDate);
             this.panelMenu.Controls.Add(this.buttonSetting);
@@ -69,6 +73,46 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(150, 540);
             this.panelMenu.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 392);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 34);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Button5";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 358);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Button5";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // labelTime
             // 
@@ -130,7 +174,7 @@
             this.button5.Location = new System.Drawing.Point(0, 290);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 34);
-            this.button5.TabIndex = 7;
+            this.button5.TabIndex = 8;
             this.button5.Text = "Button5";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
@@ -150,7 +194,7 @@
             this.buttonInformation.Location = new System.Drawing.Point(0, 256);
             this.buttonInformation.Name = "buttonInformation";
             this.buttonInformation.Size = new System.Drawing.Size(150, 34);
-            this.buttonInformation.TabIndex = 7;
+            this.buttonInformation.TabIndex = 5;
             this.buttonInformation.Text = "Information";
             this.buttonInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonInformation.UseVisualStyleBackColor = false;
@@ -171,7 +215,7 @@
             this.buttonSyllabus.Location = new System.Drawing.Point(0, 222);
             this.buttonSyllabus.Name = "buttonSyllabus";
             this.buttonSyllabus.Size = new System.Drawing.Size(150, 34);
-            this.buttonSyllabus.TabIndex = 7;
+            this.buttonSyllabus.TabIndex = 4;
             this.buttonSyllabus.Text = "Syllabus";
             this.buttonSyllabus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSyllabus.UseVisualStyleBackColor = false;
@@ -192,7 +236,7 @@
             this.buttonBook.Location = new System.Drawing.Point(0, 188);
             this.buttonBook.Name = "buttonBook";
             this.buttonBook.Size = new System.Drawing.Size(150, 34);
-            this.buttonBook.TabIndex = 7;
+            this.buttonBook.TabIndex = 3;
             this.buttonBook.Text = "Book";
             this.buttonBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBook.UseVisualStyleBackColor = false;
@@ -213,7 +257,7 @@
             this.buttonClass.Location = new System.Drawing.Point(0, 154);
             this.buttonClass.Name = "buttonClass";
             this.buttonClass.Size = new System.Drawing.Size(150, 34);
-            this.buttonClass.TabIndex = 7;
+            this.buttonClass.TabIndex = 2;
             this.buttonClass.Text = "Class";
             this.buttonClass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClass.UseVisualStyleBackColor = false;
@@ -234,7 +278,7 @@
             this.buttonStudent.Location = new System.Drawing.Point(0, 120);
             this.buttonStudent.Name = "buttonStudent";
             this.buttonStudent.Size = new System.Drawing.Size(150, 34);
-            this.buttonStudent.TabIndex = 7;
+            this.buttonStudent.TabIndex = 1;
             this.buttonStudent.Text = "Student";
             this.buttonStudent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStudent.UseVisualStyleBackColor = false;
@@ -386,5 +430,7 @@
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Timer timerClock;
         private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

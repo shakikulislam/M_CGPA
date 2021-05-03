@@ -30,6 +30,7 @@ namespace M_CGPA
             LoadLanguage();
 
             comboBoxClass.DataSource = _classBll.GetAllClass();
+            comboBoxARClass.DataSource = _classBll.GetAllClass();
             comboBoxBAClass.DataSource = _classBll.GetAllClass();
             GetAll();
         }
@@ -85,15 +86,42 @@ namespace M_CGPA
             labelHelAreadyHasTheBook.Text = _selectLanguage.Language.HelAreadyHasTheBook;
         }
 
+        public CheckBox AddNewCheckBox(string CBName, string CBBook)
+        {
+            var newCheckBox = new CheckBox();
+            panelBookList.Controls.Add(newCheckBox);
+
+            newCheckBox.Top = _fieldLocation * 28;
+            newCheckBox.Left = 15;
+            newCheckBox.Name = CBName;
+            newCheckBox.Text = CBBook;
+            _fieldLocation += 1;
+
+            return newCheckBox;
+        }
+
+        public TextBox AddNewTextBox(string tbName, Control field)
+        {
+            var newTextBox = new TextBox();
+            field.Controls.Add(newTextBox);
+
+            newTextBox.Top = _fieldLocation*28;
+            newTextBox.Left = 15;
+            newTextBox.Name = tbName;
+            _fieldLocation += 1;
+
+            return newTextBox;
+        }
+
         private void GetAll()
         {
             dataGridViewStudentList.DataSource = _studentBll.GetAllByJoin();
             labelTotalStudent.Text = "Total= " + dataGridViewStudentList.Rows.Count;
         }
 
-        private void ClearFields()
+        private void ClearFields(Control field)
         {
-            foreach (Control control in panelAddForm.Controls)
+            foreach (Control control in field.Controls)
             {
                 if (control is TextBox)
                 {
@@ -105,7 +133,7 @@ namespace M_CGPA
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            ClearFields(panelAddForm);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -138,7 +166,7 @@ namespace M_CGPA
                         
                         dataGridViewStudentList.DataSource = _studentBll.GetByFilter(_studentM.Roll.ToString());
 
-                        ClearFields();
+                        ClearFields(panelAddForm);
                         
                     }
                     else
@@ -168,7 +196,7 @@ namespace M_CGPA
                     GetAll();
                     MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    ClearFields();
+                    ClearFields(panelAddForm);
                     comboBoxClass.SelectedValue = 0;
 
                     buttonDelete.Visible = false;
@@ -210,7 +238,7 @@ namespace M_CGPA
                         
                         GetAll();
                         
-                        ClearFields();
+                        ClearFields(panelAddForm);
                         buttonDelete.Visible = false;
                         buttonUpdate.Visible = false;
                         buttonCancel.Visible = false;
@@ -236,7 +264,7 @@ namespace M_CGPA
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            ClearFields(panelAddForm);
             buttonDelete.Visible = false;
             buttonUpdate.Visible = false;
             buttonCancel.Visible = false;
@@ -252,27 +280,28 @@ namespace M_CGPA
 
         private void dataGridViewStudentList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ClearFields();
+            ClearFields(panelAddForm);
             try
             {
-                _studentM.Id = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["id"].Value);
-                _studentM.Roll = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["roll"].Value);
-                _studentM.Reg = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["reg"].Value);
-                _studentM.ClassId = Convert.ToInt32(dataGridViewStudentList.Rows[e.RowIndex].Cells["classId"].Value);
-                _studentM.Class = dataGridViewStudentList.Rows[e.RowIndex].Cells["clas"].Value.ToString();
-                _studentM.Session = dataGridViewStudentList.Rows[e.RowIndex].Cells["session"].Value.ToString();
-                _studentM.AdmissionDate = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["admissionDate"].Value);
-                _studentM.Dob = Convert.ToDateTime(dataGridViewStudentList.Rows[e.RowIndex].Cells["dob"].Value);
-                _studentM.StudentName = dataGridViewStudentList.Rows[e.RowIndex].Cells["studentName"].Value.ToString();
-                _studentM.SPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["sPhone"].Value.ToString();
-                _studentM.FatherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["fatherName"].Value.ToString();
-                _studentM.FPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["fPhone"].Value.ToString();
-                _studentM.MotherName = dataGridViewStudentList.Rows[e.RowIndex].Cells["motherName"].Value.ToString();
-                _studentM.MPhone = dataGridViewStudentList.Rows[e.RowIndex].Cells["mPhone"].Value.ToString();
-                _studentM.Nid = dataGridViewStudentList.Rows[e.RowIndex].Cells["nid"].Value.ToString();
-                _studentM.Brn = dataGridViewStudentList.Rows[e.RowIndex].Cells["brn"].Value.ToString();
-                _studentM.PresentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["presentAddress"].Value.ToString();
-                _studentM.PermanentAddress = dataGridViewStudentList.Rows[e.RowIndex].Cells["permanentAddress"].Value.ToString();
+                var dg = dataGridViewStudentList.Rows[e.RowIndex];
+                _studentM.Id = Convert.ToInt32(dg.Cells["id"].Value);
+                _studentM.Roll = Convert.ToInt32(dg.Cells["roll"].Value);
+                _studentM.Reg = Convert.ToInt32(dg.Cells["reg"].Value);
+                _studentM.ClassId = Convert.ToInt32(dg.Cells["classId"].Value);
+                _studentM.Class = dg.Cells["clas"].Value.ToString();
+                _studentM.Session = dg.Cells["session"].Value.ToString();
+                _studentM.AdmissionDate = Convert.ToDateTime(dg.Cells["admissionDate"].Value);
+                _studentM.Dob = Convert.ToDateTime(dg.Cells["dob"].Value);
+                _studentM.StudentName = dg.Cells["studentName"].Value.ToString();
+                _studentM.SPhone = dg.Cells["sPhone"].Value.ToString();
+                _studentM.FatherName = dg.Cells["fatherName"].Value.ToString();
+                _studentM.FPhone = dg.Cells["fPhone"].Value.ToString();
+                _studentM.MotherName = dg.Cells["motherName"].Value.ToString();
+                _studentM.MPhone = dg.Cells["mPhone"].Value.ToString();
+                _studentM.Nid = dg.Cells["nid"].Value.ToString();
+                _studentM.Brn = dg.Cells["brn"].Value.ToString();
+                _studentM.PresentAddress = dg.Cells["presentAddress"].Value.ToString();
+                _studentM.PermanentAddress = dg.Cells["permanentAddress"].Value.ToString();
 
                 textBoxRoll.Text = _studentM.Roll.ToString();
                 comboBoxClass.SelectedValue = _studentM.ClassId;
@@ -322,7 +351,9 @@ namespace M_CGPA
                     labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
 
                     var classId = (int)student.Rows[0]["classId"];
-                    comboBoxARClass.DataSource = _classBll.GetById(classId);
+                    //comboBoxARClass.DataSource = _classBll.GetById(classId);
+                    comboBoxARClass.SelectedValue = classId;
+
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
@@ -339,20 +370,6 @@ namespace M_CGPA
             catch{}
         }
         
-        public CheckBox AddNewCheckBox(string CBName, string CBBook)
-        {
-            var newCheckBox = new CheckBox();
-            panelBookList.Controls.Add(newCheckBox);
-
-            newCheckBox.Top = _fieldLocation*28;
-            newCheckBox.Left = 15;
-            newCheckBox.Name = CBName;
-            newCheckBox.Text = CBBook;
-            _fieldLocation += 1;
-
-            return newCheckBox;
-        }
-
         private void textBoxABSearch_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -565,6 +582,11 @@ namespace M_CGPA
             var DG = dataGridViewBAAssignedBook.Rows[e.RowIndex];
             comboBoxBAClass.Text = DG.Cells["classBA"].Value.ToString();
             textBoxBAYear.Text = DG.Cells["yearBA"].Value.ToString();
+        }
+
+        private void textBoxARSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
