@@ -102,6 +102,8 @@ namespace M_CGPA
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
             this.tabPageAddResult = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxARYear = new System.Windows.Forms.TextBox();
             this.panelARBookList = new System.Windows.Forms.Panel();
             this.comboBoxARClass = new System.Windows.Forms.ComboBox();
             this.labelARClass = new System.Windows.Forms.Label();
@@ -893,6 +895,8 @@ namespace M_CGPA
             // tabPageAddResult
             // 
             this.tabPageAddResult.BackColor = System.Drawing.Color.White;
+            this.tabPageAddResult.Controls.Add(this.label1);
+            this.tabPageAddResult.Controls.Add(this.textBoxARYear);
             this.tabPageAddResult.Controls.Add(this.panelARBookList);
             this.tabPageAddResult.Controls.Add(this.comboBoxARClass);
             this.tabPageAddResult.Controls.Add(this.labelARClass);
@@ -907,6 +911,27 @@ namespace M_CGPA
             this.tabPageAddResult.Size = new System.Drawing.Size(866, 450);
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Location = new System.Drawing.Point(520, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Year";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxARYear
+            // 
+            this.textBoxARYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxARYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxARYear.Location = new System.Drawing.Point(643, 141);
+            this.textBoxARYear.Name = "textBoxARYear";
+            this.textBoxARYear.Size = new System.Drawing.Size(139, 26);
+            this.textBoxARYear.TabIndex = 41;
+            this.textBoxARYear.Text = "2020";
+            this.textBoxARYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelARBookList
             // 
@@ -961,6 +986,7 @@ namespace M_CGPA
             // textBoxARSearch
             // 
             this.textBoxARSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxARSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxARSearch.Location = new System.Drawing.Point(339, 59);
             this.textBoxARSearch.Name = "textBoxARSearch";
             this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
@@ -1440,5 +1466,7 @@ namespace M_CGPA
         private System.Windows.Forms.DataGridViewTextBoxColumn bookDataGridViewTextBoxColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelARBookList;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxARYear;
     }
 }

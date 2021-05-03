@@ -30,7 +30,7 @@ namespace M_CGPA
             LoadLanguage();
 
             comboBoxClass.DataSource = _classBll.GetAllClass();
-            comboBoxARClass.DataSource = _classBll.GetAllClass();
+            //comboBoxARClass.DataSource = _classBll.GetAllClass();
             comboBoxBAClass.DataSource = _classBll.GetAllClass();
             GetAll();
         }
@@ -100,14 +100,32 @@ namespace M_CGPA
             return newCheckBox;
         }
 
-        public TextBox AddNewTextBox(string tbName, Control field)
+        public Label AddNewLabel(string lblText, int location, Control field)
+        {
+            var newLabel = new Label();
+            field.Controls.Add(newLabel);
+
+            newLabel.Top = _fieldLocation * location;
+            newLabel.Left = 15;
+            newLabel.Text = lblText;
+            newLabel.BackColor = Color.BlueViolet;
+            newLabel.AutoSize = false;
+            newLabel.Height = 30;
+            _fieldLocation += 1;
+
+            return newLabel;
+        }
+
+        public TextBox AddNewTextBox(string tbName, int location, Control field)
         {
             var newTextBox = new TextBox();
             field.Controls.Add(newTextBox);
 
-            newTextBox.Top = _fieldLocation*28;
+            newTextBox.Top = _fieldLocation*location;
             newTextBox.Left = 15;
             newTextBox.Name = tbName;
+            newTextBox.Height = 30;
+            newTextBox.BorderStyle = BorderStyle.FixedSingle;
             _fieldLocation += 1;
 
             return newTextBox;
@@ -349,22 +367,26 @@ namespace M_CGPA
                 {
                     var student = _studentBll.GetByRollFilter(textBoxARSearch.Text);
                     labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
-
+                    
                     var classId = (int)student.Rows[0]["classId"];
-                    //comboBoxARClass.DataSource = _classBll.GetById(classId);
+                    comboBoxARClass.DataSource = _classBll.GetById(classId);
                     comboBoxARClass.SelectedValue = classId;
+                    
+                    _syllabusM.ClassId = classId;
+                    _syllabusM.Year = textBoxARYear.Text.Trim();
 
+                    LoadBook();
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
                     textBoxARSearch.Clear();
                     labelARStudentName.Text = "";
-                    comboBoxARClass.SelectedValue = 0;
+                    comboBoxARClass.DataSource = null;
                 }
                 else
                 {
                     labelARStudentName.Text = "";
-                    comboBoxARClass.SelectedValue = 0;
+                    //comboBoxARClass.DataSource = null;
                 }
             }
             catch{}
@@ -384,7 +406,7 @@ namespace M_CGPA
                     var classId = (int)student.Rows[0]["classId"];
                     comboBoxBAClass.SelectedValue = classId;
 
-                    LoadBook();
+                    LoadBookForBookAccount();
                     LoadAssignedBookList();
                     //CheckedAssignedBookList();
                 }
@@ -407,7 +429,7 @@ namespace M_CGPA
             catch { }
         }
 
-        private void LoadBook()
+        private void LoadBookForBookAccount()
         {
             try
             {
@@ -433,6 +455,35 @@ namespace M_CGPA
                 {
                     DeleteAutoGenerateFields(panelBookList);
                     labelBATottalBook.Text = "";
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void LoadBook()
+        {
+            try
+            {
+                panelARBookList.Controls.Clear();
+                _fieldLocation = 1;
+
+                _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
+
+                if (_bookLIst.Rows.Count > 0)
+                {
+                    for (int i = 0; i < _bookLIst.Rows.Count; i++)
+                    {
+                        var cbName = _bookLIst.Rows[i][0].ToString();
+                        var value = _bookLIst.Rows[i]["Book"].ToString();
+                        AddNewLabel(value, 30, panelARBookList);
+                        AddNewTextBox(cbName, 30, panelARBookList);
+                    }
+                }
+                else
+                {
+                    DeleteAutoGenerateFields(panelARBookList);
                 }
             }
             catch
@@ -512,7 +563,7 @@ namespace M_CGPA
 
         private void textBoxBAYear_TextChanged(object sender, EventArgs e)
         {
-            LoadBook();
+            LoadBookForBookAccount();
         }
 
         private void buttonBAUpdateBook_Click(object sender, EventArgs e)
@@ -534,7 +585,7 @@ namespace M_CGPA
                 var isUpdate = _bookAccountBll.Update(_bookAccountM);
                 if (isUpdate)
                 {
-                    LoadBook();
+                    LoadBookForBookAccount();
                     MessageBox.Show("Success...");
                 }
             }
@@ -560,7 +611,7 @@ namespace M_CGPA
                 var isSuccess = _bookAccountBll.Insert(_bookAccountM);
                 if (isSuccess)
                 {
-                    LoadBook();
+                    LoadBookForBookAccount();
                     MessageBox.Show("Success...");
                 }
             }
@@ -574,7 +625,7 @@ namespace M_CGPA
 
         private void comboBoxABClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadBook();
+            LoadBookForBookAccount();
         }
 
         private void dataGridViewBAAssignedBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
