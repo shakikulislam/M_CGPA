@@ -91,5 +91,17 @@ namespace M_CGPA.DAL
 
             return _dataTable;
         }
+
+        public DataTable GetByMark(double mark, int totalMark)
+        {
+            DbConnection();
+            var marks = ((mark*100)/totalMark);
+            _sqlCommand.CommandText = "SELECT *FROM GradePoint WHERE '" + marks + "' BETWEEN Minimum AND Maximum";
+            _sqlDataAdapter=new SqlDataAdapter(_sqlCommand);
+            _dataTable=new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
+
+            return _dataTable;
+        }
     }
 }

@@ -53,5 +53,10 @@ namespace M_CGPA.BLL
         {
             return _gradePointDal.GetAll();
         }
+
+        public DataTable GetByMark(double mark, int totalMark)
+        {
+            return _gradePointDal.GetByMark(mark, totalMark);
+        }
     }
 }

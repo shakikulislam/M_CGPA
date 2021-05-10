@@ -102,6 +102,8 @@ namespace M_CGPA
             this.tabControlStudent = new System.Windows.Forms.TabControl();
             this.tabPageAddStudent = new System.Windows.Forms.TabPage();
             this.tabPageAddResult = new System.Windows.Forms.TabPage();
+            this.buttonARUpdate = new System.Windows.Forms.Button();
+            this.buttonARAddResult = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxARYear = new System.Windows.Forms.TextBox();
             this.panelARBookList = new System.Windows.Forms.Panel();
@@ -895,6 +897,8 @@ namespace M_CGPA
             // tabPageAddResult
             // 
             this.tabPageAddResult.BackColor = System.Drawing.Color.White;
+            this.tabPageAddResult.Controls.Add(this.buttonARUpdate);
+            this.tabPageAddResult.Controls.Add(this.buttonARAddResult);
             this.tabPageAddResult.Controls.Add(this.label1);
             this.tabPageAddResult.Controls.Add(this.textBoxARYear);
             this.tabPageAddResult.Controls.Add(this.panelARBookList);
@@ -912,21 +916,50 @@ namespace M_CGPA
             this.tabPageAddResult.TabIndex = 1;
             this.tabPageAddResult.Text = "Add Result";
             // 
+            // buttonARUpdate
+            // 
+            this.buttonARUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonARUpdate.BackColor = System.Drawing.Color.BlueViolet;
+            this.buttonARUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonARUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonARUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonARUpdate.Location = new System.Drawing.Point(555, 376);
+            this.buttonARUpdate.Name = "buttonARUpdate";
+            this.buttonARUpdate.Size = new System.Drawing.Size(183, 35);
+            this.buttonARUpdate.TabIndex = 44;
+            this.buttonARUpdate.Text = "Update";
+            this.buttonARUpdate.UseVisualStyleBackColor = false;
+            // 
+            // buttonARAddResult
+            // 
+            this.buttonARAddResult.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonARAddResult.BackColor = System.Drawing.Color.Blue;
+            this.buttonARAddResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonARAddResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonARAddResult.ForeColor = System.Drawing.Color.White;
+            this.buttonARAddResult.Location = new System.Drawing.Point(343, 376);
+            this.buttonARAddResult.Name = "buttonARAddResult";
+            this.buttonARAddResult.Size = new System.Drawing.Size(183, 35);
+            this.buttonARAddResult.TabIndex = 43;
+            this.buttonARAddResult.Text = "Add Result";
+            this.buttonARAddResult.UseVisualStyleBackColor = false;
+            this.buttonARAddResult.Click += new System.EventHandler(this.buttonARAddResult_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.Location = new System.Drawing.Point(520, 142);
+            this.label1.Location = new System.Drawing.Point(465, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.Size = new System.Drawing.Size(172, 25);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Year";
+            this.label1.Text = "Syllabus Year";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxARYear
             // 
             this.textBoxARYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxARYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxARYear.Location = new System.Drawing.Point(643, 141);
+            this.textBoxARYear.Location = new System.Drawing.Point(643, 127);
             this.textBoxARYear.Name = "textBoxARYear";
             this.textBoxARYear.Size = new System.Drawing.Size(139, 26);
             this.textBoxARYear.TabIndex = 41;
@@ -939,9 +972,9 @@ namespace M_CGPA
             this.panelARBookList.AutoScroll = true;
             this.panelARBookList.BackColor = System.Drawing.Color.Transparent;
             this.panelARBookList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelARBookList.Location = new System.Drawing.Point(125, 203);
+            this.panelARBookList.Location = new System.Drawing.Point(125, 171);
             this.panelARBookList.Name = "panelARBookList";
-            this.panelARBookList.Size = new System.Drawing.Size(401, 197);
+            this.panelARBookList.Size = new System.Drawing.Size(401, 199);
             this.panelARBookList.TabIndex = 40;
             // 
             // comboBoxARClass
@@ -950,7 +983,7 @@ namespace M_CGPA
             this.comboBoxARClass.DisplayMember = "Name";
             this.comboBoxARClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxARClass.FormattingEnabled = true;
-            this.comboBoxARClass.Location = new System.Drawing.Point(244, 141);
+            this.comboBoxARClass.Location = new System.Drawing.Point(244, 127);
             this.comboBoxARClass.Name = "comboBoxARClass";
             this.comboBoxARClass.Size = new System.Drawing.Size(215, 28);
             this.comboBoxARClass.TabIndex = 39;
@@ -958,7 +991,7 @@ namespace M_CGPA
             // 
             // labelARClass
             // 
-            this.labelARClass.Location = new System.Drawing.Point(91, 142);
+            this.labelARClass.Location = new System.Drawing.Point(91, 128);
             this.labelARClass.Name = "labelARClass";
             this.labelARClass.Size = new System.Drawing.Size(147, 25);
             this.labelARClass.TabIndex = 38;
@@ -968,7 +1001,7 @@ namespace M_CGPA
             // labelARStudentName
             // 
             this.labelARStudentName.AutoSize = true;
-            this.labelARStudentName.Location = new System.Drawing.Point(244, 112);
+            this.labelARStudentName.Location = new System.Drawing.Point(244, 98);
             this.labelARStudentName.Name = "labelARStudentName";
             this.labelARStudentName.Size = new System.Drawing.Size(0, 20);
             this.labelARStudentName.TabIndex = 37;
@@ -976,7 +1009,7 @@ namespace M_CGPA
             // 
             // labelARName
             // 
-            this.labelARName.Location = new System.Drawing.Point(91, 110);
+            this.labelARName.Location = new System.Drawing.Point(91, 96);
             this.labelARName.Name = "labelARName";
             this.labelARName.Size = new System.Drawing.Size(147, 25);
             this.labelARName.TabIndex = 36;
@@ -987,7 +1020,7 @@ namespace M_CGPA
             // 
             this.textBoxARSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxARSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxARSearch.Location = new System.Drawing.Point(339, 59);
+            this.textBoxARSearch.Location = new System.Drawing.Point(339, 45);
             this.textBoxARSearch.Name = "textBoxARSearch";
             this.textBoxARSearch.Size = new System.Drawing.Size(298, 26);
             this.textBoxARSearch.TabIndex = 35;
@@ -998,7 +1031,7 @@ namespace M_CGPA
             // labelARRoll
             // 
             this.labelARRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelARRoll.Location = new System.Drawing.Point(339, 28);
+            this.labelARRoll.Location = new System.Drawing.Point(339, 14);
             this.labelARRoll.Name = "labelARRoll";
             this.labelARRoll.Size = new System.Drawing.Size(298, 25);
             this.labelARRoll.TabIndex = 34;
@@ -1043,11 +1076,11 @@ namespace M_CGPA
             // labelBAYear
             // 
             this.labelBAYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelBAYear.Location = new System.Drawing.Point(452, 128);
+            this.labelBAYear.Location = new System.Drawing.Point(432, 128);
             this.labelBAYear.Name = "labelBAYear";
-            this.labelBAYear.Size = new System.Drawing.Size(117, 25);
+            this.labelBAYear.Size = new System.Drawing.Size(137, 25);
             this.labelBAYear.TabIndex = 37;
-            this.labelBAYear.Text = "Year";
+            this.labelBAYear.Text = "Syllabus Year";
             this.labelBAYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxBAYear
@@ -1468,5 +1501,7 @@ namespace M_CGPA
         private System.Windows.Forms.Panel panelARBookList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxARYear;
+        private System.Windows.Forms.Button buttonARAddResult;
+        private System.Windows.Forms.Button buttonARUpdate;
     }
 }

@@ -122,6 +122,22 @@ namespace M_CGPA.DAL
 
             return _dataTable;
         }
+
+        public DataTable GetBookMarkBySyllabusId(SyllabusM syllabusM)
+        {
+            DbConnection();
+
+            var querry = "SELECT Syllabus.Id, Syllabus.BookId, Book.Id AS BookId, Book.Mark AS Mark " +
+                         "FROM Syllabus " +
+                         "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
+                         "WHERE Syllabus.Id='" + syllabusM.Id + "'";
+            _sqlCommand.CommandText = querry;
+            _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
+            _dataTable = new DataTable();
+            _sqlDataAdapter.Fill(_dataTable);
+
+            return _dataTable;
+        }
         
     }
 }

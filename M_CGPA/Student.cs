@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
@@ -19,6 +20,10 @@ namespace M_CGPA
         readonly SyllabusM _syllabusM=new SyllabusM();
         readonly BookAccountM _bookAccountM=new BookAccountM();
         readonly BookAccountBll _bookAccountBll=new BookAccountBll();
+        readonly ResultM _resultM=new ResultM();
+        readonly ResultBll _resultBll=new ResultBll();
+        readonly GradePointM _gradePointM=new GradePointM();
+        readonly GradePoingBll _gradePoingBll=new GradePoingBll();
 
         int _fieldLocation = 1;
         DataTable _bookLIst;
@@ -45,12 +50,9 @@ namespace M_CGPA
                 new SetPanelLabelFont(panelTitlebar, panelAddForm, panelBA);
                 new SetPanelButtonFont(panelAddForm);
 
-                foreach (Control control in Controls)
+                foreach (var button in Controls.OfType<Button>())
                 {
-                    if (control is Button)
-                    {
-                        control.Font = new Font(this.Font.Name, 14);
-                    }
+                    button.Font = new Font(Font.Name, 14);
                 }
             }
         }
@@ -86,15 +88,15 @@ namespace M_CGPA
             labelHelAreadyHasTheBook.Text = _selectLanguage.Language.HelAreadyHasTheBook;
         }
 
-        public CheckBox AddNewCheckBox(string CBName, string CBBook)
+        public CheckBox AddNewCheckBox(string cbName, string cbBook)
         {
             var newCheckBox = new CheckBox();
             panelBookList.Controls.Add(newCheckBox);
 
             newCheckBox.Top = _fieldLocation * 28;
             newCheckBox.Left = 15;
-            newCheckBox.Name = CBName;
-            newCheckBox.Text = CBBook;
+            newCheckBox.Name = cbName;
+            newCheckBox.Text = cbBook;
             _fieldLocation += 1;
 
             return newCheckBox;
@@ -108,9 +110,10 @@ namespace M_CGPA
             newLabel.Top = _fieldLocation * location;
             newLabel.Left = 15;
             newLabel.Text = lblText;
-            newLabel.BackColor = Color.BlueViolet;
-            newLabel.AutoSize = false;
-            newLabel.Height = 30;
+            //newLabel.AutoSize = true;
+            newLabel.Height = 25;
+            newLabel.TextAlign = ContentAlignment.BottomLeft;
+            newLabel.Width = panelARBookList.Width-50;
             _fieldLocation += 1;
 
             return newLabel;
@@ -124,7 +127,7 @@ namespace M_CGPA
             newTextBox.Top = _fieldLocation*location;
             newTextBox.Left = 15;
             newTextBox.Name = tbName;
-            newTextBox.Height = 30;
+            newTextBox.Height = 25;
             newTextBox.BorderStyle = BorderStyle.FixedSingle;
             _fieldLocation += 1;
 
@@ -134,19 +137,16 @@ namespace M_CGPA
         private void GetAll()
         {
             dataGridViewStudentList.DataSource = _studentBll.GetAllByJoin();
-            labelTotalStudent.Text = "Total= " + dataGridViewStudentList.Rows.Count;
+            labelTotalStudent.Text = @"Total= " + dataGridViewStudentList.Rows.Count;
         }
 
-        private void ClearFields(Control field)
+        private static void ClearFields(Control field)
         {
-            foreach (Control control in field.Controls)
+            foreach (var control in field.Controls.OfType<TextBox>())
             {
-                if (control is TextBox)
-                {
-                    ((TextBoxBase)control).Clear();
-                }
+                control.Clear();
             }
-
+            
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -345,18 +345,15 @@ namespace M_CGPA
                 buttonClear.Visible = false;
                 buttonAdd.Visible = false;
             }
-            catch (Exception)
-            {
-                
-            }
+            catch {}
 
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            string filter = textBoxSearch.Text;
+            var filter = textBoxSearch.Text;
             dataGridViewStudentList.DataSource = _studentBll.GetByFilter(filter);
-            labelTotalStudent.Text = "Total= " + dataGridViewStudentList.Rows.Count;
+            labelTotalStudent.Text = @"Total= " + dataGridViewStudentList.Rows.Count;
         }
 
         private void textBoxARSearch_KeyDown(object sender, KeyEventArgs e)
@@ -368,12 +365,14 @@ namespace M_CGPA
                     var student = _studentBll.GetByRollFilter(textBoxARSearch.Text);
                     labelARStudentName.Text = student.Rows[0]["StudentName"].ToString();
                     
-                    var classId = (int)student.Rows[0]["classId"];
-                    comboBoxARClass.DataSource = _classBll.GetById(classId);
-                    comboBoxARClass.SelectedValue = classId;
+                    var classIdValue = (int)student.Rows[0]["classId"];
+                    comboBoxARClass.DataSource = _classBll.GetById(classIdValue);
+                    comboBoxARClass.SelectedValue = classIdValue;
                     
-                    _syllabusM.ClassId = classId;
+                    _syllabusM.ClassId = classIdValue;
                     _syllabusM.Year = textBoxARYear.Text.Trim();
+
+                    _resultM.StudentId = (int) student.Rows[0]["Id"];
 
                     LoadBook();
                 }
@@ -381,12 +380,14 @@ namespace M_CGPA
                 {
                     textBoxARSearch.Clear();
                     labelARStudentName.Text = "";
-                    comboBoxARClass.DataSource = null;
+                    //comboBoxARClass.DataSource = null;
+                    DeleteAutoGenerateFields(panelARBookList);
                 }
                 else
                 {
                     labelARStudentName.Text = "";
                     //comboBoxARClass.DataSource = null;
+                    DeleteAutoGenerateFields(panelARBookList);
                 }
             }
             catch{}
@@ -403,8 +404,8 @@ namespace M_CGPA
 
                     _bookAccountM.StudentId = (int) student.Rows[0]["Id"];
 
-                    var classId = (int)student.Rows[0]["classId"];
-                    comboBoxBAClass.SelectedValue = classId;
+                    var classIdValue = (int)student.Rows[0]["classId"];
+                    comboBoxBAClass.SelectedValue = classIdValue;
 
                     LoadBookForBookAccount();
                     LoadAssignedBookList();
@@ -449,7 +450,7 @@ namespace M_CGPA
                         var cbValue = _bookLIst.Rows[i]["Book"].ToString();
                         AddNewCheckBox(cbName, cbValue);
                     }
-                    labelBATottalBook.Text = "Total Book " + _bookLIst.Rows.Count;
+                    labelBATottalBook.Text = @"Total Book " + _bookLIst.Rows.Count;
                 }
                 else
                 {
@@ -477,8 +478,8 @@ namespace M_CGPA
                     {
                         var cbName = _bookLIst.Rows[i][0].ToString();
                         var value = _bookLIst.Rows[i]["Book"].ToString();
-                        AddNewLabel(value, 30, panelARBookList);
-                        AddNewTextBox(cbName, 30, panelARBookList);
+                        AddNewLabel(value, 25, panelARBookList);
+                        AddNewTextBox(cbName, 25, panelARBookList);
                     }
                 }
                 else
@@ -507,7 +508,7 @@ namespace M_CGPA
                 }
                 else
                 {
-                    DataTable table=new DataTable();
+                    var table=new DataTable();
                     table.Columns.Add("year");
                     table.Columns.Add("class");
                     table.Columns.Add("book");
@@ -516,12 +517,12 @@ namespace M_CGPA
                         _bookAccountM.Book = dataRowBook["Book"].ToString();
 
                         var syllabusList = _syllabusBll.GetBySyllabusId(_bookAccountM);
-                        foreach (DataRow dataRowSL in syllabusList.Rows)
+                        foreach (DataRow dataRowSl in syllabusList.Rows)
                         {
                             table.Rows.Add(
-                                dataRowSL["Year"].ToString(),
-                                dataRowSL["Class"].ToString(),
-                                dataRowSL["Book"].ToString()
+                                dataRowSl["Year"].ToString(),
+                                dataRowSl["Class"].ToString(),
+                                dataRowSl["Book"].ToString()
                                 );
                         }
                     }
@@ -571,17 +572,14 @@ namespace M_CGPA
             try
             {
                 _bookAccountM.Book = "";
-                foreach (Control control in panelBookList.Controls)
+                foreach (var checkBox in panelBookList.Controls.OfType<CheckBox>())
                 {
-                    if (control is CheckBox)
+                    if (checkBox.Checked)
                     {
-                        if (((CheckBox)control).Checked)
-                        {
-                            _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += control.Name : _bookAccountM.Book += "," + control.Name;
-                        }
+                        _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += checkBox.Name : _bookAccountM.Book += "," + checkBox.Name;
                     }
                 }
-
+                
                 var isUpdate = _bookAccountBll.Update(_bookAccountM);
                 if (isUpdate)
                 {
@@ -597,22 +595,19 @@ namespace M_CGPA
             try
             {
                 _bookAccountM.Book = "";
-                foreach (Control control in panelBookList.Controls)
+                foreach (var checkBox in panelBookList.Controls.OfType<CheckBox>())
                 {
-                    if (control is CheckBox)
-                    {
-                        if (((CheckBox)control).Checked)
+                        if (checkBox.Checked)
                         {
-                            _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += control.Name : _bookAccountM.Book += "," + control.Name;
+                            _bookAccountM.Book = _bookAccountM.Book == "" ? _bookAccountM.Book += checkBox.Name : _bookAccountM.Book += "," + checkBox.Name;
                         }
-                    }
+                    
                 }
 
                 var isSuccess = _bookAccountBll.Insert(_bookAccountM);
                 if (isSuccess)
                 {
                     LoadBookForBookAccount();
-                    MessageBox.Show("Success...");
                 }
             }
             catch { }
@@ -630,14 +625,82 @@ namespace M_CGPA
 
         private void dataGridViewBAAssignedBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var DG = dataGridViewBAAssignedBook.Rows[e.RowIndex];
-            comboBoxBAClass.Text = DG.Cells["classBA"].Value.ToString();
-            textBoxBAYear.Text = DG.Cells["yearBA"].Value.ToString();
+            var dg = dataGridViewBAAssignedBook.Rows[e.RowIndex];
+            comboBoxBAClass.Text = dg.Cells["classBA"].Value.ToString();
+            textBoxBAYear.Text = dg.Cells["yearBA"].Value.ToString();
+
+            CheckedAssignedBookList();
         }
 
         private void textBoxARSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonARAddResult_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _resultM.SyllabusId = "";
+                //_resultM.Result = "";
+                _resultM.RangeOfMarks = "";
+                _resultM.Number = "";
+
+                foreach (var textBox in panelARBookList.Controls.OfType<TextBox>())
+                {
+                    _syllabusM.Id = Convert.ToInt32(textBox.Name);
+                    var totalMark = (int) _syllabusBll.GetBookMarkBySyllabusId(_syllabusM).Rows[0]["Mark"];
+                    var mark = Convert.ToDouble(textBox.Text.Trim());
+
+                    var grade = _gradePoingBll.GetByMark(mark, totalMark).Rows[0]["Grade"];
+                    var point = _gradePoingBll.GetByMark(mark, totalMark).Rows[0]["Point"];
+
+                    if (_resultM.Number != "")
+                    {
+                        _resultM.Number = textBox.Text == ""? _resultM.Number += ",0": _resultM.Number += "," + textBox.Text.Trim();
+                        _resultM.SyllabusId = _resultM.SyllabusId += "," + textBox.Name;
+                    }
+                    else
+                    {
+                        _resultM.Number = textBox.Text == "" ? _resultM.Number = "0" : textBox.Text.Trim();
+                        _resultM.SyllabusId = textBox.Name;
+                    }
+                }
+
+                //foreach (Control control in panelARBookList.Controls)
+                //{
+                //    if (control is TextBox)
+                //    {
+                //        if (_resultM.Result=="")
+                //        {
+                //            _resultM.Result = control.Text == ""? _resultM.Result = "0": control.Text.Trim();
+                //            _resultM.SyllabusId = control.Name;
+                //        }
+                //        else
+                //        {
+                //            _resultM.Result = control.Text == "" ? _resultM.Result += ",0" : _resultM.Result += ","+control.Text.Trim();
+                //            _resultM.SyllabusId = _resultM.SyllabusId += "," + control.Name;
+                //        }
+                //    }
+                //}
+
+                var isSuccess = _resultBll.Insert(_resultM);
+                if (isSuccess)
+                {
+                    MessageBox.Show("Save Success...");
+                    textBoxARSearch.Clear();
+                    textBoxARSearch.Focus();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

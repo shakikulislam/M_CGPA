@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BLL\BookAccountBll.cs" />
     <Compile Include="BLL\GradePoingBll.cs" />
+    <Compile Include="BLL\ResultBll.cs" />
     <Compile Include="BLL\StudentBll.cs" />
     <Compile Include="Class.cs">
       <SubType>Form</SubType>
@@ -91,6 +92,7 @@
     <Compile Include="DAL\ClassDal.cs" />
     <Compile Include="DAL\GradePointDal.cs" />
     <Compile Include="DAL\LanguageDal.cs" />
+    <Compile Include="DAL\ResultDal.cs" />
     <Compile Include="DAL\StudentDal.cs" />
     <Compile Include="Information.cs">
       <SubType>Form</SubType>
@@ -100,6 +102,7 @@
     </Compile>
     <Compile Include="Model\BookAccountM.cs" />
     <Compile Include="Model\GradePointM.cs" />
+    <Compile Include="Model\ResultM.cs" />
     <Compile Include="Model\StudentM.cs" />
     <Compile Include="Student.cs">
       <SubType>Form</SubType>
@@ -210,7 +213,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

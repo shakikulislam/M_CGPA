@@ -61,5 +61,10 @@ namespace M_CGPA.BLL
         {
             return _syllabus.GetBySyllabusId(bookAccountM);
         }
+
+        public DataTable GetBookMarkBySyllabusId(SyllabusM syllabusM)
+        {
+            return _syllabus.GetBookMarkBySyllabusId(syllabusM);
+        }
     }
 }

@@ -80,8 +80,8 @@ namespace M_CGPA
             {
                 if (textBoxGPMinimum.Text != "" || textBoxGPMaximum.Text != "" || textBoxGPGrade.Text != "" || textBoxGPPoint.Text != "")
                 {
-                    _gradePoint.Minimum = Convert.ToInt32(textBoxGPMinimum.Text.Trim()) ;
-                    _gradePoint.Maximum = Convert.ToInt32(textBoxGPMaximum.Text.Trim()) ;
+                    _gradePoint.Minimum = Convert.ToDouble(textBoxGPMinimum.Text.Trim());
+                    _gradePoint.Maximum = Convert.ToDouble(textBoxGPMaximum.Text.Trim());
                     _gradePoint.Grade = textBoxGPGrade.Text ;
                     _gradePoint.Point = Convert.ToDouble(textBoxGPPoint.Text.Trim());
 
