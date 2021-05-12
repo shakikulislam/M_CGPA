@@ -158,6 +158,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>

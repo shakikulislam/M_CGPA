@@ -22,7 +22,7 @@ namespace M_CGPA.DAL
         public bool Insert(SyllabusM syllabus)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO Syllabus(Year,ClassId,BookId)VALUES('" + syllabus.Year + "','" + syllabus.ClassId + "','"+syllabus.BookId+"')";
+            _sqlCommand.CommandText = "INSERT INTO Syllabus(Year,ClassId,BookId,Type)VALUES('" + syllabus.Year + "','" + syllabus.ClassId + "','" + syllabus.BookId + "','" + syllabus.Type + "')";
             var isSaved = _sqlCommand.ExecuteNonQuery();
 
             return isSaved > 0;
@@ -31,7 +31,7 @@ namespace M_CGPA.DAL
         public bool Update(SyllabusM syllabus)
         {
             DbConnection();
-            _sqlCommand.CommandText = "UPDATE Syllabus SET Year='" + syllabus.Year + "', ClassId='" + syllabus.ClassId + "',BookId='"+syllabus.BookId+"' WHERE Id='" + syllabus.Id + "'";
+            _sqlCommand.CommandText = "UPDATE Syllabus SET Year='" + syllabus.Year + "', ClassId='" + syllabus.ClassId + "',BookId='" + syllabus.BookId + "', Type='" + syllabus.Type + "' WHERE Id='" + syllabus.Id + "'";
             var isUpdate = _sqlCommand.ExecuteNonQuery();
 
             return isUpdate > 0;
@@ -58,7 +58,7 @@ namespace M_CGPA.DAL
         public object GetAllByJoin()
         {
             DbConnection();
-            var querry ="SELECT Syllabus.Id, Syllabus.Year,Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class "+
+            var querry ="SELECT Syllabus.Id, Syllabus.Year, Syllabus.Type, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class "+
                        "FROM Syllabus "+
 					   "INNER JOIN Book ON Syllabus.BookId=Book.Id "+
                        "INNER JOIN Class ON Syllabus.ClassId=Class.Id";
@@ -73,7 +73,7 @@ namespace M_CGPA.DAL
         public DataTable GetByLikeFilter(SyllabusM syllabus)
         {
             DbConnection();
-            var querry ="SELECT Syllabus.Id, Syllabus.Year,Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
+            var querry ="SELECT Syllabus.Id, Syllabus.Year, Syllabus.Type, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
                 "FROM Syllabus " +
                 "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
                 "INNER JOIN Class ON Syllabus.ClassId=Class.Id " +
@@ -91,7 +91,7 @@ namespace M_CGPA.DAL
         public DataTable GetByFilter(SyllabusM syllabus)
         {
             DbConnection();
-            var querry ="SELECT Syllabus.Id, Syllabus.Year,Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
+            var querry ="SELECT Syllabus.Id, Syllabus.Year, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
                 "FROM Syllabus " +
                 "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
                 "INNER JOIN Class ON Syllabus.ClassId=Class.Id " +

@@ -37,6 +37,8 @@
             this.labelYear = new System.Windows.Forms.Label();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.labelType = new System.Windows.Forms.Label();
             this.buttonSearchForm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.comboBoxBook = new System.Windows.Forms.ComboBox();
@@ -57,6 +59,7 @@
             this.bookIds = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFilter = new System.Windows.Forms.Panel();
             this.buttonAddForm = new System.Windows.Forms.Button();
             this.comboBoxClassFilter = new System.Windows.Forms.ComboBox();
@@ -123,6 +126,8 @@
             // 
             this.panelForm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelForm.BackColor = System.Drawing.Color.Transparent;
+            this.panelForm.Controls.Add(this.comboBoxType);
+            this.panelForm.Controls.Add(this.labelType);
             this.panelForm.Controls.Add(this.buttonSearchForm);
             this.panelForm.Controls.Add(this.buttonCancel);
             this.panelForm.Controls.Add(this.comboBoxBook);
@@ -136,17 +141,41 @@
             this.panelForm.Controls.Add(this.buttonAdd);
             this.panelForm.Location = new System.Drawing.Point(159, 61);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(473, 126);
+            this.panelForm.Size = new System.Drawing.Size(473, 156);
             this.panelForm.TabIndex = 14;
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Items.AddRange(new object[] {
+            "Mandatory",
+            "Optional"});
+            this.comboBoxType.Location = new System.Drawing.Point(138, 116);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(189, 28);
+            this.comboBoxType.TabIndex = 27;
+            // 
+            // labelType
+            // 
+            this.labelType.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelType.ForeColor = System.Drawing.Color.Black;
+            this.labelType.Location = new System.Drawing.Point(-3, 119);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(135, 20);
+            this.labelType.TabIndex = 26;
+            this.labelType.Text = "Type";
+            this.labelType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonSearchForm
             // 
-            this.buttonSearchForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSearchForm.BackColor = System.Drawing.Color.Green;
             this.buttonSearchForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearchForm.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchForm.Location = new System.Drawing.Point(335, 5);
+            this.buttonSearchForm.Location = new System.Drawing.Point(334, 6);
             this.buttonSearchForm.Name = "buttonSearchForm";
             this.buttonSearchForm.Size = new System.Drawing.Size(122, 31);
             this.buttonSearchForm.TabIndex = 25;
@@ -156,12 +185,11 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.BackColor = System.Drawing.Color.Purple;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(334, 80);
+            this.buttonCancel.Location = new System.Drawing.Point(333, 81);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(122, 31);
             this.buttonCancel.TabIndex = 17;
@@ -230,12 +258,11 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelete.BackColor = System.Drawing.Color.Red;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(334, 42);
+            this.buttonDelete.Location = new System.Drawing.Point(333, 43);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(122, 31);
             this.buttonDelete.TabIndex = 14;
@@ -246,12 +273,11 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUpdate.BackColor = System.Drawing.Color.Green;
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(334, 5);
+            this.buttonUpdate.Location = new System.Drawing.Point(333, 6);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(122, 31);
             this.buttonUpdate.TabIndex = 13;
@@ -262,12 +288,11 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAdd.BackColor = System.Drawing.Color.Navy;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(334, 79);
+            this.buttonAdd.Location = new System.Drawing.Point(333, 80);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(122, 31);
             this.buttonAdd.TabIndex = 11;
@@ -302,7 +327,8 @@
             this.classIds,
             this.bookIds,
             this.classs,
-            this.books});
+            this.books,
+            this.Type});
             this.dataGridViewSyllabusList.DataSource = this.syllabusMBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -313,7 +339,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewSyllabusList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSyllabusList.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(161, 210);
+            this.dataGridViewSyllabusList.Location = new System.Drawing.Point(161, 223);
             this.dataGridViewSyllabusList.Name = "dataGridViewSyllabusList";
             this.dataGridViewSyllabusList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -326,7 +352,7 @@
             this.dataGridViewSyllabusList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSyllabusList.RowHeadersVisible = false;
             this.dataGridViewSyllabusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(473, 140);
+            this.dataGridViewSyllabusList.Size = new System.Drawing.Size(473, 168);
             this.dataGridViewSyllabusList.TabIndex = 18;
             this.dataGridViewSyllabusList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSyllabusList_CellDoubleClick);
             this.dataGridViewSyllabusList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSyllabusList_RowPostPaint);
@@ -386,6 +412,15 @@
             this.books.Name = "books";
             this.books.ReadOnly = true;
             // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 56;
+            // 
             // panelFilter
             // 
             this.panelFilter.BackColor = System.Drawing.Color.Transparent;
@@ -394,20 +429,19 @@
             this.panelFilter.Controls.Add(this.labelClassFilter);
             this.panelFilter.Controls.Add(this.labelYearFilter);
             this.panelFilter.Controls.Add(this.textBoxYearFilter);
-            this.panelFilter.Location = new System.Drawing.Point(160, 193);
+            this.panelFilter.Location = new System.Drawing.Point(298, 277);
             this.panelFilter.Name = "panelFilter";
-            this.panelFilter.Size = new System.Drawing.Size(473, 119);
+            this.panelFilter.Size = new System.Drawing.Size(473, 156);
             this.panelFilter.TabIndex = 19;
             this.panelFilter.Visible = false;
             // 
             // buttonAddForm
             // 
-            this.buttonAddForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddForm.BackColor = System.Drawing.Color.Green;
             this.buttonAddForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddForm.ForeColor = System.Drawing.Color.White;
-            this.buttonAddForm.Location = new System.Drawing.Point(334, 6);
+            this.buttonAddForm.Location = new System.Drawing.Point(334, 7);
             this.buttonAddForm.Name = "buttonAddForm";
             this.buttonAddForm.Size = new System.Drawing.Size(122, 31);
             this.buttonAddForm.TabIndex = 24;
@@ -514,13 +548,6 @@
         private System.Windows.Forms.BindingSource bookMBindingSource;
         private System.Windows.Forms.BindingSource syllabusMBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewSyllabusList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ids;
-        private System.Windows.Forms.DataGridViewTextBoxColumn years;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classIds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookIds;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn books;
         private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.Panel panelFilter;
         private System.Windows.Forms.ComboBox comboBoxClassFilter;
@@ -529,5 +556,15 @@
         private System.Windows.Forms.TextBox textBoxYearFilter;
         private System.Windows.Forms.Button buttonSearchForm;
         private System.Windows.Forms.Button buttonAddForm;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Label labelType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ids;
+        private System.Windows.Forms.DataGridViewTextBoxColumn years;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classIds;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookIds;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn books;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

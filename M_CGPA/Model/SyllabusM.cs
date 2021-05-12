@@ -9,5 +9,6 @@ namespace M_CGPA.Model
         public int BookId { get; set; }
         public string Class { get; set; }
         public string Book { get; set; }
+        public string Type { get; set; }
     }
 }

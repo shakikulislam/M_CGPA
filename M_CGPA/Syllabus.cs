@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Threading;
+using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
@@ -44,14 +41,19 @@ namespace M_CGPA
             {
                 new SetPanelLabelFont(panelForm, panelTitlebar, panelFilter);
                 new SetPanelButtonFont(panelForm);
-                
-                foreach (Control control in Controls)
+
+                foreach (var button in Controls.OfType<Button>())
                 {
-                    if (control is Button)
-                    {
-                        control.Font = new Font(this.Font.Name, 14);
-                    }
+                    button.Font=new Font(Font.Name,14);
                 }
+
+                //foreach (Control control in Controls)
+                //{
+                //    if (control is Button)
+                //    {
+                //        control.Font = new Font(this.Font.Name, 14);
+                //    }
+                //}
             }
         }
 
@@ -79,16 +81,16 @@ namespace M_CGPA
             dataGridViewSyllabusList.DataSource = _syllabusBll.GetAllByJoin();
         }
 
-        private void buttonAdd_Click(object sender, System.EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-
             try
             {
-                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text != "")
+                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text != "" && comboBoxType.Text !="")
                 {
                     _syllabusM.Year = textBoxYear.Text.Trim();
                     _syllabusM.ClassId = (int)comboBoxClass.SelectedValue;
                     _syllabusM.BookId = (int)comboBoxBook.SelectedValue;
+                    _syllabusM.Type = comboBoxType.Text;
 
                     var isSaved = _syllabusBll.Insert(_syllabusM);
                     if (isSaved)
@@ -126,10 +128,12 @@ namespace M_CGPA
             _syllabusM.BookId = (int) dataGridViewSyllabusList.Rows[e.RowIndex].Cells["BookIds"].Value;
             _syllabusM.Class = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Classs"].Value.ToString();
             _syllabusM.Book = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Books"].Value.ToString();
+            _syllabusM.Type = dataGridViewSyllabusList.Rows[e.RowIndex].Cells["Type"].Value.ToString();
 
             textBoxYear.Text = _syllabusM.Year;
             comboBoxClass.SelectedValue = _syllabusM.ClassId;
             comboBoxBook.SelectedValue = _syllabusM.BookId;
+            comboBoxType.Text = _syllabusM.Type;
 
             buttonUpdate.Visible = true;
             buttonDelete.Visible = true;
@@ -156,11 +160,12 @@ namespace M_CGPA
             try
             {
 
-                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text!="")
+                if (textBoxYear.Text != "" && comboBoxClass.Text != "" && comboBoxBook.Text!="" && comboBoxType.Text!="")
                 {
                     _syllabusM.Year = textBoxYear.Text.Trim();
                     _syllabusM.ClassId = (int) comboBoxClass.SelectedValue;
                     _syllabusM.BookId = (int) comboBoxBook.SelectedValue;
+                    _syllabusM.Type = comboBoxType.Text;
                     
                     var isUpdate = _syllabusBll.Update(_syllabusM);
                     if (isUpdate)
@@ -204,7 +209,7 @@ namespace M_CGPA
                 {
                     GetAll();
                     MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                     textBoxYear.Clear();
                     comboBoxClass.SelectedValue = 0;
                     comboBoxBook.SelectedValue = 0;
