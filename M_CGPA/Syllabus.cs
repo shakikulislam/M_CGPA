@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ShakikulMethod;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
@@ -17,7 +18,8 @@ namespace M_CGPA
         readonly SyllabusM _syllabusM=new SyllabusM();
         readonly ClassBll _classBll=new ClassBll();
         readonly SelectLanguage _selectLanguage = new SelectLanguage();
-
+        readonly FormAlert _alert = new FormAlert();
+        
         public Syllabus()
         {
             InitializeComponent();
@@ -32,6 +34,11 @@ namespace M_CGPA
             GetAll();
         }
 
+        //private void Alert(string message, FormAlert.TypeEnum type)
+        //{
+        //    //FormAlert alert=new FormAlert();
+        //    //alert.ShowAlert(message,type);
+        //}
 
         private void SelectLanguage()
         {
@@ -171,7 +178,8 @@ namespace M_CGPA
                     if (isUpdate)
                     {
                         GetAll();
-                        MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _alert.ShowAlert(_selectLanguage.Language.UpdateSuccessMessage, FormAlert.TypeEnum.Information);
 
                         textBoxYear.Clear();
                         comboBoxClass.SelectedValue = 0;

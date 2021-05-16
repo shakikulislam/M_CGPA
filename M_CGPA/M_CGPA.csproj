@@ -214,6 +214,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ShakikulMethod\ShakikulMethod\ShakikulMethod.csproj">
+      <Project>{955F6C5F-E5F4-440B-9700-85E7D272F99C}</Project>
+      <Name>ShakikulMethod</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

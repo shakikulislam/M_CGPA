@@ -27,6 +27,7 @@ namespace M_CGPA
 
         int _fieldLocation = 1;
         DataTable _bookLIst;
+        private DataTable _table;
         public Student()
         {
             InitializeComponent();
@@ -132,6 +133,24 @@ namespace M_CGPA
             _fieldLocation += 1;
 
             return newTextBox;
+        }
+
+        public ComboBox AddNewComboBox(string tbName, int location, DataTable itemTable, Control field)
+        {
+            var newComboBox = new ComboBox();
+            field.Controls.Add(newComboBox);
+
+            newComboBox.Top = _fieldLocation * location;
+            newComboBox.Left = 15;
+            newComboBox.Name = tbName;
+            newComboBox.Height = 25;
+            newComboBox.DataSource = itemTable;
+            newComboBox.DisplayMember = "book";
+            newComboBox.ValueMember = "Id";
+            newComboBox.DropDownStyle=ComboBoxStyle.DropDownList;
+            _fieldLocation += 1;
+
+            return newComboBox;
         }
 
         private void GetAll()
@@ -472,15 +491,38 @@ namespace M_CGPA
 
                 _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
 
+                //var optionalSubject = _syllabusBll.GetByOptionalSubject();
+                _table=new DataTable();
+                _table.Columns.Add("Id");
+                _table.Columns.Add("Book");
+                string cbName = null;
                 if (_bookLIst.Rows.Count > 0)
                 {
                     for (int i = 0; i < _bookLIst.Rows.Count; i++)
                     {
-                        var cbName = _bookLIst.Rows[i][0].ToString();
+                        //Mandatory
+                        //Optional
+                        var type = _bookLIst.Rows[i]["Type"].ToString();
+                        cbName = _bookLIst.Rows[i][0].ToString();
                         var value = _bookLIst.Rows[i]["Book"].ToString();
-                        AddNewLabel(value, 25, panelARBookList);
-                        AddNewTextBox(cbName, 25, panelARBookList);
+
+                        if (type == "Mandatory")
+                        {
+                            AddNewLabel(value, 25, panelARBookList);
+                            AddNewTextBox(cbName, 25, panelARBookList);
+                        }
+
+                        if (type == "Optional")
+                        {
+                            _table.Rows.Add(
+                                _bookLIst.Rows[i]["Id"],
+                                _bookLIst.Rows[i]["book"]
+                                );
+                        }
+
                     }
+                    AddNewLabel("Select Optional Subject", 25, panelARBookList);
+                    AddNewComboBox(cbName, 25, _table, panelARBookList);
                 }
                 else
                 {
@@ -508,10 +550,10 @@ namespace M_CGPA
                 }
                 else
                 {
-                    var table=new DataTable();
-                    table.Columns.Add("year");
-                    table.Columns.Add("class");
-                    table.Columns.Add("book");
+                    _table=new DataTable();
+                    _table.Columns.Add("year");
+                    _table.Columns.Add("class");
+                    _table.Columns.Add("book");
                     foreach (DataRow dataRowBook in bookAccountTable.Rows)
                     {
                         _bookAccountM.Book = dataRowBook["Book"].ToString();
@@ -519,14 +561,14 @@ namespace M_CGPA
                         var syllabusList = _syllabusBll.GetBySyllabusId(_bookAccountM);
                         foreach (DataRow dataRowSl in syllabusList.Rows)
                         {
-                            table.Rows.Add(
+                            _table.Rows.Add(
                                 dataRowSl["Year"].ToString(),
                                 dataRowSl["Class"].ToString(),
                                 dataRowSl["Book"].ToString()
                                 );
                         }
                     }
-                    dataGridViewBAAssignedBook.DataSource = table;
+                    dataGridViewBAAssignedBook.DataSource = _table;
                 }
 
                 buttonBAAddBook.Visible = false;

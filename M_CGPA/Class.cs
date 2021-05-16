@@ -2,11 +2,10 @@
 using System.Drawing;
 using System.Windows.Forms;
 using M_CGPA.BLL;
-using M_CGPA.Common;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
-using M_CGPA.Properties;
+using ShakikulMethod;
 
 namespace M_CGPA
 {
@@ -15,7 +14,7 @@ namespace M_CGPA
         readonly ClassBll _classBll=new ClassBll();
         readonly ClassM _classM=new ClassM();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
-        CustomMessageBox customMessageBox=new CustomMessageBox();
+        readonly FormAlert _alert=new FormAlert();
         
         public Class()
         {
@@ -175,6 +174,9 @@ namespace M_CGPA
             buttonCancel.Visible = true;
 
             textBoxClassName.Focus();
+
+            _alert.ShowAlert(_selectLanguage.Language.UpdateSuccessMessage, FormAlert.TypeEnum.Information);
+
         }
 
         private void dataGridViewClassList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

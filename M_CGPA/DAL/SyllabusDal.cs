@@ -91,7 +91,7 @@ namespace M_CGPA.DAL
         public DataTable GetByFilter(SyllabusM syllabus)
         {
             DbConnection();
-            var querry ="SELECT Syllabus.Id, Syllabus.Year, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
+            var querry ="SELECT Syllabus.Id, Syllabus.Year, Syllabus.Type, Book.Id AS BookId, Book.Code AS BookCode, Book.Name AS Book, Class.Id AS ClassId, Class.Name AS Class " +
                 "FROM Syllabus " +
                 "INNER JOIN Book ON Syllabus.BookId=Book.Id " +
                 "INNER JOIN Class ON Syllabus.ClassId=Class.Id " +

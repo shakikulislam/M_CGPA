@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M_CGPA", "M_CGPA\M_CGPA.csproj", "{43FC7F33-76F9-49B3-BCCF-DA6294021C5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShakikulMethod", "..\ShakikulMethod\ShakikulMethod\ShakikulMethod.csproj", "{955F6C5F-E5F4-440B-9700-85E7D272F99C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{43FC7F33-76F9-49B3-BCCF-DA6294021C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43FC7F33-76F9-49B3-BCCF-DA6294021C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43FC7F33-76F9-49B3-BCCF-DA6294021C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{955F6C5F-E5F4-440B-9700-85E7D272F99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{955F6C5F-E5F4-440B-9700-85E7D272F99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{955F6C5F-E5F4-440B-9700-85E7D272F99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{955F6C5F-E5F4-440B-9700-85E7D272F99C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
