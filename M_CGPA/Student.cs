@@ -7,6 +7,7 @@ using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
+using ShakikulMethod;
 
 namespace M_CGPA
 {
@@ -24,10 +25,12 @@ namespace M_CGPA
         readonly ResultBll _resultBll=new ResultBll();
         readonly GradePointM _gradePointM=new GradePointM();
         readonly GradePoingBll _gradePoingBll=new GradePoingBll();
-
-        int _fieldLocation = 1;
+        FormAlert Alert=new FormAlert();
         DataTable _bookLIst;
         private DataTable _table;
+
+        int _autoFieldLocation = 1;
+
         public Student()
         {
             InitializeComponent();
@@ -94,11 +97,11 @@ namespace M_CGPA
             var newCheckBox = new CheckBox();
             panelBookList.Controls.Add(newCheckBox);
 
-            newCheckBox.Top = _fieldLocation * 28;
+            newCheckBox.Top = _autoFieldLocation * 28;
             newCheckBox.Left = 15;
             newCheckBox.Name = cbName;
             newCheckBox.Text = cbBook;
-            _fieldLocation += 1;
+            _autoFieldLocation += 1;
 
             return newCheckBox;
         }
@@ -108,14 +111,14 @@ namespace M_CGPA
             var newLabel = new Label();
             field.Controls.Add(newLabel);
 
-            newLabel.Top = _fieldLocation * location;
+            newLabel.Top = _autoFieldLocation * location;
             newLabel.Left = 15;
             newLabel.Text = lblText;
             //newLabel.AutoSize = true;
             newLabel.Height = 25;
             newLabel.TextAlign = ContentAlignment.BottomLeft;
             newLabel.Width = panelARBookList.Width-50;
-            _fieldLocation += 1;
+            _autoFieldLocation += 1;
 
             return newLabel;
         }
@@ -125,12 +128,13 @@ namespace M_CGPA
             var newTextBox = new TextBox();
             field.Controls.Add(newTextBox);
 
-            newTextBox.Top = _fieldLocation*location;
+            newTextBox.Top = _autoFieldLocation*location;
             newTextBox.Left = 15;
             newTextBox.Name = tbName;
             newTextBox.Height = 25;
             newTextBox.BorderStyle = BorderStyle.FixedSingle;
-            _fieldLocation += 1;
+            _autoFieldLocation += 1;
+            //newTextBox.Text = newTextBox.Name;
 
             return newTextBox;
         }
@@ -140,7 +144,7 @@ namespace M_CGPA
             var newComboBox = new ComboBox();
             field.Controls.Add(newComboBox);
 
-            newComboBox.Top = _fieldLocation * location;
+            newComboBox.Top = _autoFieldLocation * location;
             newComboBox.Left = 15;
             newComboBox.Name = tbName;
             newComboBox.Height = 25;
@@ -148,7 +152,7 @@ namespace M_CGPA
             newComboBox.DisplayMember = "book";
             newComboBox.ValueMember = "Id";
             newComboBox.DropDownStyle=ComboBoxStyle.DropDownList;
-            _fieldLocation += 1;
+            _autoFieldLocation += 1;
 
             return newComboBox;
         }
@@ -199,8 +203,9 @@ namespace M_CGPA
                     var isSaved = _studentBll.Insert(_studentM);
                     if (isSaved)
                     {
-                        MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        //MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Alert.ShowAlert(_selectLanguage.Language.SaveSuccessMessage,FormAlert.TypeEnum.Success);
+
                         dataGridViewStudentList.DataSource = _studentBll.GetByFilter(_studentM.Roll.ToString());
 
                         ClearFields(panelAddForm);
@@ -208,12 +213,14 @@ namespace M_CGPA
                     }
                     else
                     {
-                        MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        //MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        Alert.ShowAlert(_selectLanguage.Language.ErrorMessage,FormAlert.TypeEnum.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    //MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    Alert.ShowAlert(_selectLanguage.Language.BlankFiled,FormAlert.TypeEnum.Error);
                 }
 
             }
@@ -231,7 +238,8 @@ namespace M_CGPA
                 if (isDelete)
                 {
                     GetAll();
-                    MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alert.ShowAlert(_selectLanguage.Language.DeleteSuccessMessage,FormAlert.TypeEnum.Success);
 
                     ClearFields(panelAddForm);
                     comboBoxClass.SelectedValue = 0;
@@ -271,8 +279,9 @@ namespace M_CGPA
                     var isUpdate = _studentBll.Update(_studentM);
                     if (isUpdate)
                     {
-                        MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        //MessageBox.Show(_selectLanguage.Language.UpdateSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Alert.ShowAlert(_selectLanguage.Language.UpdateSuccessMessage,FormAlert.TypeEnum.Success);
+
                         GetAll();
                         
                         ClearFields(panelAddForm);
@@ -284,12 +293,14 @@ namespace M_CGPA
                     }
                     else
                     {
-                        MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        //MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        Alert.ShowAlert(_selectLanguage.Language.ErrorMessage,FormAlert.TypeEnum.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    //MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    Alert.ShowAlert(_selectLanguage.Language.BlankFiled, FormAlert.TypeEnum.Information);
                 }
 
             }
@@ -393,7 +404,7 @@ namespace M_CGPA
 
                     _resultM.StudentId = (int) student.Rows[0]["Id"];
 
-                    LoadBook();
+                    LoadArBookFields();
                 }
                 else if (e.KeyCode == Keys.Delete)
                 {
@@ -454,7 +465,7 @@ namespace M_CGPA
             try
             {
                 panelBookList.Controls.Clear();
-                _fieldLocation = 1;
+                _autoFieldLocation = 1;
 
                 // load book list
                 _syllabusM.ClassId = (int) comboBoxBAClass.SelectedValue;
@@ -482,12 +493,12 @@ namespace M_CGPA
             }
         }
 
-        private void LoadBook()
+        private void LoadArBookFields()
         {
             try
             {
                 panelARBookList.Controls.Clear();
-                _fieldLocation = 1;
+                _autoFieldLocation = 1;
 
                 _bookLIst = _syllabusBll.GetByFilter(_syllabusM);
 
@@ -495,9 +506,12 @@ namespace M_CGPA
                 _table=new DataTable();
                 _table.Columns.Add("Id");
                 _table.Columns.Add("Book");
+
                 string cbName = null;
+
                 if (_bookLIst.Rows.Count > 0)
                 {
+
                     for (int i = 0; i < _bookLIst.Rows.Count; i++)
                     {
                         //Mandatory
@@ -521,8 +535,13 @@ namespace M_CGPA
                         }
 
                     }
-                    AddNewLabel("Select Optional Subject", 25, panelARBookList);
-                    AddNewComboBox(cbName, 25, _table, panelARBookList);
+                    if (_table.Rows.Count>0)
+                    {
+
+                        AddNewLabel("Select Optional Subject", 26, panelARBookList);
+                        AddNewComboBox(cbName, 26, _table, panelARBookList);
+                        AddNewTextBox(cbName, 27, panelARBookList);
+                    }
                 }
                 else
                 {
@@ -600,7 +619,7 @@ namespace M_CGPA
 
         private void DeleteAutoGenerateFields(Control panel)
         {
-            _fieldLocation = 1;
+            _autoFieldLocation = 1;
             panel.Controls.Clear();
         }
 
@@ -729,19 +748,20 @@ namespace M_CGPA
                 var isSuccess = _resultBll.Insert(_resultM);
                 if (isSuccess)
                 {
-                    MessageBox.Show("Save Success...");
+                    //MessageBox.Show("Save Success...");
+                    Alert.ShowAlert(_selectLanguage.Language.SaveSuccessMessage,FormAlert.TypeEnum.Success);
                     textBoxARSearch.Clear();
                     textBoxARSearch.Focus();
                     
                 }
                 else
                 {
-                    MessageBox.Show("");
+                    Alert.ShowAlert(_selectLanguage.Language.ErrorMessage,FormAlert.TypeEnum.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

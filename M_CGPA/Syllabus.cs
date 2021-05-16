@@ -33,13 +33,7 @@ namespace M_CGPA
 
             GetAll();
         }
-
-        //private void Alert(string message, FormAlert.TypeEnum type)
-        //{
-        //    //FormAlert alert=new FormAlert();
-        //    //alert.ShowAlert(message,type);
-        //}
-
+        
         private void SelectLanguage()
         {
             _selectLanguage.UserLanguage();

@@ -174,9 +174,6 @@ namespace M_CGPA
             buttonCancel.Visible = true;
 
             textBoxClassName.Focus();
-
-            _alert.ShowAlert(_selectLanguage.Language.UpdateSuccessMessage, FormAlert.TypeEnum.Information);
-
         }
 
         private void dataGridViewClassList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
