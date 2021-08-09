@@ -53,6 +53,7 @@ namespace M_CGPA
         {
             _selectLanguage.UserLanguage();
 
+            labelClassNumber.Text = _selectLanguage.Language.ClassNumber;
             labelTitle.Text = _selectLanguage.Language.TitleClass;
             labelClassName.Text = _selectLanguage.Language.ClassName;
             buttonAdd.Text = _selectLanguage.Language.BtnAdd;
@@ -69,11 +70,13 @@ namespace M_CGPA
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             var className = textBoxClassName.Text.Trim();
+            var classNumber = textBoxClassNumber.Text.Trim();
             try
             {
-                if (className != "")
+                if (className != "" & classNumber!="")
                 {
                     _classM.Name = className;
+                    _classM.Number = Convert.ToInt32(classNumber);
                     var isSaved = _classBll.AddClass(_classM);
                     if (isSaved)
                     {
@@ -108,10 +111,16 @@ namespace M_CGPA
         {
             try
             {
-                if (textBoxClassName.Text != "")
+                var className = textBoxClassName.Text.Trim();
+                var classNumber = textBoxClassNumber.Text.Trim();
+
+                if (className != "" & classNumber != "")
                 {
-                    _classM.Name = textBoxClassName.Text.Trim();
+                    _classM.Name = className;
+                    _classM.Number = Convert.ToInt32(classNumber);
+
                     var isUpdate = _classBll.UpdateClass(_classM);
+
                     if (isUpdate)
                     {
                         AllClass();
@@ -129,13 +138,15 @@ namespace M_CGPA
                 }
                 else
                 {
-                    MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    _alert.ShowAlert(_selectLanguage.Language.BlankFiled, FormAlert.TypeEnum.Error);
+
                 }
 
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -152,6 +163,9 @@ namespace M_CGPA
                     MessageBox.Show(_selectLanguage.Language.DeleteSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     textBoxClassName.Clear();
+                    textBoxClassNumber.Clear();
+                    textBoxClassName.Focus();
+
                     buttonUpdate.Visible = false;
                     buttonDelete.Visible = false;
                     buttonCancel.Visible = false;
@@ -164,6 +178,9 @@ namespace M_CGPA
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             textBoxClassName.Clear();
+            textBoxClassNumber.Clear();
+            textBoxClassName.Focus();
+
             buttonUpdate.Visible = false;
             buttonDelete.Visible = false;
             buttonCancel.Visible = false;
@@ -174,7 +191,9 @@ namespace M_CGPA
         {
             _classM.Id = (int)dataGridViewClassList.Rows[e.RowIndex].Cells["id"].Value;
             _classM.Name = dataGridViewClassList.Rows[e.RowIndex].Cells["name"].Value.ToString();
+            _classM.Number=Convert.ToInt32(dataGridViewClassList.Rows[e.RowIndex].Cells["Number"].Value.ToString());
             textBoxClassName.Text = _classM.Name;
+            textBoxClassNumber.Text = _classM.Number.ToString();
 
             buttonAdd.Visible = false;
             buttonUpdate.Visible = true;

@@ -15,7 +15,7 @@ namespace M_CGPA.BLL
         {
             _language.UserLanguage();
 
-            var isClassExist = _classDal.Get(classM);
+            var isClassExist = _classDal.GetByName(classM);
             if (isClassExist)
             {
                 throw new Exception(_language.Language.ClassAlreadyExist);
@@ -34,7 +34,7 @@ namespace M_CGPA.BLL
         {
             _language.UserLanguage();
 
-            var isClassExist = _classDal.Get(classM);
+            var isClassExist = _classDal.GetByName(classM);
             if (isClassExist)
             {
                 throw new Exception(_language.Language.ClassAlreadyExist);

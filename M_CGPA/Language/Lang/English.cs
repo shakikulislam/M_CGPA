@@ -23,6 +23,7 @@ namespace M_CGPA.Language.Lang
 
             #region All Field Name
 
+            Pro.ClassNumber = "Class Number";
             Pro.Mark = "Mark";
             Pro.SearchForAnything = "Search by typing anything";
             Pro.HelAreadyHasTheBook = "He already has the book";

@@ -8,5 +8,7 @@ namespace M_CGPA.Model
 
         [Required]
         public string Name { get; set; }
+
+        public int Number { get; set; }
     }
 }

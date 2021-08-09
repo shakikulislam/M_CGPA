@@ -41,10 +41,13 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewClassList = new System.Windows.Forms.DataGridView();
-            this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelClassNumber = new System.Windows.Forms.Label();
+            this.textBoxClassNumber = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTitlebar.SuspendLayout();
             this.panelAddClass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClassList)).BeginInit();
@@ -102,6 +105,8 @@
             // 
             this.panelAddClass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelAddClass.BackColor = System.Drawing.Color.Transparent;
+            this.panelAddClass.Controls.Add(this.labelClassNumber);
+            this.panelAddClass.Controls.Add(this.textBoxClassNumber);
             this.panelAddClass.Controls.Add(this.buttonCancel);
             this.panelAddClass.Controls.Add(this.buttonDelete);
             this.panelAddClass.Controls.Add(this.buttonUpdate);
@@ -110,7 +115,7 @@
             this.panelAddClass.Controls.Add(this.buttonAdd);
             this.panelAddClass.Location = new System.Drawing.Point(61, 51);
             this.panelAddClass.Name = "panelAddClass";
-            this.panelAddClass.Size = new System.Drawing.Size(473, 96);
+            this.panelAddClass.Size = new System.Drawing.Size(473, 126);
             this.panelAddClass.TabIndex = 7;
             // 
             // buttonCancel
@@ -120,7 +125,7 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(303, 52);
+            this.buttonCancel.Location = new System.Drawing.Point(303, 82);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(122, 31);
             this.buttonCancel.TabIndex = 18;
@@ -136,7 +141,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(175, 52);
+            this.buttonDelete.Location = new System.Drawing.Point(46, 82);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(122, 31);
             this.buttonDelete.TabIndex = 14;
@@ -152,7 +157,7 @@
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(47, 52);
+            this.buttonUpdate.Location = new System.Drawing.Point(175, 82);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(122, 31);
             this.buttonUpdate.TabIndex = 13;
@@ -168,7 +173,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(303, 52);
+            this.buttonAdd.Location = new System.Drawing.Point(303, 82);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(122, 31);
             this.buttonAdd.TabIndex = 11;
@@ -195,7 +200,8 @@
             this.dataGridViewClassList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.id,
-            this.name});
+            this.name,
+            this.Number});
             this.dataGridViewClassList.DataSource = this.classMBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -206,19 +212,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewClassList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewClassList.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dataGridViewClassList.Location = new System.Drawing.Point(61, 162);
+            this.dataGridViewClassList.Location = new System.Drawing.Point(61, 198);
             this.dataGridViewClassList.Name = "dataGridViewClassList";
             this.dataGridViewClassList.ReadOnly = true;
             this.dataGridViewClassList.RowHeadersVisible = false;
             this.dataGridViewClassList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClassList.Size = new System.Drawing.Size(473, 167);
+            this.dataGridViewClassList.Size = new System.Drawing.Size(473, 200);
             this.dataGridViewClassList.TabIndex = 17;
             this.dataGridViewClassList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClassList_CellDoubleClick);
             this.dataGridViewClassList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewClassList_RowPostPaint);
-            // 
-            // classMBindingSource
-            // 
-            this.classMBindingSource.DataSource = typeof(M_CGPA.Model.ClassM);
             // 
             // Column1
             // 
@@ -227,6 +229,37 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 39;
+            // 
+            // Number
+            // 
+            this.Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Number";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            this.Number.Width = 69;
+            // 
+            // labelClassNumber
+            // 
+            this.labelClassNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelClassNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClassNumber.ForeColor = System.Drawing.Color.Black;
+            this.labelClassNumber.Location = new System.Drawing.Point(215, 53);
+            this.labelClassNumber.Name = "labelClassNumber";
+            this.labelClassNumber.Size = new System.Drawing.Size(121, 20);
+            this.labelClassNumber.TabIndex = 19;
+            this.labelClassNumber.Text = "Class Number";
+            this.labelClassNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxClassNumber
+            // 
+            this.textBoxClassNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxClassNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxClassNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxClassNumber.Location = new System.Drawing.Point(342, 50);
+            this.textBoxClassNumber.Name = "textBoxClassNumber";
+            this.textBoxClassNumber.Size = new System.Drawing.Size(83, 26);
+            this.textBoxClassNumber.TabIndex = 20;
             // 
             // id
             // 
@@ -244,12 +277,16 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
+            // classMBindingSource
+            // 
+            this.classMBindingSource.DataSource = typeof(M_CGPA.Model.ClassM);
+            // 
             // Class
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(594, 360);
+            this.ClientSize = new System.Drawing.Size(594, 429);
             this.Controls.Add(this.dataGridViewClassList);
             this.Controls.Add(this.panelAddClass);
             this.Controls.Add(this.panelTitlebar);
@@ -282,6 +319,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.Label labelClassNumber;
+        private System.Windows.Forms.TextBox textBoxClassNumber;
 
     }
 }

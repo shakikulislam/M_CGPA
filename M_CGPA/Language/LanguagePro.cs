@@ -20,6 +20,7 @@ namespace M_CGPA.Language
 
         #region All Field Name
 
+        public string ClassNumber { get; set; }
         public string Mark { get; set; }
         public string SearchForAnything { get; set; }
         public string HelAreadyHasTheBook { get; set; }

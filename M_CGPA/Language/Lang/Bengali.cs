@@ -21,6 +21,7 @@
 
             #region All Field Name
 
+            Pro.ClassNumber = "ক্লাস নম্বর";
             Pro.Mark = "মার্ক";
             Pro.SearchForAnything = "যে কোন কিছু লিখে অনুসন্ধান করুন";
             Pro.HelAreadyHasTheBook = "ইতিমধ্যে তাঁর কাছে বই গুলো রয়েছে";

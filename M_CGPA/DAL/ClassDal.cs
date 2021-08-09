@@ -22,7 +22,7 @@ namespace M_CGPA.DAL
         public bool Insert(ClassM classM)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO Class(Name)VALUES('" + classM.Name + "')";
+            _sqlCommand.CommandText = "INSERT INTO Class VALUES('" + classM.Name + "','"+classM.Number+"')";
             var isSaved=_sqlCommand.ExecuteNonQuery();
 
             return isSaved>0;
@@ -31,7 +31,7 @@ namespace M_CGPA.DAL
         public bool Update(ClassM classM)
         {
             DbConnection();
-            _sqlCommand.CommandText = "UPDATE Class SET Name='" + classM.Name + "' WHERE Id='" + classM.Id + "'";
+            _sqlCommand.CommandText = "UPDATE Class SET Name='" + classM.Name + "', Number='"+classM.Number+"' WHERE Id='" + classM.Id + "'";
             var isUpdate = _sqlCommand.ExecuteNonQuery();
 
             return isUpdate > 0;
@@ -46,7 +46,7 @@ namespace M_CGPA.DAL
             return isDelete > 0;
         }
 
-        public bool Get(ClassM classM)
+        public bool GetByName(ClassM classM)
         {
             DbConnection();
             _sqlCommand.CommandText = "SELECT *FROM Class WHERE Name='" + classM.Name + "'";
@@ -58,7 +58,7 @@ namespace M_CGPA.DAL
         public object GetAll()
         {
             DbConnection();
-            _sqlCommand.CommandText = "SELECT *FROM Class";
+            _sqlCommand.CommandText = "SELECT *FROM Class ORDER BY Number ASC";
             _sqlDataAdapter = new SqlDataAdapter(_sqlCommand);
             _dataSet = new DataSet();
             _sqlDataAdapter.Fill(_dataSet);
