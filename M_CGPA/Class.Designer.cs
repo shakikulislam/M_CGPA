@@ -36,15 +36,15 @@
             this.labelClassName = new System.Windows.Forms.Label();
             this.textBoxClassName = new System.Windows.Forms.TextBox();
             this.panelAddClass = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewClassList = new System.Windows.Forms.DataGridView();
+            this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelTitlebar.SuspendLayout();
             this.panelAddClass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClassList)).BeginInit();
@@ -112,6 +112,22 @@
             this.panelAddClass.Name = "panelAddClass";
             this.panelAddClass.Size = new System.Drawing.Size(473, 96);
             this.panelAddClass.TabIndex = 7;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.Purple;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.White;
+            this.buttonCancel.Location = new System.Drawing.Point(303, 52);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(122, 31);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonDelete
             // 
@@ -200,29 +216,17 @@
             this.dataGridViewClassList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClassList_CellDoubleClick);
             this.dataGridViewClassList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewClassList_RowPostPaint);
             // 
+            // classMBindingSource
+            // 
+            this.classMBindingSource.DataSource = typeof(M_CGPA.Model.ClassM);
+            // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "#";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 5;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.BackColor = System.Drawing.Color.Purple;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(303, 52);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(122, 31);
-            this.buttonCancel.TabIndex = 18;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.Column1.Width = 39;
             // 
             // id
             // 
@@ -239,10 +243,6 @@
             this.name.HeaderText = "Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            // 
-            // classMBindingSource
-            // 
-            this.classMBindingSource.DataSource = typeof(M_CGPA.Model.ClassM);
             // 
             // Class
             // 
@@ -278,10 +278,10 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.DataGridView dataGridViewClassList;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.Button buttonCancel;
 
     }
 }

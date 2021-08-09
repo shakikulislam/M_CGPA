@@ -21,8 +21,11 @@ namespace M_CGPA.DAL
         public bool Insert(ResultM result)
         {
             DbConnection();
-            _sqlCommand.CommandText = "INSERT INTO Result(StudentId,SyllabusId,Number,OptionalSubject,Result,RangeOfMarks)" +
-                                      "VALUES('" + result.StudentId + "','" + result.SyllabusId + "','" + result.Number + "','" + result.OptionalSubject + "','" + result.Result + "','" + result.RangeOfMarks + "')";
+            _sqlCommand.CommandText = "INSERT INTO Result (StudentId,SyllabusId,Number,OptionalSubject,Grade,Point,AverageGrade,AveragePoint,Result,RangeOfMarks) " +
+                                      "VALUES('" + result.StudentId + "','" + result.SyllabusId + "','" + result.Number +
+                                      "','" + result.OptionalSubject + "','" + result.Grade + "','" + result.Point +
+                                      "','" + result.AverageGrade + "','" + result.AveragePoint + "','" + result.Result +
+                                      "','" + result.RangeOfMarks + "')";
             var isSaved = _sqlCommand.ExecuteNonQuery();
 
             return isSaved > 0;

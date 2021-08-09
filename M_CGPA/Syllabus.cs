@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using ShakikulMethod;
+using ShakikulFramework;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
@@ -19,6 +19,7 @@ namespace M_CGPA
         readonly ClassBll _classBll=new ClassBll();
         readonly SelectLanguage _selectLanguage = new SelectLanguage();
         readonly FormAlert _alert = new FormAlert();
+
         
         public Syllabus()
         {

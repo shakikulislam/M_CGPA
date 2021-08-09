@@ -45,15 +45,15 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewBookList = new System.Windows.Forms.DataGridView();
+            this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.panelSearch = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.labelSearch = new System.Windows.Forms.Label();
-            this.panelSearch = new System.Windows.Forms.Panel();
             this.panelTitlebar.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookList)).BeginInit();
@@ -272,48 +272,6 @@
             this.dataGridViewBookList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBookList_CellDoubleClick);
             this.dataGridViewBookList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewBookList_RowPostPaint);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Column1.HeaderText = "#";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 5;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // code
-            // 
-            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.code.DataPropertyName = "Code";
-            this.code.HeaderText = "Code";
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            this.code.Width = 57;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // Mark
-            // 
-            this.Mark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Mark.DataPropertyName = "Mark";
-            this.Mark.HeaderText = "Mark";
-            this.Mark.Name = "Mark";
-            this.Mark.ReadOnly = true;
-            this.Mark.Width = 56;
-            // 
             // bookMBindingSource
             // 
             this.bookMBindingSource.DataSource = typeof(M_CGPA.Model.BookM);
@@ -349,6 +307,48 @@
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(547, 39);
             this.panelSearch.TabIndex = 29;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 39;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // code
+            // 
+            this.code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.code.DataPropertyName = "Code";
+            this.code.HeaderText = "Code";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Width = 57;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // Mark
+            // 
+            this.Mark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mark.DataPropertyName = "Mark";
+            this.Mark.HeaderText = "Mark";
+            this.Mark.Name = "Mark";
+            this.Mark.ReadOnly = true;
+            this.Mark.Width = 56;
             // 
             // Book
             // 
@@ -390,13 +390,13 @@
         private System.Windows.Forms.Label labelBookMark;
         private System.Windows.Forms.TextBox textBoxBookMark;
         private System.Windows.Forms.BindingSource bookMBindingSource;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mark;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.Panel panelSearch;
     }
 }

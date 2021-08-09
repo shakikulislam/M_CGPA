@@ -2,12 +2,13 @@
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
-using ShakikulMethod;
+using ShakikulFramework;
 
 namespace M_CGPA
 {
@@ -26,10 +27,14 @@ namespace M_CGPA
         readonly GradePointM _gradePointM=new GradePointM();
         readonly GradePoingBll _gradePoingBll=new GradePoingBll();
         FormAlert Alert=new FormAlert();
+        
+
         DataTable _bookLIst;
         private DataTable _table;
 
         int _autoFieldLocation = 1;
+        private bool optionalSubject = false;
+        private int optionalTextBoxName=1;
 
         public Student()
         {
@@ -42,6 +47,9 @@ namespace M_CGPA
             //comboBoxARClass.DataSource = _classBll.GetAllClass();
             comboBoxBAClass.DataSource = _classBll.GetAllClass();
             GetAll();
+
+            dateTimePickerDob.MaxDate = DateTime.Now;
+
         }
 
         private void SelectLanguage()
@@ -123,9 +131,11 @@ namespace M_CGPA
             return newLabel;
         }
 
+        private TextBox newTextBox;
         public TextBox AddNewTextBox(string tbName, int location, Control field)
         {
-            var newTextBox = new TextBox();
+            newTextBox=new TextBox();
+
             field.Controls.Add(newTextBox);
 
             newTextBox.Top = _autoFieldLocation*location;
@@ -139,22 +149,36 @@ namespace M_CGPA
             return newTextBox;
         }
 
-        public ComboBox AddNewComboBox(string tbName, int location, DataTable itemTable, Control field)
+        private ComboBox newComboBox;
+        public ComboBox AddNewComboBox(int location, DataTable itemTable, Control field)
         {
-            var newComboBox = new ComboBox();
+            newComboBox = new ComboBox();
+
             field.Controls.Add(newComboBox);
 
             newComboBox.Top = _autoFieldLocation * location;
             newComboBox.Left = 15;
-            newComboBox.Name = tbName;
+            newComboBox.Name = "optionalSub";
             newComboBox.Height = 25;
             newComboBox.DataSource = itemTable;
             newComboBox.DisplayMember = "book";
             newComboBox.ValueMember = "Id";
             newComboBox.DropDownStyle=ComboBoxStyle.DropDownList;
+            newComboBox.SelectedIndexChanged+=NewComboBox_SelectedIndexChanged;
             _autoFieldLocation += 1;
 
             return newComboBox;
+        }
+
+        private string comboBoxPreSelectedValue;
+        private void NewComboBox_SelectedIndexChanged(object sender, EventArgs eventArgs)
+        {
+            if (newTextBox.Name == "TextBoxOptional" || newTextBox.Name == comboBoxPreSelectedValue)
+            {
+                newTextBox.Name = newComboBox.SelectedValue.ToString();
+
+                comboBoxPreSelectedValue = newComboBox.SelectedValue.ToString();
+            }
         }
 
         private void GetAll()
@@ -181,6 +205,46 @@ namespace M_CGPA
         {
             try
             {
+                //new FormValidation(textBoxSName);
+                //new FormValidation(textBoxSPhone, Color.Violet, Color.Yellow);
+                //new FormValidation(textBoxFName, Color.Violet, Color.Yellow);
+
+                //_studentM.Roll = Convert.ToInt32(textBoxRoll.Text.Trim());
+                //_studentM.Reg = Convert.ToInt32(textBoxReg.Text.Trim());
+                //_studentM.ClassId = (int)comboBoxClass.SelectedValue;
+                //_studentM.Session = textBoxSession.Text.Trim();
+                //_studentM.AdmissionDate = dateTimePickerAdmissionDate.Value;
+                //_studentM.Dob = dateTimePickerDob.Value;
+                //_studentM.StudentName = textBoxSName.Text.Trim();
+                //_studentM.SPhone = textBoxSPhone.Text.Trim();
+                //_studentM.FatherName = textBoxFName.Text.Trim();
+                //_studentM.FPhone = textBoxFPhone.Text.Trim();
+                //_studentM.MotherName = textBoxMName.Text.Trim();
+                //_studentM.MPhone = textBoxMPhone.Text.Trim();
+                //_studentM.Nid = textBoxNid.Text.Trim();
+                //_studentM.Brn = textBoxBRN.Text.Trim();
+                //_studentM.PresentAddress = textBoxPresentAddress.Text.Trim();
+                //_studentM.PermanentAddress = textBoxPermanentAddress.Text.Trim();
+
+                //foreach (var textBox in panelAddForm.Controls.OfType<TextBox>())
+                //{
+                //    new FormValidation(textBox, Color.SaddleBrown, Color.White);
+                //}
+
+
+                //new FormValidation(textBoxFName, Color.Violet, Color.Yellow);
+
+                //if ()
+                //{
+                    
+                //}
+                
+                //_formValidation.(textBoxFName,"ffff");
+                //_formValidation.FormValidation(,)
+                //_formValidation.FieldValidation(textBoxFName, "", Color.AliceBlue, Color.White);
+                //_formValidation.FieldValidation(textBoxMName,"this field is required", Color.DarkOrange,Color.Red);
+                
+                
                 if (textBoxRoll.Text != "" && textBoxSName.Text != "" && comboBoxClass.Text != "" && textBoxFPhone.Text!="")
                 {
                     _studentM.Roll =Convert.ToInt32(textBoxRoll.Text.Trim());
@@ -497,6 +561,8 @@ namespace M_CGPA
         {
             try
             {
+                optionalSubject = false;
+
                 panelARBookList.Controls.Clear();
                 _autoFieldLocation = 1;
 
@@ -506,6 +572,10 @@ namespace M_CGPA
                 _table=new DataTable();
                 _table.Columns.Add("Id");
                 _table.Columns.Add("Book");
+                _table.Rows.Add(
+                    "0",
+                    "Please Select"
+                    );
 
                 string cbName = null;
 
@@ -528,6 +598,7 @@ namespace M_CGPA
 
                         if (type == "Optional")
                         {
+                            optionalSubject = true;
                             _table.Rows.Add(
                                 _bookLIst.Rows[i]["Id"],
                                 _bookLIst.Rows[i]["book"]
@@ -539,8 +610,8 @@ namespace M_CGPA
                     {
 
                         AddNewLabel("Select Optional Subject", 26, panelARBookList);
-                        AddNewComboBox(cbName, 26, _table, panelARBookList);
-                        AddNewTextBox(cbName, 27, panelARBookList);
+                        AddNewComboBox(26, _table, panelARBookList);
+                        AddNewTextBox("TextBoxOptional", 27, panelARBookList);
                     }
                 }
                 else
@@ -703,67 +774,117 @@ namespace M_CGPA
             try
             {
                 _resultM.SyllabusId = "";
-                //_resultM.Result = "";
                 _resultM.RangeOfMarks = "";
                 _resultM.Number = "";
+                _resultM.Grade = "";
+                _resultM.Point = "";
+                
+                double totalMark=0;
+                double examMarks;
+                string grade;
+                double point;
+                double examTotalMarks=0;
+                int totalSubject = 0;
 
-                foreach (var textBox in panelARBookList.Controls.OfType<TextBox>())
+                _table=new DataTable();
+                _table.Columns.Add("grade");
+                _table.Columns.Add("point");
+
+                if (newComboBox.SelectedValue != "0")
                 {
-                    _syllabusM.Id = Convert.ToInt32(textBox.Name);
-                    var totalMark = (int) _syllabusBll.GetBookMarkBySyllabusId(_syllabusM).Rows[0]["Mark"];
-                    var mark = Convert.ToDouble(textBox.Text.Trim());
-
-                    var grade = _gradePoingBll.GetByMark(mark, totalMark).Rows[0]["Grade"];
-                    var point = _gradePoingBll.GetByMark(mark, totalMark).Rows[0]["Point"];
-
-                    if (_resultM.Number != "")
+                    foreach (var textBox in panelARBookList.Controls.OfType<TextBox>())
                     {
-                        _resultM.Number = textBox.Text == ""? _resultM.Number += ",0": _resultM.Number += "," + textBox.Text.Trim();
-                        _resultM.SyllabusId = _resultM.SyllabusId += "," + textBox.Name;
+                        totalSubject += 1;
+
+                        _syllabusM.Id = Convert.ToInt32(textBox.Name);
+                        totalMark = (int) _syllabusBll.GetBookMarkBySyllabusId(_syllabusM).Rows[0]["Mark"];
+                        examMarks = textBox.Text == "" ? 0 : Convert.ToDouble(textBox.Text.Trim());
+
+                        examTotalMarks += examMarks;
+
+                        grade = (string) _gradePoingBll.GetByMark(examMarks, totalMark).Rows[0]["Grade"];
+                        point = (double) _gradePoingBll.GetByMark(examMarks, totalMark).Rows[0]["Point"];
+
+                        if (_resultM.Number != "")
+                        {
+                            _resultM.Number = textBox.Text == ""? _resultM.Number += ",0": _resultM.Number += "," + textBox.Text.Trim();
+                            _resultM.SyllabusId = _resultM.SyllabusId += "," + textBox.Name;
+
+                            _resultM.Grade += "," + grade;
+                            _resultM.Point += "," + point;
+
+                            // Indentify optional subject
+                            if (optionalSubject)
+                            {
+                                _resultM.OptionalSubject = newComboBox.SelectedValue.ToString();
+                            }
+                        }
+
+                        else
+                        {
+                            _resultM.Number = textBox.Text == "" ? _resultM.Number = "0" : textBox.Text.Trim();
+                            _resultM.SyllabusId = textBox.Name;
+
+                            _resultM.Grade = grade.ToString();
+                            _resultM.Point = point.ToString();
+
+                            // Indentify optional subject
+                            if (optionalSubject)
+                            {
+                                _resultM.OptionalSubject = newComboBox.SelectedValue.ToString();
+                            }
+                        }
+                    }
+
+
+                    if (optionalSubject)
+                    {
+                        totalSubject -= 1;
+                    }
+
+                    var averageGrade = (string) _gradePoingBll.GetByMark(examTotalMarks, totalMark).Rows[0]["Grade"];
+                    var averagePoint = (double) _gradePoingBll.GetByMark(examTotalMarks, totalMark).Rows[0]["Point"];
+
+                    _resultM.AverageGrade = averageGrade;
+                    _resultM.AveragePoint = averagePoint;
+
+                    #region Save Result
+
+                    var isSuccess = _resultBll.Insert(_resultM);
+                    if (isSuccess)
+                    {
+                        Alert.ShowAlert(_selectLanguage.Language.SaveSuccessMessage, FormAlert.TypeEnum.Success);
+                        textBoxARSearch.Clear();
+                        textBoxARSearch.Focus();
                     }
                     else
                     {
-                        _resultM.Number = textBox.Text == "" ? _resultM.Number = "0" : textBox.Text.Trim();
-                        _resultM.SyllabusId = textBox.Name;
+                        Alert.ShowAlert(_selectLanguage.Language.ErrorMessage, FormAlert.TypeEnum.Error);
                     }
-                }
 
-                //foreach (Control control in panelARBookList.Controls)
-                //{
-                //    if (control is TextBox)
-                //    {
-                //        if (_resultM.Result=="")
-                //        {
-                //            _resultM.Result = control.Text == ""? _resultM.Result = "0": control.Text.Trim();
-                //            _resultM.SyllabusId = control.Name;
-                //        }
-                //        else
-                //        {
-                //            _resultM.Result = control.Text == "" ? _resultM.Result += ",0" : _resultM.Result += ","+control.Text.Trim();
-                //            _resultM.SyllabusId = _resultM.SyllabusId += "," + control.Name;
-                //        }
-                //    }
-                //}
+                    #endregion
 
-                var isSuccess = _resultBll.Insert(_resultM);
-                if (isSuccess)
-                {
-                    //MessageBox.Show("Save Success...");
-                    Alert.ShowAlert(_selectLanguage.Language.SaveSuccessMessage,FormAlert.TypeEnum.Success);
-                    textBoxARSearch.Clear();
-                    textBoxARSearch.Focus();
-                    
                 }
                 else
                 {
-                    Alert.ShowAlert(_selectLanguage.Language.ErrorMessage,FormAlert.TypeEnum.Error);
+                    MessageBox.Show("Please select optional subject and try again");
                 }
+
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void comboBoxARClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
 
     }
 }

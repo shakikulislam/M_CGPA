@@ -92,7 +92,7 @@ namespace M_CGPA.DAL
             return _dataTable;
         }
 
-        public DataTable GetByMark(double mark, int totalMark)
+        public DataTable GetByMark(double mark, double totalMark)
         {
             DbConnection();
             var marks = ((mark*100)/totalMark);

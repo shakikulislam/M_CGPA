@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using M_CGPA.BLL;
 using M_CGPA.Language;
 using M_CGPA.Language.Font;
 using M_CGPA.Model;
-using ShakikulMethod;
+using ShakikulFramework;
 
 namespace M_CGPA
 {
@@ -15,6 +16,7 @@ namespace M_CGPA
         readonly ClassM _classM=new ClassM();
         readonly SelectLanguage _selectLanguage=new SelectLanguage();
         readonly FormAlert _alert=new FormAlert();
+        //FormValidation _formValidation=new FormValidation();
         
         public Class()
         {
@@ -77,17 +79,23 @@ namespace M_CGPA
                     {
                         textBoxClassName.Clear();
                         AllClass();
-                        MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show(_selectLanguage.Language.SaveSuccessMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _alert.ShowAlert(_selectLanguage.Language.SaveSuccessMessage,FormAlert.TypeEnum.Success);
                     }
                     else
                     {
-                        MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        //MessageBox.Show(_selectLanguage.Language.ErrorMessage, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                        _alert.ShowAlert(_selectLanguage.Language.ErrorMessage, FormAlert.TypeEnum.Error);
+
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    //MessageBox.Show(_selectLanguage.Language.BlankFiled, _selectLanguage.Language.MessageTitle, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    
+                    _alert.ShowAlert(_selectLanguage.Language.BlankFiled, FormAlert.TypeEnum.Error);
+
                 }
             }
             catch (Exception exception)

@@ -52,6 +52,12 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.syllabusMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewSyllabusList = new System.Windows.Forms.DataGridView();
+            this.panelFilter = new System.Windows.Forms.Panel();
+            this.buttonAddForm = new System.Windows.Forms.Button();
+            this.comboBoxClassFilter = new System.Windows.Forms.ComboBox();
+            this.labelClassFilter = new System.Windows.Forms.Label();
+            this.labelYearFilter = new System.Windows.Forms.Label();
+            this.textBoxYearFilter = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.years = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,12 +66,6 @@
             this.classs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelFilter = new System.Windows.Forms.Panel();
-            this.buttonAddForm = new System.Windows.Forms.Button();
-            this.comboBoxClassFilter = new System.Windows.Forms.ComboBox();
-            this.labelClassFilter = new System.Windows.Forms.Label();
-            this.labelYearFilter = new System.Windows.Forms.Label();
-            this.textBoxYearFilter = new System.Windows.Forms.TextBox();
             this.panelTitlebar.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookMBindingSource)).BeginInit();
@@ -357,70 +357,6 @@
             this.dataGridViewSyllabusList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSyllabusList_CellDoubleClick);
             this.dataGridViewSyllabusList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSyllabusList_RowPostPaint);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Column1.HeaderText = "#";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 5;
-            // 
-            // ids
-            // 
-            this.ids.DataPropertyName = "Id";
-            this.ids.HeaderText = "Id";
-            this.ids.Name = "ids";
-            this.ids.ReadOnly = true;
-            this.ids.Visible = false;
-            // 
-            // years
-            // 
-            this.years.DataPropertyName = "Year";
-            this.years.HeaderText = "Year";
-            this.years.Name = "years";
-            this.years.ReadOnly = true;
-            // 
-            // classIds
-            // 
-            this.classIds.DataPropertyName = "ClassId";
-            this.classIds.HeaderText = "ClassId";
-            this.classIds.Name = "classIds";
-            this.classIds.ReadOnly = true;
-            this.classIds.Visible = false;
-            // 
-            // bookIds
-            // 
-            this.bookIds.DataPropertyName = "BookId";
-            this.bookIds.HeaderText = "BookId";
-            this.bookIds.Name = "bookIds";
-            this.bookIds.ReadOnly = true;
-            this.bookIds.Visible = false;
-            // 
-            // classs
-            // 
-            this.classs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.classs.DataPropertyName = "Class";
-            this.classs.HeaderText = "Class";
-            this.classs.Name = "classs";
-            this.classs.ReadOnly = true;
-            // 
-            // books
-            // 
-            this.books.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.books.DataPropertyName = "Book";
-            this.books.HeaderText = "Book";
-            this.books.Name = "books";
-            this.books.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 56;
-            // 
             // panelFilter
             // 
             this.panelFilter.BackColor = System.Drawing.Color.Transparent;
@@ -497,6 +433,73 @@
             this.textBoxYearFilter.Size = new System.Drawing.Size(189, 26);
             this.textBoxYearFilter.TabIndex = 19;
             this.textBoxYearFilter.TextChanged += new System.EventHandler(this.textBoxYearFilter_TextChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "#";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 39;
+            // 
+            // ids
+            // 
+            this.ids.DataPropertyName = "Id";
+            this.ids.HeaderText = "Id";
+            this.ids.Name = "ids";
+            this.ids.ReadOnly = true;
+            this.ids.Visible = false;
+            // 
+            // years
+            // 
+            this.years.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.years.DataPropertyName = "Year";
+            this.years.HeaderText = "Year";
+            this.years.Name = "years";
+            this.years.ReadOnly = true;
+            this.years.Width = 54;
+            // 
+            // classIds
+            // 
+            this.classIds.DataPropertyName = "ClassId";
+            this.classIds.HeaderText = "ClassId";
+            this.classIds.Name = "classIds";
+            this.classIds.ReadOnly = true;
+            this.classIds.Visible = false;
+            // 
+            // bookIds
+            // 
+            this.bookIds.DataPropertyName = "BookId";
+            this.bookIds.HeaderText = "BookId";
+            this.bookIds.Name = "bookIds";
+            this.bookIds.ReadOnly = true;
+            this.bookIds.Visible = false;
+            // 
+            // classs
+            // 
+            this.classs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.classs.DataPropertyName = "Class";
+            this.classs.HeaderText = "Class";
+            this.classs.Name = "classs";
+            this.classs.ReadOnly = true;
+            this.classs.Width = 57;
+            // 
+            // books
+            // 
+            this.books.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.books.DataPropertyName = "Book";
+            this.books.HeaderText = "Book";
+            this.books.Name = "books";
+            this.books.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 56;
             // 
             // Syllabus
             // 

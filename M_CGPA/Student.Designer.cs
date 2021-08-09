@@ -201,7 +201,7 @@ namespace M_CGPA
             this.groupBoxFilter.Location = new System.Drawing.Point(597, 19);
             this.groupBoxFilter.Name = "groupBoxFilter";
             this.groupBoxFilter.Size = new System.Drawing.Size(251, 407);
-            this.groupBoxFilter.TabIndex = 2;
+            this.groupBoxFilter.TabIndex = 1;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Search";
             // 
@@ -222,7 +222,7 @@ namespace M_CGPA
             this.textBoxSearch.Location = new System.Drawing.Point(1, 53);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(249, 26);
-            this.textBoxSearch.TabIndex = 20;
+            this.textBoxSearch.TabIndex = 0;
             this.textBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -439,12 +439,14 @@ namespace M_CGPA
             // 
             // dateTimePickerDob
             // 
-            this.dateTimePickerDob.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDob.CustomFormat = "dd-MMM-yyyy";
+            this.dateTimePickerDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDob.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePickerDob.Location = new System.Drawing.Point(406, 94);
+            this.dateTimePickerDob.Location = new System.Drawing.Point(400, 95);
             this.dateTimePickerDob.Name = "dateTimePickerDob";
-            this.dateTimePickerDob.Size = new System.Drawing.Size(108, 26);
-            this.dateTimePickerDob.TabIndex = 3;
+            this.dateTimePickerDob.Size = new System.Drawing.Size(114, 26);
+            this.dateTimePickerDob.TabIndex = 5;
+            this.dateTimePickerDob.Value = new System.DateTime(2021, 5, 18, 0, 0, 0, 0);
             // 
             // labelPermanentAddress
             // 
@@ -472,7 +474,7 @@ namespace M_CGPA
             this.textBoxPermanentAddress.Name = "textBoxPermanentAddress";
             this.textBoxPermanentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxPermanentAddress.Size = new System.Drawing.Size(336, 50);
-            this.textBoxPermanentAddress.TabIndex = 1;
+            this.textBoxPermanentAddress.TabIndex = 15;
             // 
             // textBoxPresentAddress
             // 
@@ -482,7 +484,7 @@ namespace M_CGPA
             this.textBoxPresentAddress.Name = "textBoxPresentAddress";
             this.textBoxPresentAddress.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxPresentAddress.Size = new System.Drawing.Size(336, 50);
-            this.textBoxPresentAddress.TabIndex = 1;
+            this.textBoxPresentAddress.TabIndex = 14;
             // 
             // textBoxBRN
             // 
@@ -490,7 +492,7 @@ namespace M_CGPA
             this.textBoxBRN.Location = new System.Drawing.Point(178, 389);
             this.textBoxBRN.Name = "textBoxBRN";
             this.textBoxBRN.Size = new System.Drawing.Size(336, 26);
-            this.textBoxBRN.TabIndex = 1;
+            this.textBoxBRN.TabIndex = 13;
             // 
             // labelBrn
             // 
@@ -507,7 +509,7 @@ namespace M_CGPA
             this.textBoxNid.Location = new System.Drawing.Point(178, 352);
             this.textBoxNid.Name = "textBoxNid";
             this.textBoxNid.Size = new System.Drawing.Size(336, 26);
-            this.textBoxNid.TabIndex = 1;
+            this.textBoxNid.TabIndex = 12;
             // 
             // labelNid
             // 
@@ -520,9 +522,9 @@ namespace M_CGPA
             // 
             // labelDob
             // 
-            this.labelDob.Location = new System.Drawing.Point(286, 98);
+            this.labelDob.Location = new System.Drawing.Point(296, 98);
             this.labelDob.Name = "labelDob";
-            this.labelDob.Size = new System.Drawing.Size(114, 25);
+            this.labelDob.Size = new System.Drawing.Size(102, 25);
             this.labelDob.TabIndex = 0;
             this.labelDob.Text = "Date of Birth";
             this.labelDob.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -533,7 +535,7 @@ namespace M_CGPA
             this.textBoxMName.Location = new System.Drawing.Point(178, 278);
             this.textBoxMName.Name = "textBoxMName";
             this.textBoxMName.Size = new System.Drawing.Size(336, 26);
-            this.textBoxMName.TabIndex = 1;
+            this.textBoxMName.TabIndex = 10;
             // 
             // labelMotherName
             // 
@@ -550,7 +552,7 @@ namespace M_CGPA
             this.textBoxFName.Location = new System.Drawing.Point(178, 205);
             this.textBoxFName.Name = "textBoxFName";
             this.textBoxFName.Size = new System.Drawing.Size(336, 26);
-            this.textBoxFName.TabIndex = 1;
+            this.textBoxFName.TabIndex = 8;
             // 
             // labelFatherName
             // 
@@ -567,7 +569,7 @@ namespace M_CGPA
             this.textBoxSName.Location = new System.Drawing.Point(178, 131);
             this.textBoxSName.Name = "textBoxSName";
             this.textBoxSName.Size = new System.Drawing.Size(336, 26);
-            this.textBoxSName.TabIndex = 1;
+            this.textBoxSName.TabIndex = 6;
             // 
             // labelStudentName
             // 
@@ -599,7 +601,7 @@ namespace M_CGPA
             this.groupBoxAddStudent.Location = new System.Drawing.Point(18, 19);
             this.groupBoxAddStudent.Name = "groupBoxAddStudent";
             this.groupBoxAddStudent.Size = new System.Drawing.Size(552, 410);
-            this.groupBoxAddStudent.TabIndex = 2;
+            this.groupBoxAddStudent.TabIndex = 0;
             this.groupBoxAddStudent.TabStop = false;
             this.groupBoxAddStudent.Text = "Student Information";
             // 
@@ -730,7 +732,7 @@ namespace M_CGPA
             this.panelAddForm.Location = new System.Drawing.Point(3, 25);
             this.panelAddForm.Name = "panelAddForm";
             this.panelAddForm.Size = new System.Drawing.Size(543, 320);
-            this.panelAddForm.TabIndex = 6;
+            this.panelAddForm.TabIndex = 0;
             // 
             // labelMPhone
             // 
@@ -747,7 +749,7 @@ namespace M_CGPA
             this.textBoxMPhone.Location = new System.Drawing.Point(178, 315);
             this.textBoxMPhone.Name = "textBoxMPhone";
             this.textBoxMPhone.Size = new System.Drawing.Size(336, 26);
-            this.textBoxMPhone.TabIndex = 9;
+            this.textBoxMPhone.TabIndex = 11;
             // 
             // labelFPhone
             // 
@@ -764,7 +766,7 @@ namespace M_CGPA
             this.textBoxFPhone.Location = new System.Drawing.Point(178, 241);
             this.textBoxFPhone.Name = "textBoxFPhone";
             this.textBoxFPhone.Size = new System.Drawing.Size(336, 26);
-            this.textBoxFPhone.TabIndex = 7;
+            this.textBoxFPhone.TabIndex = 9;
             // 
             // labelSPhone
             // 
@@ -777,28 +779,30 @@ namespace M_CGPA
             // 
             // textBoxSPhone
             // 
+            this.textBoxSPhone.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxSPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSPhone.Location = new System.Drawing.Point(178, 168);
             this.textBoxSPhone.Name = "textBoxSPhone";
             this.textBoxSPhone.Size = new System.Drawing.Size(336, 26);
-            this.textBoxSPhone.TabIndex = 5;
+            this.textBoxSPhone.TabIndex = 7;
             // 
             // textBoxRoll
             // 
             this.textBoxRoll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRoll.Location = new System.Drawing.Point(178, 17);
             this.textBoxRoll.Name = "textBoxRoll";
-            this.textBoxRoll.Size = new System.Drawing.Size(102, 26);
-            this.textBoxRoll.TabIndex = 1;
+            this.textBoxRoll.Size = new System.Drawing.Size(114, 26);
+            this.textBoxRoll.TabIndex = 0;
             // 
             // dateTimePickerAdmissionDate
             // 
-            this.dateTimePickerAdmissionDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerAdmissionDate.CustomFormat = "dd-MMM-yyyy";
+            this.dateTimePickerAdmissionDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerAdmissionDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dateTimePickerAdmissionDate.Location = new System.Drawing.Point(178, 91);
             this.dateTimePickerAdmissionDate.Name = "dateTimePickerAdmissionDate";
-            this.dateTimePickerAdmissionDate.Size = new System.Drawing.Size(102, 26);
-            this.dateTimePickerAdmissionDate.TabIndex = 3;
+            this.dateTimePickerAdmissionDate.Size = new System.Drawing.Size(114, 26);
+            this.dateTimePickerAdmissionDate.TabIndex = 4;
             // 
             // comboBoxClass
             // 
@@ -806,10 +810,10 @@ namespace M_CGPA
             this.comboBoxClass.DisplayMember = "Name";
             this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(406, 18);
+            this.comboBoxClass.Location = new System.Drawing.Point(400, 19);
             this.comboBoxClass.Name = "comboBoxClass";
-            this.comboBoxClass.Size = new System.Drawing.Size(108, 28);
-            this.comboBoxClass.TabIndex = 2;
+            this.comboBoxClass.Size = new System.Drawing.Size(114, 28);
+            this.comboBoxClass.TabIndex = 1;
             this.comboBoxClass.ValueMember = "Id";
             // 
             // classMBindingSource
@@ -830,23 +834,23 @@ namespace M_CGPA
             this.textBoxReg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxReg.Location = new System.Drawing.Point(178, 54);
             this.textBoxReg.Name = "textBoxReg";
-            this.textBoxReg.Size = new System.Drawing.Size(102, 26);
-            this.textBoxReg.TabIndex = 1;
+            this.textBoxReg.Size = new System.Drawing.Size(114, 26);
+            this.textBoxReg.TabIndex = 2;
             // 
             // labelClass
             // 
-            this.labelClass.Location = new System.Drawing.Point(286, 21);
+            this.labelClass.Location = new System.Drawing.Point(296, 21);
             this.labelClass.Name = "labelClass";
-            this.labelClass.Size = new System.Drawing.Size(114, 25);
+            this.labelClass.Size = new System.Drawing.Size(102, 25);
             this.labelClass.TabIndex = 0;
             this.labelClass.Text = "Class";
             this.labelClass.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelSession
             // 
-            this.labelSession.Location = new System.Drawing.Point(286, 60);
+            this.labelSession.Location = new System.Drawing.Point(296, 60);
             this.labelSession.Name = "labelSession";
-            this.labelSession.Size = new System.Drawing.Size(114, 25);
+            this.labelSession.Size = new System.Drawing.Size(102, 25);
             this.labelSession.TabIndex = 0;
             this.labelSession.Text = "Session";
             this.labelSession.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -863,10 +867,10 @@ namespace M_CGPA
             // textBoxSession
             // 
             this.textBoxSession.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSession.Location = new System.Drawing.Point(406, 57);
+            this.textBoxSession.Location = new System.Drawing.Point(400, 58);
             this.textBoxSession.Name = "textBoxSession";
-            this.textBoxSession.Size = new System.Drawing.Size(108, 26);
-            this.textBoxSession.TabIndex = 1;
+            this.textBoxSession.Size = new System.Drawing.Size(114, 26);
+            this.textBoxSession.TabIndex = 3;
             // 
             // tabControlStudent
             // 
@@ -880,7 +884,7 @@ namespace M_CGPA
             this.tabControlStudent.Name = "tabControlStudent";
             this.tabControlStudent.SelectedIndex = 0;
             this.tabControlStudent.Size = new System.Drawing.Size(874, 483);
-            this.tabControlStudent.TabIndex = 3;
+            this.tabControlStudent.TabIndex = 0;
             // 
             // tabPageAddStudent
             // 
@@ -988,6 +992,7 @@ namespace M_CGPA
             this.comboBoxARClass.Size = new System.Drawing.Size(215, 28);
             this.comboBoxARClass.TabIndex = 39;
             this.comboBoxARClass.ValueMember = "Id";
+            this.comboBoxARClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxARClass_SelectedIndexChanged);
             // 
             // labelARClass
             // 

@@ -1,8 +1,12 @@
-﻿namespace M_CGPA.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace M_CGPA.Model
 {
-    class ClassM
+    public class ClassM
     {
         public int Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
     }
 }
